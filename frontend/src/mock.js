@@ -166,3 +166,15 @@ export const formatINR = (v) => {
   if (v >= 1000) return `₹${Math.round(v / 1000)}K`;
   return `₹${v}`;
 };
+
+export const SERVING_BRANDS = [
+  { key: "mercedes", name: "Mercedes-Benz" },
+  { key: "force", name: "Force Motors" },
+  { key: "shiji", name: "Shiji" },
+  { key: "ada", name: "ADA" },
+  { key: "minor", name: "Minor Hotels" },
+  { key: "acme", name: "Acme Brick" },
+  { key: "cimco", name: "Toromont Cimco" },
+  { key: "nrs", name: "National Retail Solutions" },
+  { key: "avineon", name: "Avineon" },
+];

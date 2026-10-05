@@ -13,6 +13,7 @@ import Integrations from "./components/site/Integrations";
 import FaqContact from "./components/site/FaqContact";
 import Pricing from "./components/site/Pricing";
 import Footer from "./components/site/Footer";
+import Serving from "./components/site/Serving";
 import { CRMProvider } from "./components/site/crmStore";
 
 function useReveal() {
@@ -41,10 +42,11 @@ function App() {
           <Modules />
           <WhyFFH />
           <LiveCRM />
+          <Pricing />
           <Testimonials />
+          <Serving />
           <Integrations />
           <FaqContact />
-          <Pricing />
         </main>
         <Footer />
         <Toaster position="top-right" richColors />
