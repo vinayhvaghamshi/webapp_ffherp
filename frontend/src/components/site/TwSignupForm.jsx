@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { COUNTRY_CODES } from "../../mock";
@@ -17,7 +17,7 @@ const LinkedInIcon = () => (
   <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true"><rect width="24" height="24" rx="3" fill="#0A66C2"/><path fill="#fff" d="M7 9.5h2.5V18H7zM8.25 5.5a1.45 1.45 0 110 2.9 1.45 1.45 0 010-2.9zM11 9.5h2.4v1.2c.35-.65 1.2-1.35 2.5-1.35 2.6 0 3.1 1.7 3.1 3.9V18h-2.5v-4.1c0-1 0-2.2-1.35-2.2s-1.6 1.05-1.6 2.15V18H11z"/></svg>
 );
 
-export default function TwSignupForm({ variant = "light", title = "Start your flexible free trial", size = "md", spacing = "normal" }) {
+export default function TwSignupForm({ variant = "light", title = "Start your flexible free trial", size = "md", spacing = "normal", glow = false }) {
   const { log } = useCRM();
   const [f, setF] = useState(empty);
   const [show, setShow] = useState(false);
@@ -26,6 +26,12 @@ export default function TwSignupForm({ variant = "light", title = "Start your fl
   const glass = variant === "glass";
   const lg = size === "lg";   // "lg" scales the whole card up for hero-sized sections
   const roomy = spacing === "roomy";   // more air between fields
+  const cardRef = useRef(null);        // drives the pointer-tracked sheen
+  const onGlowMove = glow
+    ? (e) => { const r = e.currentTarget.getBoundingClientRect();
+        e.currentTarget.style.setProperty("--sx", `${((e.clientX - r.left) / r.width) * 100}%`);
+        e.currentTarget.style.setProperty("--sy", `${((e.clientY - r.top) / r.height) * 100}%`); }
+    : undefined;
 
   const set = (k) => (e) => setF({ ...f, [k]: e.target.type === "checkbox" ? e.target.checked : e.target.value });
 
@@ -62,10 +68,13 @@ export default function TwSignupForm({ variant = "light", title = "Start your fl
     <div
       id="signup"
       data-testid="signup-card"
+      ref={cardRef}
+      onMouseMove={onGlowMove}
       className={glass
-        ? `w-full ${lg ? "max-w-2xl p-8 sm:p-10" : roomy ? "max-w-lg p-8 sm:p-9" : "max-w-lg p-6 sm:p-8"} rounded-3xl bg-white/10 ring-1 ring-white/20 backdrop-blur-2xl`
-        : `w-full ${lg ? "max-w-2xl p-8 sm:p-10" : roomy ? "max-w-lg p-8 sm:p-9" : "max-w-lg p-6 sm:p-8"} rounded-3xl bg-white ring-1 ring-slate-200 shadow-xl shadow-slate-900/5`}
+        ? `w-full ${lg ? "max-w-2xl p-8 sm:p-10" : roomy ? "max-w-lg p-8 sm:p-9" : "max-w-lg p-6 sm:p-8"} rounded-3xl bg-white/10 ring-1 ring-white/20 backdrop-blur-2xl ${glow ? "ffh-signup-card" : ""}`
+        : `w-full ${lg ? "max-w-2xl p-8 sm:p-10" : roomy ? "max-w-lg p-8 sm:p-9" : "max-w-lg p-6 sm:p-8"} rounded-3xl bg-white ring-1 ring-slate-200 shadow-xl shadow-slate-900/5 ${glow ? "ffh-signup-card" : ""}`}
     >
+      {glow && <span className="ffh-signup-sheen" aria-hidden="true" />}
       <h2 className={`${lg ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl"} font-semibold tracking-tight ${glass ? "text-white" : "text-slate-900"}`}>{title}</h2>
       <p className={`${roomy ? "mt-2.5" : "mt-1.5"} ${lg ? "text-[15px]" : "text-sm"} ${glass ? "text-white/60" : "text-slate-500"}`}>No credit card. Setup in a day. Cancel any time.</p>
 

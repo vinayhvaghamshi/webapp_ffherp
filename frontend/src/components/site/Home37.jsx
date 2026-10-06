@@ -314,14 +314,14 @@ export default function Home37() {
             </div>
           </div>
           <div className="flex justify-center lg:order-1 lg:justify-start">
-            <TwSignupForm variant="light" spacing="roomy" title="Create your account" />
+            <TwSignupForm variant="light" spacing="roomy" glow title="Create your account" />
           </div>
         </div>
       </section>
 
       {/* ---------- EVERYTHING IN SYNC — lifted from home1 ---------- */}
-      <section id="sync" className="relative border-y px-[0px] py-20 sm:px-[48px] sm:py-24" style={{ borderColor: LINE, background: "#fff" }}>
-        <div className="mx-auto max-w-[1400px] px-[48px] sm:px-[0px]">
+      <section id="sync" className="relative border-y px-5 py-20 sm:px-8 sm:py-24" style={{ borderColor: LINE, background: "#fff" }}>
+        <div className="mx-auto max-w-[1400px]">
           <div className="reveal">
             <Label>Everything in sync</Label>
             <h2 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl lg:text-[54px]" style={{ color: NAVY }}>
@@ -330,7 +330,7 @@ export default function Home37() {
             <p className="mt-5 max-w-2xl text-[15.5px] leading-relaxed" style={{ color: "#4a5568" }}>{HOME37.syncCopy}</p>
           </div>
         </div>
-        <div className="ffh-tools-marquee reveal" data-testid="home37-tools-marquee">
+        <div className="ffh-tools-marquee reveal -mx-[40px]" data-testid="home37-tools-marquee">
           <div className="ffh-tools-track">
             {[...TOOLS, ...TOOLS].map((tl, i) => {
               const first = i < TOOLS.length;
@@ -662,20 +662,22 @@ export default function Home37() {
             <div className="flex transition-transform duration-700 ease-out" style={{ transform: `translateX(-${slide * 100}%)` }}>
               {HOME37.testimonials.map((t, i) => (
                 <figure key={`${t.person}-${i}`} className="w-full shrink-0" data-testid={`home37-quote-${i}`}>
-                  <div className="grid grid-cols-12 items-center gap-x-0 gap-y-8 bg-white p-8 transition-all duration-700 ease-out sm:gap-x-8 sm:p-12"
+                  <div className="ffh-quote-card grid grid-cols-12 items-center gap-x-0 gap-y-8 overflow-hidden bg-white p-8 transition-all duration-700 ease-out sm:gap-x-8 sm:p-12"
                     style={{ border: `1px solid ${LINE}`, boxShadow: "0 40px 80px -60px rgba(207,95,18,.55)",
-                      opacity: i === slide ? 1 : 0.45, transform: i === slide ? "scale(1)" : "scale(.965)" }}>
+                      opacity: i === slide ? 1 : 0.45, scale: i === slide ? "1" : "0.965" }}>
                     <div className="col-span-12 lg:col-span-8">
                       <div className="flex items-center gap-4">
-                        <span className="flex text-amber-500">{[0, 1, 2, 3, 4].map((k) => <Star key={k} className="h-4 w-4 fill-current" />)}</span>
-                        <span className="rounded-full px-3 py-1 text-[11.5px] font-bold uppercase tracking-[0.16em]" style={{ background: CREAM, color: BRAND_DARK }}>Verified</span>
+                        <span className="ffh-quote-stars flex text-amber-500">{[0, 1, 2, 3, 4].map((k) => <Star key={k} className="h-4 w-4 fill-current" />)}</span>
+                        <span className="ffh-verified inline-flex items-center rounded-full px-3 py-1 text-[11.5px] font-bold uppercase tracking-[0.16em]" style={{ background: CREAM, color: BRAND_DARK }}>
+                          <Check size={13} strokeWidth={3.5} />Verified
+                        </span>
                       </div>
                       <blockquote className="mt-6 text-[21px] font-medium leading-snug tracking-[-0.01em] sm:text-[25px]" style={{ color: NAVY }}>
                         “{t.text}”
                       </blockquote>
                       <figcaption className="mt-7 flex items-center gap-4">
                         <img src={`https://i.pravatar.cc/120?img=${t.img}`} alt={t.person} width="56" height="56" loading="lazy"
-                          className="h-14 w-14 rounded-full object-cover" style={{ border: `2px solid ${CREAM}` }} />
+                          className="ffh-quote-avatar h-14 w-14 rounded-full object-cover" style={{ border: `2px solid ${CREAM}` }} />
                         <span>
                           <strong className="block text-[15.5px] font-semibold" style={{ color: NAVY }}>{t.person}</strong>
                           <span className="text-[13.5px]" style={{ color: "#6b7280" }}>{t.role}</span>
@@ -684,7 +686,7 @@ export default function Home37() {
                     </div>
                     <div className="col-span-12 lg:col-span-4">
                       <img src={`https://picsum.photos/id/${["7","20","180","1067","22","431"][i % 6]}/700/560`} alt="" width="700" height="560" loading="lazy"
-                        className="h-[220px] w-full rounded-2xl object-cover lg:h-[280px]" />
+                        className="ffh-quote-photo h-[220px] w-full rounded-2xl object-cover lg:h-[280px]" />
                     </div>
                   </div>
                 </figure>

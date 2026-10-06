@@ -2202,3 +2202,66 @@ a { text-decoration: none; }
 /* Home layout 37 — a slower ticker (the shared 44s is tuned for home1) */
 .ffh-h37 .ffh-tools-track { animation-duration: 92s; }
 @media (prefers-reduced-motion: reduce) { .ffh-h37 .ffh-tools-track { animation: none; } }
+
+/* ---------------------------------------------------------------
+   Home layout 37 — mouse-over effects for the quote card and signup
+   --------------------------------------------------------------- */
+@keyframes ffh-h37-sweep { to { transform: skewX(-18deg) translateX(1400%); } }
+
+/* testimonial card: lift, warm edge, one shine sweep per hover */
+.ffh-h37 .ffh-quote-card { position: relative; }
+.ffh-h37 .ffh-quote-card::after { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 130px;
+  transform: skewX(-18deg) translateX(-160%); pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent); }
+.ffh-h37 .ffh-quote-card:hover { transform: translateY(-4px); border-color: rgba(239,123,35,.45) !important;
+  box-shadow: 0 48px 96px -58px rgba(207,95,18,.75) !important; }
+.ffh-h37 .ffh-quote-card:hover::after { animation: ffh-h37-sweep 1.15s ease-out; }
+
+/* the Verified badge wakes up: gradient fill, glow and a check that slides in */
+.ffh-h37 .ffh-verified { transition: background .35s ease, color .35s ease, transform .35s ease, box-shadow .35s ease; }
+.ffh-h37 .ffh-verified svg { width: 0; opacity: 0; transform: scale(.4); transition: width .3s ease, opacity .3s ease, transform .3s ease, margin-right .3s ease; }
+.ffh-h37 .ffh-quote-card:hover .ffh-verified { background: linear-gradient(90deg, #f7a52a, #f0452c) !important; color: #fff !important;
+  transform: translateY(-2px) scale(1.06); box-shadow: 0 12px 26px -14px rgba(240,69,44,.9); }
+.ffh-h37 .ffh-quote-card:hover .ffh-verified svg { width: 13px; opacity: 1; transform: scale(1); margin-right: 5px; }
+
+/* stars ripple, avatar rings, photo breathes */
+.ffh-h37 .ffh-quote-stars svg { transition: transform .32s cubic-bezier(.2,.7,.2,1), color .32s ease; }
+.ffh-h37 .ffh-quote-card:hover .ffh-quote-stars svg { transform: translateY(-4px) scale(1.15); }
+.ffh-h37 .ffh-quote-card:hover .ffh-quote-stars svg:nth-child(2) { transition-delay: .04s; }
+.ffh-h37 .ffh-quote-card:hover .ffh-quote-stars svg:nth-child(3) { transition-delay: .08s; }
+.ffh-h37 .ffh-quote-card:hover .ffh-quote-stars svg:nth-child(4) { transition-delay: .12s; }
+.ffh-h37 .ffh-quote-card:hover .ffh-quote-stars svg:nth-child(5) { transition-delay: .16s; }
+.ffh-h37 .ffh-quote-avatar { transition: transform .45s ease, box-shadow .45s ease; }
+.ffh-h37 .ffh-quote-card:hover .ffh-quote-avatar { transform: scale(1.09); box-shadow: 0 0 0 4px rgba(239,123,35,.22); }
+.ffh-h37 .ffh-quote-photo { transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.ffh-h37 .ffh-quote-card:hover .ffh-quote-photo { transform: scale(1.06); }
+
+/* signup: a warm glow that follows the pointer across the card */
+.ffh-h37 .ffh-signup-card { position: relative; overflow: hidden; transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s ease; }
+.ffh-h37 .ffh-signup-card:hover { transform: translateY(-5px); box-shadow: 0 46px 92px -52px rgba(207,95,18,.55); }
+.ffh-h37 .ffh-signup-sheen { position: absolute; inset: 0; pointer-events: none; opacity: 0; border-radius: inherit;
+  transition: opacity .35s ease;
+  background: radial-gradient(330px circle at var(--sx, 50%) var(--sy, 0%), rgba(239,123,35,.20), transparent 62%); }
+.ffh-h37 .ffh-signup-card:hover .ffh-signup-sheen { opacity: 1; }
+.ffh-h37 .ffh-signup-card::after { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 110px;
+  transform: skewX(-18deg) translateX(-320%); pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.5), transparent); }
+.ffh-h37 .ffh-signup-card:hover::after { animation: ffh-h37-sweep 1s ease-out .1s; }
+/* fields lean towards the cursor without needing a click */
+.ffh-h37 .ffh-signup-card input { transition: border-color .3s ease, box-shadow .3s ease, background-color .3s ease, transform .3s ease, --tw-ring-color .3s ease; }
+.ffh-h37 .ffh-signup-card input:hover { background: #fffaf4; transform: translateY(-1px); --tw-ring-color: rgba(239,123,35,.55); }
+.ffh-h37 .ffh-signup-card input:focus { --tw-ring-color: rgba(239,123,35,.75); box-shadow: 0 0 0 4px rgba(239,123,35,.14); }
+.ffh-h37 .ffh-signup-card label { transition: color .3s ease, transform .3s ease; }
+.ffh-h37 .ffh-signup-card form > div:hover label { color: #cf5f12; }
+.ffh-h37 .ffh-signup-card button[type="submit"] { position: relative; overflow: hidden; transition: transform .3s ease, box-shadow .3s ease, filter .3s ease; }
+.ffh-h37 .ffh-signup-card button[type="submit"]:hover { transform: translateY(-2px); box-shadow: 0 22px 44px -20px rgba(79,70,229,.75); }
+.ffh-h37 .ffh-signup-card button[type="submit"]::after { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 80px;
+  transform: skewX(-20deg) translateX(-180%); background: linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent); }
+.ffh-h37 .ffh-signup-card button[type="submit"]:hover::after { animation: ffh-h37-sweep 1s ease-out; }
+.ffh-h37 .ffh-signup-card .group:hover svg { transform: scale(1.15) rotate(-6deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ffh-h37 .ffh-quote-card:hover::after,
+  .ffh-h37 .ffh-signup-card:hover::after,
+  .ffh-h37 .ffh-signup-card button[type="submit"]:hover::after { animation: none; }
+}
