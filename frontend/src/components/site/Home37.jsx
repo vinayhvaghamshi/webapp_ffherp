@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronDown, Facebook, IndianRupee, Instagram, Linkedin, Menu, Minus, Plus, Star, TrendingUp, Twitter, Users, X, Youtube } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, Facebook, IndianRupee, Instagram, Linkedin, Menu, Minus, Plus, Star, TrendingUp, Twitter, Users, X, Youtube } from "lucide-react";
 import Icon from "./TwIcon";
-import { HOME37, HOME30, FAQS, PLANS, TOOLS, formatINR } from "../../mock";
+import { HOME37, HOME30, FAQS, PLANS, TOOLS, WHY_FEATURES, formatINR } from "../../mock";
 import { LiveCRMWindow } from "./LiveCRM";
 import TwSignupForm from "./TwSignupForm";
 import HomeLayoutNav from "./HomeLayoutNav";
@@ -30,6 +30,8 @@ const SOFT = "#fff6ec";
 const LINE = "#f4e2ce";
 const GRAD = "bg-gradient-to-r from-[#f7a52a] to-[#f0452c]";
 const GRAD_TEXT = "bg-gradient-to-r from-[#f7a52a] to-[#f0452c] bg-clip-text text-transparent";
+
+const HEALTH_AREAS = ["Sales", "Finance", "Support", "Projects"];
 
 const NAV = [
   { label: "Home", target: "#top" },
@@ -112,6 +114,9 @@ export default function Home37() {
   // On touch screens a tap fires mouseenter before click, so hover-opening the
   // accordion made the first tap close it again. Only bind hover where it exists.
   const [canHover, setCanHover] = useState(false);
+  const [areas, setAreas] = useState({ Sales: true, Finance: true, Support: true, Projects: true });
+  const [activeNav, setActiveNav] = useState("#top");
+  const [healthShown, setHealthShown] = useState(82);
 
   useEffect(() => {
     const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
@@ -119,6 +124,33 @@ export default function Home37() {
     sync();
     mq.addEventListener("change", sync);
     return () => mq.removeEventListener("change", sync);
+  }, []);
+
+  // the business-health score eases between values instead of jumping
+  const healthPct = 52 + Object.values(areas).filter(Boolean).length * 7.5;
+  const healthStatus = healthPct >= 80 ? "Excellent" : healthPct >= 65 ? "Good" : "Needs focus";
+  useEffect(() => {
+    const from = healthShown, to = healthPct, t0 = performance.now();
+    let raf;
+    const step = (t) => {
+      const p = Math.min((t - t0) / 650, 1);
+      setHealthShown(from + (to - from) * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [healthPct]);   // eslint-disable-line react-hooks/exhaustive-deps
+
+  // nav highlight follows the section you are reading
+  useEffect(() => {
+    const els = NAV.map((l) => document.getElementById(l.target.replace("#", ""))).filter(Boolean);
+    if (!els.length) return;
+    const io = new IntersectionObserver((entries) => {
+      const on = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (on) setActiveNav(`#${on.target.id}`);
+    }, { rootMargin: "-40% 0px -55% 0px", threshold: [0, 0.2, 0.5, 1] });
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
   }, []);
 
   useEffect(() => { document.title = "FFH|ERP — See today's business, not last month's report"; }, []);
@@ -136,12 +168,24 @@ export default function Home37() {
             <Motif />
             <span className="text-[19px] font-bold tracking-tight" style={{ color: NAVY }}>FFH|ERP</span>
           </a>
-          <nav className="mx-auto hidden items-center gap-8 lg:flex">
-            {NAV.map((l) => (
-              <a key={l.label} href={l.target} onClick={(e) => go(e, l.target)} className="text-[13.5px] font-medium transition hover:opacity-70" style={{ color: NAVY }}>
-                {l.label}
-              </a>
-            ))}
+          <nav className="mx-auto hidden items-center gap-1 lg:flex" data-testid="h37-navlinks">
+            {NAV.map((l) => {
+              const on = activeNav === l.target;
+              return (
+                <a key={l.label} href={l.target} onClick={(e) => go(e, l.target)}
+                  data-testid={`h37-nav-${l.label.toLowerCase().replace(/\s+/g, "-")}`} data-active={on ? "true" : "false"}
+                  className="group relative rounded-full px-4 py-2 text-[13.5px] font-medium transition-all duration-300 hover:-translate-y-0.5"
+                  style={{ color: on ? BRAND_DARK : NAVY }}>
+                  {/* soft wash that pops in behind the label (classes drive the transform) */}
+                  <span className={`absolute inset-0 rounded-full transition-all duration-300 ${on ? "scale-100 opacity-100" : "scale-[.88] opacity-[0] group-hover:scale-100 group-hover:opacity-100"}`}
+                    style={{ background: on ? "#fdeedd" : SOFT }} />
+                  <span className="relative z-10 transition-colors duration-300 group-hover:text-[#cf5f12]">{l.label}</span>
+                  {/* underline that grows from the left */}
+                  <span className={`absolute bottom-1 left-4 right-4 h-[2px] origin-left rounded-full transition-transform duration-300 group-hover:scale-x-100 ${on ? "scale-x-100" : "scale-x-0"}`}
+                    style={{ background: `linear-gradient(90deg, ${BRAND}, ${BRAND_DARK})` }} />
+                </a>
+              );
+            })}
           </nav>
           <button onClick={(e) => go(e, "#contact")} data-testid="h37-cta"
             className={`ml-auto hidden items-center gap-2 rounded-full ${GRAD} px-5 py-3 text-[13.5px] font-semibold text-white shadow-lg shadow-orange-500/25 transition hover:brightness-105 lg:inline-flex`}>
@@ -234,7 +278,7 @@ export default function Home37() {
       <section className="relative overflow-hidden border-y px-5 py-16 sm:px-8 sm:py-20"
         style={{ borderColor: LINE, background: `linear-gradient(135deg, ${CREAM} 0%, #ffffff 45%, ${SOFT} 100%)` }} data-testid="home37-signup-section">
         <GridLines />
-        <div className="relative mx-auto grid max-w-5xl grid-cols-12 items-center gap-x-0 gap-y-14 lg:gap-x-14">
+        <div className="relative mx-auto grid max-w-6xl grid-cols-12 items-center gap-x-0 gap-y-14 lg:gap-x-24">
           <div className="col-span-12 lg:col-span-6">
             <Motif />
             <h2 className="mt-6 text-3xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-4xl lg:text-[42px]" style={{ color: NAVY }}>
@@ -428,6 +472,88 @@ export default function Home37() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- why teams choose FFH|ERP — carried over from home1 ---------- */}
+      <section id="capabilities" className="relative overflow-hidden px-5 py-20 sm:px-8 sm:py-24" style={{ background: SOFT }}>
+        <GridLines />
+        <div className="relative mx-auto max-w-[1400px]">
+          <div className="reveal text-center">
+            <Label>Why FFH|ERP</Label>
+            <h2 className="mt-6 text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl" style={{ color: NAVY }}>
+              Why teams choose <span className={GRAD_TEXT}>FFH|ERP</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-[15.5px]" style={{ color: "#4a5568" }}>
+              Powerful capabilities that keep your whole team productive.
+            </p>
+          </div>
+
+          <div className="mt-14 grid grid-cols-12 items-center gap-x-0 gap-y-12 lg:gap-x-16">
+            {/* Business health — tap an area and the score moves */}
+            <div className="reveal col-span-12 lg:col-span-6">
+              <div className="rounded-3xl bg-white p-7 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl sm:p-9"
+                style={{ border: `1px solid ${LINE}` }} data-testid="home37-health-card">
+                <div className="flex items-end justify-between gap-6">
+                  <div>
+                    <span className="text-[12px] font-semibold uppercase tracking-[0.16em]" style={{ color: "#9ca3af" }}>Business health</span>
+                    <h4 className="mt-2 text-2xl font-semibold transition-colors duration-500" style={{ color: healthStatus === "Excellent" ? "#0f9d58" : healthStatus === "Good" ? BRAND : "#f0452c" }} data-testid="home37-health-status">
+                      {healthStatus}
+                    </h4>
+                  </div>
+                  <div className="relative flex h-[104px] w-[104px] items-center justify-center">
+                    <svg viewBox="0 0 100 100" className="absolute inset-0 -rotate-90">
+                      <circle cx="50" cy="50" r="43" fill="none" stroke={LINE} strokeWidth="9" />
+                      <circle cx="50" cy="50" r="43" fill="none" stroke={BRAND} strokeWidth="9" strokeLinecap="round"
+                        strokeDasharray={2 * Math.PI * 43} strokeDashoffset={2 * Math.PI * 43 * (1 - healthPct / 100)}
+                        style={{ transition: "stroke-dashoffset .9s cubic-bezier(.2,.7,.2,1)" }} />
+                    </svg>
+                    <strong className="text-[26px] font-semibold tabular-nums" style={{ color: NAVY }} data-testid="home37-health-pct">{Math.round(healthShown)}%</strong>
+                  </div>
+                </div>
+
+                <div className="mt-6 h-2.5 w-full overflow-hidden rounded-full" style={{ background: LINE }}>
+                  <div className="h-full rounded-full" style={{ width: `${healthPct}%`, background: `linear-gradient(90deg, #f7a52a, #f0452c)`, transition: "width .9s cubic-bezier(.2,.7,.2,1)" }} />
+                </div>
+                <p className="mt-3 text-[13.5px]" style={{ color: "#6b7280" }}>{Math.round(healthShown)}% of monthly targets achieved</p>
+
+                <div className="mt-6 grid grid-cols-2 gap-2.5">
+                  {HEALTH_AREAS.map((a) => (
+                    <button key={a} onClick={() => setAreas((p) => ({ ...p, [a]: !p[a] }))}
+                      data-testid={`home37-health-area-${a.toLowerCase()}`}
+                      className="group flex items-center gap-2.5 rounded-xl px-3.5 py-3 text-left text-[14px] font-medium transition-all duration-300 hover:-translate-y-0.5"
+                      style={areas[a] ? { background: "#fdeedd", color: NAVY, border: `1px solid ${LINE}` } : { background: "#f8fafc", color: "#6b7280", border: "1px solid #eef2f7" }}>
+                      <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md transition-all duration-300 ${areas[a] ? "scale-100" : "scale-90"}`}
+                        style={{ background: areas[a] ? BRAND : "#e2e8f0" }}>
+                        {areas[a] && <Check size={13} strokeWidth={3.5} className="text-white" />}
+                      </span>
+                      {a}
+                    </button>
+                  ))}
+                </div>
+                <p className="mt-4 text-[12.5px]" style={{ color: "#9ca3af" }}>Tap an area to see how it moves your score.</p>
+              </div>
+            </div>
+
+            {/* capabilities */}
+            <div className="col-span-12 lg:col-span-6">
+              {WHY_FEATURES.map((w, i) => (
+                <div key={w.title} className="reveal" style={{ transitionDelay: `${i * 70}ms` }}>
+                  <div className="group mb-4 flex items-start gap-4 rounded-2xl bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-6"
+                    style={{ border: `1px solid ${LINE}` }} data-testid={`home37-why-feature-${i}`}>
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-all duration-500 group-hover:scale-110 group-hover:rotate-6"
+                      style={{ background: CREAM, color: BRAND_DARK, border: `1px solid ${LINE}` }}>
+                      <Icon name={w.icon} size={20} />
+                    </span>
+                    <div>
+                      <h5 className="text-[16px] font-semibold" style={{ color: NAVY }}>{w.title}</h5>
+                      <p className="mt-1 text-[14px] leading-relaxed" style={{ color: "#6b7280" }}>{w.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
