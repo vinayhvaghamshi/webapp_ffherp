@@ -1303,3 +1303,7 @@ export const HOME32 = {
   clientsTitle: "What our clients say about us",
   pricingTitle: "Plans that grow with the business",
 };
+
+// Home layout 33 shares Home32's logo-theme content; only the hero arrangement
+// differs (the trial form takes the hero, the live panel moves to the FAQ).
+export const HOME33 = { ...HOME32 };

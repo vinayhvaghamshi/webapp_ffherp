@@ -40,6 +40,7 @@ const LAYOUTS = [
   { n: 30, path: "/home30" },
   { n: 31, path: "/home31" },
   { n: 32, path: "/home32" },
+  { n: 33, path: "/home33" },
 ];
 
 export default function HomeLayoutNav({ dark }) {
