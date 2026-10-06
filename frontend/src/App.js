@@ -38,6 +38,7 @@ import Home30 from "./components/site/Home30";
 import Home31 from "./components/site/Home31";
 import Home32 from "./components/site/Home32";
 import Home33 from "./components/site/Home33";
+import Home34 from "./components/site/Home34";
 import About1 from "./components/site/About1";
 import About2 from "./components/site/About2";
 import About3 from "./components/site/About3";
@@ -100,7 +101,7 @@ function App() {
   const appHeader = location.pathname === "/home20";
   // The Tailwind layouts ship their own header and footer, so the shared
   // Bootstrap chrome is skipped for them entirely.
-  const bareLayout = ["/home21", "/home22", "/home23", "/home24", "/home25", "/home26", "/home27", "/home28", "/home29", "/home30", "/home31", "/home32", "/home33"].includes(location.pathname);
+  const bareLayout = ["/home21", "/home22", "/home23", "/home24", "/home25", "/home26", "/home27", "/home28", "/home29", "/home30", "/home31", "/home32", "/home33", "/home34"].includes(location.pathname);
 
   return (
     <CRMProvider>
@@ -141,6 +142,7 @@ function App() {
           <Route path="/home31" element={<Home31 />} />
           <Route path="/home32" element={<Home32 />} />
           <Route path="/home33" element={<Home33 />} />
+          <Route path="/home34" element={<Home34 />} />
           {/* About layouts: /about keeps the original page */}
           <Route path="/about" element={<About1 />} />
           <Route path="/about1" element={<About1 />} />

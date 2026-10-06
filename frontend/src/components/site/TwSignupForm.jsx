@@ -17,13 +17,14 @@ const LinkedInIcon = () => (
   <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true"><rect width="24" height="24" rx="3" fill="#0A66C2"/><path fill="#fff" d="M7 9.5h2.5V18H7zM8.25 5.5a1.45 1.45 0 110 2.9 1.45 1.45 0 010-2.9zM11 9.5h2.4v1.2c.35-.65 1.2-1.35 2.5-1.35 2.6 0 3.1 1.7 3.1 3.9V18h-2.5v-4.1c0-1 0-2.2-1.35-2.2s-1.6 1.05-1.6 2.15V18H11z"/></svg>
 );
 
-export default function TwSignupForm({ variant = "light", title = "Start your flexible free trial" }) {
+export default function TwSignupForm({ variant = "light", title = "Start your flexible free trial", size = "md" }) {
   const { log } = useCRM();
   const [f, setF] = useState(empty);
   const [show, setShow] = useState(false);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const glass = variant === "glass";
+  const lg = size === "lg";   // "lg" scales the whole card up for hero-sized sections
 
   const set = (k) => (e) => setF({ ...f, [k]: e.target.type === "checkbox" ? e.target.checked : e.target.value });
 
@@ -49,10 +50,11 @@ export default function TwSignupForm({ variant = "light", title = "Start your fl
     }, 900);
   };
 
-  const label = `mb-1.5 block text-xs font-medium ${glass ? "text-white/70" : "text-slate-500"}`;
+  const label = `mb-1.5 block ${lg ? "text-sm" : "text-xs"} font-medium ${glass ? "text-white/70" : "text-slate-500"}`;
+  const pad = lg ? "px-5 py-4 text-base" : "px-4 py-3 text-sm";
   const input = glass
-    ? "w-full rounded-xl bg-white/10 px-4 py-3 text-sm text-white placeholder-white/45 ring-1 ring-white/25 outline-none transition focus:bg-white/15 focus:ring-2 focus:ring-white/60"
-    : "w-full rounded-xl bg-white px-4 py-3 text-sm text-slate-900 placeholder-slate-400 ring-1 ring-slate-300 outline-none transition focus:ring-2 focus:ring-indigo-500";
+    ? `w-full rounded-xl bg-white/10 ${pad} text-white placeholder-white/45 ring-1 ring-white/25 outline-none transition focus:bg-white/15 focus:ring-2 focus:ring-white/60`
+    : `w-full rounded-xl bg-white ${pad} text-slate-900 placeholder-slate-400 ring-1 ring-slate-300 outline-none transition focus:ring-2 focus:ring-indigo-500`;
   const err = "mt-1 text-xs text-rose-400";
 
   return (
@@ -60,11 +62,11 @@ export default function TwSignupForm({ variant = "light", title = "Start your fl
       id="signup"
       data-testid="signup-card"
       className={glass
-        ? "w-full max-w-lg rounded-3xl bg-white/10 p-6 ring-1 ring-white/20 backdrop-blur-2xl sm:p-8"
-        : "w-full max-w-lg rounded-3xl bg-white p-6 ring-1 ring-slate-200 shadow-xl shadow-slate-900/5 sm:p-8"}
+        ? `w-full ${lg ? "max-w-2xl p-8 sm:p-10" : "max-w-lg p-6 sm:p-8"} rounded-3xl bg-white/10 ring-1 ring-white/20 backdrop-blur-2xl`
+        : `w-full ${lg ? "max-w-2xl p-8 sm:p-10" : "max-w-lg p-6 sm:p-8"} rounded-3xl bg-white ring-1 ring-slate-200 shadow-xl shadow-slate-900/5`}
     >
-      <h2 className={`text-xl font-semibold tracking-tight sm:text-2xl ${glass ? "text-white" : "text-slate-900"}`}>{title}</h2>
-      <p className={`mt-1 text-sm ${glass ? "text-white/60" : "text-slate-500"}`}>No credit card. Setup in a day. Cancel any time.</p>
+      <h2 className={`${lg ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl"} font-semibold tracking-tight ${glass ? "text-white" : "text-slate-900"}`}>{title}</h2>
+      <p className={`mt-1.5 ${lg ? "text-[15px]" : "text-sm"} ${glass ? "text-white/60" : "text-slate-500"}`}>No credit card. Setup in a day. Cancel any time.</p>
 
       <form onSubmit={submit} noValidate data-testid="signup-form" className="mt-6 space-y-4">
         <div>
@@ -111,7 +113,7 @@ export default function TwSignupForm({ variant = "light", title = "Start your fl
         {errors.agree && <p className={err}>{errors.agree}</p>}
 
         <button type="submit" disabled={loading} data-testid="signup-submit"
-          className={`flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-semibold transition disabled:opacity-70 ${glass ? "bg-white text-slate-900 hover:bg-white/90" : "bg-indigo-600 text-white hover:bg-indigo-500"}`}>
+          className={`flex w-full items-center justify-center gap-2 rounded-xl px-5 ${lg ? "py-4 text-base" : "py-3.5 text-sm"} font-semibold transition disabled:opacity-70 ${glass ? "bg-white text-slate-900 hover:bg-white/90" : "bg-indigo-600 text-white hover:bg-indigo-500"}`}>
           {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Create my free account"}
         </button>
 

@@ -1307,3 +1307,8 @@ export const HOME32 = {
 // Home layout 33 shares Home32's logo-theme content; only the hero arrangement
 // differs (the trial form takes the hero, the live panel moves to the FAQ).
 export const HOME33 = { ...HOME32 };
+
+// Home layout 34 builds on 33: the "Let's get started" block becomes its own
+// full-width logo-themed section with a large form, and the services accordion
+// opens on hover as well as click.
+export const HOME34 = { ...HOME33 };
