@@ -340,9 +340,9 @@ export default function Home37() {
       {/* ---------- client wall: stacked wordmarks, hover lift ---------- */}
       <section id="trusted" className="relative px-5 py-20 sm:px-8 sm:py-24" style={{ background: SOFT }}>
         <div className="mx-auto max-w-[1400px]">
-          <div className="reveal text-center">
+          <div className="reveal">
             <Label>Trusted by</Label>
-            <h2 className="mt-6 text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl" style={{ color: NAVY }}>
+            <h2 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl" style={{ color: NAVY }}>
               Serving <span style={{ color: BRAND }}>350K</span> businesses for <span style={{ color: BRAND }}>21</span> years
             </h2>
           </div>
