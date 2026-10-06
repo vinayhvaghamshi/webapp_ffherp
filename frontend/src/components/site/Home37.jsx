@@ -320,8 +320,8 @@ export default function Home37() {
       </section>
 
       {/* ---------- EVERYTHING IN SYNC — lifted from home1 ---------- */}
-      <section id="sync" className="relative border-y px-5 py-20 sm:px-8 sm:py-24" style={{ borderColor: LINE, background: "#fff" }}>
-        <div className="mx-auto max-w-[1400px]">
+      <section id="sync" className="relative border-y px-[0px] py-20 sm:px-[48px] sm:py-24" style={{ borderColor: LINE, background: "#fff" }}>
+        <div className="mx-auto max-w-[1400px] px-[48px] sm:px-[0px]">
           <div className="reveal">
             <Label>Everything in sync</Label>
             <h2 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl lg:text-[54px]" style={{ color: NAVY }}>
