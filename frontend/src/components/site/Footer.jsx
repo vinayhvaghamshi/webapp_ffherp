@@ -40,7 +40,7 @@ export default function Footer() {
               <h6>{c.title}</h6>
               <ul>
                 {c.links.map((l) => (
-                  <li key={l}><a href={LINK_ROUTE[l] || `#${l}`} onClick={(e) => { e.preventDefault(); if (LINK_ROUTE[l]) goTo(LINK_ROUTE[l]); else if (LINK_TARGET[l]) goTo(`#${LINK_TARGET[l]}`); else toast(`${l} — coming soon`); }}>{l}</a></li>
+                  <li key={l}><a href={LINK_ROUTE[l] ? `${process.env.PUBLIC_URL}${LINK_ROUTE[l]}` : `#${l}`} onClick={(e) => { e.preventDefault(); if (LINK_ROUTE[l]) goTo(LINK_ROUTE[l]); else if (LINK_TARGET[l]) goTo(`#${LINK_TARGET[l]}`); else toast(`${l} — coming soon`); }}>{l}</a></li>
                 ))}
               </ul>
             </Col>
