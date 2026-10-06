@@ -247,7 +247,7 @@ export const ABOUT_ALT = {
     "From a two-room office in Chennai to 350,000 businesses across 20+ countries — how FFH|ERP grew, what we believe, and who is accountable for it today.",
   stats: [
     { value: "1994", label: "Founded" },
-    { value: "350K+", label: "Businesses served" },
+    { value: "2.5K+", label: "Active users" },
     { value: "20+", label: "Countries" },
     { value: "250+", label: "Team members" },
   ],
@@ -307,7 +307,7 @@ export const ABOUT_3 = {
     "We are deliberately unfashionable about a few things. Our customers run showrooms with patchy networks and teams that are not technical — so the software works offline, installs in a day, and is priced where a growing company can actually afford it.",
   ],
   highlights: [
-    { value: "350K+", label: "Businesses using FFH|ERP" },
+    { value: "2.5K+", label: "Active users on FFH|ERP" },
     { value: "9", label: "Connected modules" },
     { value: "24/7", label: "Support, six languages" },
     { value: "20+", label: "Countries served" },
@@ -332,7 +332,7 @@ export const ABOUT_4 = {
     "One platform for sales, marketing, finance, AMC, support and projects — with the numbers a management team needs, in the pocket of the person who needs them.",
   numbers: [
     { value: "1994", label: "Building business software since" },
-    { value: "350K+", label: "Businesses served" },
+    { value: "2.5K+", label: "Active users" },
     { value: "10,000+", label: "Active installations" },
     { value: "100+", label: "Awards & recognitions" },
   ],
@@ -376,7 +376,7 @@ export const HOME3_HERO = {
     "Nine connected modules for sales, marketing, finance, AMC, support and projects — trusted by 350,000+ businesses in 20+ countries.",
   stats: [
     { value: "9", label: "Business tools" },
-    { value: "350K+", label: "Businesses served" },
+    { value: "2.5K+", label: "Active users" },
     { value: "20+", label: "Countries" },
     { value: "24/7", label: "Support" },
   ],
@@ -433,7 +433,7 @@ export const HOME7_HERO = {
     "FFH|ERP brings nine business tools into one platform — the same idea behind our mark: many moving parts, one steady whole.",
   points: [
     { value: "9", label: "Business tools in one platform" },
-    { value: "350K+", label: "Businesses running on it today" },
+    { value: "2.5K+", label: "Active users on it today" },
     { value: "30+", label: "Years building business software" },
   ],
   trust: ["No credit card required", "Setup in a day", "24/7 support in six languages"],
@@ -450,7 +450,7 @@ export const HOME8_HERO = {
     "Nine connected modules — sales, purchase, billing, spend, AMC, support, work and projects — on one platform a growing team can actually run.",
   stats: [
     { value: "9", label: "Business tools" },
-    { value: "350K+", label: "Businesses served" },
+    { value: "2.5K+", label: "Active users" },
     { value: "1 day", label: "Typical setup" },
   ],
   bullets: ["No credit card required", "Data hosted in India", "24/7 support in six languages"],
@@ -483,7 +483,7 @@ export const HOME10_HERO = {
     "Sales, purchase, billing, spend, AMC, support, work, projects and market — nine parts of the same business, finally reading from the same records.",
   ribbon: [
     { value: "1994", label: "Building business software since" },
-    { value: "350K+", label: "Businesses served" },
+    { value: "2.5K+", label: "Active users" },
     { value: "10,000+", label: "Active installations" },
     { value: "24/7", label: "Support, six languages" },
   ],
@@ -498,7 +498,7 @@ export const HOME11_HERO = {
     "Our mark is nine bars rising together — and so is the product. Every module reads from the same records, so the numbers always agree.",
   stats: [
     { value: "9", label: "Connected modules" },
-    { value: "350K+", label: "Businesses served" },
+    { value: "2.5K+", label: "Active users" },
     { value: "30+", label: "Years in the industry" },
   ],
   trust: ["No credit card required", "Data hosted in India", "Cancel any time"],
@@ -536,7 +536,7 @@ export const HOME13_HERO = {
     "Nine tools, one platform, one login — built in India for growing companies that would rather sell than reconcile spreadsheets.",
   ribbon: [
     { value: "1994", label: "Building business software since" },
-    { value: "350K+", label: "Businesses served" },
+    { value: "2.5K+", label: "Active users" },
     { value: "20+", label: "Countries" },
     { value: "100+", label: "Awards & recognitions" },
   ],
@@ -572,7 +572,7 @@ export const HOME15_HERO = {
     "Each bar is a module, and each module reads the same records. Take one away and the rest still stand; add them up and you have the business.",
   tiles: [
     { value: "9", label: "Connected modules" },
-    { value: "350K+", label: "Businesses served" },
+    { value: "2.5K+", label: "Active users" },
     { value: "30+", label: "Years in the industry" },
   ],
   barsCaption: "Market · Sales · Purchase · Bill · Spend · AMC · Support · Work · Project",
@@ -644,7 +644,7 @@ export const ABOUT_10 = {
   metrics: [
     { value: "1994", label: "Founded in Chennai" },
     { value: "30+", label: "Years in business software" },
-    { value: "350K+", label: "Businesses served" },
+    { value: "2.5K+", label: "Active users" },
     { value: "10,000+", label: "Active installations" },
     { value: "20+", label: "Countries" },
     { value: "24/7", label: "Support in six languages" },
@@ -695,7 +695,7 @@ export const HOME17_HERO = {
     "Nine connected modules behind one calm interface — sales, purchase, billing, spend, AMC, support, work and projects, all reading the same records.",
   stats: [
     { value: "9", label: "Modules, one database" },
-    { value: "350K+", label: "Businesses served" },
+    { value: "2.5K+", label: "Active users" },
     { value: "24/7", label: "Support, six languages" },
   ],
   features: [
@@ -772,7 +772,7 @@ export const HOME20 = {
     { value: "₹0", label: "Setup cost" },
     { value: "1 day", label: "Time to go live" },
     { value: "99.98%", label: "Uptime, last 12 months" },
-    { value: "350K+", label: "Businesses served" },
+    { value: "2.5K+", label: "Active users" },
   ],
   products: [
     { name: "FFH Kite", desc: "Sales & marketing workspace", target: "#modules" },
@@ -838,7 +838,7 @@ export const HOME22 = {
     "A calm, glass-clear surface over nine connected modules. The numbers update as the work happens — nothing to reconcile at month end.",
   stats: [
     { value: "9", label: "Modules, one database" },
-    { value: "350K+", label: "Businesses served" },
+    { value: "2.5K+", label: "Active users" },
     { value: "99.98%", label: "Uptime" },
   ],
   features: [
@@ -872,7 +872,7 @@ export const HOME23 = {
   ],
   metrics: [
     { value: "9", label: "Modules" },
-    { value: "350K+", label: "Businesses" },
+    { value: "2.5K+", label: "Active users" },
     { value: "20+", label: "Countries" },
     { value: "24/7", label: "Support" },
   ],
@@ -910,7 +910,7 @@ export const HOME25 = {
     { n: "04", title: "Priced in public", text: "The number on the pricing page is the number you pay. No implementation fee." },
   ],
   stats: [
-    { value: "350K+", label: "Businesses" },
+    { value: "2.5K+", label: "Active users" },
     { value: "30+", label: "Years" },
     { value: "99.98%", label: "Uptime" },
   ],
@@ -990,7 +990,7 @@ export const HOME27 = {
   dayOneText: "Everything you need to get a business running on it in a day.",
   dayOne: [
     { value: "9+", label: "Modules", target: "#modules" },
-    { value: "350K+", label: "Businesses", target: "#why" },
+    { value: "2.5K+", label: "Active users", target: "#why" },
     { value: "20+", label: "Countries", target: "#why" },
     { value: "24/7", label: "Support", target: "#contact" },
   ],
@@ -1117,7 +1117,7 @@ export const HOME29 = {
     stats: [
       { value: "30+", label: "Years of experience" },
       { value: "250+", label: "Projects delivered" },
-      { value: "350K+", label: "Businesses served" },
+      { value: "2.5K+", label: "Active users" },
       { value: "98%", label: "Client satisfaction" },
     ],
   },
@@ -1226,7 +1226,7 @@ export const HOME31 = {
     { label: "Growth", tone: "peach", text: "Switch modules on as you need them, without a migration." },
   ],
   counters: [
-    { value: "350K+", label: "Businesses served" },
+    { value: "2.5K+", label: "Active users" },
     { value: "30", label: "Years of experience" },
     { value: "20+", label: "Countries" },
   ],
@@ -1336,7 +1336,7 @@ export const HOME36 = {
   titleB: "not last month's report",
   lead: "Pipeline, collections, AMC renewals and service tickets update as the work happens — so the number on your screen is the number in the business.",
   ctaMain: "Start free trial",
-  stat: { lead: "Serving", a: "350K", mid: "businesses for", b: "21", tail: "years" },
+  stat: { lead: "Serving", a: "2.5K", mid: "active users for", b: "21", tail: "years" },
   syncTitleA: "Your business is",
   syncTitleB: "more than a spreadsheet.",
   syncCopy:

@@ -139,7 +139,7 @@ export default function Home22() {
       <section id="why" className="relative px-5 py-20 sm:px-8">
         <div className="mx-auto max-w-7xl">
           <div className={`${glass} grid grid-cols-1 gap-8 px-8 py-10 sm:grid-cols-3`}>
-            {[{ v: "350K+", l: "Businesses served" }, { v: "20+", l: "Countries" }, { v: "24/7", l: "Support, six languages" }].map((s) => (
+            {[{ v: "2.5K+", l: "Active users" }, { v: "20+", l: "Countries" }, { v: "24/7", l: "Support, six languages" }].map((s) => (
               <div key={s.l} className="text-center">
                 <strong className="block bg-gradient-to-r from-sky-300 to-violet-300 bg-clip-text text-4xl font-bold tracking-tight text-transparent">{s.v}</strong>
                 <span className="mt-2 block text-sm text-white/60">{s.l}</span>

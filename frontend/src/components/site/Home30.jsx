@@ -53,7 +53,7 @@ const Counter = ({ value, suffix = "" }) => {
     io.observe(el);
     return () => { io.disconnect(); if (raf) cancelAnimationFrame(raf); };
   }, [target]);
-  const shown = target % 1 === 0 ? Math.round(n) : n.toFixed(0);
+  const shown = target % 1 === 0 ? Math.round(n) : n.toFixed(1);   // 2.5K must not read 3K
   return <span ref={ref}>{shown}{String(value).replace(/[\d.]/g, "")}{suffix}</span>;
 };
 

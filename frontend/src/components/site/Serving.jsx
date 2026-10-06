@@ -36,7 +36,7 @@ export default function Serving() {
   return (
     <section className="ffh-serving" data-testid="serving-section">
       <Container className="ffh-container text-center">
-        <h2 className="sv-title reveal">Serving 350K businesses for 21 years</h2>
+        <h2 className="sv-title reveal">Serving 2.5K active users for 21 years</h2>
         <div className="sv-row reveal delay-1">
           {SERVING_BRANDS.slice(0, 5).map((b) => (
             <div className="sv-pill" key={b.key} title={b.name} data-testid={`serving-brand-${b.key}`}><Mark b={b} /></div>

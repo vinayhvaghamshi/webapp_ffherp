@@ -7,7 +7,7 @@ import HomeLayoutNav from "./HomeLayoutNav";
 import { useGoTo } from "./crmStore";
 
 // Layout 36 — Home35 with the Home1 "EVERYTHING IN SYNC" marquee, a rewritten
-// hero (cursor tilt + "serving 350K businesses for 21 years"), a stacked-wordmark
+// hero (cursor tilt + "serving 2.5K active users for 21 years"), a stacked-wordmark
 // client wall and a cloud-integrations grid with a cursor spotlight. every open/close animates
 // smoothly (services accordion, FAQ, mobile nav), the deployments cards are
 // twice the size with hover reveals, client satisfaction is a click-through
@@ -121,7 +121,9 @@ const Counter = ({ value }) => {
     io.observe(el);
     return () => { io.disconnect(); if (raf) cancelAnimationFrame(raf); };
   }, [target]);
-  return <span ref={ref}>{Math.round(n)}{String(value).replace(/[\d.]/g, "")}</span>;
+  // keep however many decimals the source value has ("2.5K" must not read "3K")
+  const decimals = (String(value).match(/\.(\d+)/) || ["", ""])[1].length;
+  return <span ref={ref}>{n.toFixed(decimals)}{String(value).replace(/[\d.]/g, "")}</span>;
 };
 
 export default function Home36() {
@@ -299,7 +301,7 @@ export default function Home36() {
           <div className="reveal text-center">
             <Label>Trusted by</Label>
             <h2 className="mt-6 text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl" style={{ color: NAVY }}>
-              Serving <span style={{ color: BRAND }}>350K</span> businesses for <span style={{ color: BRAND }}>21</span> years
+              Serving <span style={{ color: BRAND }}>2.5K</span> active users for <span style={{ color: BRAND }}>21</span> years
             </h2>
           </div>
           <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
