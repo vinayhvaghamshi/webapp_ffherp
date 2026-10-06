@@ -278,16 +278,16 @@ export default function Home37() {
       <section className="relative overflow-hidden border-y px-5 py-16 sm:px-8 sm:py-20"
         style={{ borderColor: LINE, background: `linear-gradient(135deg, ${CREAM} 0%, #ffffff 45%, ${SOFT} 100%)` }} data-testid="home37-signup-section">
         <GridLines />
-        <div className="relative mx-auto grid max-w-6xl grid-cols-12 items-center gap-x-0 gap-y-14 lg:gap-x-24">
-          <div className="col-span-12 lg:col-span-6">
+        <div className="relative mx-auto grid max-w-7xl grid-cols-12 items-center gap-x-0 gap-y-14 lg:gap-x-32">
+          <div className="col-span-12 lg:col-span-5">
             <Motif />
-            <h2 className="mt-6 text-3xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-4xl lg:text-[42px]" style={{ color: NAVY }}>
+            <h2 className="mt-6 text-4xl font-semibold leading-[1.02] tracking-[-0.035em] sm:text-5xl lg:text-[60px]" style={{ color: NAVY }}>
               Let's get started
             </h2>
             <p className="mt-4 text-[15px] font-semibold" style={{ color: BRAND_DARK }}>
               No credit card. Setup in a day. Cancel any time.
             </p>
-            <ul className="mt-8 grid grid-cols-1 gap-3.5 sm:grid-cols-2">
+            <ul className="mt-8 space-y-4">
               {["Nine modules on one database", "We migrate your data with you", "Training for every team included", "Everything you enter stays yours"].map((b) => (
                 <li key={b} className="flex items-start gap-3 text-[15px]" style={{ color: "#4a5568" }}>
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: BRAND }} />{b}
@@ -299,7 +299,7 @@ export default function Home37() {
               <span><strong style={{ color: NAVY }}>4.9 / 5.0</strong> — {HOME37.rating.text}</span>
             </div>
           </div>
-          <div className="col-span-12 flex justify-center lg:col-span-6 lg:justify-end">
+          <div className="col-span-12 flex justify-center lg:col-span-7 lg:justify-end">
             <TwSignupForm variant="light" spacing="roomy" title="Create your account" />
           </div>
         </div>
@@ -480,20 +480,22 @@ export default function Home37() {
       <section id="capabilities" className="relative overflow-hidden px-5 py-20 sm:px-8 sm:py-24" style={{ background: SOFT }}>
         <GridLines />
         <div className="relative mx-auto max-w-[1400px]">
-          <div className="reveal text-center">
-            <Label>Why FFH|ERP</Label>
-            <h2 className="mt-6 text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl" style={{ color: NAVY }}>
-              Why teams choose <span className={GRAD_TEXT}>FFH|ERP</span>
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-[15.5px]" style={{ color: "#4a5568" }}>
-              Powerful capabilities that keep your whole team productive.
-            </p>
-          </div>
+          {/* heading sits top-left, with the health card directly under it */}
+          <div className="grid grid-cols-12 items-start gap-x-0 gap-y-10 lg:gap-x-16">
+            <div className="col-span-12 lg:col-span-6">
+              <div className="reveal">
+                <Label>Why FFH|ERP</Label>
+                <h2 className="mt-6 text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl" style={{ color: NAVY }}>
+                  Why teams choose <span className={GRAD_TEXT}>FFH|ERP</span>
+                </h2>
+                <p className="mt-4 max-w-xl text-[15.5px]" style={{ color: "#4a5568" }}>
+                  Powerful capabilities that keep your whole team productive.
+                </p>
+              </div>
 
-          <div className="mt-14 grid grid-cols-12 items-center gap-x-0 gap-y-12 lg:gap-x-16">
-            {/* Business health — tap an area and the score moves */}
-            <div className="reveal col-span-12 lg:col-span-6">
-              <div className="rounded-3xl bg-white p-7 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl sm:p-9"
+              {/* Business health — tap an area and the score moves */}
+              <div className="reveal mt-8">
+              <div className="rounded-3xl bg-white p-6 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl sm:p-7"
                 style={{ border: `1px solid ${LINE}` }} data-testid="home37-health-card">
                 <div className="flex items-end justify-between gap-6">
                   <div>
@@ -534,21 +536,22 @@ export default function Home37() {
                 </div>
                 <p className="mt-4 text-[12.5px]" style={{ color: "#9ca3af" }}>Tap an area to see how it moves your score.</p>
               </div>
+              </div>
             </div>
 
             {/* capabilities */}
             <div className="col-span-12 lg:col-span-6">
               {WHY_FEATURES.map((w, i) => (
                 <div key={w.title} className="reveal" style={{ transitionDelay: `${i * 70}ms` }}>
-                  <div className="group mb-4 flex items-start gap-4 rounded-2xl bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-6"
+                  <div className="group mb-2.5 flex items-start gap-3 rounded-xl bg-white px-4 py-3.5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:px-5 sm:py-4"
                     style={{ border: `1px solid ${LINE}` }} data-testid={`home37-why-feature-${i}`}>
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-all duration-500 group-hover:scale-110 group-hover:rotate-6"
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-6"
                       style={{ background: CREAM, color: BRAND_DARK, border: `1px solid ${LINE}` }}>
-                      <Icon name={w.icon} size={20} />
+                      <Icon name={w.icon} size={17} />
                     </span>
                     <div>
-                      <h5 className="text-[16px] font-semibold" style={{ color: NAVY }}>{w.title}</h5>
-                      <p className="mt-1 text-[14px] leading-relaxed" style={{ color: "#6b7280" }}>{w.desc}</p>
+                      <h5 className="text-[14.5px] font-semibold leading-snug" style={{ color: NAVY }}>{w.title}</h5>
+                      <p className="mt-0.5 text-[13px] leading-snug" style={{ color: "#6b7280" }}>{w.desc}</p>
                     </div>
                   </div>
                 </div>
