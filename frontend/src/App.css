@@ -2299,3 +2299,13 @@ a { text-decoration: none; }
 .ffh-check--glass:checked + span { color: #fff; }
 /* a nudge when the box is missed on submit */
 .ffh-h37 .ffh-check:invalid { border-color: #f0452c; box-shadow: 0 0 0 4px rgba(240, 69, 44, .14); }
+
+/* Floating support bubble — slow outward ping so it reads as live */
+@keyframes ffh-support-ping {
+  0%   { transform: scale(.92); opacity: .55; }
+  70%  { transform: scale(1.65); opacity: 0; }
+  100% { transform: scale(1.65); opacity: 0; }
+}
+.ffh-support-ping { position: absolute; inset: 0; border-radius: 999px; pointer-events: none;
+  background: rgba(239, 123, 35, .6); animation: ffh-support-ping 2.6s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) { .ffh-support-ping { animation: none; opacity: 0; } }

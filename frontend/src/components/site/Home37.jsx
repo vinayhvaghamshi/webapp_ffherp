@@ -5,6 +5,7 @@ import { HOME37, HOME30, FAQS, PLANS, TOOLS, WHY_FEATURES, formatINR } from "../
 import { LiveCRMWindow } from "./LiveCRM";
 import TwSignupForm from "./TwSignupForm";
 import HomeLayoutNav from "./HomeLayoutNav";
+import SupportChat from "./SupportChat";
 import { useGoTo } from "./crmStore";
 
 // Layout 37 — the home1 "FFH|ERP · Live CRM" widget in the hero (replacing the
@@ -879,6 +880,7 @@ export default function Home37() {
           </div>
         </div>
       </footer>
+      <SupportChat />
     </div>
   );
 }
