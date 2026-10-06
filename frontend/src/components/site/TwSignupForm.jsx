@@ -115,9 +115,9 @@ export default function TwSignupForm({ variant = "light", title = "Start your fl
           {errors.mobile && <p className={err}>{errors.mobile}</p>}
         </div>
 
-        <label className={`flex items-start gap-2.5 text-xs leading-relaxed ${glass ? "text-white/70" : "text-slate-500"}`}>
+        <label className={`flex cursor-pointer items-start gap-3 rounded-xl px-2 py-2 text-xs leading-relaxed transition-colors duration-200 ${glass ? "text-white/70 hover:bg-white/10" : "text-slate-500 hover:bg-[#fff6ec]"}`}>
           <input type="checkbox" checked={f.agree} onChange={set("agree")} data-testid="signup-agree"
-            className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" />
+            className={`ffh-check mt-[1px] shrink-0 ${glass ? "ffh-check--glass" : ""}`} />
           <span>I agree to the <a href="#terms" onClick={(e) => e.preventDefault()} className={glass ? "text-white underline" : "text-indigo-600 underline"}>Terms of Service</a> and <a href="#privacy" onClick={(e) => e.preventDefault()} className={glass ? "text-white underline" : "text-indigo-600 underline"}>Privacy Policy</a>.</span>
         </label>
         {errors.agree && <p className={err}>{errors.agree}</p>}

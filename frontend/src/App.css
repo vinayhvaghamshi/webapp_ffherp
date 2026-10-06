@@ -2248,9 +2248,11 @@ a { text-decoration: none; }
   background: linear-gradient(90deg, transparent, rgba(255,255,255,.5), transparent); }
 .ffh-h37 .ffh-signup-card:hover::after { animation: ffh-h37-sweep 1s ease-out .1s; }
 /* fields lean towards the cursor without needing a click */
-.ffh-h37 .ffh-signup-card input { transition: border-color .3s ease, box-shadow .3s ease, background-color .3s ease, transform .3s ease, --tw-ring-color .3s ease; }
-.ffh-h37 .ffh-signup-card input:hover { background: #fffaf4; transform: translateY(-1px); --tw-ring-color: rgba(239,123,35,.55); }
-.ffh-h37 .ffh-signup-card input:focus { --tw-ring-color: rgba(239,123,35,.75); box-shadow: 0 0 0 4px rgba(239,123,35,.14); }
+/* text fields only — the agree checkbox draws its own fill and checkmark, and
+   the `background` shorthand here was wiping the tick out of it */
+.ffh-h37 .ffh-signup-card input:not([type="checkbox"]) { transition: border-color .3s ease, box-shadow .3s ease, background-color .3s ease, transform .3s ease, --tw-ring-color .3s ease; }
+.ffh-h37 .ffh-signup-card input:not([type="checkbox"]):hover { background-color: #fffaf4; transform: translateY(-1px); --tw-ring-color: rgba(239,123,35,.55); }
+.ffh-h37 .ffh-signup-card input:not([type="checkbox"]):focus { --tw-ring-color: rgba(239,123,35,.75); box-shadow: 0 0 0 4px rgba(239,123,35,.14); }
 .ffh-h37 .ffh-signup-card label { transition: color .3s ease, transform .3s ease; }
 .ffh-h37 .ffh-signup-card form > div:hover label { color: #cf5f12; }
 .ffh-h37 .ffh-signup-card button[type="submit"] { position: relative; overflow: hidden; transition: transform .3s ease, box-shadow .3s ease, filter .3s ease; }
@@ -2265,3 +2267,35 @@ a { text-decoration: none; }
   .ffh-h37 .ffh-signup-card:hover::after,
   .ffh-h37 .ffh-signup-card button[type="submit"]:hover::after { animation: none; }
 }
+
+/* ---------------------------------------------------------------
+   Tailwind layouts — checkboxes
+   The reset above sets `appearance: none` on every .ffh-tw input, which
+   removes the native checkbox painting, and the forms plugin that would
+   redraw it is not installed. Draw it explicitly instead of leaving an
+   empty square (this is the "I agree to the Terms" box).
+   --------------------------------------------------------------- */
+.ffh-check {
+  width: 19px; height: 19px; border-radius: 6px; border: 1.6px solid #d6d3d1; background-color: #fff;
+  background-image: none; background-position: center; background-repeat: no-repeat; background-size: 13px 13px;
+  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease, transform .12s ease;
+  cursor: pointer;
+}
+.ffh-check:hover { border-color: #ef7b23; box-shadow: 0 0 0 4px rgba(239, 123, 35, .14); }
+.ffh-check:focus-visible { outline: 2px solid rgba(239, 123, 35, .65); outline-offset: 2px; }
+.ffh-check:active { transform: scale(.9); }
+.ffh-check:checked {
+  border-color: transparent;
+  background-color: #ef7b23;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.2 8.5l3 3L12.8 4.9' fill='none' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, #f7a52a, #f0452c);
+  background-size: 13px 13px, 100% 100%;
+  box-shadow: 0 6px 14px -6px rgba(240, 69, 44, .75);
+}
+.ffh-check:checked + span { color: #0f172a; }
+.ffh-check:checked:hover { border-color: transparent; background-color: #ef7b23; }
+.ffh-check--glass { border-color: rgba(255, 255, 255, .6); background-color: rgba(255, 255, 255, .14); }
+.ffh-check--glass:checked + span { color: #fff; }
+/* a nudge when the box is missed on submit */
+.ffh-h37 .ffh-check:invalid { border-color: #f0452c; box-shadow: 0 0 0 4px rgba(240, 69, 44, .14); }
