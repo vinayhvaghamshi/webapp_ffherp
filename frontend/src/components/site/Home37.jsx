@@ -278,8 +278,8 @@ export default function Home37() {
       <section className="relative overflow-hidden border-y px-5 py-16 sm:px-8 sm:py-20"
         style={{ borderColor: LINE, background: `linear-gradient(135deg, ${CREAM} 0%, #ffffff 45%, ${SOFT} 100%)` }} data-testid="home37-signup-section">
         <GridLines />
-        <div className="relative mx-auto grid max-w-7xl grid-cols-12 items-center gap-x-0 gap-y-14 lg:gap-x-32">
-          <div className="col-span-12 lg:col-span-5">
+        <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-y-14 lg:grid-cols-2 lg:gap-x-32">
+          <div className="lg:order-2">
             <Motif />
             <h2 className="mt-6 text-4xl font-semibold leading-[1.02] tracking-[-0.035em] sm:text-5xl lg:text-[60px]" style={{ color: NAVY }}>
               Let's get started
@@ -299,7 +299,7 @@ export default function Home37() {
               <span><strong style={{ color: NAVY }}>4.9 / 5.0</strong> — {HOME37.rating.text}</span>
             </div>
           </div>
-          <div className="col-span-12 flex justify-center lg:col-span-7 lg:justify-end">
+          <div className="flex justify-center lg:order-1 lg:justify-start">
             <TwSignupForm variant="light" spacing="roomy" title="Create your account" />
           </div>
         </div>
