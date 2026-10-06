@@ -2155,3 +2155,17 @@ a { text-decoration: none; }
 @media (prefers-reduced-motion: reduce) { .ffh-marquee { animation: none; } }
 /* Vixcra's graph-paper backdrop and the offset second headline line */
 .ffh-h30-grid-lines { background-image: linear-gradient(to right, #ececef 1px, transparent 1px); background-size: 25% 100%; }
+
+/* ---------------------------------------------------------------
+   Home layout 32 — merge of Home12's logo theme and Home30's creative
+   structure. Syne display type per the reference; colour is set per element so
+   gradient-clipped text keeps working.
+   --------------------------------------------------------------- */
+.ffh-h32 :is(h1, h2, h3, h4, h5, h6) { font-family: "Syne", "Poppins", sans-serif; }
+/* the logo motif: four ascending bars, last one navy */
+.ffh-h32-motif { display: inline-flex; align-items: flex-end; gap: 4px; height: 26px; }
+.ffh-h32-motif i { display: block; width: 6px; border-radius: 3px; background: linear-gradient(180deg, #f7a52a, #f0452c); }
+.ffh-h32-motif i:nth-child(1) { height: 10px; }
+.ffh-h32-motif i:nth-child(2) { height: 16px; }
+.ffh-h32-motif i:nth-child(3) { height: 21px; }
+.ffh-h32-motif i:nth-child(4) { height: 26px; background: linear-gradient(180deg, #2c4358, #16283c); }

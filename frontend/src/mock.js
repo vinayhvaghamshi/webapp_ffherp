@@ -1271,3 +1271,35 @@ export const HOME31 = {
     { title: "Manufacturing Deployment Award", text: "Honoured for a four-plant rollout completed in five weeks.", year: "2023" },
   ],
 };
+
+// ---------------------------------------------------------------------------
+// Home layout 32 — the merge: Home30's creative structure wearing Home12's
+// logo theme (brand #ef7b23, cream #fff6ec, gradient #f7a52a → #f0452c,
+// navy #16283c) plus Home12's motif bars and live panel.
+// ---------------------------------------------------------------------------
+export const HOME32 = {
+  eyebrow: "Smart CRM & ERP Software",
+  titleA: "See today's business,",
+  titleB: "not last month's report",
+  lead:
+    "Pipeline, collections, AMC renewals and service tickets update as the work happens — so the number on your screen is the number in the business.",
+  chips: [
+    { value: "9", label: "Modules on one database" },
+    { value: "1 day", label: "Typical setup time" },
+    { value: "24/7", label: "Support in six languages" },
+  ],
+  rating: { score: "4.9 / 5.0", text: "Top-rated ERP platform, built in India for growing businesses." },
+  panel: { title: "Today at a glance", feed: [] },
+  feed: [
+    "Free trial signup: Anjali Mehta (anjali@acme.in)",
+    "New lead assigned to Rahul",
+    "AMC renewal due in 3 days",
+    "Invoice #1042 marked paid",
+  ],
+  aboutTitle:
+    "We are an ERP team that has run the businesses we build for — the system holds up on the busiest day of the month, not just in the demo.",
+  servicesTitle: "Creative solutions for every business need",
+  projectsTitle: "Deployments that deliver results",
+  clientsTitle: "What our clients say about us",
+  pricingTitle: "Plans that grow with the business",
+};
