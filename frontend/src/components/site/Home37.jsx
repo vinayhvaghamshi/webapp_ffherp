@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, Facebook, IndianRupee, Instagram, Linkedin, Menu, Minus, Plus, Star, TrendingUp, Twitter, Users, X, Youtube } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, Facebook, IndianRupee, Instagram, Linkedin, Menu, Minus, Pause, Play, Plus, Star, TrendingUp, Twitter, Users, X, Youtube } from "lucide-react";
 import Icon from "./TwIcon";
 import { HOME37, HOME30, FAQS, PLANS, TOOLS, WHY_FEATURES, formatINR } from "../../mock";
 import { LiveCRMWindow } from "./LiveCRM";
@@ -117,6 +117,9 @@ export default function Home37() {
   const [areas, setAreas] = useState({ Sales: true, Finance: true, Support: true, Projects: true });
   const [activeNav, setActiveNav] = useState("#top");
   const [healthShown, setHealthShown] = useState(82);
+  const [autoplay, setAutoplay] = useState(true);
+  const [hovering, setHovering] = useState(false);
+  const swipeX = useRef(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
@@ -125,6 +128,17 @@ export default function Home37() {
     mq.addEventListener("change", sync);
     return () => mq.removeEventListener("change", sync);
   }, []);
+
+  // client-satisfaction slider: autoplay until the pointer rests on it (or the
+  // visitor pauses it), with a swipe on touch and arrow keys on desktop
+  const slideCount = HOME37.testimonials.length;
+  const nextSlide = () => setSlide((v) => (v + 1) % slideCount);
+  const prevSlide = () => setSlide((v) => (v - 1 + slideCount) % slideCount);
+  useEffect(() => {
+    if (!autoplay || hovering) return;
+    const id = setInterval(() => setSlide((v) => (v + 1) % slideCount), 6500);
+    return () => clearInterval(id);
+  }, [autoplay, hovering, slideCount]);
 
   // the business-health score eases between values instead of jumping
   const healthPct = 52 + Object.values(areas).filter(Boolean).length * 7.5;
@@ -180,6 +194,9 @@ export default function Home37() {
                   <span className={`absolute inset-0 rounded-full transition-all duration-300 ${on ? "scale-100 opacity-100" : "scale-[.88] opacity-[0] group-hover:scale-100 group-hover:opacity-100"}`}
                     style={{ background: on ? "#fdeedd" : SOFT }} />
                   <span className="relative z-10 transition-colors duration-300 group-hover:text-[#cf5f12]">{l.label}</span>
+                  {/* line only on the tab you are actually on */}
+                  <span className={`absolute bottom-1 left-4 right-4 h-[2px] origin-left rounded-full transition-transform duration-500 ${on ? "scale-x-100" : "scale-x-0"}`}
+                    style={{ background: `linear-gradient(90deg, ${BRAND}, ${BRAND_DARK})` }} />
                 </a>
               );
             })}
@@ -455,9 +472,9 @@ export default function Home37() {
                   <div className={`grid transition-[grid-template-rows] duration-500 ease-out`} style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}>
                     <div className="overflow-hidden">
                       <div className={`grid grid-cols-12 items-center gap-x-0 gap-y-8 pb-9 transition-all duration-500 sm:gap-x-8 ${isOpen ? "translate-y-0 opacity-100" : "translate-y-2 opacity-[0]"}`}>
-                        <p className="col-span-12 text-[15.5px] leading-relaxed lg:col-span-4" style={{ color: "#4a5568" }}>{s.text}</p>
+                        <p className="col-span-12 text-[15.5px] leading-relaxed lg:col-span-5" style={{ color: "#4a5568" }}>{s.text}</p>
                         <img src={`https://picsum.photos/id/${s.img}/1000/620`} alt="" width="1000" height="620" loading="lazy"
-                          className="col-span-12 h-[260px] w-full rounded-2xl object-cover transition-transform duration-700 hover:scale-[1.02] lg:col-span-6" />
+                          className="col-span-12 h-[170px] w-full rounded-2xl object-cover transition-transform duration-700 hover:scale-[1.02] sm:h-[190px] lg:col-span-5 lg:h-[200px]" />
                         <div className="col-span-12 lg:col-span-2 lg:text-right">
                           <button onClick={(e) => go(e, "#contact")} className={`inline-flex items-center gap-2 rounded-full ${GRAD} px-5 py-3 text-[13.5px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:brightness-105`}>
                             Contact Us <ArrowUpRight className="h-4 w-4" />
@@ -611,13 +628,19 @@ export default function Home37() {
               {HOME37.clientsTitle}
             </h2>
             <div className="flex items-center gap-3">
-              <button onClick={() => setSlide((slide - 1 + HOME37.testimonials.length) % HOME37.testimonials.length)} data-testid="home37-prev"
+              <button onClick={() => setAutoplay((a) => !a)} data-testid="home37-autoplay"
+                aria-label={autoplay ? "Pause testimonial autoplay" : "Play testimonial autoplay"}
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                style={{ border: `1px solid ${LINE}`, color: autoplay ? BRAND : "#9ca3af" }}>
+                {autoplay ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+              </button>
+              <button onClick={prevSlide} data-testid="home37-prev"
                 aria-label="Previous testimonial"
                 className="flex h-12 w-12 items-center justify-center rounded-full bg-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
                 style={{ border: `1px solid ${LINE}`, color: BRAND_DARK }}>
                 <ArrowLeft className="h-4 w-4" />
               </button>
-              <button onClick={() => setSlide((slide + 1) % HOME37.testimonials.length)} data-testid="home37-next"
+              <button onClick={nextSlide} data-testid="home37-next"
                 aria-label="Next testimonial"
                 className={`flex h-12 w-12 items-center justify-center rounded-full ${GRAD} text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg`}>
                 <ArrowRight className="h-4 w-4" />
@@ -625,12 +648,23 @@ export default function Home37() {
             </div>
           </div>
 
-          <div className="mt-12 overflow-hidden rounded-[28px]" data-testid="home37-slider">
+          <div className="mt-12 overflow-hidden rounded-[28px]" data-testid="home37-slider" tabIndex={0} role="region" aria-label="Client testimonials"
+            onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}
+            onFocus={() => setHovering(true)} onBlur={() => setHovering(false)}
+            onKeyDown={(e) => { if (e.key === "ArrowRight") { nextSlide(); setAutoplay(false); } if (e.key === "ArrowLeft") { prevSlide(); setAutoplay(false); } }}
+            onTouchStart={(e) => { swipeX.current = e.touches[0].clientX; }}
+            onTouchEnd={(e) => {
+              if (swipeX.current === null) return;
+              const dx = e.changedTouches[0].clientX - swipeX.current;
+              if (Math.abs(dx) > 45) { setAutoplay(false); if (dx < 0) nextSlide(); else prevSlide(); }
+              swipeX.current = null;
+            }}>
             <div className="flex transition-transform duration-700 ease-out" style={{ transform: `translateX(-${slide * 100}%)` }}>
               {HOME37.testimonials.map((t, i) => (
                 <figure key={`${t.person}-${i}`} className="w-full shrink-0" data-testid={`home37-quote-${i}`}>
-                  <div className="grid grid-cols-12 items-center gap-x-0 gap-y-8 bg-white p-8 sm:gap-x-8 sm:p-12"
-                    style={{ border: `1px solid ${LINE}`, boxShadow: "0 40px 80px -60px rgba(207,95,18,.55)" }}>
+                  <div className="grid grid-cols-12 items-center gap-x-0 gap-y-8 bg-white p-8 transition-all duration-700 ease-out sm:gap-x-8 sm:p-12"
+                    style={{ border: `1px solid ${LINE}`, boxShadow: "0 40px 80px -60px rgba(207,95,18,.55)",
+                      opacity: i === slide ? 1 : 0.45, transform: i === slide ? "scale(1)" : "scale(.965)" }}>
                     <div className="col-span-12 lg:col-span-8">
                       <div className="flex items-center gap-4">
                         <span className="flex text-amber-500">{[0, 1, 2, 3, 4].map((k) => <Star key={k} className="h-4 w-4 fill-current" />)}</span>
@@ -658,15 +692,23 @@ export default function Home37() {
             </div>
           </div>
 
+          {/* autoplay progress — restarts on every slide */}
+          <div className="mt-5 h-1 w-full overflow-hidden rounded-full" style={{ background: "#f2e3d1" }}>
+            <div key={`${slide}-${autoplay}-${hovering}`} className="h-full rounded-full"
+              style={{ background: `linear-gradient(90deg, ${BRAND}, ${BRAND_DARK})`,
+                animation: autoplay && !hovering ? "ffh-h37-bar 6.5s linear forwards" : "none",
+                width: autoplay && !hovering ? undefined : "100%" }} />
+          </div>
+
           <div className="mt-8 flex items-center justify-between gap-6">
             <div className="flex items-center gap-2.5" data-testid="home37-dots">
               {HOME37.testimonials.map((t, i) => (
-                <button key={t.person + i} onClick={() => setSlide(i)} aria-label={`Testimonial ${i + 1}`}
-                  className="h-2.5 rounded-full transition-all duration-300"
+                <button key={t.person + i} onClick={() => { setSlide(i); setAutoplay(false); }} aria-label={`Testimonial ${i + 1}`}
+                  className="h-2.5 rounded-full transition-all duration-300 hover:scale-125"
                   style={i === slide ? { width: 26, background: BRAND } : { width: 10, background: "#e7d9c8" }} />
               ))}
             </div>
-            <span className="text-[13px] font-semibold" style={{ color: "#9ca3af" }} data-testid="home37-count">
+            <span className="text-[13px] font-semibold tabular-nums" style={{ color: "#9ca3af" }} data-testid="home37-count">
               {slide + 1} / {HOME37.testimonials.length}
             </span>
           </div>

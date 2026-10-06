@@ -750,7 +750,17 @@ a { text-decoration: none; }
   .ffh-h2-panel { max-width: 100%; }
   .ffh-tool-mq { width: 268px; margin-right: 20px; }
 }
+@keyframes ffh-h37-bar { from { width: 0%; } to { width: 100%; } }
+
 @media (max-width: 767px) {
+  /* a 76px edge fade each side blurred ~40% of a phone screen; keep it subtle */
+  .ffh-tools-marquee {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%); }
+  .ffh-h37 .ffh-tool { padding: 22px 20px 20px; border-radius: 16px; }
+  .ffh-h37 .ffh-tool h6 { font-size: 19px; margin-bottom: 6px; }
+  .ffh-h37 .ffh-tool p { font-size: 14.5px; margin-bottom: 14px; }
+  .ffh-h37 .ffh-tool-icon { width: 46px; height: 46px; margin-bottom: 16px; border-radius: 13px; }
   .ffh-h2-hero, .ffh-h3-hero { padding: 118px 0 54px; }
   .ffh-h2-signup { padding: 64px 0; }
   .ffh-h2-stats { gap: 26px; margin-top: 28px; }
