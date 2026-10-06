@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { CRM_SEED } from "../../mock";
 
 const KEY = "ffh_live_crm_v1";
@@ -38,4 +39,22 @@ export const scrollToId = (id) => {
   if (!el) return;
   const y = el.getBoundingClientRect().top + window.scrollY - 80;
   window.scrollTo({ top: y, behavior: "smooth" });
+};
+
+// Single navigation helper used by the header, footer, hero and about page.
+// Accepts "#pricing" (a section on the home page) or "/about" (another route).
+// Called from a non-home route, a section target routes home first and the
+// landing page scrolls to it once mounted.
+export const useGoTo = () => {
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  return (target) => {
+    if (!target) return;
+    if (!target.startsWith("#")) return void navigate(target);
+
+    const id = target.slice(1);
+    if (pathname !== "/") navigate("/", { state: { scrollTo: id } });
+    else scrollToId(id);
+  };
 };

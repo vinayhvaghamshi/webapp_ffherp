@@ -66,21 +66,32 @@ export default function Modules() {
           <h2 className="ffh-h2 ffh-serif-mix">Your business is <em>more than a spreadsheet.</em></h2>
           <p className="ffh-lead-sm">Stop switching between tools. FFH|ERP brings nine business tools together, so you can spend less time managing work — and more time moving it forward.</p>
         </div>
-        <Row className="g-4 ffh-tools-grid">
-          {TOOLS.map((tl, i) => (
-            <Col xs={12} sm={6} lg={4} key={tl.name} className={`reveal delay-${i % 3}`}>
-              <div className="ffh-tool" data-testid={`tool-card-${tl.name.toLowerCase()}`}>
-                <div className="d-flex justify-content-between align-items-start">
-                  <div className="ffh-tool-icon"><Icon name={tl.icon} size={26} /></div>
-                  <span className="ffh-tool-num">{String(i + 1).padStart(2, "0")}</span>
+        {/* Single-line auto-looping row: the list is rendered twice and the track
+            slides exactly one set width, so the loop is seamless. Every widget is
+            the same fixed width and they stretch to a shared height. */}
+        <div className="ffh-tools-marquee reveal" data-testid="tools-marquee">
+          <div className="ffh-tools-track">
+            {[...TOOLS, ...TOOLS].map((tl, i) => {
+              const first = i < TOOLS.length;
+              return (
+                <div
+                  className="ffh-tool ffh-tool-mq"
+                  key={`${tl.name}-${i}`}
+                  aria-hidden={first ? undefined : "true"}
+                  data-testid={first ? `tool-card-${tl.name.toLowerCase()}` : undefined}
+                >
+                  <div className="d-flex justify-content-between align-items-start">
+                    <div className="ffh-tool-icon"><Icon name={tl.icon} size={26} /></div>
+                    <span className="ffh-tool-num">{String((i % TOOLS.length) + 1).padStart(2, "0")}</span>
+                  </div>
+                  <h6>{tl.name}</h6>
+                  <p>{tl.desc}</p>
+                  <span className="ffh-tool-more">Learn more <ArrowRight size={15} /></span>
                 </div>
-                <h6>{tl.name}</h6>
-                <p>{tl.desc}</p>
-                <span className="ffh-tool-more">Learn more <ArrowRight size={15} /></span>
-              </div>
-            </Col>
-          ))}
-        </Row>
+              );
+            })}
+          </div>
+        </div>
 
         <div className="ffh-eyebrow mt-ffh">MODULES, WORKING AS ONE</div>
         <Row className="g-5">

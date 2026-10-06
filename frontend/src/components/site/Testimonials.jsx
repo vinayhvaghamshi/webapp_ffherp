@@ -41,7 +41,7 @@ export default function Testimonials() {
           {TESTIMONIALS.map((t, i) => (
             <div key={t.name} className={`ffh-testi-card ${i === idx ? "active" : ""}`} onClick={() => scrollTo(i)} data-testid={`testimonial-card-${i}`}>
               <div className="d-flex align-items-center gap-3 mb-4">
-                <img src={`https://i.pravatar.cc/120?img=${t.img}`} alt={t.name} />
+                <img src={`https://i.pravatar.cc/120?img=${t.img}`} alt={t.name} width="48" height="48" loading="lazy" decoding="async" />
                 <div className="flex-grow-1">
                   <h6>{t.name}</h6>
                   <small>{t.company}</small>

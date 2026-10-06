@@ -40,7 +40,7 @@ export default function Trusted() {
               <div className="ffh-quote-brand"><Icon name={c.icon} size={20} /> {c.name}</div>
               <Icons.Quote className="ffh-quote-mark" size={30} />
               <p className="ffh-quote-text">{c.quote}</p>
-              <img src={`https://i.pravatar.cc/120?img=${c.img}`} alt={c.person} className="ffh-quote-avatar" />
+              <img src={`https://i.pravatar.cc/120?img=${c.img}`} alt={c.person} className="ffh-quote-avatar" width="66" height="66" loading="lazy" decoding="async" />
               <div className="ffh-quote-name">{c.person}</div>
               <div className="ffh-quote-role">{c.role}</div>
               <div className="ffh-dots">

@@ -4,12 +4,14 @@ import { ArrowRight, MessageCircle, Linkedin, Instagram, Phone, Mail } from "luc
 import { toast } from "sonner";
 import { FOOTER_COLS } from "../../mock";
 import { Brand } from "./Header";
-import { scrollToId } from "./crmStore";
+import { useGoTo } from "./crmStore";
 
 const LINK_TARGET = { "Why FFH": "why", Pricing: "pricing", "Contact Us": "contact", Marketing: "modules", Sales: "modules", Finance: "modules", "AMC & Support": "modules", Projects: "modules" };
+const LINK_ROUTE = { About: "/about" };
 
 export default function Footer() {
   const [email, setEmail] = useState("");
+  const goTo = useGoTo();
   const submit = (e) => {
     e.preventDefault();
     if (!/^\S+@\S+\.\S+$/.test(email)) return toast.error("Please enter a valid email");
@@ -38,7 +40,7 @@ export default function Footer() {
               <h6>{c.title}</h6>
               <ul>
                 {c.links.map((l) => (
-                  <li key={l}><a href={`#${l}`} onClick={(e) => { e.preventDefault(); LINK_TARGET[l] ? scrollToId(LINK_TARGET[l]) : toast(`${l} — coming soon`); }}>{l}</a></li>
+                  <li key={l}><a href={LINK_ROUTE[l] || `#${l}`} onClick={(e) => { e.preventDefault(); if (LINK_ROUTE[l]) goTo(LINK_ROUTE[l]); else if (LINK_TARGET[l]) goTo(`#${LINK_TARGET[l]}`); else toast(`${l} — coming soon`); }}>{l}</a></li>
                 ))}
               </ul>
             </Col>
