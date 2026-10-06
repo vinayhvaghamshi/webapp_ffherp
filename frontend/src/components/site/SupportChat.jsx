@@ -60,7 +60,7 @@ export default function SupportChat() {
       <div
         data-testid="support-panel"
         aria-hidden={!open}
-        className={`fixed bottom-[92px] right-4 z-[60] w-[min(92vw,368px)] max-h-[calc(100dvh-140px)] origin-bottom-right overflow-y-auto overscroll-contain rounded-2xl bg-white shadow-[0_40px_90px_-30px_rgba(15,23,42,.5)] ring-1 ring-black/5 transition-all duration-300 sm:right-6 ${
+        className={`fixed bottom-[100px] right-6 z-[60] w-[min(92vw,368px)] max-h-[calc(100dvh-152px)] sm:bottom-[104px] sm:right-8 origin-bottom-right overflow-y-auto overscroll-contain rounded-2xl bg-white shadow-[0_40px_90px_-30px_rgba(15,23,42,.5)] ring-1 ring-black/5 transition-all duration-300 ${
           open ? "pointer-events-auto translate-y-0 scale-100 opacity-100" : "pointer-events-none translate-y-3 scale-90 opacity-0"
         }`}
       >
@@ -140,7 +140,7 @@ export default function SupportChat() {
         aria-expanded={open}
         aria-label={open ? "Close support chat" : "Open support chat"}
         data-testid="support-bubble"
-        className="group fixed bottom-5 right-4 z-[61] flex h-14 w-14 items-center justify-center rounded-full text-white shadow-[0_18px_40px_-12px_rgba(15,23,42,.6)] transition-all duration-300 hover:scale-105 active:scale-95 sm:right-6 sm:h-[58px] sm:w-[58px]"
+        className="group fixed bottom-8 right-6 z-[61] flex h-14 w-14 items-center justify-center rounded-full text-white shadow-[0_18px_40px_-12px_rgba(15,23,42,.6)] transition-all duration-300 hover:scale-105 active:scale-95 sm:right-8 sm:h-[58px] sm:w-[58px]"
         style={{ background: open ? "#16283c" : "linear-gradient(135deg,#f7a52a,#f0452c)" }}
       >
         {!open && <span className="ffh-support-ping" aria-hidden="true" />}
