@@ -180,9 +180,6 @@ export default function Home37() {
                   <span className={`absolute inset-0 rounded-full transition-all duration-300 ${on ? "scale-100 opacity-100" : "scale-[.88] opacity-[0] group-hover:scale-100 group-hover:opacity-100"}`}
                     style={{ background: on ? "#fdeedd" : SOFT }} />
                   <span className="relative z-10 transition-colors duration-300 group-hover:text-[#cf5f12]">{l.label}</span>
-                  {/* underline that grows from the left */}
-                  <span className={`absolute bottom-1 left-4 right-4 h-[2px] origin-left rounded-full transition-transform duration-300 group-hover:scale-x-100 ${on ? "scale-x-100" : "scale-x-0"}`}
-                    style={{ background: `linear-gradient(90deg, ${BRAND}, ${BRAND_DARK})` }} />
                 </a>
               );
             })}
