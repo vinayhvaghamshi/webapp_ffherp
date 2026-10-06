@@ -58,7 +58,7 @@ export default function About10() {
           <Row className="g-5">
             <Col lg={4} className="reveal">
               <div className="ffh-eyebrow">How we got here</div>
-              <h2 className="ffh-h2">Thirty years, five turns</h2>
+              <h2 className="ffh-h2">Fourteen years, five turns</h2>
               <p className="ffh-lead-sm">Each step was a customer asking for something the software could not do yet.</p>
             </Col>
             <Col lg={8} className="reveal delay-1">

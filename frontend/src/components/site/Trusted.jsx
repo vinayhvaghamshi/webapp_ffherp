@@ -24,7 +24,7 @@ export default function Trusted() {
       <Container className="ffh-container">
         <Row className="align-items-center g-5">
           <Col lg={6} className="reveal">
-            <h2 className="ffh-h2 mb-5">Trusted by Over <span className="d-lg-block">350,000+</span> Businesses Worldwide</h2>
+            <h2 className="ffh-h2 mb-5">Trusted by Over <span className="d-lg-block">2,500+</span> Active Users Worldwide</h2>
             <div className="ffh-logo-grid" onMouseLeave={() => setPaused(false)}>
               {CLIENTS.map((cl, i) => (
                 <button key={cl.name} className={`ffh-logo-tile ${i === active ? "active" : ""}`}

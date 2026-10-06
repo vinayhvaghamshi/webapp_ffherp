@@ -107,7 +107,7 @@ export default function Home18() {
             </Col>
             <Col lg={6} className="reveal delay-1">
               <span className="ffh-h18-eyebrow">Trusted worldwide</span>
-              <h2 className="ffh-h18-h2">350,000+ businesses, 20+ countries</h2>
+              <h2 className="ffh-h18-h2">2,500+ active users, 20+ countries</h2>
               <p className="ffh-h18-text">
                 Retail chains, manufacturers, banks and project firms run their month on FFH|ERP. The records are the same
                 whoever opens them — counter, site, warehouse or head office.

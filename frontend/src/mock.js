@@ -187,7 +187,7 @@ export const SERVING_BRANDS = [
 export const ABOUT_US = {
   title: "One platform, built by people who run businesses",
   intro:
-    "FFH|ERP is a product of KrisKross Inc. For over three decades we have helped growing companies in India and across 20+ countries replace scattered spreadsheets and disconnected tools with one connected system for sales, marketing, finance, AMC, support and projects.",
+    "FFH|ERP is a product of KrisKross Inc. For fourteen years we have helped growing companies in India and across 20+ countries replace scattered spreadsheets and disconnected tools with one connected system for sales, marketing, finance, AMC, support and projects.",
   vision: {
     icon: "Eye",
     title: "Our Vision",
@@ -213,7 +213,7 @@ export const TEAM = [
     name: "Suresh Ramachandran",
     role: "Chief Executive Officer",
     img: 12,
-    bio: "28 years building and scaling enterprise software businesses across India, the Gulf and South-East Asia.",
+    bio: "14 years building and scaling enterprise software businesses across India, the Gulf and South-East Asia.",
   },
   {
     name: "Deepa Krishnan",
@@ -241,30 +241,30 @@ export const TEAM = [
 // PLACEHOLDERS alongside TEAM above — replace with the real history.
 // ---------------------------------------------------------------------------
 export const ABOUT_ALT = {
-  title: "Three decades of building software",
+  title: "Fourteen years of building software",
   titleAccent: "that runs businesses",
   lead:
-    "From a two-room office in Chennai to 350,000 businesses across 20+ countries — how FFH|ERP grew, what we believe, and who is accountable for it today.",
+    "From a two-room office in Chennai to 2,500+ active users across 20+ countries — how FFH|ERP grew, what we believe, and who is accountable for it today.",
   stats: [
-    { value: "1994", label: "Founded" },
+    { value: "2012", label: "Founded" },
     { value: "2.5K+", label: "Active users" },
     { value: "20+", label: "Countries" },
     { value: "250+", label: "Team members" },
   ],
   facts: [
-    { k: "Founded", v: "1994 · Chennai, India" },
+    { k: "Founded", v: "2012 · Chennai, India" },
     { k: "Offices", v: "Chennai · Dubai · Singapore" },
     { k: "Team", v: "250+ across engineering, delivery & support" },
-    { k: "Customers", v: "350,000+ businesses in 20+ countries" },
+    { k: "Customers", v: "2,500+ active users in 20+ countries" },
     { k: "Product", v: "FFH|ERP — nine modules, one platform" },
     { k: "Support", v: "24/7 helpdesk in six languages" },
   ],
   story: [
-    { year: "1994", title: "The first invoice", text: "KrisKross Inc. begins by writing billing software for neighbourhood retailers in Chennai." },
-    { year: "2003", title: "From billing to business", text: "Inventory, purchase and accounts join the platform — our first true ERP release." },
-    { year: "2012", title: "Beyond India", text: "Customers in the Gulf and South-East Asia take the product international." },
-    { year: "2019", title: "Mobile-first", text: "Field teams start running the entire sales cycle from a phone — offline included." },
-    { year: "2025", title: "One connected platform", text: "Sales, marketing, finance, AMC, support and projects run in a single system for 350,000+ businesses." },
+    { year: "2012", title: "The first invoice", text: "KrisKross Inc. begins by writing billing software for neighbourhood retailers in Chennai." },
+    { year: "2015", title: "From billing to business", text: "Inventory, purchase and accounts join the platform — our first true ERP release." },
+    { year: "2018", title: "Beyond India", text: "Customers in the Gulf and South-East Asia take the product international." },
+    { year: "2021", title: "Mobile-first", text: "Field teams start running the entire sales cycle from a phone — offline included." },
+    { year: "2025", title: "One connected platform", text: "Sales, marketing, finance, AMC, support and projects run in a single system for 2,500+ active users." },
   ],
   vision: {
     title: "Our Vision",
@@ -301,9 +301,9 @@ export const ABOUT_3 = {
   title: "We build the system that businesses",
   titleAccent: "run on",
   lead:
-    "FFH|ERP is the product of three decades spent inside Indian businesses — retail counters, showrooms, workshops and project sites. We build for how work actually happens, not how a slide deck says it should.",
+    "FFH|ERP is the product of fourteen years spent inside Indian businesses — retail counters, showrooms, workshops and project sites. We build for how work actually happens, not how a slide deck says it should.",
   narrative: [
-    "KrisKross Inc. started in 1994 writing billing software for retailers in Chennai. Thirty years later the same team ships FFH|ERP: nine connected modules that carry a business from the first enquiry to the final invoice without a spreadsheet in between.",
+    "KrisKross Inc. started in 2012 writing billing software for retailers in Chennai. Fourteen years later the same team ships FFH|ERP: nine connected modules that carry a business from the first enquiry to the final invoice without a spreadsheet in between.",
     "We are deliberately unfashionable about a few things. Our customers run showrooms with patchy networks and teams that are not technical — so the software works offline, installs in a day, and is priced where a growing company can actually afford it.",
   ],
   highlights: [
@@ -331,7 +331,7 @@ export const ABOUT_4 = {
   lead:
     "One platform for sales, marketing, finance, AMC, support and projects — with the numbers a management team needs, in the pocket of the person who needs them.",
   numbers: [
-    { value: "1994", label: "Building business software since" },
+    { value: "2012", label: "Building business software since" },
     { value: "2.5K+", label: "Active users" },
     { value: "10,000+", label: "Active installations" },
     { value: "100+", label: "Awards & recognitions" },
@@ -342,8 +342,8 @@ export const ABOUT_4 = {
     { icon: "Workflow", title: "Fits how you already work", text: "Configurable stages, formats and approval flows — your quotation and invoice layouts included — without a six-month project." },
   ],
   recognitions: [
-    "30+ years in business software",
-    "350,000+ businesses served",
+    "14 years in business software",
+    "2,500+ active users",
     "20+ countries",
     "24/7 support in six languages",
     "Nine connected modules",
@@ -373,7 +373,7 @@ export const HOME3_HERO = {
   titleLead: "Every lead, order, rupee and ticket",
   titleAccent: "in one system",
   lead:
-    "Nine connected modules for sales, marketing, finance, AMC, support and projects — trusted by 350,000+ businesses in 20+ countries.",
+    "Nine connected modules for sales, marketing, finance, AMC, support and projects — trusted by 2,500+ active users in 20+ countries.",
   stats: [
     { value: "9", label: "Business tools" },
     { value: "2.5K+", label: "Active users" },
@@ -420,9 +420,9 @@ export const HOME6_HERO = {
   titleLead: "Run the trial on your real numbers,",
   titleAccent: "not on a demo",
   lead:
-    "Start today with the same system 350,000+ businesses run on. No credit card, no lock-in — and a human on the phone while you set up.",
+    "Start today with the same system 2,500+ active users run on. No credit card, no lock-in — and a human on the phone while you set up.",
   chips: ["No credit card", "Setup in a day", "Data hosted in India", "24/7 support"],
-  trust: ["ISO 27001 aligned", "GST & e-invoicing ready", "350,000+ businesses", "20+ countries"],
+  trust: ["ISO 27001 aligned", "GST & e-invoicing ready", "2,500+ active users", "20+ countries"],
 };
 
 export const HOME7_HERO = {
@@ -434,7 +434,7 @@ export const HOME7_HERO = {
   points: [
     { value: "9", label: "Business tools in one platform" },
     { value: "2.5K+", label: "Active users on it today" },
-    { value: "30+", label: "Years building business software" },
+    { value: "14", label: "Years building business software" },
   ],
   trust: ["No credit card required", "Setup in a day", "24/7 support in six languages"],
 };
@@ -482,7 +482,7 @@ export const HOME10_HERO = {
   lead:
     "Sales, purchase, billing, spend, AMC, support, work, projects and market — nine parts of the same business, finally reading from the same records.",
   ribbon: [
-    { value: "1994", label: "Building business software since" },
+    { value: "2012", label: "Building business software since" },
     { value: "2.5K+", label: "Active users" },
     { value: "10,000+", label: "Active installations" },
     { value: "24/7", label: "Support, six languages" },
@@ -499,7 +499,7 @@ export const HOME11_HERO = {
   stats: [
     { value: "9", label: "Connected modules" },
     { value: "2.5K+", label: "Active users" },
-    { value: "30+", label: "Years in the industry" },
+    { value: "14", label: "Years in the industry" },
   ],
   trust: ["No credit card required", "Data hosted in India", "Cancel any time"],
   story: {
@@ -535,7 +535,7 @@ export const HOME13_HERO = {
   lead:
     "Nine tools, one platform, one login — built in India for growing companies that would rather sell than reconcile spreadsheets.",
   ribbon: [
-    { value: "1994", label: "Building business software since" },
+    { value: "2012", label: "Building business software since" },
     { value: "2.5K+", label: "Active users" },
     { value: "20+", label: "Countries" },
     { value: "100+", label: "Awards & recognitions" },
@@ -573,7 +573,7 @@ export const HOME15_HERO = {
   tiles: [
     { value: "9", label: "Connected modules" },
     { value: "2.5K+", label: "Active users" },
-    { value: "30+", label: "Years in the industry" },
+    { value: "14", label: "Years in the industry" },
   ],
   barsCaption: "Market · Sales · Purchase · Bill · Spend · AMC · Support · Work · Project",
   trust: ["No credit card required", "Data hosted in India", "Cancel any time"],
@@ -588,10 +588,10 @@ export const ABOUT_5 = {
   titleLead: "Why we build software for the people",
   titleAccent: "who run the shop",
   lead:
-    "Thirty years of listening to shop owners, plant managers and service engineers taught us one thing: software should carry the work, not add to it.",
+    "Fourteen years of listening to shop owners, plant managers and service engineers taught us one thing: software should carry the work, not add to it.",
   letter: [
-    "When we started in 1994 we were writing billing software for retailers in Chennai, and the brief was always the same: give me back my evening. Not a dashboard, not a report — an evening without reconciling registers.",
-    "Thirty years later that is still the measure. Every module we add has to remove more work than it creates, or it does not ship. That is why the product works offline, why the pricing is printed on the website, and why nobody here is paid to sell you a licence you do not need.",
+    "When we started in 2012 we were writing billing software for retailers in Chennai, and the brief was always the same: give me back my evening. Not a dashboard, not a report — an evening without reconciling registers.",
+    "Fourteen years later that is still the measure. Every module we add has to remove more work than it creates, or it does not ship. That is why the product works offline, why the pricing is printed on the website, and why nobody here is paid to sell you a licence you do not need.",
     "If you run a business, you already have enough to hold in your head. Our job is to hold the rest.",
   ],
   signature: "Suresh Ramachandran · Chief Executive Officer",
@@ -599,7 +599,7 @@ export const ABOUT_5 = {
 
 export const ABOUT_6 = {
   eyebrow: "Our journey",
-  titleLead: "Thirty years, one direction:",
+  titleLead: "Fourteen years, one direction:",
   titleAccent: "make it simpler",
   lead: "From a billing package written for Chennai retailers to nine connected modules used in 20+ countries.",
   next: [
@@ -623,7 +623,7 @@ export const ABOUT_8 = {
   titleAccent: "one promise",
   lead: "That the numbers a business owner sees are the numbers the business is actually running on.",
   statement: [
-    "FFH|ERP is a product of KrisKross Inc., founded in Chennai in 1994. We have spent three decades inside Indian businesses — retail counters, showrooms, workshops and project sites — and we still write software for the person who has to close the register at nine in the evening.",
+    "FFH|ERP is a product of KrisKross Inc., founded in Chennai in 2012. We have spent fourteen years inside Indian businesses — retail counters, showrooms, workshops and project sites — and we still write software for the person who has to close the register at nine in the evening.",
     "We are deliberately unfashionable about a few things: the product works offline, it installs in a day, the price is on the website and the data stays in India. Those are not features. They are the terms on which we do business.",
   ],
 };
@@ -640,10 +640,10 @@ export const ABOUT_10 = {
   eyebrow: "About FFH|ERP",
   titleLead: "The company,",
   titleAccent: "by the numbers",
-  lead: "Three decades of building business software in India, measured the only way that matters: what it does for the people using it.",
+  lead: "Fourteen years of building business software in India, measured the only way that matters: what it does for the people using it.",
   metrics: [
-    { value: "1994", label: "Founded in Chennai" },
-    { value: "30+", label: "Years in business software" },
+    { value: "2012", label: "Founded in Chennai" },
+    { value: "14", label: "Years in business software" },
     { value: "2.5K+", label: "Active users" },
     { value: "10,000+", label: "Active installations" },
     { value: "20+", label: "Countries" },
@@ -661,7 +661,7 @@ export const HOME16_HERO = {
   titleAccent: "from first call to final invoice",
   lead:
     "FFH|ERP brings sales, marketing, finance, AMC, support and projects into one system — so your team stops switching tabs and starts closing.",
-  trust: ["No credit card required", "Setup in a day", "350,000+ businesses"],
+  trust: ["No credit card required", "Setup in a day", "2,500+ active users"],
   services: [
     { icon: "Megaphone", title: "Sales & marketing", text: "Capture every enquiry, run follow-ups automatically and watch the pipeline move in real time." },
     { icon: "ReceiptText", title: "Finance & billing", text: "Quotations, invoices, receivables and approvals from the same records your team sells on." },
@@ -676,7 +676,7 @@ export const HOME16_HERO = {
     ],
     resources: [
       { label: "About us", desc: "Who runs FFH|ERP", target: "/about" },
-      { label: "Our journey", desc: "Thirty years, one direction", target: "/about6" },
+      { label: "Our journey", desc: "Fourteen years, one direction", target: "/about6" },
       { label: "Leadership", desc: "The people answerable", target: "/about9" },
       { label: "Case studies", desc: "What customers say", target: "#testimonials" },
     ],
@@ -754,7 +754,7 @@ export const HOME18 = {
     workstation: { id: 60, caption: "Field and office teams on the same records" },
     invoices: { id: 431, caption: "Invoices, receipts and approvals in one place" },
     planning: { id: 20, caption: "Planning the month on live numbers" },
-    skyline: { id: 1067, caption: "350,000+ businesses across 20+ countries" },
+    skyline: { id: 1067, caption: "2,500+ active users across 20+ countries" },
   },
 };
 
@@ -815,7 +815,7 @@ export const HOME21 = {
   titleAccent: "growing businesses",
   lead:
     "Sales, purchase, billing, spend, AMC, support, work and projects on one database — with dashboards your team actually opens.",
-  proof: { rating: "4.8/5", note: "from 2,100+ reviews", clients: "350,000+ businesses" },
+  proof: { rating: "4.8/5", note: "from 2,100+ reviews", clients: "2,500+ active users" },
   bento: [
     { icon: "Radar", title: "Live pipeline", text: "Every enquiry, quote and follow-up in one board, updated as the work happens.", span: "wide" },
     { icon: "Wallet", title: "Money in one place", text: "Invoices, receivables and approvals from the same records you sell on." },
@@ -911,7 +911,7 @@ export const HOME25 = {
   ],
   stats: [
     { value: "2.5K+", label: "Active users" },
-    { value: "30+", label: "Years" },
+    { value: "14", label: "Years" },
     { value: "99.98%", label: "Uptime" },
   ],
 };
@@ -1041,11 +1041,11 @@ export const HOME28 = {
   aboutTitleA: "We are an ERP team that has run",
   aboutTitleB: "the businesses we build for",
   aboutText:
-    "Thirty years of implementations across manufacturing, retail, healthcare and services. We think like operators and build like engineers.",
+    "Fourteen years of implementations across manufacturing, retail, healthcare and services. We think like operators and build like engineers.",
   stats: [
-    { value: 30, suffix: "+", label: "Years of experience" },
+    { value: 14, suffix: "+", label: "Years of experience" },
     { value: 250, suffix: "+", label: "Projects delivered" },
-    { value: 350, suffix: "K+", label: "Businesses served" },
+    { value: 2500, suffix: "+", label: "Active users" },
     { value: 98, suffix: "%", label: "Client satisfaction" },
   ],
   portfolioTitleA: "See what we have built that",
@@ -1079,7 +1079,7 @@ export const HOME28 = {
   teamTitleA: "Superb software starts with",
   teamTitleB: "our people",
   team: [
-    { name: "Ethan Reynolds", role: "Chief Executive Officer", text: "Thirty years of implementations across manufacturing and retail.", img: 12 },
+    { name: "Ethan Reynolds", role: "Chief Executive Officer", text: "Fourteen years of implementations across manufacturing and retail.", img: 12 },
     { name: "Mason Brooks", role: "Chief Operating Officer", text: "Runs delivery, migration and the support desk across six languages.", img: 14 },
     { name: "James Reynolds", role: "Chief Technology Officer", text: "Owns the platform: one database, nine modules, no forks.", img: 18 },
     { name: "Mason Clark", role: "Head of Marketing", text: "Tells the customer stories and runs the partner network.", img: 60 },
@@ -1113,9 +1113,9 @@ export const HOME29 = {
   },
   about: {
     title: "About us",
-    text: "Thirty years of implementations across manufacturing, retail, healthcare and services. Nine modules, one database, no forks.",
+    text: "Fourteen years of implementations across manufacturing, retail, healthcare and services. Nine modules, one database, no forks.",
     stats: [
-      { value: "30+", label: "Years of experience" },
+      { value: "14", label: "Years of experience" },
       { value: "250+", label: "Projects delivered" },
       { value: "2.5K+", label: "Active users" },
       { value: "98%", label: "Client satisfaction" },
@@ -1176,14 +1176,14 @@ export const HOME30 = {
   titleA: "The complete",
   titleB: "business system",
   rating: "4.9 / 5.0",
-  ratingText: "Top-rated ERP platform, trusted by 350,000+ businesses worldwide.",
+  ratingText: "Top-rated ERP platform, trusted by 2,500+ active users worldwide.",
   lead:
     "We believe great businesses don't run on guesswork. Nine modules on one database turn the day's work into numbers you can act on — and leave nothing to reconcile at month end.",
   cta: "Let's get started",
   stats: [
     { value: "45K+", label: "Projects delivered", note: "Enhance your operations", text: "High-impact deployments across manufacturing, retail, healthcare and services." },
-    { value: "215K+", label: "Happy customers", note: "Trusted worldwide", text: "Businesses that run their day on FFH|ERP, in more than 20 countries." },
-    { value: "35+", label: "Years in software", note: "Built to last", text: "Three decades of implementations, migrations and month-end closes." },
+    { value: "2.5K+", label: "Active users", note: "Trusted worldwide", text: "Businesses that run their day on FFH|ERP, in more than 20 countries." },
+    { value: "14", label: "Years in software", note: "Built to last", text: "Fourteen years of implementations, migrations and month-end closes." },
     { value: "25+", label: "Industry awards", note: "Recognised work", text: "For product design, delivery and customer support." },
   ],
   services: [
@@ -1219,7 +1219,7 @@ export const HOME31 = {
   titleB: "with one system",
   lead:
     "FFH|ERP helps growing teams replace the spreadsheet estate with one platform — tailored modules, live numbers, and a team that stays with you from strategy to go-live.",
-  trust: { note: "Trusted by 200+ clients", brands: "Loved by 350,000+ big and small businesses around the world" },
+  trust: { note: "Trusted by 200+ clients", brands: "Loved by 2,500+ active users around the world" },
   chips: [
     { label: "Clarity", tone: "lavender", text: "One dashboard for the numbers that matter, refreshed as the work happens." },
     { label: "Control", tone: "blue", text: "Approvals, audit trails and role-based access on every record." },
@@ -1336,7 +1336,7 @@ export const HOME36 = {
   titleB: "not last month's report",
   lead: "Pipeline, collections, AMC renewals and service tickets update as the work happens — so the number on your screen is the number in the business.",
   ctaMain: "Start free trial",
-  stat: { lead: "Serving", a: "2.5K", mid: "active users for", b: "21", tail: "years" },
+  stat: { lead: "Serving", a: "2.5K", mid: "active users for", b: "14", tail: "years" },
   syncTitleA: "Your business is",
   syncTitleB: "more than a spreadsheet.",
   syncCopy:
