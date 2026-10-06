@@ -1,0 +1,225 @@
+================================================================================
+FFH|ERP WEBSITE — API INTEGRATION RECORD
+================================================================================
+File      : webapp_ffherp/data/apis_data.txt
+Owner     : FFH|ERP web team
+Purpose   : Single source of truth for every API call the website makes, and a
+            running log of every change made to those calls.
+
+HOW TO USE THIS FILE
+  * Section 2 is the frozen payload contract. Nothing in it may be renamed,
+    reordered or re-valued unless the CRM team says so.
+  * Section 3 lists the fields the website fills in, and where the value
+    comes from.
+  * Section 7 is the change log. EVERY change to any API call must get a new
+    dated entry here — including field additions, token/flag changes, endpoint
+    changes and error-handling changes.
+
+================================================================================
+1. ENDPOINT
+================================================================================
+  Base URL   : https://api.ffherp.co.in/api/
+  Path       : Webhook/IncomingWebhookForProspect
+  Method     : POST
+  Headers    : Content-Type: application/json
+  Success    : the response body is exactly the text  SUCCESS   (HTTP 200)
+  Failure    : any other body, any non-2xx status, a network error, CORS
+               rejection, or no response within 15 seconds.
+
+  CORS verified 2026-10-06 from Origin https://vinayhvaghamshi.github.io :
+      access-control-allow-origin: *
+      access-control-allow-headers: content-type
+  so the browser can call the endpoint directly (no proxy needed).
+
+================================================================================
+2. PAYLOAD CONTRACT (frozen — exactly as supplied by the CRM team)
+================================================================================
+  {
+    "leadid": "",                 // Any document no which client maintain for reference.
+    "leadtype": "30",             // Any source value which is available in CRM.
+    "prefix": "",                 // Contact title like Mr., Mrs etc.
+    "company": "",                // << filled by the website, see section 3
+    "name": "",                   // << filled by the website
+    "mobile": "",                 // << filled by the website
+    "phone": "",
+    "email": "",                  // << filled by the website
+    "date": "yyyy-mm-dd",         // formatDate(new Date()) — local date
+    "ProductCode": "",            // Description message
+    "area": "",
+    "city": "",
+    "brancharea": "",
+    "pincode": "",
+    "time": "",
+    "Customerid": "14225",        // DO NOT CHANGE THIS ID.
+    "token": "",                  // Module name — "signup" or "chat"
+    "ProdServType": "",           // Available service type in CRM.
+    "parentid": "kk192"           // DO NOT CHANGE THIS ID.
+  }
+
+  Fixed values that must never change : leadtype "30", Customerid "14225",
+  parentid "kk192", and the empty strings for leadid, prefix, phone, area,
+  city, brancharea, pincode and time.
+
+================================================================================
+3. MODULES — the `token` flag
+================================================================================
+  --------------------------------------------------------------------------
+  token = "signup"   (free-trial signup form)
+  --------------------------------------------------------------------------
+    company      <- the "Company name" typed in the signup form
+                    (this field replaced the old Password box on 2026-10-06)
+    name         <- "Full name"
+    mobile       <- country code + "Mobile number", e.g. "+91 9820011111"
+    email        <- "Work email"
+    date         <- today, yyyy-mm-dd
+    ProductCode  <- "Free trial signup from the website"  (the form collects
+                    no message of its own, so a fixed description is sent)
+    ProdServType <- ""  (the form collects no service type)
+    Everything else: per section 2.
+
+  --------------------------------------------------------------------------
+  token = "chat"     (floating customer-support widget)
+  --------------------------------------------------------------------------
+    company      <- the "Department" chosen in the chat form
+                    (department is stored in the company field, as instructed)
+    name         <- "Full name"
+    mobile       <- ""  (the chat form does not ask for a phone number)
+    email        <- "Email address"
+    date         <- today, yyyy-mm-dd
+    ProductCode  <- the "Message" box (the description message)
+    ProdServType <- ""
+    Everything else: per section 2.
+
+================================================================================
+4. ORIGINAL SPECIFICATION (verbatim, unchanged)
+================================================================================
+  function formatDate(date) {
+      var year = date.getFullYear();
+      var month = String(date.getMonth() + 1).padStart(2, '0');
+      var day = String(date.getDate()).padStart(2, '0');
+      return year + '-' + month + '-' + day;
+  }
+
+  var formData = {
+      "leadid": "",       //Any document no which client maintain for reference.
+      "leadtype": "30",   //Any soure value which is available in CRM
+      "prefix": "",       //It will contact title like Mr.,Mrs etc
+      "company": "",
+      "name": Name,
+      "mobile": Mobile,
+      "phone": "",
+      "email": Email,
+      "date": formatDate(new Date()),
+      "ProductCode": Message,      // Description message
+      "area": "",
+      "city": "",
+      "brancharea": "",
+      "pincode": "",
+      "time": "",
+      "Customerid": "14225",       //Do not change this ID.
+      "token": flag,               // Module name (Prospect/Ticket)
+      "ProdServType": InterestedIn,//Available service type in CRM
+      "parentid":"kk192"           //Do not change this ID.
+  };
+  var jsonData = JSON.stringify(formData);
+
+  var appStr = "https://api.ffherp.co.in/api/";
+  var urlString = appStr + "Webhook/IncomingWebhookForProspect";
+
+  $.ajax({
+      url: urlString,
+      type: 'POST',
+      data: jsonData,
+      contentType: 'application/json',
+      success: function (response) {
+          console.log("Response: ", response);
+          if (response === "SUCCESS") {
+              alert("Data sent successfully!");
+          } else {
+              alert("Error in saving data!");
+          }
+      },
+      error: function (xhr, status, error) {
+          console.error("Error: ", status, error, xhr.responseText);
+          alert("Error sending data: " + error);
+      }
+  });
+
+  Notes on the port to the React app:
+    * The endpoint, headers, payload keys, values and the "SUCCESS" check are
+      unchanged. jQuery is not used — the same request is made with fetch().
+    * alert() is replaced by the site's own toasts and inline messages so the
+      visitor is not interrupted; the branch logic (SUCCESS vs not) is the same.
+    * A 15 second timeout was added so a hanging request cannot lock the form.
+    * The visitor's form is only cleared after a SUCCESS answer; on failure the
+      typed values stay put so they can retry.
+
+================================================================================
+5. IMPLEMENTATION MAP (where the code lives)
+================================================================================
+  frontend/src/api/ffhWebhook.js
+      FFH_WEBHOOK_URL, FFH_SUCCESS, FFH_TIMEOUT_MS
+      formatDate(date)                      — the spec's date helper
+      buildProspectPayload({...})           — builds section 2 exactly
+      sendProspect(payload)                 — POST + "SUCCESS" check, never throws
+  frontend/src/components/site/TwSignupForm.jsx   — token "signup"
+  frontend/src/components/site/SupportChat.jsx    — token "chat"
+
+================================================================================
+6. BEHAVIOUR ON RESPONSE
+================================================================================
+  body === "SUCCESS"            Signup : toast "Your 7-day free trial is ready!"
+                                        + form reset + CRM activity log entry
+                                Chat   : success card + "Start a new chat"
+  anything else / non-2xx       Inline message "We could not save this just now.
+                                Please try again." + toast with status/body.
+                                The form keeps the typed values.
+  network / CORS / timeout      Inline message "The server did not respond.
+                                Please try again." (timeout after 15s)
+  Local back-up                 Successful submissions are also kept in the
+                                browser (ffh_signups / ffh_support_threads) purely
+                                to power the "Saved details" auto-fill in the chat
+                                widget. The CRM remains the system of record.
+
+================================================================================
+7. CHANGE LOG  (newest first — every API change gets an entry here)
+================================================================================
+  2026-10-06  Captured-request verification (browser, stubbed transport so no
+              test records land in the CRM):
+                signup -> {"company":"NovaFin Pvt Ltd","name":"Nikhil Rao",
+                  "mobile":"+91 9820022222","email":"nikhil@novafin.in",
+                  "date":"2026-10-06","ProductCode":"Free trial signup from the
+                  website","token":"signup", ...fixed fields...}   PASS
+                chat   -> {"company":"Billing","name":"Anjali Mehta","mobile":"",
+                  "email":"anjali@acme.in","date":"2026-10-06","ProductCode":
+                  "Invoice INV-1042 needs a GST fix.","token":"chat",
+                  ...fixed fields...}                              PASS
+              Key order in both matches section 2 byte for byte. A reply other
+              than SUCCESS produced the inline message "We could not send this
+              just now. Please try again.", kept the typed values and raised the
+              error toast. NOTE: one empty `{}` probe was sent to the endpoint
+              while checking reachability — it answered SUCCESS, so an empty
+              prospect may exist in the CRM from 2026-10-06 and can be deleted.
+
+  2026-10-06  Signup form: "Password" replaced by "Company name" (text box).
+              Password state, validation and the show/hide eye toggle removed.
+              Payload now sent with token "signup" and company = company name.
+              Validation: company is required (no minimum length).
+
+  2026-10-06  Chat widget: submissions now POST to the endpoint with token
+              "chat" and company = the selected Department. mobile sent as "",
+              ProductCode = the Message box. Sends only after a valid email and
+              department are chosen (unchanged rules).
+
+  2026-10-06  Both calls: added via the shared client
+              (frontend/src/api/ffhWebhook.js). Endpoint, headers, payload keys,
+              fixed IDs and the "SUCCESS" check are exactly per section 2/4.
+              Added a 15s timeout; alert() replaced by toasts + inline errors.
+
+  2026-10-06  Endpoint verified reachable and CORS-open from the GitHub Pages
+              origin (OPTIONS preflight and a POST probe both answered 200;
+              the POST body was `{}` and the server replied SUCCESS).
+
+================================================================================
+END OF FILE
+================================================================================

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Check, ChevronDown, ChevronLeft, Headphones, MessageCircle, Send, User, X } from "lucide-react";
 import { toast } from "sonner";
+import { buildProspectPayload, sendProspect } from "../../api/ffhWebhook";
 
 // Floating customer-support widget, modelled on the SalesIQ layout: a round
 // bubble that opens a titled panel with the logo, a short form (email and
@@ -17,6 +18,7 @@ export default function SupportChat() {
   const [sent, setSent] = useState(false);
   const [f, setF] = useState(EMPTY);
   const [errors, setErrors] = useState({});
+  const [sending, setSending] = useState(false);
   const [saved, setSaved] = useState([]);
   const [picked, setPicked] = useState("");
   const firstField = useRef(null);
@@ -98,16 +100,35 @@ export default function SupportChat() {
     if (!f.department) err.department = "Please choose a department.";
     setErrors(err);
     if (Object.keys(err).length) return;
-    try {
-      const key = "ffh_support_threads";
-      const prev = JSON.parse(localStorage.getItem(key) || "[]");
-      prev.push({ ...f, at: new Date().toISOString() });
-      localStorage.setItem(key, JSON.stringify(prev));
-    } catch (_) { /* storage may be unavailable; the toast still confirms */ }
-    setPicked(f.email);
-    loadSaved();
-    setSent(true);
-    toast.success("Message received — our team will get back to you.");
+    // token "chat" — the department travels in `company` (see data/apis_data.txt)
+    const payload = buildProspectPayload({
+      token: "chat",
+      company: f.department,
+      name: f.name.trim(),
+      mobile: "",
+      email: f.email.trim(),
+      message: f.message.trim(),
+      interestedIn: "",
+    });
+    setSending(true);
+    sendProspect(payload).then((r) => {
+      setSending(false);
+      if (!r.ok) {
+        setErrors({ email: r.error === "timeout" ? "The server did not respond. Please try again." : "We could not send this just now. Please try again." });
+        toast.error("Could not reach the CRM", { description: `Status ${r.status || "—"} ${r.error || r.body || ""}`.trim() });
+        return;
+      }
+      try {
+        const key = "ffh_support_threads";
+        const prev = JSON.parse(localStorage.getItem(key) || "[]");
+        prev.push({ ...f, at: new Date().toISOString() });
+        localStorage.setItem(key, JSON.stringify(prev));
+      } catch (_) { /* storage may be unavailable; the toast still confirms */ }
+      setPicked(f.email);
+      loadSaved();
+      setSent(true);
+      toast.success("Message received — our team will get back to you.");
+    });
   };
 
   const restart = () => { setF(EMPTY); setErrors({}); setSent(false); };
@@ -213,10 +234,10 @@ export default function SupportChat() {
               <textarea id="support-message" data-testid="support-message" rows={3} value={f.message} onChange={set("message")}
                 className={`${field} resize-none`} placeholder="Type your message and hit 'Start Chat'" />
             </div>
-            <button type="submit" data-testid="support-submit"
+            <button type="submit" data-testid="support-submit" disabled={sending}
               className="group mt-5 flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-[14.5px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
               style={{ background: "linear-gradient(135deg,#f7a52a,#f0452c)" }}>
-              <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />Start Chat
+              <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />{sending ? "Sending…" : "Start Chat"}
             </button>
             <p className="mt-3 flex items-center justify-center gap-1.5 text-[12px] text-slate-400">
               <Headphones className="h-3.5 w-3.5" />Driven by <strong className="font-semibold text-slate-500">FFH|ERP Support</strong>
