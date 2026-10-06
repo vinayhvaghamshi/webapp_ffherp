@@ -53,7 +53,7 @@ HOW TO USE THIS FILE
     "Customerid": "14225",        // DO NOT CHANGE THIS ID.
     "token": "",                  // Module name — "signup" or "chat"
     "ProdServType": "",           // Available service type in CRM.
-    "parentid": "kk192"           // DO NOT CHANGE THIS ID. Given by Manshi mam.
+    "parentid": "kk192"           // DO NOT CHANGE THIS ID. Given by Manshi Chandra mam.
   }
 
   Fixed values that must never change : leadtype "30", Customerid "14225",
@@ -61,10 +61,11 @@ HOW TO USE THIS FILE
   city, brancharea, pincode and time.
 
   SOURCE OF THE FIXED IDs
-    * parentid "kk192"  — given by MANSHI MAM (CRM team). Keep it exactly as
-                          supplied: do not change it, regenerate it, make it
-                          configurable, or send an empty value in its place.
-                          It is required on every call, both signup and chat.
+    * parentid "kk192"  — given / changed by MANSHI CHANDRA MAM (CRM team).
+                          Keep it exactly as supplied: do not change it,
+                          regenerate it, make it configurable, or send an empty
+                          value in its place. It is required on every call,
+                          both signup and chat.
     * Customerid "14225" — likewise supplied by the CRM team, do not change.
 
 ================================================================================
@@ -191,9 +192,10 @@ HOW TO USE THIS FILE
 ================================================================================
 7. CHANGE LOG  (newest first — every API change gets an entry here)
 ================================================================================
-  2026-10-06  Documentation: recorded that the fixed parentid "kk192" was given
-              by Manshi mam (CRM team). Value and behaviour unchanged on both
-              calls (signup and chat); this entry is a note only.
+  2026-10-06  Documentation: name corrected to Manshi Chandra mam (the fixed
+              parentid "kk192" was given / changed by her). Value and behaviour
+              unchanged on both calls (signup and chat); note only. Supersedes
+              the earlier entry that recorded the short name "Manshi mam".
 
   2026-10-06  Captured-request verification (browser, stubbed transport so no
               test records land in the CRM):
