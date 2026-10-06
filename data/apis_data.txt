@@ -163,7 +163,157 @@ HOW TO USE THIS FILE
       typed values stay put so they can retry.
 
 ================================================================================
-5. IMPLEMENTATION MAP (where the code lives)
+5. FULL REQUEST RECORDS  (the complete request + response for both calls)
+================================================================================
+  These are real captures taken from the running site on 2026-10-06 (the
+  transport was stubbed during the check, so the CRM received nothing). The
+  values below are test values — a live submission carries the visitor's own
+  values — but the URL, method, headers, key set, key order and fixed values are
+  exactly what the website sends.
+
+  How to read a record
+      <request line>
+      <headers>
+      <blank line>
+      <body, pretty-printed as well as on one line>
+      <response status/headers>
+      <response body>
+
+--------------------------------------------------------------------------------
+5.1  RECORD — token "signup"   (free-trial signup form on /home37)
+--------------------------------------------------------------------------------
+  REQUEST
+    POST /api/Webhook/IncomingWebhookForProspect HTTP/1.1
+    Host: api.ffherp.co.in
+    Content-Type: application/json
+    Origin: https://vinayhvaghamshi.github.io
+    Referer: https://vinayhvaghamshi.github.io/webapp_ffherp/home37
+
+  BODY (pretty)
+    {
+      "leadid": "",
+      "leadtype": "30",
+      "prefix": "",
+      "company": "Diag Co",
+      "name": "Diag User",
+      "mobile": "+91 9000000000",
+      "phone": "",
+      "email": "diag@example.com",
+      "date": "2026-10-06",
+      "ProductCode": "Free trial signup from the website",
+      "area": "",
+      "city": "",
+      "brancharea": "",
+      "pincode": "",
+      "time": "",
+      "Customerid": "14225",
+      "token": "signup",
+      "ProdServType": "",
+      "parentid": "kk192"
+    }
+
+  BODY (as sent, one line)
+    {"leadid":"","leadtype":"30","prefix":"","company":"Diag Co","name":"Diag User","mobile":"+91 9000000000","phone":"","email":"diag@example.com","date":"2026-10-06","ProductCode":"Free trial signup from the website","area":"","city":"","brancharea":"","pincode":"","time":"","Customerid":"14225","token":"signup","ProdServType":"","parentid":"kk192"}
+
+  RESPONSE (success)
+    HTTP/2 200
+    content-type: text/plain; charset=utf-8
+    SUCCESS
+
+  cURL equivalent
+    curl -i -X POST "https://api.ffherp.co.in/api/Webhook/IncomingWebhookForProspect" \
+      -H "Content-Type: application/json" \
+      --data '{"leadid":"","leadtype":"30","prefix":"","company":"Diag Co","name":"Diag User","mobile":"+91 9000000000","phone":"","email":"diag@example.com","date":"2026-10-06","ProductCode":"Free trial signup from the website","area":"","city":"","brancharea":"","pincode":"","time":"","Customerid":"14225","token":"signup","ProdServType":"","parentid":"kk192"}'
+
+--------------------------------------------------------------------------------
+5.2  RECORD — token "chat"     (floating support widget on /home37)
+--------------------------------------------------------------------------------
+  REQUEST
+    POST /api/Webhook/IncomingWebhookForProspect HTTP/1.1
+    Host: api.ffherp.co.in
+    Content-Type: application/json
+    Origin: https://vinayhvaghamshi.github.io
+    Referer: https://vinayhvaghamshi.github.io/webapp_ffherp/home37
+
+  BODY (pretty)
+    {
+      "leadid": "",
+      "leadtype": "30",
+      "prefix": "",
+      "company": "Support",
+      "name": "Live Chat",
+      "mobile": "",
+      "phone": "",
+      "email": "livechat@example.com",
+      "date": "2026-10-06",
+      "ProductCode": "Live wiring check.",
+      "area": "",
+      "city": "",
+      "brancharea": "",
+      "pincode": "",
+      "time": "",
+      "Customerid": "14225",
+      "token": "chat",
+      "ProdServType": "",
+      "parentid": "kk192"
+    }
+
+  BODY (as sent, one line)
+    {"leadid":"","leadtype":"30","prefix":"","company":"Support","name":"Live Chat","mobile":"","phone":"","email":"livechat@example.com","date":"2026-10-06","ProductCode":"Live wiring check.","area":"","city":"","brancharea":"","pincode":"","time":"","Customerid":"14225","token":"chat","ProdServType":"","parentid":"kk192"}
+
+  RESPONSE (success)
+    HTTP/2 200
+    content-type: text/plain; charset=utf-8
+    SUCCESS
+
+  cURL equivalent
+    curl -i -X POST "https://api.ffherp.co.in/api/Webhook/IncomingWebhookForProspect" \
+      -H "Content-Type: application/json" \
+      --data '{"leadid":"","leadtype":"30","prefix":"","company":"Support","name":"Live Chat","mobile":"","phone":"","email":"livechat@example.com","date":"2026-10-06","ProductCode":"Live wiring check.","area":"","city":"","brancharea":"","pincode":"","time":"","Customerid":"14225","token":"chat","ProdServType":"","parentid":"kk192"}'
+
+--------------------------------------------------------------------------------
+5.3  RECORD — reply that is not SUCCESS   (same endpoint, same body)
+--------------------------------------------------------------------------------
+  RESPONSE (failure)
+    HTTP/2 200
+    content-type: text/plain; charset=utf-8
+    ERROR in saving data
+
+  What the visitor sees
+    * inline message under Email address: "We could not send this just now.
+      Please try again." (or "The server did not respond. Please try again."
+      after the 15 second timeout)
+    * error toast: "Could not reach the CRM" with the status/body in the
+      description
+    * their typed values are kept so they can retry — nothing is cleared and the
+      success card is not shown.
+
+--------------------------------------------------------------------------------
+5.4  RECORD — origin check
+--------------------------------------------------------------------------------
+  OPTIONS preflight from the Pages origin
+    OPTIONS /api/Webhook/IncomingWebhookForProspect HTTP/1.1
+    Origin: https://vinayhvaghamshi.github.io
+    Access-Control-Request-Method: POST
+    Access-Control-Request-Headers: content-type
+
+    HTTP/2 200
+    access-control-allow-origin: *
+    access-control-allow-headers: content-type
+
+  So the browser may POST directly; no proxy or server-side hop is needed.
+
+--------------------------------------------------------------------------------
+5.5  HOW TO ADD FUTURE RECORDS
+--------------------------------------------------------------------------------
+  Copy the 5.1/5.2 shape, give it the next number, and state:
+      date + who asked for the change, the request line, every header actually
+      sent, the body exactly as sent (pretty + one line), the response status,
+      headers and body, and what the visitor sees on success and on failure.
+  Then add the matching entry to section 8.
+
+================================================================================
+6. IMPLEMENTATION MAP (where the code lives)
 ================================================================================
   frontend/src/api/ffhWebhook.js
       FFH_WEBHOOK_URL, FFH_SUCCESS, FFH_TIMEOUT_MS
@@ -174,7 +324,7 @@ HOW TO USE THIS FILE
   frontend/src/components/site/SupportChat.jsx    — token "chat"
 
 ================================================================================
-6. BEHAVIOUR ON RESPONSE
+7. BEHAVIOUR ON RESPONSE
 ================================================================================
   body === "SUCCESS"            Signup : toast "Your 7-day free trial is ready!"
                                         + form reset + CRM activity log entry
@@ -190,8 +340,14 @@ HOW TO USE THIS FILE
                                 widget. The CRM remains the system of record.
 
 ================================================================================
-7. CHANGE LOG  (newest first — every API change gets an entry here)
+8. CHANGE LOG  (newest first — every API change gets an entry here)
 ================================================================================
+  2026-10-06  Documentation: added section 5, the full request records for both
+              calls (signup and chat) - request line, headers, complete body
+              pretty and on one line, the SUCCESS reply, the non-SUCCESS reply,
+              the CORS preflight, ready-to-run cURL for each, and how to record
+              future captures. No code or payload value changed.
+
   2026-10-06  Documentation: name corrected to Manshi Chandra mam (the fixed
               parentid "kk192" was given / changed by her). Value and behaviour
               unchanged on both calls (signup and chat); note only. Supersedes
