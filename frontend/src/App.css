@@ -2187,3 +2187,7 @@ a { text-decoration: none; }
   .ffh-h37 .crm-body { min-height: 0; padding: 4px 10px 14px; }
   .ffh-h37 .crm-tabs { padding: 10px; }
 }
+
+/* Home layout 37 — a slower ticker (the shared 44s is tuned for home1) */
+.ffh-h37 .ffh-tools-track { animation-duration: 92s; }
+@media (prefers-reduced-motion: reduce) { .ffh-h37 .ffh-tools-track { animation: none; } }

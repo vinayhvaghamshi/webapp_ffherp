@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronDown, IndianRupee, Menu, Minus, Plus, Star, TrendingUp, Users, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronDown, Facebook, IndianRupee, Instagram, Linkedin, Menu, Minus, Plus, Star, TrendingUp, Twitter, Users, X, Youtube } from "lucide-react";
 import Icon from "./TwIcon";
 import { HOME37, HOME30, FAQS, PLANS, TOOLS, formatINR } from "../../mock";
 import { LiveCRMWindow } from "./LiveCRM";
@@ -40,6 +40,24 @@ const NAV = [
 ];
 
 
+// Simple geometric marks so each client card carries a logo, not just a wordmark.
+const BrandMark = ({ kind }) => (
+  <span className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-105"
+    style={{ background: CREAM, color: BRAND_DARK, border: `1px solid ${LINE}` }}>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      {kind === "star" && (<><circle cx="12" cy="12" r="9" /><path d="M12 12V3.6M12 12l-7.3 4.2M12 12l7.3 4.2" /></>)}
+      {kind === "force" && (<><rect x="3.5" y="3.5" width="17" height="17" rx="4" /><path d="M9.5 16.5V8h5M9.5 12.2h4" /></>)}
+      {kind === "shiji" && (<><path d="M4 19.5h16" /><path d="M7 19.5V13M12 19.5V9.5M17 19.5V5.5" /></>)}
+      {kind === "ada" && (<><path d="M12 3.2l7.6 4.6v8.4L12 20.8 4.4 16.2V7.8z" /><circle cx="12" cy="12" r="2.2" /></>)}
+      {kind === "arch" && (<><path d="M4 20h16" /><path d="M6.5 20v-6a5.5 5.5 0 0 1 11 0v6" /></>)}
+      {kind === "brick" && (<><rect x="3" y="6" width="18" height="5" rx="1" /><rect x="3" y="13" width="18" height="5" rx="1" /><path d="M9 6v5M15 13v5" /></>)}
+      {kind === "peak" && (<><path d="M3 19.5h18" /><path d="M5 19.5l6-9.5 3 4.2 2-2.8 3 8.1" /></>)}
+      {kind === "bag" && (<><path d="M5 8h14l-1.2 11.5H6.2z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></>)}
+      {kind === "orbit" && (<><circle cx="12" cy="12" r="3" /><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(-28 12 12)" /></>)}
+    </svg>
+  </span>
+);
+
 const Motif = ({ className = "" }) => (
   <span className={`ffh-h37-motif ${className}`} aria-hidden="true"><i /><i /><i /><i /></span>
 );
@@ -68,7 +86,7 @@ const Counter = ({ value }) => {
       io.disconnect();
       const t0 = performance.now();
       const tick = (t) => {
-        const p = Math.min((t - t0) / 1300, 1);
+        const p = Math.min((t - t0) / 2600, 1);   // slower roll-up
         setN(target * (1 - Math.pow(1 - p, 3)));
         if (p < 1) raf = requestAnimationFrame(tick);
       };
@@ -91,6 +109,17 @@ export default function Home37() {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [spot, setSpot] = useState({ x: 50, y: 50 });
   const [heroSpot, setHeroSpot] = useState({ x: 50, y: 20 });
+  // On touch screens a tap fires mouseenter before click, so hover-opening the
+  // accordion made the first tap close it again. Only bind hover where it exists.
+  const [canHover, setCanHover] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const sync = () => setCanHover(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
 
   useEffect(() => { document.title = "FFH|ERP — See today's business, not last month's report"; }, []);
   const go = (e, t) => { e.preventDefault(); setOpen(false); goTo(t); };
@@ -202,32 +231,32 @@ export default function Home37() {
       </section>
 
 {/* ---------- big "Let's get started" section (logo theme) ---------- */}
-      <section className="relative overflow-hidden border-y px-5 py-12 sm:px-8 sm:py-14"
+      <section className="relative overflow-hidden border-y px-5 py-16 sm:px-8 sm:py-20"
         style={{ borderColor: LINE, background: `linear-gradient(135deg, ${CREAM} 0%, #ffffff 45%, ${SOFT} 100%)` }} data-testid="home37-signup-section">
         <GridLines />
-        <div className="relative mx-auto grid max-w-5xl grid-cols-12 items-center gap-x-0 gap-y-8 lg:gap-x-10">
+        <div className="relative mx-auto grid max-w-5xl grid-cols-12 items-center gap-x-0 gap-y-14 lg:gap-x-14">
           <div className="col-span-12 lg:col-span-6">
             <Motif />
-            <h2 className="mt-4 text-3xl font-semibold leading-[1.02] tracking-[-0.03em] sm:text-4xl lg:text-[42px]" style={{ color: NAVY }}>
+            <h2 className="mt-6 text-3xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-4xl lg:text-[42px]" style={{ color: NAVY }}>
               Let's get started
             </h2>
-            <p className="mt-3 text-[15px] font-semibold" style={{ color: BRAND_DARK }}>
+            <p className="mt-4 text-[15px] font-semibold" style={{ color: BRAND_DARK }}>
               No credit card. Setup in a day. Cancel any time.
             </p>
-            <ul className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
+            <ul className="mt-8 grid grid-cols-1 gap-3.5 sm:grid-cols-2">
               {["Nine modules on one database", "We migrate your data with you", "Training for every team included", "Everything you enter stays yours"].map((b) => (
                 <li key={b} className="flex items-start gap-3 text-[15px]" style={{ color: "#4a5568" }}>
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: BRAND }} />{b}
                 </li>
               ))}
             </ul>
-            <div className="mt-6 flex flex-wrap items-center gap-4 text-[13px]" style={{ color: "#6b7280" }}>
+            <div className="mt-9 flex flex-wrap items-center gap-5 text-[13px]" style={{ color: "#6b7280" }}>
               <span className="flex text-amber-500">{[0, 1, 2, 3, 4].map((i) => <Star key={i} className="h-4 w-4 fill-current" />)}</span>
               <span><strong style={{ color: NAVY }}>4.9 / 5.0</strong> — {HOME37.rating.text}</span>
             </div>
           </div>
           <div className="col-span-12 flex justify-center lg:col-span-6 lg:justify-end">
-            <TwSignupForm variant="light" title="Create your account" />
+            <TwSignupForm variant="light" spacing="roomy" title="Create your account" />
           </div>
         </div>
       </section>
@@ -277,8 +306,9 @@ export default function Home37() {
             {HOME37.brands.map((b, i) => (
               <div key={b.name} className="reveal" style={{ transitionDelay: `${i * 40}ms` }}>
               <div data-testid={`home37-brand-${i}`}
-                className="group flex h-full min-h-[124px] flex-col items-center justify-center rounded-2xl bg-white px-4 py-6 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
+                className="group flex h-full min-h-[168px] flex-col items-center justify-center rounded-2xl bg-white px-4 py-6 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
                 style={{ border: `1px solid ${LINE}` }}>
+                <BrandMark kind={b.mark} />
                 {b.lines.map((line, k) => (
                   <span key={line}
                     className={`font-semibold uppercase leading-tight tracking-[0.06em] transition-colors duration-300 group-hover:text-[#cf5f12] ${b.lines.length > 2 ? "text-[12.5px]" : k === 0 ? "text-[17px]" : "text-[13px]"}`}
@@ -310,13 +340,13 @@ export default function Home37() {
             {HOME37.integrations.map((app, i) => (
               <div key={app.name} className="reveal" style={{ transitionDelay: `${i * 35}ms` }}>
               <div data-testid={`home37-app-${app.name.toLowerCase()}`}
-                className="group flex h-full cursor-pointer items-center gap-3 rounded-2xl bg-white px-5 py-4 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
+                className="group flex h-full cursor-pointer items-center gap-2.5 rounded-2xl bg-white px-3.5 py-3.5 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl sm:gap-3 sm:px-5 sm:py-4"
                 style={{ border: `1px solid ${LINE}` }}>
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110"
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-transform duration-300 group-hover:scale-110 sm:h-11 sm:w-11 sm:rounded-xl"
                   style={{ background: `${app.color}1a`, color: app.color }}>
-                  <Icon name={app.icon} size={21} />
+                  <Icon name={app.icon} size={21} className="h-[18px] w-[18px] sm:h-[21px] sm:w-[21px]" />
                 </span>
-                <span className="text-[15px] font-semibold" style={{ color: NAVY }}>{app.name}</span>
+                <span className="min-w-0 truncate text-[13.5px] font-semibold sm:text-[15px]" style={{ color: NAVY }} title={app.name}>{app.name}</span>
               </div>
               </div>
             ))}
@@ -371,7 +401,7 @@ export default function Home37() {
                 <div key={s.name} className="border-b last:border-b-0" style={{ borderColor: LINE }} data-testid={`home37-service-${i}`}>
                   <button
                     onClick={() => setOpenService((prev) => (prev === i ? -1 : i))}
-                    onMouseEnter={() => setOpenService(i)}
+                    onMouseEnter={canHover ? () => setOpenService(i) : undefined}
                     aria-expanded={isOpen}
                     className="group/row -mx-2 flex w-full items-center gap-6 rounded-2xl px-2 py-7 text-left transition-colors duration-300 hover:bg-[#fdeedd]">
                     <span className="font-mono text-[12px] transition-colors duration-300" style={{ color: isOpen ? BRAND : BRAND_DARK }}>{String(i + 1).padStart(2, "0")}</span>
@@ -660,9 +690,12 @@ export default function Home37() {
             ))}
             <div className="col-span-12 sm:col-span-4 lg:col-span-3">
               <h6 className="text-[13px] font-semibold text-white">Follow us</h6>
-              <div className="mt-4 flex gap-2">
-                {["Instagram", "Twitter", "LinkedIn", "Facebook"].map((s) => (
-                  <span key={s} title={s} className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-[11px] font-semibold text-white/80">{s[0]}</span>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {[[Instagram, "Instagram"], [Facebook, "Facebook"], [Linkedin, "LinkedIn"], [Twitter, "X (Twitter)"], [Youtube, "YouTube"]].map(([I, label]) => (
+                  <a key={label} href="#top" onClick={(e) => e.preventDefault()} aria-label={label} title={label}
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/25 hover:text-white">
+                    <I className="h-[18px] w-[18px]" strokeWidth={1.8} />
+                  </a>
                 ))}
               </div>
               <button onClick={(e) => go(e, "#signup")} className={`mt-6 inline-flex items-center gap-2 rounded-full ${GRAD} px-5 py-3 text-[13.5px] font-semibold text-white`}>

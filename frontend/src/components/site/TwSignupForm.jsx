@@ -17,7 +17,7 @@ const LinkedInIcon = () => (
   <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true"><rect width="24" height="24" rx="3" fill="#0A66C2"/><path fill="#fff" d="M7 9.5h2.5V18H7zM8.25 5.5a1.45 1.45 0 110 2.9 1.45 1.45 0 010-2.9zM11 9.5h2.4v1.2c.35-.65 1.2-1.35 2.5-1.35 2.6 0 3.1 1.7 3.1 3.9V18h-2.5v-4.1c0-1 0-2.2-1.35-2.2s-1.6 1.05-1.6 2.15V18H11z"/></svg>
 );
 
-export default function TwSignupForm({ variant = "light", title = "Start your flexible free trial", size = "md" }) {
+export default function TwSignupForm({ variant = "light", title = "Start your flexible free trial", size = "md", spacing = "normal" }) {
   const { log } = useCRM();
   const [f, setF] = useState(empty);
   const [show, setShow] = useState(false);
@@ -25,6 +25,7 @@ export default function TwSignupForm({ variant = "light", title = "Start your fl
   const [loading, setLoading] = useState(false);
   const glass = variant === "glass";
   const lg = size === "lg";   // "lg" scales the whole card up for hero-sized sections
+  const roomy = spacing === "roomy";   // more air between fields
 
   const set = (k) => (e) => setF({ ...f, [k]: e.target.type === "checkbox" ? e.target.checked : e.target.value });
 
@@ -50,7 +51,7 @@ export default function TwSignupForm({ variant = "light", title = "Start your fl
     }, 900);
   };
 
-  const label = `mb-1.5 block ${lg ? "text-sm" : "text-xs"} font-medium ${glass ? "text-white/70" : "text-slate-500"}`;
+  const label = `${roomy ? "mb-2.5" : "mb-1.5"} block ${lg ? "text-sm" : "text-xs"} font-medium ${glass ? "text-white/70" : "text-slate-500"}`;
   const pad = lg ? "px-5 py-4 text-base" : "px-4 py-3 text-sm";
   const input = glass
     ? `w-full rounded-xl bg-white/10 ${pad} text-white placeholder-white/45 ring-1 ring-white/25 outline-none transition focus:bg-white/15 focus:ring-2 focus:ring-white/60`
@@ -62,13 +63,13 @@ export default function TwSignupForm({ variant = "light", title = "Start your fl
       id="signup"
       data-testid="signup-card"
       className={glass
-        ? `w-full ${lg ? "max-w-2xl p-8 sm:p-10" : "max-w-lg p-6 sm:p-8"} rounded-3xl bg-white/10 ring-1 ring-white/20 backdrop-blur-2xl`
-        : `w-full ${lg ? "max-w-2xl p-8 sm:p-10" : "max-w-lg p-6 sm:p-8"} rounded-3xl bg-white ring-1 ring-slate-200 shadow-xl shadow-slate-900/5`}
+        ? `w-full ${lg ? "max-w-2xl p-8 sm:p-10" : roomy ? "max-w-lg p-8 sm:p-9" : "max-w-lg p-6 sm:p-8"} rounded-3xl bg-white/10 ring-1 ring-white/20 backdrop-blur-2xl`
+        : `w-full ${lg ? "max-w-2xl p-8 sm:p-10" : roomy ? "max-w-lg p-8 sm:p-9" : "max-w-lg p-6 sm:p-8"} rounded-3xl bg-white ring-1 ring-slate-200 shadow-xl shadow-slate-900/5`}
     >
       <h2 className={`${lg ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl"} font-semibold tracking-tight ${glass ? "text-white" : "text-slate-900"}`}>{title}</h2>
-      <p className={`mt-1.5 ${lg ? "text-[15px]" : "text-sm"} ${glass ? "text-white/60" : "text-slate-500"}`}>No credit card. Setup in a day. Cancel any time.</p>
+      <p className={`${roomy ? "mt-2.5" : "mt-1.5"} ${lg ? "text-[15px]" : "text-sm"} ${glass ? "text-white/60" : "text-slate-500"}`}>No credit card. Setup in a day. Cancel any time.</p>
 
-      <form onSubmit={submit} noValidate data-testid="signup-form" className="mt-6 space-y-4">
+      <form onSubmit={submit} noValidate data-testid="signup-form" className={`mt-6 ${roomy ? "space-y-6" : "space-y-4"}`}>
         <div>
           <label className={label} htmlFor="tw-name">Full name</label>
           <input id="tw-name" className={input} placeholder="Your name" value={f.name} onChange={set("name")} data-testid="signup-name" />
@@ -117,10 +118,10 @@ export default function TwSignupForm({ variant = "light", title = "Start your fl
           {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Create my free account"}
         </button>
 
-        <div className={`flex items-center gap-3 text-xs ${glass ? "text-white/50" : "text-slate-400"}`}>
+        <div className={`flex items-center gap-3 ${roomy ? "pt-2 " : ""}text-xs ${glass ? "text-white/50" : "text-slate-400"}`}>
           <span className={`h-px flex-1 ${glass ? "bg-white/20" : "bg-slate-200"}`} />or sign in using<span className={`h-px flex-1 ${glass ? "bg-white/20" : "bg-slate-200"}`} />
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className={`grid grid-cols-2 ${roomy ? "gap-4 pt-1" : "gap-3"}`}>
           <button type="button" onClick={() => toast("Google sign-in coming soon")} data-testid="signup-google"
             className={`flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium ring-1 transition ${glass ? "bg-white/10 text-white ring-white/25 hover:bg-white/20" : "bg-white text-slate-700 ring-slate-300 hover:bg-slate-50"}`}>
             <GoogleIcon /> Google
