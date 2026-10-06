@@ -32,7 +32,7 @@ export default function Home18() {
         <Container className="ffh-container">
           <Row className="g-5 align-items-center">
             <Col lg={6} className="reveal">
-              <span className="ffh-h18-mark"><img src="/ffh-logo.png" alt="FFH ERP" width="48" height="48" decoding="async" fetchpriority="high" /></span>
+              <span className="ffh-h18-mark"><img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="48" height="48" decoding="async" fetchpriority="high" /></span>
               <span className="ffh-h18-eyebrow">{HOME18.eyebrow}</span>
               <h1 className="ffh-h18-title">
                 {HOME18.titleLead} <span className="ffh-h18-accent">{HOME18.titleAccent}</span>

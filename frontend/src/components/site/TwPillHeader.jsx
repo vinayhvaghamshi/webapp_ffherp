@@ -81,7 +81,7 @@ export default function TwPillHeader({ variant = "light" }) {
     <div className={`fixed inset-x-0 top-4 z-50 flex justify-center px-4 transition-all ${scrolled ? "top-3" : "top-5"}`} data-testid="tw-pill">
       <nav className={`flex h-16 w-full max-w-6xl items-center gap-3 rounded-full py-2 pl-5 pr-2 transition-all sm:pl-6 ${pill}`}>
         <a href="#top" onClick={(e) => go(e, "#top")} className={`flex items-center gap-2.5 text-[17px] font-bold tracking-tight ${brand}`}>
-          <img src="/ffh-logo.png" alt="FFH ERP" width="32" height="32" className="h-8 w-8 rounded-full" />
+          <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="32" height="32" className="h-8 w-8 rounded-full" />
           <span>FFH<i className={`not-italic font-medium ${accent}`}>|</i>ERP</span>
         </a>
 

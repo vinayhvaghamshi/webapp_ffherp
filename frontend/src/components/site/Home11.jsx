@@ -41,7 +41,7 @@ export default function Home11() {
 
             <Col lg={7} className="reveal delay-1">
               <div className="ffh-h11-markrow">
-                <img src="/ffh-logo.png" alt="FFH ERP" width="76" height="76" decoding="async" fetchpriority="high" />
+                <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="76" height="76" decoding="async" fetchpriority="high" />
                 <span className="ffh-h11-motif" aria-hidden="true"><i /><i /><i /><i /></span>
               </div>
               <div className="ffh-eyebrow light">{HOME11_HERO.eyebrow}</div>

@@ -29,7 +29,7 @@ export default function Home10() {
         <Container className="ffh-container">
           <div className="ffh-h10-top reveal">
             <span className="ffh-h10-mark">
-              <img src="/ffh-logo.png" alt="FFH ERP" width="88" height="88" decoding="async" fetchpriority="high" />
+              <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="88" height="88" decoding="async" fetchpriority="high" />
             </span>
             <div className="ffh-eyebrow justify-content-center">{HOME10_HERO.eyebrow}</div>
             <h1 className="ffh-hero-title ffh-h10-title">

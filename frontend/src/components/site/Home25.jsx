@@ -26,7 +26,7 @@ export default function Home25() {
       <header className="sticky top-0 z-50 border-b-4 border-black bg-lime-300" data-testid="brutal-header">
         <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-5 sm:px-8">
           <a href="#top" onClick={(e) => { e.preventDefault(); goTo("#top"); }} className="flex items-center gap-2.5">
-            <img src="/ffh-logo.png" alt="FFH ERP" width="34" height="34" className="h-[34px] w-[34px] rounded-full border-2 border-black" />
+            <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="34" height="34" className="h-[34px] w-[34px] rounded-full border-2 border-black" />
             <span className="text-lg font-black uppercase tracking-tight">FFH|ERP</span>
           </a>
           <nav className="hidden items-center gap-1 lg:flex">
@@ -266,7 +266,7 @@ export default function Home25() {
         <div className="mx-auto grid max-w-7xl grid-cols-12 gap-8">
           <div className="col-span-12 sm:col-span-6 lg:col-span-4">
             <div className="flex items-center gap-2.5 text-lg font-black uppercase tracking-tight text-white">
-              <img src="/ffh-logo.png" alt="FFH ERP" width="32" height="32" className="h-8 w-8 rounded-full border-2 border-lime-300" />
+              <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="32" height="32" className="h-8 w-8 rounded-full border-2 border-lime-300" />
               FFH|ERP
             </div>
             <p className="mt-4 max-w-xs text-sm font-medium text-lime-300/70">Nine modules, one database. Built in India for growing businesses.</p>

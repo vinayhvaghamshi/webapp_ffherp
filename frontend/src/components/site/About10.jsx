@@ -22,7 +22,7 @@ export default function About10() {
         <Container className="ffh-container">
           <div className="ffh-a10-head reveal">
             <div className="ffh-a10-markrow">
-              <img src="/ffh-logo.png" alt="FFH ERP" width="60" height="60" decoding="async" fetchpriority="high" />
+              <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="60" height="60" decoding="async" fetchpriority="high" />
               <div className="ffh-eyebrow">{ABOUT_10.eyebrow}</div>
             </div>
             <h1 className="ffh-hero-title ffh-a10-title">

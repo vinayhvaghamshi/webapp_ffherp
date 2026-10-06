@@ -42,7 +42,7 @@ export default function Home29() {
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur" data-testid="h29-nav">
         <div className="mx-auto flex h-20 max-w-7xl items-center gap-6 px-5 sm:px-8">
           <a href="#top" onClick={(e) => go(e, "#top")} className="flex items-center gap-2.5">
-            <img src="/ffh-logo.png" alt="FFH ERP" width="34" height="34" className="h-[34px] w-[34px] rounded-full" />
+            <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="34" height="34" className="h-[34px] w-[34px] rounded-full" />
             <span className="font-['Oswald'] text-2xl font-semibold uppercase tracking-[0.02em] text-[#013878]">
               FFH<span className="text-[#04d3a2]">|ERP</span>
             </span>
@@ -333,7 +333,7 @@ export default function Home29() {
           <div className="grid grid-cols-12 gap-10">
             <div className="col-span-12 lg:col-span-4">
               <div className="flex items-center gap-2.5">
-                <img src="/ffh-logo.png" alt="FFH ERP" width="34" height="34" className="h-[34px] w-[34px] rounded-full" />
+                <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="34" height="34" className="h-[34px] w-[34px] rounded-full" />
                 <span className="font-['Oswald'] text-2xl font-semibold uppercase tracking-[0.02em]">FFH<span className="text-[#04d3a2]">|ERP</span></span>
               </div>
               <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/70">

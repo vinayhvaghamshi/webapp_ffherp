@@ -21,7 +21,7 @@ export default function About8() {
           <Row className="g-5 align-items-start">
             <Col lg={5} className="reveal">
               <div className="ffh-a8-markrow">
-                <img src="/ffh-logo.png" alt="FFH ERP" width="62" height="62" decoding="async" fetchpriority="high" />
+                <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="62" height="62" decoding="async" fetchpriority="high" />
                 <div className="ffh-eyebrow">{ABOUT_8.eyebrow}</div>
               </div>
               <h1 className="ffh-hero-title ffh-a8-title">

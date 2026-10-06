@@ -37,7 +37,7 @@ const PhoneScreen = () => (
       <span className="flex items-center gap-1"><i className="h-1.5 w-1.5 rounded-full bg-emerald-400" />live</span>
     </div>
     <div className="mt-3 flex items-center gap-2">
-      <img src="/ffh-logo.png" alt="" width="22" height="22" className="h-[22px] w-[22px] rounded-full ring-1 ring-white/30" />
+      <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="" width="22" height="22" className="h-[22px] w-[22px] rounded-full ring-1 ring-white/30" />
       <span className="text-[11px] font-bold tracking-tight">FFH|ERP</span>
     </div>
     <div className="mt-3 rounded-2xl bg-white/10 p-2.5 ring-1 ring-white/15">
@@ -134,7 +134,7 @@ const WatchMock = () => (
       <div className="rounded-[22px] bg-black p-2.5">
         <div className="rounded-2xl bg-gradient-to-b from-slate-800 to-slate-900 p-2.5 ring-1 ring-white/10">
           <div className="flex items-center gap-1.5">
-            <img src="/ffh-logo.png" alt="" width="16" height="16" className="h-4 w-4 rounded-full" />
+            <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="" width="16" height="16" className="h-4 w-4 rounded-full" />
             <span className="text-[8px] font-bold text-white">Purchase order</span>
           </div>
           <span className="mt-2 block text-[7px] uppercase tracking-wide text-white/50">Vendor · amount</span>
@@ -186,7 +186,7 @@ export default function Home26() {
         <header className={`fixed inset-x-0 top-0 z-50 transition-all ${scrolled ? "bg-slate-950/80 backdrop-blur-xl ring-1 ring-white/10" : "bg-transparent"}`} data-testid="h26-nav">
           <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-5 sm:px-8">
             <a href="#top" onClick={(e) => go(e, "#top")} className="flex items-center gap-2.5 text-[17px] font-bold tracking-tight text-white">
-              <img src="/ffh-logo.png" alt="FFH ERP" width="30" height="30" className="h-[30px] w-[30px] rounded-full" />
+              <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="30" height="30" className="h-[30px] w-[30px] rounded-full" />
               <span>FFH<i className="not-italic font-medium text-emerald-400">|</i>ERP</span>
             </a>
             <nav className="hidden flex-1 items-center justify-center gap-1 lg:flex">
@@ -218,7 +218,7 @@ export default function Home26() {
           <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-[11px] font-medium text-white/75 ring-1 ring-white/15">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />Free 7-day trial · v2026
           </span>
-          <img src="/ffh-logo.png" alt="FFH ERP" width="82" height="82" className="mx-auto mt-7 block h-[82px] w-[82px] rounded-full ring-4 ring-white/10" />
+          <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="82" height="82" className="mx-auto mt-7 block h-[82px] w-[82px] rounded-full ring-4 ring-white/10" />
           <h1 className="mt-5 text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl">FFH|ERP</h1>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">{HOME26.tagline}</p>
 
@@ -310,7 +310,7 @@ export default function Home26() {
                 <span className="absolute left-1/2 top-2 z-10 h-1.5 w-16 -translate-x-1/2 rounded-full bg-slate-700" />
                 <div className="aspect-[9/17.5] overflow-hidden rounded-[31px] bg-white">
                   <div className="flex h-full flex-col items-center justify-center bg-gradient-to-b from-violet-600 to-indigo-700 px-6 text-center text-white">
-                    <img src="/ffh-logo.png" alt="" width="46" height="46" className="h-[46px] w-[46px] rounded-full ring-2 ring-white/30" />
+                    <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="" width="46" height="46" className="h-[46px] w-[46px] rounded-full ring-2 ring-white/30" />
                     <span className="mt-3 text-sm font-bold tracking-tight">FFH|ERP</span>
                     <div className="mt-6 w-full space-y-2.5 text-left">
                       <div className="rounded-lg bg-white/15 px-3 py-2 text-[10px] text-white/70 ring-1 ring-white/25">you@company.com</div>
@@ -460,7 +460,7 @@ export default function Home26() {
         <div className="mx-auto grid max-w-6xl grid-cols-12 gap-10">
           <div className="col-span-12 lg:col-span-4">
             <div className="flex items-center gap-2.5 text-[17px] font-bold tracking-tight text-white">
-              <img src="/ffh-logo.png" alt="FFH ERP" width="30" height="30" className="h-[30px] w-[30px] rounded-full" />
+              <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="30" height="30" className="h-[30px] w-[30px] rounded-full" />
               <span>FFH<i className="not-italic font-medium text-emerald-400">|</i>ERP</span>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">

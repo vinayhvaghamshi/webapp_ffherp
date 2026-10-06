@@ -14,7 +14,7 @@ export default function TwFooter({ variant = "light" }) {
         <div className="grid grid-cols-2 gap-10 md:grid-cols-6">
           <div className="col-span-2 md:col-span-2">
             <div className="flex items-center gap-2.5 text-[17px] font-bold text-white">
-              <img src="/ffh-logo.png" alt="FFH ERP" width="30" height="30" className="h-[30px] w-[30px] rounded-full" />
+              <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="30" height="30" className="h-[30px] w-[30px] rounded-full" />
               <span>FFH<i className="not-italic font-medium text-indigo-400">|</i>ERP</span>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">

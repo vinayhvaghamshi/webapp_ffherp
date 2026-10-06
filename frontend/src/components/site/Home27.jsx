@@ -302,7 +302,7 @@ export default function Home27() {
               <div key={t.label} data-testid={`home27-theme-${t.label.split(" ")[0].toLowerCase()}`}>
                 <div className={`overflow-hidden rounded-2xl ring-1 ${t.shell}`}>
                   <div className={`flex items-center gap-2 border-b border-black/5 px-4 py-3 ${t.head}`}>
-                    <img src="/ffh-logo.png" alt="" width="20" height="20" className="h-5 w-5 rounded-full" />
+                    <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="" width="20" height="20" className="h-5 w-5 rounded-full" />
                     <span className={`text-[11px] font-extrabold tracking-tight ${t.text}`}>FFH|ERP</span>
                     <span className={`ml-auto rounded bg-gradient-to-r ${t.accent} px-2 py-0.5 text-[7px] font-bold text-white`}>Action</span>
                   </div>

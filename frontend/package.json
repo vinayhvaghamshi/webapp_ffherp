@@ -65,7 +65,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test"
+    "test": "craco test",
+    "postbuild": "cp build/index.html build/404.html && touch build/.nojekyll"
   },
   "browserslist": {
     "production": [

@@ -22,7 +22,7 @@ export default function About7() {
           <div className="ffh-a7-bento">
             <div className="ffh-a7-tile ffh-a7-intro reveal">
               <div className="ffh-a7-markrow">
-                <img src="/ffh-logo.png" alt="FFH ERP" width="60" height="60" decoding="async" fetchpriority="high" />
+                <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="60" height="60" decoding="async" fetchpriority="high" />
                 <div className="ffh-eyebrow">{ABOUT_7.eyebrow}</div>
               </div>
               <h1 className="ffh-hero-title ffh-a7-title">

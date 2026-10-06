@@ -19,7 +19,7 @@ export default function About9() {
       <section className="ffh-a9-hero" id="top">
         <Container className="ffh-container text-center">
           <div className="ffh-a9-markrow reveal">
-            <img src="/ffh-logo.png" alt="FFH ERP" width="58" height="58" decoding="async" fetchpriority="high" />
+            <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="58" height="58" decoding="async" fetchpriority="high" />
             <div className="ffh-eyebrow justify-content-center">{ABOUT_9.eyebrow}</div>
           </div>
           <h1 className="ffh-h2 ffh-serif-mix ffh-a9-title reveal">

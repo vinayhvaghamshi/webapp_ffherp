@@ -19,7 +19,7 @@ export default function About6() {
       <section className="ffh-a6-hero" id="top">
         <Container className="ffh-container text-center">
           <span className="ffh-a6-mark reveal">
-            <img src="/ffh-logo.png" alt="FFH ERP" width="72" height="72" decoding="async" fetchpriority="high" />
+            <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="72" height="72" decoding="async" fetchpriority="high" />
           </span>
           <div className="ffh-eyebrow justify-content-center reveal">{ABOUT_6.eyebrow}</div>
           <h1 className="ffh-h2 ffh-serif-mix ffh-a6-title reveal">

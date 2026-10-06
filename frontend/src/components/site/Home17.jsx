@@ -33,7 +33,7 @@ export default function Home17() {
         <span className="ffh-h17-bloom c" aria-hidden="true" />
         <Container className="ffh-container">
           <div className="ffh-h17-head reveal">
-            <span className="ffh-h17-mark"><img src="/ffh-logo.png" alt="FFH ERP" width="54" height="54" decoding="async" fetchpriority="high" /></span>
+            <span className="ffh-h17-mark"><img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="54" height="54" decoding="async" fetchpriority="high" /></span>
             <span className="ffh-h17-eyebrow">{HOME17_HERO.eyebrow}</span>
             <h1 className="ffh-h17-title">
               {HOME17_HERO.titleLead} <span className="ffh-h17-accent">{HOME17_HERO.titleAccent}</span>

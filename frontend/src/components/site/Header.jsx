@@ -5,7 +5,7 @@ import { useGoTo } from "./crmStore";
 
 export const Brand = ({ light }) => (
   <span className={`ffh-brand ${light ? "light" : ""}`}>
-    <img src="/ffh-logo.png" alt="FFH ERP logo" width="42" height="42" decoding="async" fetchpriority="high" />
+    <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP logo" width="42" height="42" decoding="async" fetchpriority="high" />
     <span>FFH<i>|</i>ERP</span>
   </span>
 );

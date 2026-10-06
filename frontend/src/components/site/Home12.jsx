@@ -35,7 +35,7 @@ export default function Home12() {
           <Row className="g-5 align-items-center">
             <Col lg={6} className="reveal">
               <div className="ffh-h12-markrow">
-                <img src="/ffh-logo.png" alt="FFH ERP" width="64" height="64" decoding="async" fetchpriority="high" />
+                <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="64" height="64" decoding="async" fetchpriority="high" />
                 <span className="ffh-h12-motif" aria-hidden="true"><i /><i /><i /><i /></span>
               </div>
               <div className="ffh-eyebrow">{HOME12_HERO.eyebrow}</div>

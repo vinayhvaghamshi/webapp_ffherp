@@ -29,7 +29,7 @@ export default function Home15() {
           <div className="ffh-h15-bento">
             <div className="ffh-h15-tile ffh-h15-tile-intro reveal">
               <div className="ffh-h15-markrow">
-                <img src="/ffh-logo.png" alt="FFH ERP" width="60" height="60" decoding="async" fetchpriority="high" />
+                <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="60" height="60" decoding="async" fetchpriority="high" />
                 <div className="ffh-eyebrow">{HOME15_HERO.eyebrow}</div>
               </div>
               <h1 className="ffh-hero-title ffh-h15-title">

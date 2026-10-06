@@ -26,12 +26,12 @@ export default function Home13() {
   return (
     <main className="ffh-h13 ffh-logo-theme" data-testid="home13-page">
       <section className="ffh-h13-hero" id="top">
-        <img className="ffh-h13-watermark" src="/ffh-logo.png" alt="" aria-hidden="true" />
+        <img className="ffh-h13-watermark" src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="" aria-hidden="true" />
         <Container className="ffh-container">
           <div className="ffh-h13-top">
             <div className="ffh-h13-copy reveal">
               <div className="ffh-h13-markrow">
-                <img src="/ffh-logo.png" alt="FFH ERP" width="58" height="58" decoding="async" fetchpriority="high" />
+                <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="58" height="58" decoding="async" fetchpriority="high" />
                 <div className="ffh-eyebrow light ffh-h13-eyebrow">{HOME13_HERO.eyebrow}</div>
               </div>
               <h1 className="ffh-hero-title ffh-h13-title">

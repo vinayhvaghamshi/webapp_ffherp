@@ -45,7 +45,7 @@ export default function TwHeader({ variant = "light" }) {
     <header className={shell} data-testid="tw-header">
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-8 px-5 sm:px-8">
         <a href="#top" onClick={(e) => go(e, "#top")} className={`flex items-center gap-2.5 text-[17px] font-bold tracking-tight ${brand}`}>
-          <img src="/ffh-logo.png" alt="FFH ERP" width="30" height="30" className="h-[30px] w-[30px] rounded-full" />
+          <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="30" height="30" className="h-[30px] w-[30px] rounded-full" />
           <span>FFH<i className={`not-italic font-medium ${glass ? "text-amber-300" : "text-indigo-600"}`}>|</i>ERP</span>
         </a>
 

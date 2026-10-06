@@ -35,7 +35,7 @@ export default function HeaderApp() {
       <div className="ffh-app-bar-top">
         <div className="ffh-app-bar-inner">
           <a className="ffh-app-brand" href="#top" onClick={(e) => go(e, "#top")}>
-            <img src="/ffh-logo.png" alt="FFH ERP" width="28" height="28" decoding="async" fetchpriority="high" />
+            <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="28" height="28" decoding="async" fetchpriority="high" />
             <span>FFH<i>|</i>ERP</span>
           </a>
           <nav className="ffh-app-links">

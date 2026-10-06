@@ -19,7 +19,7 @@ export default function About5() {
       <section className="ffh-a5-hero" id="top">
         <Container className="ffh-container">
           <div className="ffh-a5-markrow reveal">
-            <img src="/ffh-logo.png" alt="FFH ERP" width="66" height="66" decoding="async" fetchpriority="high" />
+            <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="66" height="66" decoding="async" fetchpriority="high" />
             <span className="ffh-a5-motif" aria-hidden="true"><i /><i /><i /><i /></span>
           </div>
           <div className="ffh-eyebrow reveal">{ABOUT_5.eyebrow}</div>

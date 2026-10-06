@@ -38,7 +38,7 @@ export default function Home22() {
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
             {HOME22.badge}
           </span>
-          <img src="/ffh-logo.png" alt="FFH ERP" width="72" height="72" className="mx-auto mt-8 block h-[72px] w-[72px] rounded-full ring-4 ring-white/15" />
+          <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="72" height="72" className="mx-auto mt-8 block h-[72px] w-[72px] rounded-full ring-4 ring-white/15" />
           <h1 className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl">
             {HOME22.titleLead}{" "}
             <span className="bg-gradient-to-r from-sky-300 via-violet-300 to-amber-200 bg-clip-text text-transparent">{HOME22.titleAccent}</span>

@@ -33,7 +33,7 @@ export default function Home14() {
             {/* rail */}
             <Col lg={3} className="reveal">
               <div className="ffh-h14-rail">
-                <img src="/ffh-logo.png" alt="FFH ERP" width="62" height="62" decoding="async" fetchpriority="high" />
+                <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="62" height="62" decoding="async" fetchpriority="high" />
                 <span className="ffh-h14-rail-title">FFH<i>|</i>ERP</span>
                 <nav className="ffh-h14-links" aria-label="Jump to section">
                   {HOME14_HERO.rail.map((l) => (

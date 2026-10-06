@@ -45,7 +45,7 @@ export default function HeaderPill({ variant }) {
     <div className={`ffh-pill-wrap ${variant ? `glass ${variant === "glass-dark" ? "glass-dark" : ""}` : ""} ${scrolled ? "scrolled" : ""}`} data-testid="pill-navbar">
       <nav className="ffh-pill">
         <a className="ffh-pill-brand" href="#top" onClick={(e) => go(e, "#top")} data-testid="pill-brand">
-          <img src="/ffh-logo.png" alt="FFH ERP" width="34" height="34" decoding="async" fetchpriority="high" />
+          <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="34" height="34" decoding="async" fetchpriority="high" />
           <span>FFH<i>|</i>ERP</span>
         </a>
 

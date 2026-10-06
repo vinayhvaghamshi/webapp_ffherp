@@ -52,7 +52,7 @@ export default function Home31() {
       <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8" data-testid="h31-nav">
         <div className="mx-auto flex max-w-[1400px] items-center gap-4">
           <a href="#top" onClick={(e) => go(e, "#top")} className="flex items-center gap-2.5">
-            <img src="/ffh-logo.png" alt="FFH ERP" width="34" height="34" className="h-[34px] w-[34px] rounded-full ring-1 ring-black/10" />
+            <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="34" height="34" className="h-[34px] w-[34px] rounded-full ring-1 ring-black/10" />
             <span className="text-[21px] font-semibold tracking-[-0.02em] text-[#1b1d1e]">FFH|ERP</span>
           </a>
 
@@ -399,7 +399,7 @@ export default function Home31() {
           <div className="grid grid-cols-12 gap-10">
             <div className="col-span-12 lg:col-span-4">
               <div className="flex items-center gap-2.5">
-                <img src="/ffh-logo.png" alt="FFH ERP" width="34" height="34" className="h-[34px] w-[34px] rounded-full" />
+                <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="34" height="34" className="h-[34px] w-[34px] rounded-full" />
                 <span className="text-[21px] font-semibold tracking-[-0.02em]">FFH|ERP</span>
               </div>
               <p className="mt-5 max-w-sm text-[14px] leading-relaxed text-white/65">
