@@ -2164,11 +2164,16 @@ a { text-decoration: none; }
 .ffh-h32 :is(h1, h2, h3, h4, h5, h6),
 .ffh-h33 :is(h1, h2, h3, h4, h5, h6),
 .ffh-h34 :is(h1, h2, h3, h4, h5, h6),
-.ffh-h35 :is(h1, h2, h3, h4, h5, h6) { font-family: "Syne", "Poppins", sans-serif; }
+.ffh-h35 :is(h1, h2, h3, h4, h5, h6),
+.ffh-h36 :is(h1, h2, h3, h4, h5, h6) { font-family: "Syne", "Poppins", sans-serif; }
 /* the logo motif: four ascending bars, last one navy */
-.ffh-h32-motif, .ffh-h33-motif, .ffh-h34-motif, .ffh-h35-motif { display: inline-flex; align-items: flex-end; gap: 4px; height: 26px; }
-.ffh-h32-motif i, .ffh-h33-motif i, .ffh-h34-motif i, .ffh-h35-motif i { display: block; width: 6px; border-radius: 3px; background: linear-gradient(180deg, #f7a52a, #f0452c); }
-.ffh-h32-motif i:nth-child(1), .ffh-h33-motif i:nth-child(1), .ffh-h34-motif i:nth-child(1), .ffh-h35-motif i:nth-child(1) { height: 10px; }
-.ffh-h32-motif i:nth-child(2), .ffh-h33-motif i:nth-child(2), .ffh-h34-motif i:nth-child(2), .ffh-h35-motif i:nth-child(2) { height: 16px; }
-.ffh-h32-motif i:nth-child(3), .ffh-h33-motif i:nth-child(3), .ffh-h34-motif i:nth-child(3), .ffh-h35-motif i:nth-child(3) { height: 21px; }
-.ffh-h32-motif i:nth-child(4), .ffh-h33-motif i:nth-child(4), .ffh-h34-motif i:nth-child(4), .ffh-h35-motif i:nth-child(4) { height: 26px; background: linear-gradient(180deg, #2c4358, #16283c); }
+.ffh-h32-motif, .ffh-h33-motif, .ffh-h34-motif, .ffh-h35-motif, .ffh-h36-motif { display: inline-flex; align-items: flex-end; gap: 4px; height: 26px; }
+.ffh-h32-motif i, .ffh-h33-motif i, .ffh-h34-motif i, .ffh-h35-motif i, .ffh-h36-motif i { display: block; width: 6px; border-radius: 3px; background: linear-gradient(180deg, #f7a52a, #f0452c); }
+.ffh-h32-motif i:nth-child(1), .ffh-h33-motif i:nth-child(1), .ffh-h34-motif i:nth-child(1), .ffh-h35-motif i:nth-child(1), .ffh-h36-motif i:nth-child(1) { height: 10px; }
+.ffh-h32-motif i:nth-child(2), .ffh-h33-motif i:nth-child(2), .ffh-h34-motif i:nth-child(2), .ffh-h35-motif i:nth-child(2), .ffh-h36-motif i:nth-child(2) { height: 16px; }
+.ffh-h32-motif i:nth-child(3), .ffh-h33-motif i:nth-child(3), .ffh-h34-motif i:nth-child(3), .ffh-h35-motif i:nth-child(3), .ffh-h36-motif i:nth-child(3) { height: 21px; }
+.ffh-h32-motif i:nth-child(4), .ffh-h33-motif i:nth-child(4), .ffh-h34-motif i:nth-child(4), .ffh-h35-motif i:nth-child(4), .ffh-h36-motif i:nth-child(4) { height: 26px; background: linear-gradient(180deg, #2c4358, #16283c); }
+
+/* Home layout 36 — cursor spotlight behind the integrations grid */
+.ffh-h36-spot { background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(239,123,35,.13), transparent 62%); transition: background .18s ease-out; }
+@media (prefers-reduced-motion: reduce) { .ffh-h36-spot { transition: none; } }

@@ -1325,3 +1325,46 @@ export const HOME35 = {
     { text: "Four plants on one system in five weeks, with the floor actually using it. That has never happened here before.", person: "Arvind Menon", role: "Plant Head, Brigade Build", img: 68 },
   ],
 };
+
+// Home layout 36 — Home35 plus the "EVERYTHING IN SYNC" block lifted from
+// Home1, a rewritten hero, a stacked-wordmark client wall and an integrations
+// grid, with mouse-driven effects throughout.
+export const HOME36 = {
+  ...HOME35,
+  eyebrow: "Smart CRM & ERP Software",
+  titleA: "See today's business,",
+  titleB: "not last month's report",
+  lead: "Pipeline, collections, AMC renewals and service tickets update as the work happens — so the number on your screen is the number in the business.",
+  ctaMain: "Start free trial",
+  stat: { lead: "Serving", a: "350K", mid: "businesses for", b: "21", tail: "years" },
+  syncTitleA: "Your business is",
+  syncTitleB: "more than a spreadsheet.",
+  syncCopy:
+    "Stop switching between tools. FFH|ERP brings nine business tools together, so you can spend less time managing work — and more time moving it forward.",
+  brands: [
+    { name: "Mercedes-Benz", lines: ["Mercedes-Benz"] },
+    { name: "Force Motors", lines: ["FORCE", "MOTORS"] },
+    { name: "Shiji", lines: ["Shiji"] },
+    { name: "ADA", lines: ["ADA"] },
+    { name: "Minor Hotels", lines: ["MINOR", "HOTELS"] },
+    { name: "Acme Brick", lines: ["ACME", "BRICK"] },
+    { name: "Toromont Cimco", lines: ["TOROMONT", "CIMCO"] },
+    { name: "National Retail Solutions", lines: ["NRS", "NATIONAL", "RETAIL", "SOLUTIONS"] },
+    { name: "Avineon", lines: ["AVINEON."] },
+  ],
+  integrationsTitle: "Integrations.",
+  integrationsCopy:
+    "Native integration lets you connect your favourite cloud apps in your tech stack.",
+  integrations: [
+    { name: "Google", color: "#4285F4", icon: "Chrome" },
+    { name: "Microsoft", color: "#00A4EF", icon: "LayoutGrid" },
+    { name: "WhatsApp", color: "#25D366", icon: "MessageCircle" },
+    { name: "Gmail", color: "#EA4335", icon: "Mail" },
+    { name: "Slack", color: "#611F69", icon: "Hash" },
+    { name: "Zapier", color: "#FF4F00", icon: "Zap" },
+    { name: "Stripe", color: "#635BFF", icon: "CreditCard" },
+    { name: "PayPal", color: "#003087", icon: "Wallet" },
+    { name: "Razorpay", color: "#0C2451", icon: "IndianRupee" },
+    { name: "Zoom", color: "#2D8CFF", icon: "Video" },
+  ],
+};
