@@ -36,10 +36,14 @@ function Home({ crm }) {
           ))}
         </div>
       </div>
+      {/* RECENT ACTIVITY feed removed on request — visitor signups and demo
+          events were showing up here in the live widget. The data is still
+          recorded in the CRM store (crm.activity); only the list is hidden.
       <div className="crm-activity">
         <div className="crm-label">RECENT ACTIVITY</div>
         <ul data-testid="crm-activity-list">{crm.activity.map((a, i) => <li key={i + a}>{a}</li>)}</ul>
       </div>
+      */}
     </>
   );
 }

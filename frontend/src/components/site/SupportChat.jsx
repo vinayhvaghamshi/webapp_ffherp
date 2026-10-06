@@ -13,6 +13,9 @@ import { buildProspectPayload, sendProspect } from "../../api/ffhWebhook";
 const DEPARTMENTS = ["Sales", "Support", "Billing", "AMC & service", "Careers", "Something else"];
 const EMPTY = { name: "", email: "", department: "", message: "" };
 
+// Module scope on purpose: reset by a page load/refresh, kept across remounts.
+let greetedThisPageLoad = false;
+
 export default function SupportChat() {
   const [open, setOpen] = useState(false);
   const [sent, setSent] = useState(false);
@@ -63,20 +66,15 @@ export default function SupportChat() {
     setErrors((p) => ({ ...p, [k]: "" }));
   };
 
-  // Greet every arrival: open once per visit, shortly after the page settles.
-  // sessionStorage keeps internal navigation from re-opening it (and from
-  // re-opening it immediately after the visitor closes it), while a fresh visit
-  // greets them again.
+  // Greet on every page load: the panel opens itself shortly after the page
+  // settles, including after a refresh. The flag lives in module scope, so it
+  // survives client-side navigation (Home37 -> another layout -> back) and stops
+  // the panel re-opening there, while a real reload resets it and greets again.
+  // Closing it keeps it closed until the next load.
   useEffect(() => {
-    let timer;
-    let seen = false;
-    try { seen = !!sessionStorage.getItem("ffh_support_greeted"); } catch (_) { seen = false; }
-    if (!seen) {
-      timer = setTimeout(() => {
-        setOpen(true);
-        try { sessionStorage.setItem("ffh_support_greeted", "1"); } catch (_) { /* ignore */ }
-      }, 1900);
-    }
+    if (greetedThisPageLoad) return undefined;
+    greetedThisPageLoad = true;
+    const timer = setTimeout(() => setOpen(true), 1900);
     return () => clearTimeout(timer);
   }, []);
 
@@ -248,13 +246,7 @@ export default function SupportChat() {
 
       {/* bubble */}
       <button
-        onClick={() => {
-          setOpen((o) => {
-            const next = !o;
-            if (!next) { try { sessionStorage.setItem("ffh_support_greeted", "1"); } catch (_) { /* ignore */ } }
-            return next;
-          });
-        }}
+        onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
         aria-label={open ? "Close support chat" : "Open support chat"}
         data-testid="support-bubble"
