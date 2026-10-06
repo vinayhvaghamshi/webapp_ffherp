@@ -340,13 +340,13 @@ export default function Home37() {
             {HOME37.integrations.map((app, i) => (
               <div key={app.name} className="reveal" style={{ transitionDelay: `${i * 35}ms` }}>
               <div data-testid={`home37-app-${app.name.toLowerCase()}`}
-                className="group flex h-full cursor-pointer items-center gap-2.5 rounded-2xl bg-white px-3.5 py-3.5 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl sm:gap-3 sm:px-5 sm:py-4"
+                className="group flex h-full cursor-pointer flex-col items-center justify-center gap-1.5 rounded-2xl bg-white px-2.5 py-3.5 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl sm:flex-row sm:items-center sm:justify-start sm:gap-3 sm:px-5 sm:py-4 sm:text-left"
                 style={{ border: `1px solid ${LINE}` }}>
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-transform duration-300 group-hover:scale-110 sm:h-11 sm:w-11 sm:rounded-xl"
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-transform duration-300 group-hover:scale-110 sm:h-11 sm:w-11 sm:rounded-xl"
                   style={{ background: `${app.color}1a`, color: app.color }}>
-                  <Icon name={app.icon} size={21} className="h-[18px] w-[18px] sm:h-[21px] sm:w-[21px]" />
+                  <Icon name={app.icon} size={21} className="h-4 w-4 sm:h-[21px] sm:w-[21px]" />
                 </span>
-                <span className="min-w-0 truncate text-[13.5px] font-semibold sm:text-[15px]" style={{ color: NAVY }} title={app.name}>{app.name}</span>
+                <span className="w-full min-w-0 truncate text-center text-[12.5px] font-semibold sm:w-auto sm:text-left sm:text-[15px]" style={{ color: NAVY }} title={app.name}>{app.name}</span>
               </div>
               </div>
             ))}
