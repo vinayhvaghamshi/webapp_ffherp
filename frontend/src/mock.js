@@ -1368,3 +1368,7 @@ export const HOME36 = {
     { name: "Zoom", color: "#2D8CFF", icon: "Video" },
   ],
 };
+
+// Home layout 37 — same copy as 36; the layout differs (home1 Live CRM widget in
+// the hero, a smaller "Let's get started" block, no white band in services).
+export const HOME37 = { ...HOME36 };

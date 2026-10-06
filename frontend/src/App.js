@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import { Toaster } from "./components/ui/sonner";
 import Header from "./components/site/Header";
@@ -41,6 +41,7 @@ import Home33 from "./components/site/Home33";
 import Home34 from "./components/site/Home34";
 import Home35 from "./components/site/Home35";
 import Home36 from "./components/site/Home36";
+import Home37 from "./components/site/Home37";
 import About1 from "./components/site/About1";
 import About2 from "./components/site/About2";
 import About3 from "./components/site/About3";
@@ -98,12 +99,15 @@ function App() {
 
   // The pill navigation is used by the reference layout (16) and by the glass
   // layout (17, in its glass variant); every other page keeps the standard header.
-  const pillNav = ["/home16", "/home17", "/home18"].includes(location.pathname);
+  // The bare URL always opens the newest home layout — bump this one line when a
+// new layout lands.
+const LATEST_HOME = "/home37";
+const pillNav = ["/home16", "/home17", "/home18"].includes(location.pathname);
   const pillVariant = location.pathname === "/home17" ? "glass" : location.pathname === "/home18" ? "glass-dark" : undefined;
   const appHeader = location.pathname === "/home20";
   // The Tailwind layouts ship their own header and footer, so the shared
   // Bootstrap chrome is skipped for them entirely.
-  const bareLayout = ["/home21", "/home22", "/home23", "/home24", "/home25", "/home26", "/home27", "/home28", "/home29", "/home30", "/home31", "/home32", "/home33", "/home34", "/home35", "/home36"].includes(location.pathname);
+  const bareLayout = ["/home21", "/home22", "/home23", "/home24", "/home25", "/home26", "/home27", "/home28", "/home29", "/home30", "/home31", "/home32", "/home33", "/home34", "/home35", "/home36", "/home37"].includes(location.pathname);
 
   return (
     <CRMProvider>
@@ -111,7 +115,8 @@ function App() {
         {bareLayout ? null : appHeader ? <HeaderApp /> : pillNav ? <HeaderPill variant={pillVariant} /> : <Header />}
         <Routes>
           {/* Home layouts: "/" keeps the original page; each is also addressable by name */}
-          <Route path="/" element={<Home1 />} />
+          <Route path="/" element={<Navigate to={LATEST_HOME} replace />} />
+          <Route path="/home1" element={<Home1 />} />
           <Route path="/home1" element={<Home1 />} />
           <Route path="/home2" element={<Home2 />} />
           <Route path="/home3" element={<Home3 />} />
@@ -147,6 +152,7 @@ function App() {
           <Route path="/home34" element={<Home34 />} />
           <Route path="/home35" element={<Home35 />} />
           <Route path="/home36" element={<Home36 />} />
+          <Route path="/home37" element={<Home37 />} />
           {/* About layouts: /about keeps the original page */}
           <Route path="/about" element={<About1 />} />
           <Route path="/about1" element={<About1 />} />

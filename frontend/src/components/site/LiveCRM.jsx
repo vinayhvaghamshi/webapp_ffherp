@@ -150,26 +150,14 @@ function Projects({ crm, update }) {
   );
 }
 
-export default function LiveCRM() {
+// The widget on its own, so another layout can drop it into a hero
+// (Home37 does exactly that). Home1 continues to use the full section below.
+export function LiveCRMWindow() {
   const { crm, update, reset } = useCRM();
   const [tab, setTab] = useState("home");
   const props = { crm, update };
   return (
-    <section className="ffh-section bg-white ffh-live" id="live">
-      <Container className="ffh-container">
-        <Row className="g-5 align-items-center">
-          <Col lg={6} className="reveal">
-            <span className="ffh-pill">Hands-on experience</span>
-            <h2 className="ffh-h2 mt-3">Get a hands-on <span className="text-brand">FFH|ERP</span> experience right here</h2>
-            <p className="ffh-lead-sm">This is a live mini-CRM running on real data. Add a lead, move it through your pipeline, close a ticket, and watch the dashboard, finance and projects update instantly.</p>
-            <ul className="ffh-bullets">
-              <li>Add &amp; qualify leads across stages</li>
-              <li>Open / close support tickets</li>
-              <li>Track receivables, payables &amp; projects</li>
-            </ul>
-          </Col>
-          <Col lg={6} className="reveal delay-1">
-            <div className="crm-window" data-testid="live-crm">
+<div className="crm-window" data-testid="live-crm">
               <div className="crm-top">
                 <span className="ffh-dot-row color"><i /><i /><i /></span>
                 <span className="crm-title">FFH|ERP · Live CRM</span>
@@ -189,6 +177,26 @@ export default function LiveCRM() {
                 {tab === "projects" && <Projects {...props} />}
               </div>
             </div>
+  );
+}
+
+export default function LiveCRM() {
+  return (
+    <section className="ffh-section bg-white ffh-live" id="live">
+      <Container className="ffh-container">
+        <Row className="g-5 align-items-center">
+          <Col lg={6} className="reveal">
+            <span className="ffh-pill">Hands-on experience</span>
+            <h2 className="ffh-h2 mt-3">Get a hands-on <span className="text-brand">FFH|ERP</span> experience right here</h2>
+            <p className="ffh-lead-sm">This is a live mini-CRM running on real data. Add a lead, move it through your pipeline, close a ticket, and watch the dashboard, finance and projects update instantly.</p>
+            <ul className="ffh-bullets">
+              <li>Add &amp; qualify leads across stages</li>
+              <li>Open / close support tickets</li>
+              <li>Track receivables, payables &amp; projects</li>
+            </ul>
+          </Col>
+          <Col lg={6} className="reveal delay-1">
+            <LiveCRMWindow />
           </Col>
         </Row>
       </Container>
