@@ -1312,3 +1312,16 @@ export const HOME33 = { ...HOME32 };
 // full-width logo-themed section with a large form, and the services accordion
 // opens on hover as well as click.
 export const HOME34 = { ...HOME33 };
+
+// Home layout 35 — built on 34 with motion and weight: animated disclosures,
+// larger deployment cards, a click-through testimonial slider (more quotes) and
+// a deliberately bigger popular plan.
+export const HOME35 = {
+  ...HOME34,
+  testimonials: [
+    ...HOME30.testimonials,
+    { text: "We replaced four spreadsheets and a morning meeting with one screen. The month-end close that used to take five days now takes one.", person: "Nikhil Rao", role: "Managing Director, NovaFin", img: 60 },
+    { text: "Stock, purchases and AMC renewals finally agree with each other. My team stopped arguing about which number was right and started acting on it.", person: "Priya Sharma", role: "Head of Supply Chain, Acme Industries", img: 47 },
+    { text: "Four plants on one system in five weeks, with the floor actually using it. That has never happened here before.", person: "Arvind Menon", role: "Plant Head, Brigade Build", img: 68 },
+  ],
+};

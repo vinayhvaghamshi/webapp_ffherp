@@ -66,7 +66,7 @@ export default function TwPillHeader({ variant = "light" }) {
         {label}
         <ChevronDown className="h-3.5 w-3.5 transition group-hover:rotate-180" />
       </button>
-      <div className={`invisible absolute left-1/2 top-full z-10 mt-3 w-64 -translate-x-1/2 translate-y-1 rounded-2xl p-2 opacity-0 shadow-2xl transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 ${menuPanel}`}>
+      <div className={`invisible absolute left-1/2 top-full z-10 mt-3 w-64 -translate-x-1/2 translate-y-1 rounded-2xl p-2 opacity-[0] shadow-2xl transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 ${menuPanel}`}>
         {MENUS[label].map((m) => (
           <button key={m.label} type="button" onClick={(e) => go(e, m.target)}
             className={`block w-full rounded-xl px-3.5 py-2.5 text-left text-sm font-medium transition ${menuText} ${menuHover}`}>

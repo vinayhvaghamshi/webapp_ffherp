@@ -200,8 +200,8 @@ export default function Home29() {
                 <img src={`https://picsum.photos/id/${p.id}/600/600`} alt={p.title} width="600" height="600" loading="lazy"
                   className="h-[240px] w-full object-cover transition duration-500 group-hover:scale-105" />
                 <span className="absolute inset-0 flex flex-col justify-end bg-[#013878]/0 p-5 text-left transition group-hover:bg-[#013878]/80">
-                  <span className="font-['Oswald'] text-[11px] uppercase tracking-[0.16em] text-[#04d3a2] opacity-0 transition group-hover:opacity-100">{p.tag}</span>
-                  <span className="font-['Oswald'] text-xl font-semibold uppercase text-white opacity-0 transition group-hover:opacity-100">{p.title}</span>
+                  <span className="font-['Oswald'] text-[11px] uppercase tracking-[0.16em] text-[#04d3a2] opacity-[0] transition group-hover:opacity-100">{p.tag}</span>
+                  <span className="font-['Oswald'] text-xl font-semibold uppercase text-white opacity-[0] transition group-hover:opacity-100">{p.title}</span>
                 </span>
               </button>
             ))}

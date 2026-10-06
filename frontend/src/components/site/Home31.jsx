@@ -209,7 +209,7 @@ export default function Home31() {
                   <img src={`https://picsum.photos/id/${w.img}/900/640`} alt={w.title} width="900" height="640" loading="lazy"
                     className="h-[280px] w-full object-cover transition duration-700 group-hover:scale-[1.04]" />
                   <button onClick={(e) => go(e, "#contact")} aria-label={`Open ${w.title}`}
-                    className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#1b1d1e] opacity-0 transition group-hover:opacity-100">
+                    className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#1b1d1e] opacity-[0] transition group-hover:opacity-100">
                     <ArrowUpRight className="h-5 w-5" />
                   </button>
                 </div>
