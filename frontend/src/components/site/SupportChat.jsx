@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Check, ChevronDown, ChevronLeft, Headphones, MessageCircle, Send, X } from "lucide-react";
+import { Check, ChevronDown, ChevronLeft, Headphones, MessageCircle, Send, User, X } from "lucide-react";
 import { toast } from "sonner";
 
 // Floating customer-support widget, modelled on the SalesIQ layout: a round
@@ -17,7 +17,43 @@ export default function SupportChat() {
   const [sent, setSent] = useState(false);
   const [f, setF] = useState(EMPTY);
   const [errors, setErrors] = useState({});
+  const [saved, setSaved] = useState([]);
+  const [picked, setPicked] = useState("");
   const firstField = useRef(null);
+
+  // Saved people, read from the same places the site already writes: the signup
+  // form (ffh_signups) and earlier chats (ffh_support_threads). Newest first,
+  // one entry per email.
+  const loadSaved = () => {
+    let list = [];
+    try {
+      const read = (k) => { try { return JSON.parse(localStorage.getItem(k) || "[]"); } catch (_) { return []; } };
+      const byEmail = new Map();
+      [...read("ffh_support_threads"), ...read("ffh_signups")].forEach((r) => {
+        const email = String(r.email || "").trim();
+        if (!email) return;
+        const key = email.toLowerCase();
+        const at = r.at || "";
+        const prev = byEmail.get(key);
+        if (!prev) byEmail.set(key, { name: r.name || "", email, department: r.department || "", at });
+        else {
+          if (at > (prev.at || "")) { prev.at = at; prev.name = r.name || prev.name; }
+          if (!prev.department && r.department) prev.department = r.department;
+          if (!prev.name && r.name) prev.name = r.name;
+        }
+      });
+      list = [...byEmail.values()].sort((a, b) => String(b.at).localeCompare(String(a.at))).slice(0, 6);
+    } catch (_) { list = []; }
+    setSaved(list);
+    return list;
+  };
+
+  const applySaved = (s) => {
+    setF((p) => ({ ...p, name: s.name || p.name, email: s.email, department: s.department || p.department }));
+    setPicked(s.email);
+    setErrors({});
+  };
+  const clearSaved = () => { setF(EMPTY); setPicked(""); setErrors({}); };
 
   const set = (k) => (e) => {
     const v = e.target.value;
@@ -27,11 +63,16 @@ export default function SupportChat() {
 
   useEffect(() => {
     if (!open) return;
+    const list = loadSaved();
+    // auto-fill from the most recent saved address, but never overwrite typing
+    setF((cur) => (cur.email || cur.name || !list[0] ? cur
+      : { ...EMPTY, name: list[0].name, email: list[0].email, department: list[0].department || "" }));
+    if (list[0]) setPicked(list[0].email);
     const onKey = (e) => { if (e.key === "Escape") setOpen(false); };
     window.addEventListener("keydown", onKey);
     const t = setTimeout(() => firstField.current && firstField.current.focus(), 140);
     return () => { window.removeEventListener("keydown", onKey); clearTimeout(t); };
-  }, [open]);
+  }, [open]);   // eslint-disable-line react-hooks/exhaustive-deps
 
   const submit = (e) => {
     e.preventDefault();
@@ -46,6 +87,8 @@ export default function SupportChat() {
       prev.push({ ...f, at: new Date().toISOString() });
       localStorage.setItem(key, JSON.stringify(prev));
     } catch (_) { /* storage may be unavailable; the toast still confirms */ }
+    setPicked(f.email);
+    loadSaved();
     setSent(true);
     toast.success("Message received — our team will get back to you.");
   };
@@ -96,13 +139,44 @@ export default function SupportChat() {
           </div>
         ) : (
           <form onSubmit={submit} noValidate data-testid="support-form" className="px-4 py-4 sm:px-5 sm:py-5">
+            {saved.length > 0 && (
+              <div className="mb-4 rounded-xl px-3 py-2.5" style={{ background: "#fff6ec", border: "1px solid #f4e2ce" }} data-testid="support-saved">
+                <div className="flex items-center gap-2">
+                  <User className="h-3.5 w-3.5" style={{ color: "#cf5f12" }} />
+                  <span className="text-[12px] font-semibold" style={{ color: "#cf5f12" }}>Saved details</span>
+                  <button type="button" onClick={clearSaved} data-testid="support-saved-clear"
+                    className="ml-auto text-[11.5px] font-medium text-slate-500 underline transition hover:text-[#cf5f12]">Clear</button>
+                </div>
+                <div className="mt-2 flex max-h-[104px] flex-wrap gap-1.5 overflow-y-auto">
+                  {saved.map((sv, i) => {
+                    const on = picked && picked.toLowerCase() === sv.email.toLowerCase();
+                    return (
+                      <button key={sv.email} type="button" onClick={() => applySaved(sv)} title={sv.email}
+                        data-testid={`support-saved-${i}`} data-picked={on ? "true" : "false"}
+                        className="group flex max-w-full flex-col items-start rounded-lg px-2.5 py-1.5 text-left transition-all duration-200 hover:-translate-y-0.5"
+                        style={on
+                          ? { background: "linear-gradient(135deg,#f7a52a,#f0452c)", border: "1px solid transparent" }
+                          : { background: "#fff", border: "1px solid #f4e2ce" }}>
+                        <span className="max-w-[190px] truncate text-[12.5px] font-semibold" style={{ color: on ? "#fff" : "#16283c" }}>
+                          {sv.name || sv.email}
+                        </span>
+                        <span className="max-w-[190px] truncate text-[11px]" style={{ color: on ? "rgba(255,255,255,.85)" : "#9ca3af" }}>
+                          {sv.email}{sv.department ? ` · ${sv.department}` : ""}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+                <p className="mt-2 text-[11px] text-slate-400">Pick one to fill the form, or type fresh details below.</p>
+              </div>
+            )}
             <div>
               <label className={label} htmlFor="support-name">Full name</label>
-              <input id="support-name" ref={firstField} data-testid="support-name" value={f.name} onChange={set("name")} className={field} placeholder="Enter your full name" />
+              <input id="support-name" ref={firstField} data-testid="support-name" autoComplete="name" value={f.name} onChange={set("name")} className={field} placeholder="Enter your full name" />
             </div>
             <div className="mt-4">
               <label className={label} htmlFor="support-email">Email address <span className="text-[#f0452c]">*</span></label>
-              <input id="support-email" data-testid="support-email" type="email" value={f.email} onChange={set("email")} className={field} placeholder="Enter your email address" />
+              <input id="support-email" data-testid="support-email" type="email" autoComplete="email" value={f.email} onChange={set("email")} className={field} placeholder="Enter your email address" />
               {errors.email && <p className="mt-1 text-[12px] text-[#f0452c]" data-testid="support-email-error">{errors.email}</p>}
             </div>
             <div className="mt-4">
