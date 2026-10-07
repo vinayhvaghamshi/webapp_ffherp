@@ -1483,3 +1483,102 @@ export const ABOUT_11 = {
     legal: "Copyright © 2026 KrisKross Inc. All rights reserved.",
   },
 };
+
+// About layout 12 — modelled on wittypen.com/about: editorial and light, a
+// floating pill nav, mono eyebrows with numbered sections, big Newsreader serif
+// headings with an orange italic accent, a stats strip, an expanding-mandate
+// timeline, a values grid, a statement block, client proof, numbers, the
+// leadership team and a closing CTA.
+export const ABOUT_12 = {
+  crumb: "ffherp.co.in",
+  hero: {
+    titleTop: "We were asked to print invoices.",
+    titleBottomLead: "We stayed to",
+    titleAccent: "run the business",
+    lead:
+      "FFH|ERP is a product of KrisKross Inc., a Chennai software company founded in 2012. What began as billing software for neighbourhood retailers is now nine connected modules that carry 2,500+ active users in 20+ countries from the first enquiry to the final invoice.",
+    stats: [
+      { v: "14 years", l: "in business software" },
+      { v: "2.5K+", l: "active users" },
+      { v: "20+", l: "countries served" },
+      { v: "9", l: "modules, one database" },
+    ],
+  },
+  viewpoint: {
+    no: "01",
+    eyebrow: "Our point of view",
+    title: "A spreadsheet stops being a system the day you hire.",
+    body: [
+      "Every growing business hits the same wall. The first spreadsheet is a triumph — one screen instead of a register. Then a second person needs it, then a second branch, then somebody asks why the stock figure and the invoice figure disagree.",
+      "We build for that moment. One database, nine modules, no exports between them: the number on your screen is the number in the business, whether you are closing a sale, a month or a service ticket.",
+    ],
+  },
+  mandate: {
+    no: "02",
+    eyebrow: "An expanding mandate",
+    title: "How the product grew, one customer request at a time.",
+    steps: [
+      { n: "01", title: "We made the first invoice buyable", text: "KrisKross Inc. starts in Chennai in 2012 writing billing software for neighbourhood retailers — printed invoices, no spreadsheets, no month-end scramble." },
+      { n: "02", title: "We delivered, and clients stayed", text: "Retailers who started with billing asked for stock, purchase and accounts. By 2015 those three joined the platform and FFH|ERP became a true ERP." },
+      { n: "03", title: "Our customers asked for more", text: "Field teams wanted the sales cycle on a phone. Service teams wanted AMC renewals and tickets in the same place as the invoice. So they were built in, offline-first." },
+      { n: "04", title: "One system, fuller mandate", text: "Today nine modules run on one database for 2,500+ active users in 20+ countries — sales, marketing, finance, materials, AMC, support and projects." },
+    ],
+  },
+  culture: {
+    no: "03",
+    eyebrow: "The culture under the work",
+    values: [
+      { n: "01", title: "Customer problem first", text: "Every release starts with a customer problem, not a feature list. Support tickets are read by the people who write the code." },
+      { n: "02", title: "Experiments over opinion", text: "Two major releases a year, driven by what users actually ask for. If a change does not remove more work than it adds, it does not ship." },
+      { n: "03", title: "Learning, out loud", text: "Migration is done with you, not to you. Training for every team is included, and the pricing is printed on the website." },
+      { n: "04", title: "Ownership of the outcome", text: "Sales, support and engineering share one customer scorecard. Nobody here is paid to sell you a licence you do not need." },
+      { n: "05", title: "Trust, in writing", text: "Accurate books, no lock-in contracts, and everything you enter stays yours — exportable, always, without asking us." },
+      { n: "06", title: "Support in your language", text: "A 24/7 helpdesk in six languages, staffed by people who have stood behind a counter at nine in the evening." },
+    ],
+  },
+  together: {
+    no: "04",
+    eyebrow: "How we work with you",
+    title: "One team, on your side of the table.",
+    body: [
+      "You get one account manager and direct access to the people who build the product — no layers between you and the decision makers. Between them they carry fourteen years of shop floors, showrooms, workshops and project sites.",
+      "We extend your team rather than replace it. Most customers pair an in-house lead with our depth in migration, training, support and reporting, then hand us the outcome they actually care about.",
+    ],
+  },
+  proof: {
+    no: "05",
+    eyebrow: "Built for operators, kept by clients",
+    title: "The businesses that stayed.",
+    note: "Six of the 2,500+ teams running their day on FFH|ERP.",
+  },
+  numbers: {
+    no: "06",
+    eyebrow: "What fourteen years added up to",
+    items: [
+      { v: "2.5K+", l: "Active users", note: "Teams running their day on FFH|ERP" },
+      { v: "20+", l: "Countries", note: "India, the Gulf, South-East Asia and beyond" },
+      { v: "9", l: "Modules", note: "On one database, with no exports between them" },
+      { v: "24/7", l: "Support", note: "Helpdesk in six languages" },
+    ],
+  },
+  people: {
+    no: "07",
+    eyebrow: "The people who run it",
+    title: "Accountable, and easy to reach.",
+  },
+  cta: {
+    eyebrow: "Next step",
+    title: "Partner with a team that owns the outcome.",
+    lead: "Start a free trial, or ask us to walk you through the module that hurts most. Setup in a day, no credit card, cancel any time.",
+    primary: "Start free trial",
+    secondary: "Talk to us",
+  },
+  footer: {
+    blurb: "FFH|ERP is a product of KrisKross Inc. — fourteen years of business software from Chennai, running in 20+ countries.",
+    columns: [
+      { title: "Product", items: [{ label: "Live CRM", path: "/home37#top" }, { label: "Our services", path: "/home37#features" }, { label: "Deployments", path: "/home37#modules" }, { label: "Pricing", path: "/home37#pricing" }] },
+      { title: "Company", items: [{ label: "About us", path: "/about12" }, { label: "About layout 11", path: "/about11" }, { label: "Home page", path: "/home37" }, { label: "Contact", path: "/home37#contact" }] },
+    ],
+    legal: "Copyright © 2026 KrisKross Inc. All rights reserved.",
+  },
+};

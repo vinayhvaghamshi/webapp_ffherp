@@ -2316,3 +2316,8 @@ a { text-decoration: none; }
 .ffh-a11 input::placeholder, .ffh-a11 textarea::placeholder { color: rgba(255,255,255,.35); }
 .ffh-a11 select option { color: #0d0f1f; }
 @media (prefers-reduced-motion: reduce) { .ffh-a11 .ffh-marquee { animation: none; } }
+
+/* About layout 12 — editorial (wittypen-style) */
+.ffh-a12 :is(h1, h2, h3, h4) { font-family: "Newsreader", Georgia, serif; font-weight: 500; }
+.ffh-a12 .ffh-about-nav { --about-nav-ink: #16283c; }
+.ffh-a12 ::placeholder { color: #9aa3b2; }
