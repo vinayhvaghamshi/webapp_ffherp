@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, Facebook, IndianRupee, Instagram, Linkedin, Menu, Minus, Pause, Play, Plus, Star, TrendingUp, Twitter, Users, X, Youtube } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, Facebook, IndianRupee, Instagram, Linkedin, Mail, Menu, Minus, Pause, Phone, Play, Plus, ShieldCheck, Star, TrendingUp, Twitter, Users, X, Youtube } from "lucide-react";
 import Icon from "./TwIcon";
-import { HOME38, HOME38_MORE, HOME30, FAQS, PLANS, TOOLS, WHY_FEATURES, formatINR } from "../../mock";
+import { HOME38, HOME38_MORE, HOME38_SIGNUP, HOME30, FAQS, PLANS, TOOLS, WHY_FEATURES, formatINR } from "../../mock";
 import { LiveCRMWindow } from "./LiveCRM";
 import TwSignupForm from "./TwSignupForm";
 import HomeLayoutNav from "./HomeLayoutNav";
@@ -304,20 +304,97 @@ export default function Home38() {
             <p className="mt-4 text-[15px] font-semibold" style={{ color: BRAND_DARK }}>
               No credit card. Setup in a day. Cancel any time.
             </p>
-            <ul className="mt-8 space-y-4">
+            <ul className="mt-8 grid grid-cols-1 gap-3.5 sm:grid-cols-2">
               {["Nine modules on one database", "We migrate your data with you", "Training for every team included", "Everything you enter stays yours"].map((b) => (
                 <li key={b} className="flex items-start gap-3 text-[15px]" style={{ color: "#4a5568" }}>
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: BRAND }} />{b}
+                  <Check className="mt-0.5 h-4 w-4 shrink-0" style={{ color: BRAND }} />{b}
                 </li>
               ))}
             </ul>
+
+            {/* what the trial actually includes */}
+            <div className="mt-9 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {HOME38_SIGNUP.included.map((it, i) => (
+                <div key={it.title} className="reveal" style={{ transitionDelay: `${i * 40}ms` }}>
+                  <div className="group flex h-full gap-3 rounded-2xl bg-white px-4 py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+                    style={{ border: `1px solid ${LINE}` }} data-testid={`home38-included-${i}`}>
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-transform duration-300 group-hover:scale-110"
+                      style={{ background: CREAM, color: BRAND_DARK, border: `1px solid ${LINE}` }}>
+                      <Icon name={it.icon} size={17} />
+                    </span>
+                    <span>
+                      <strong className="block text-[13.5px] font-semibold" style={{ color: NAVY }}>{it.title}</strong>
+                      <span className="text-[12.5px] leading-snug" style={{ color: "#6b7280" }}>{it.text}</span>
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
             <div className="mt-9 flex flex-wrap items-center gap-5 text-[13px]" style={{ color: "#6b7280" }}>
               <span className="flex text-amber-500">{[0, 1, 2, 3, 4].map((i) => <Star key={i} className="h-4 w-4 fill-current" />)}</span>
               <span><strong style={{ color: NAVY }}>4.9 / 5.0</strong> — {HOME38.rating.text}</span>
             </div>
+
+            {/* compliance badges */}
+            <div className="mt-6 flex flex-wrap gap-2" data-testid="home38-compliance">
+              {HOME38_SIGNUP.compliance.map((c) => (
+                <span key={c} className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-[12px] font-medium transition-all duration-300 hover:-translate-y-0.5"
+                  style={{ color: "#4a5568", border: `1px solid ${LINE}` }}>
+                  <ShieldCheck className="h-3.5 w-3.5" style={{ color: BRAND }} />{c}
+                </span>
+              ))}
+            </div>
           </div>
-          <div className="flex justify-center lg:order-1 lg:justify-start">
-            <TwSignupForm variant="light" spacing="roomy" glow title="Create your account" />
+
+          {/* form column: the what-happens-next timeline and a quote beneath it */}
+          <div className="lg:order-1">
+            <div className="flex justify-center lg:justify-start">
+              <TwSignupForm variant="light" spacing="roomy" glow title="Create your account" />
+            </div>
+
+            <ol className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3" data-testid="home38-signup-next">
+              {HOME38_SIGNUP.next.map((n) => (
+                <li key={n.n} className="rounded-2xl bg-white px-4 py-4" style={{ border: `1px solid ${LINE}` }}>
+                  <span className="font-mono text-[11px] font-semibold" style={{ color: BRAND }}>{n.n} · {n.when}</span>
+                  <strong className="mt-2 block text-[14px] font-semibold" style={{ color: NAVY }}>{n.title}</strong>
+                  <span className="mt-1 block text-[12.5px] leading-snug" style={{ color: "#6b7280" }}>{n.text}</span>
+                </li>
+              ))}
+            </ol>
+
+            <figure className="mt-6 flex flex-wrap items-center gap-4 rounded-2xl bg-white px-5 py-4" style={{ border: `1px solid ${LINE}` }} data-testid="home38-signup-quote">
+              <img src={`https://i.pravatar.cc/80?img=${HOME38.testimonials[0].img}`} alt="" width="44" height="44" loading="lazy" className="h-11 w-11 rounded-full object-cover" />
+              <blockquote className="min-w-[220px] flex-1 text-[13.5px] leading-relaxed" style={{ color: "#4a5568" }}>
+                “{HOME38.testimonials[0].quote}”
+              </blockquote>
+              <figcaption className="text-[12.5px]" style={{ color: "#6b7280" }}>
+                <strong className="block text-[13px]" style={{ color: NAVY }}>{HOME38.testimonials[0].person}</strong>
+                {HOME38.testimonials[0].role}
+              </figcaption>
+            </figure>
+
+            <p className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[12.5px]" style={{ color: "#6b7280" }}>
+              <span className="font-semibold" style={{ color: NAVY }}>{HOME38_SIGNUP.support.line}</span>
+              <a href={`tel:${HOME38_SIGNUP.support.phone.replace(/\s/g, "")}`} className="inline-flex items-center gap-1.5 hover:underline" style={{ color: BRAND_DARK }}>
+                <Phone className="h-3.5 w-3.5" />{HOME38_SIGNUP.support.phone}
+              </a>
+              <a href={`mailto:${HOME38_SIGNUP.support.email}`} className="inline-flex items-center gap-1.5 hover:underline" style={{ color: BRAND_DARK }}>
+                <Mail className="h-3.5 w-3.5" />{HOME38_SIGNUP.support.email}
+              </a>
+            </p>
+          </div>
+        </div>
+
+        {/* trust strip */}
+        <div className="relative mx-auto mt-14 max-w-7xl">
+          <div className="grid grid-cols-2 gap-x-0 gap-y-6 rounded-3xl bg-white px-6 py-7 sm:grid-cols-4 sm:px-8" style={{ border: `1px solid ${LINE}` }} data-testid="home38-signup-trust">
+            {HOME38_SIGNUP.trust.map((t) => (
+              <div key={t.l} className="text-center">
+                <strong className="block text-[26px] font-semibold leading-none tracking-[-0.02em]" style={{ color: BRAND }}>{t.v}</strong>
+                <span className="mt-1.5 block text-[12.5px]" style={{ color: "#6b7280" }}>{t.l}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>

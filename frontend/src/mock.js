@@ -1653,3 +1653,27 @@ export const HOME37_MORE = {
 // industries, comparison, security, savings calculator).
 export const HOME38 = { ...HOME37 };
 export const HOME38_MORE = { ...HOME37_MORE };
+
+// The richer sign-up block on layout 38: what the trial includes, what happens
+// after you press the button, the trust strip under it and the compliance badges.
+export const HOME38_SIGNUP = {
+  next: [
+    { n: "01", when: "In a minute", title: "Create the account", text: "Name, work email, company and mobile. No card, no sales call before you are ready." },
+    { n: "02", when: "Same day", title: "We load your data with you", text: "Customers, items, opening balances and open AMC contracts come across from your spreadsheets." },
+    { n: "03", when: "Tomorrow morning", title: "Your team is on it", text: "Role-wise training for sales, accounts, stores and service — then you are live with support watching." },
+  ],
+  included: [
+    { icon: "LayoutDashboard", title: "All nine modules", text: "Sales, marketing, finance, materials, AMC, support, projects, dashboards and documents." },
+    { icon: "Smartphone", title: "Mobile and offline", text: "Android and iOS, and the field app keeps working where the network does not." },
+    { icon: "UserCheck", title: "A named contact", text: "One person who knows your setup, reachable on phone and email through the trial." },
+    { icon: "DatabaseBackup", title: "Your data, exportable", text: "Everything you enter stays yours and comes out in one export, whenever you ask." },
+  ],
+  trust: [
+    { v: "2.5K+", l: "Active users" },
+    { v: "20+", l: "Countries" },
+    { v: "14 yrs", l: "In business software" },
+    { v: "24/7", l: "Support, six languages" },
+  ],
+  compliance: ["ISO 27001 aligned", "GST & e-invoicing ready", "Role-based access", "Daily backups", "No lock-in, cancel any time"],
+  support: { line: "Questions before you start?", phone: "+91 44 4858 5100", email: "ffhsales@kriskrossinc.com" },
+};
