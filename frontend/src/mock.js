@@ -176,7 +176,7 @@ export const SERVING_BRANDS = [
   { key: "ada", name: "ADA" },
   { key: "minor", name: "Minor Hotels" },
   { key: "acme", name: "Acme Brick" },
-  { key: "cimco", name: "Toromont Cimco" },
+  { key: "cimco", name: "Transit Electronics Ltd." },
   { key: "nrs", name: "National Retail Solutions" },
   { key: "avineon", name: "Avineon" },
 ];
@@ -1142,7 +1142,7 @@ export const HOME29 = {
       { id: "1067", tag: "Manufacturing", title: "Brigade Build" },
       { id: "20", tag: "Retail", title: "Zenith Retail" },
       { id: "180", tag: "Services", title: "Galaxy Health" },
-      { id: "22", tag: "Distribution", title: "Toromont Cimco" },
+      { id: "22", tag: "Distribution", title: "Transit Electronics Ltd." },
     ],
   },
   clients: {
@@ -1200,7 +1200,7 @@ export const HOME30 = {
     { tag: "Manufacturing", title: "Brigade Build", price: "₹4.2Cr", meta: "April 28, 2025", img: "1067" },
     { tag: "Retail", title: "Zenith Retail", price: "₹1.8Cr", meta: "February 25, 2025", img: "20" },
     { tag: "Healthcare", title: "Galaxy Health", price: "₹96L", meta: "March 10, 2025", img: "22" },
-    { tag: "Distribution", title: "Toromont Cimco", price: "₹2.4Cr", meta: "January 14, 2025", img: "180" },
+    { tag: "Distribution", title: "Transit Electronics Ltd.", price: "₹2.4Cr", meta: "January 14, 2025", img: "180" },
   ],
   filters: ["All", "Manufacturing", "Retail", "Healthcare", "Distribution"],
   testimonials: [
@@ -1244,7 +1244,7 @@ export const HOME31 = {
     { title: "Brigade Build", tags: ["Manufacturing", "Field service"], img: "1067" },
     { title: "Zenith Retail", tags: ["Retail", "Collections"], img: "20" },
     { title: "Galaxy Health", tags: ["Healthcare", "Support SLA"], img: "22" },
-    { title: "Toromont Cimco", tags: ["Distribution", "Integrations"], img: "180" },
+    { title: "Transit Electronics Ltd.", tags: ["Distribution", "Integrations"], img: "180" },
   ],
   team: [
     { name: "Ethan Reynolds", role: "Chief Executive Officer", img: 12 },
@@ -1345,15 +1345,11 @@ export const HOME36 = {
   syncCopy:
     "Stop switching between tools. FFH|ERP brings nine business tools together, so you can spend less time managing work — and more time moving it forward.",
   brands: [
-    { name: "Mercedes-Benz", mark: "star", lines: ["Mercedes-Benz"] },
-    { name: "Force Motors", mark: "force", lines: ["FORCE", "MOTORS"] },
-    { name: "Shiji", mark: "shiji", lines: ["Shiji"] },
-    { name: "ADA", mark: "ada", lines: ["ADA"] },
-    { name: "Minor Hotels", mark: "arch", lines: ["MINOR", "HOTELS"] },
-    { name: "Acme Brick", mark: "brick", lines: ["ACME", "BRICK"] },
-    { name: "Toromont Cimco", mark: "peak", lines: ["TOROMONT", "CIMCO"] },
-    { name: "National Retail Solutions", mark: "bag", lines: ["NRS", "NATIONAL", "RETAIL", "SOLUTIONS"] },
-    { name: "Avineon", mark: "orbit", lines: ["AVINEON."] },
+    { name: "Rajinfo Technology Services", logo: "rajinfo.png", note: "ISO 9001:2015 certified" },
+    { name: "Transit Electronics Ltd.", logo: "transit-electronics.png", note: "ELV systems & solutions" },
+    { name: "MicroHard IT Solutions", logo: "microhard-it-solutions.png", note: "IT solutions" },
+    { name: "Flair Network Systems", logo: "flair-network-systems.webp", note: "Network systems" },
+    { name: "Ecoair", logo: "ecoair.png", note: "Air engineering" },
   ],
   integrationsTitle: "Integrations.",
   integrationsCopy:

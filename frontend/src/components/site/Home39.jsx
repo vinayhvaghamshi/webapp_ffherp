@@ -35,24 +35,6 @@ const NAV = [
   { label: "Pricing Table", target: "#pricing" },
 ];
 
-// Simple geometric marks so each client card carries a logo, not just a wordmark.
-const BrandMark = ({ kind }) => (
-  <span className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-105"
-    style={{ background: CREAM, color: BRAND_DARK, border: `1px solid ${LINE}` }}>
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      {kind === "star" && (<><circle cx="12" cy="12" r="9" /><path d="M12 12V3.6M12 12l-7.3 4.2M12 12l7.3 4.2" /></>)}
-      {kind === "force" && (<><rect x="3.5" y="3.5" width="17" height="17" rx="4" /><path d="M9.5 16.5V8h5M9.5 12.2h4" /></>)}
-      {kind === "shiji" && (<><path d="M4 19.5h16" /><path d="M7 19.5V13M12 19.5V9.5M17 19.5V5.5" /></>)}
-      {kind === "ada" && (<><path d="M12 3.2l7.6 4.6v8.4L12 20.8 4.4 16.2V7.8z" /><circle cx="12" cy="12" r="2.2" /></>)}
-      {kind === "arch" && (<><path d="M4 20h16" /><path d="M6.5 20v-6a5.5 5.5 0 0 1 11 0v6" /></>)}
-      {kind === "brick" && (<><rect x="3" y="6" width="18" height="5" rx="1" /><rect x="3" y="13" width="18" height="5" rx="1" /><path d="M9 6v5M15 13v5" /></>)}
-      {kind === "peak" && (<><path d="M3 19.5h18" /><path d="M5 19.5l6-9.5 3 4.2 2-2.8 3 8.1" /></>)}
-      {kind === "bag" && (<><path d="M5 8h14l-1.2 11.5H6.2z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></>)}
-      {kind === "orbit" && (<><circle cx="12" cy="12" r="3" /><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(-28 12 12)" /></>)}
-    </svg>
-  </span>
-);
-
 const Motif = ({ className = "" }) => (
   <span className={`ffh-h39-motif ${className}`} aria-hidden="true"><i /><i /><i /><i /></span>
 );
@@ -419,19 +401,21 @@ export default function Home39() {
             </h2>
           </div>
           <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-            {HOME39.brands.map((b, i) => (
+            {[...HOME39.brands, { name: "and many more", logo: null, note: "coming to this wall" }].map((b, i) => (
               <div key={b.name} className="reveal" style={{ transitionDelay: `${i * 40}ms` }}>
-              <div data-testid={`home39-brand-${i}`}
+              <div data-testid={b.logo ? `home39-brand-${i}` : "home39-brand-more"}
                 className="group flex h-full min-h-[168px] flex-col items-center justify-center rounded-2xl bg-white px-4 py-6 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
                 style={{ border: `1px solid ${LINE}` }}>
-                <BrandMark kind={b.mark} />
-                {b.lines.map((line, k) => (
-                  <span key={line}
-                    className={`font-semibold uppercase leading-tight tracking-[0.06em] transition-colors duration-300 group-hover:text-[#cf5f12] ${b.lines.length > 2 ? "text-[12.5px]" : k === 0 ? "text-[17px]" : "text-[13px]"}`}
-                    style={{ color: k === 0 ? NAVY : "#9ca3af" }}>
-                    {line}
-                  </span>
-                ))}
+                <span className="flex h-[62px] w-full items-center justify-center">
+                  {b.logo ? (
+                    <img src={`${process.env.PUBLIC_URL}/brands/${b.logo}`} alt={`${b.name} logo`} loading="lazy" decoding="async"
+                      className="max-h-[62px] w-auto max-w-[86%] object-contain transition-transform duration-300 group-hover:scale-105" />
+                  ) : (
+                    <span className="flex items-center gap-2 text-[26px] font-semibold tracking-[0.3em]" style={{ color: BRAND }}>···</span>
+                  )}
+                </span>
+                <span className="mt-4 block text-[13.5px] font-semibold leading-snug" style={{ color: NAVY }}>{b.name}</span>
+                <span className="mt-1 block text-[11.5px] leading-snug" style={{ color: "#9ca3af" }}>{b.note}</span>
                 <span className="mt-3 h-[2px] w-0 rounded-full transition-all duration-500 group-hover:w-10" style={{ background: BRAND }} />
               </div>
               </div>
