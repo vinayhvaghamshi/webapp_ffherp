@@ -45,8 +45,8 @@ export const MILESTONES = [
 ];
 
 export const TOOLS = [
-  { name: "Market", desc: "Capture, nurture and convert prospects into leads.", icon: "Megaphone" },
-  { name: "Sales", desc: "Track leads & opportunities across every stage.", icon: "TrendingUp" },
+  { name: "Market", desc: "Capture, nurture and convert prospects — with AI intelligence scoring every lead.", icon: "Megaphone" },
+  { name: "Sales", desc: "Track leads and opportunities — AI tells you who to call next.", icon: "TrendingUp" },
   { name: "Purchase", desc: "Manage purchase orders and material flow.", icon: "ShoppingCart" },
   { name: "Bill", desc: "Invoicing, receivables and payment tracking.", icon: "ReceiptText" },
   { name: "Spend", desc: "Control payables, expenses and approvals.", icon: "Wallet" },
@@ -92,6 +92,7 @@ export const MODULE_TABS = [
 ];
 
 export const WHY_FEATURES = [
+  { title: "Artificial Intelligence (AI)", desc: "Lead scoring, next-best-action, demand forecasting and renewal signals — running on your own records, inside the modules you already use.", icon: "Sparkles" },
   { title: "Smart dashboards", desc: "Get actionable insights at your fingertips using smart, customizable dashboards.", icon: "LayoutDashboard" },
   { title: "Access anywhere, anytime", desc: "Fully compatible with mobiles and tablets on Android or iOS — work from anywhere.", icon: "Smartphone" },
   { title: "Customizable documents", desc: "Customize quotation, invoice and other document formats as per your needs.", icon: "FileCog" },
@@ -313,6 +314,7 @@ export const ABOUT_3 = {
     { value: "5+", label: "Countries served" },
   ],
   pillars: [
+    { icon: "Sparkles", title: "AI where the work happens", text: "Artificial intelligence sits inside the modules rather than beside them: it scores the lead, suggests the next action, forecasts demand, flags a renewal and questions an odd invoice — on your own data, with nothing shipped to a third party." },
     { icon: "Layers", title: "One system, not nine tools", text: "Sales, purchase, billing, spend, AMC, support, work and projects share one database — so a quote becomes an order, an invoice and a service ticket without anyone re-typing it." },
     { icon: "Smartphone", title: "Built for the field, not the boardroom", text: "Field teams update leads, collections and service visits from a phone, online or offline. Owners open the same numbers on a dashboard the next morning." },
     { icon: "LifeBuoy", title: "Support that stays after the sale", text: "Implementation, data migration and training are part of the deal. A 24/7 helpdesk staffed by people who know the product closes the loop." },
@@ -1187,6 +1189,7 @@ export const HOME30 = {
     { value: "25+", label: "Industry awards", note: "Recognised work", text: "For product design, delivery and customer support." },
   ],
   services: [
+    { name: "Artificial Intelligence (AI)", text: "AI built into the modules you already use, running on your own data — lead scoring, next-best-action, demand forecasting, renewal signals and anomaly checks. No separate AI project to buy, no data shipped out.", img: "180" },
     { name: "Sales & marketing", text: "Our team delivers a pipeline that moves — clean data, automated follow-ups, zero guesswork. Every enquiry, quote and order is one record.", img: "7" },
     { name: "Finance & billing", text: "GST invoices, receivables and approvals drawn from the same records you sell on, with e-invoicing ready from day one.", img: "431" },
     { name: "AMC & support", text: "Warranty, contracts, tickets and renewals with the reminders built in, so service levels stop depending on memory.", img: "26" },
