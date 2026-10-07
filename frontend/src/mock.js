@@ -2214,8 +2214,15 @@ export const ABOUT_20 = {
     titleAccent: "make it simpler",
     lead: "From a billing package written for Chennai retailers to nine connected modules used in 20+ countries.",
     note: "Every module exists because a customer asked for it.",
-    turns: "Fourteen years, five turns",
+    turns: "Fourteen years, six turns",
     turnsLead: "Each step was a customer asking for something the software could not do yet.",
+    // the entry that closes the timeline: what is already on the roadmap, taken
+    // from the "what comes next" list this page already shows.
+    turn2026: {
+      year: "2026",
+      title: "Where the next turn goes",
+      text: "Deeper mobile, more automation and open integrations: approvals and collections from a phone, follow-ups and renewals that happen without anyone remembering, and cleaner connections to banks, GST portals and the tools you already pay for.",
+    },
   },
   why: {
     eyebrow: "Why",

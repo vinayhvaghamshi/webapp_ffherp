@@ -286,7 +286,7 @@ export default function About20() {
               <ol className="relative" data-testid="a20-timeline">
                 <span className="absolute bottom-3 left-[9px] top-3 w-[3px] rounded-full" aria-hidden="true"
                   style={{ background: `linear-gradient(180deg, #f7a52a, #f0452c)` , opacity: .35 }} />
-                {ABOUT_ALT.story.map((s, i) => (
+                {[...ABOUT_ALT.story, A.journey.turn2026].map((s, i) => (
                   <li key={s.year} className="reveal relative pb-10 pl-12 last:pb-0" style={{ transitionDelay: `${i * 50}ms` }} data-testid={`a20-turn-${s.year}`}>
                     <span className="absolute left-0 top-1 flex h-[21px] w-[21px] items-center justify-center rounded-full bg-white"
                       style={{ border: `3px solid ${BRAND}` }}>
