@@ -1181,7 +1181,7 @@ export const HOME30 = {
     "We believe great businesses don't run on guesswork. Nine modules on one database turn the day's work into numbers you can act on — and leave nothing to reconcile at month end.",
   cta: "Let's get started",
   stats: [
-    { value: "45K+", label: "Projects delivered", note: "Enhance your operations", text: "High-impact deployments across manufacturing, retail, healthcare and services." },
+    { value: "1K+", label: "Projects delivered", note: "Enhance your operations", text: "High-impact deployments across manufacturing, retail, healthcare and services." },
     { value: "2.5K+", label: "Active users", note: "Trusted worldwide", text: "Businesses that run their day on FFH|ERP, in more than 20 countries." },
     { value: "14", label: "Years in software", note: "Built to last", text: "Fourteen years of implementations, migrations and month-end closes." },
     { value: "25+", label: "Industry awards", note: "Recognised work", text: "For product design, delivery and customer support." },
