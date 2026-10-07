@@ -1346,7 +1346,9 @@ export const HOME36 = {
     "Stop switching between tools. FFH|ERP brings nine business tools together, so you can spend less time managing work — and more time moving it forward.",
   brands: [
     { name: "Rajinfo Technology Services", logo: "rajinfo.png", note: "ISO 9001:2015 certified" },
+    { name: "Raj Info Enterprise Pvt. Ltd.", logo: "rajinfo.png", note: "" },
     { name: "Transit Electronics Ltd.", logo: "transit-electronics.png", note: "ELV systems & solutions" },
+    { name: "Nimit Electronics", logo: "nimit-electronics.png", note: "Electronics & security systems" },
     { name: "MicroHard IT Solutions", logo: "microhard-it-solutions.png", note: "IT solutions" },
     { name: "Flair Network Systems", logo: "flair-network-systems.png", note: "Network systems" },
     { name: "Ecoair", logo: "ecoair.png", note: "Air engineering" },
