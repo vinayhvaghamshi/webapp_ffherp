@@ -1,28 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, Facebook, IndianRupee, Instagram, Linkedin, Menu, Minus, Pause, Play, Plus, Star, TrendingUp, Twitter, Users, X, Youtube } from "lucide-react";
 import Icon from "./TwIcon";
-import { HOME37, HOME30, FAQS, PLANS, TOOLS, WHY_FEATURES, formatINR } from "../../mock";
+import { HOME38, HOME38_MORE, HOME30, FAQS, PLANS, TOOLS, WHY_FEATURES, formatINR } from "../../mock";
 import { LiveCRMWindow } from "./LiveCRM";
 import TwSignupForm from "./TwSignupForm";
 import HomeLayoutNav from "./HomeLayoutNav";
 import SupportChat from "./SupportChat";
 import { useGoTo } from "./crmStore";
 
-// Layout 37 — the home1 "FFH|ERP · Live CRM" widget in the hero (replacing the
-// "Today at a glance" panel), a deliberately smaller "Let's get started" block,
-// no white band in Our services, a livelier hero and tighter mobile behaviour.
-// hero (cursor tilt + "serving 2.5K active users for 14 years"), a stacked-wordmark
-// client wall and a cloud-integrations grid with a cursor spotlight. every open/close animates
-// smoothly (services accordion, FAQ, mobile nav), the deployments cards are
-// twice the size with hover reveals, client satisfaction is a click-through
-// slider, and the popular plan is deliberately bigger than the rest. the "Let's get started" block becomes a
-// full-width, logo-themed section with a large form, and the services accordion
-// opens on hover as well as on click. The live panel returns to the hero.
-//   · Home30's creative structure (graph-paper grid, Syne display type, staggered
-//     headline, marquee, counters, image accordion, filterable grid, billing toggle)
-//   · Home12's logo theme (brand #ef7b23, cream #fff6ec, gradient #f7a52a → #f0452c,
-//     navy #16283c) together with its motif bars and live KPI panel
-// Tailwind only, no Bootstrap.
+// Layout 38 — layout 37 plus five more content blocks: a four-step
+// implementation stepper, industry solutions, an FFH|ERP vs spreadsheets vs
+// typical-ERP comparison table, a security/compliance band and a live savings
+// calculator, placed after "Why teams choose FFH|ERP".
 const BRAND = "#ef7b23";
 const BRAND_DARK = "#cf5f12";
 const NAVY = "#16283c";
@@ -62,7 +51,7 @@ const BrandMark = ({ kind }) => (
 );
 
 const Motif = ({ className = "" }) => (
-  <span className={`ffh-h37-motif ${className}`} aria-hidden="true"><i /><i /><i /><i /></span>
+  <span className={`ffh-h38-motif ${className}`} aria-hidden="true"><i /><i /><i /><i /></span>
 );
 
 const GridLines = () => (
@@ -103,7 +92,7 @@ const Counter = ({ value }) => {
   return <span ref={ref}>{n.toFixed(decimals)}{String(value).replace(/[\d.]/g, "")}</span>;
 };
 
-export default function Home37() {
+export default function Home38() {
   const goTo = useGoTo();
   const [open, setOpen] = useState(false);
   const [openService, setOpenService] = useState(0);
@@ -120,6 +109,17 @@ export default function Home37() {
   const [areas, setAreas] = useState({ Sales: true, Finance: true, Support: true, Projects: true });
   const [activeNav, setActiveNav] = useState("#top");
   const [healthShown, setHealthShown] = useState(82);
+  const [howStep, setHowStep] = useState(0);
+  const [roi, setRoi] = useState({ users: 12, hours: 6, rate: 450 });
+  const MORE = HOME38_MORE;
+  // savings calculator: hours lost per week -> hours given back -> money
+  const roiLostMonth = Math.round(roi.users * roi.hours * 4.33);
+  const roiHoursMonth = Math.round(roiLostMonth * 0.65);          // we assume ~65% of it comes back
+  const roiSavedYear = Math.round(roi.users * roi.hours * 52 * roi.rate * 0.65);
+  const roiDaysYear = ((roi.hours * 52 * 0.65) / 8).toFixed(1);   // per person, per year
+  const roiCostYear = roi.users * 960 * 12;                       // Pro plan, printed pricing
+  const roiMultiple = (roiSavedYear / Math.max(roiCostYear, 1)).toFixed(1);
+  const roiRecovered = 65;
   const [autoplay, setAutoplay] = useState(true);
   const [hovering, setHovering] = useState(false);
   const swipeX = useRef(null);
@@ -134,7 +134,7 @@ export default function Home37() {
 
   // client-satisfaction slider: autoplay until the pointer rests on it (or the
   // visitor pauses it), with a swipe on touch and arrow keys on desktop
-  const slideCount = HOME37.testimonials.length;
+  const slideCount = HOME38.testimonials.length;
   const nextSlide = () => setSlide((v) => (v + 1) % slideCount);
   const prevSlide = () => setSlide((v) => (v - 1 + slideCount) % slideCount);
   useEffect(() => {
@@ -176,21 +176,21 @@ export default function Home37() {
   const projects = filter === "All" ? HOME30.projects : HOME30.projects.filter((p) => p.tag === filter);
 
   return (
-    <div className="ffh-tw ffh-h37 ffh-logo-theme min-h-screen bg-white font-[Poppins] antialiased" data-testid="home37-page">
+    <div className="ffh-tw ffh-h38 ffh-logo-theme min-h-screen bg-white font-[Poppins] antialiased" data-testid="home38-page">
       {/* ---------- nav ---------- */}
-      <header className="sticky top-0 z-50 border-b bg-white/90 backdrop-blur-md" style={{ borderColor: LINE }} data-testid="h37-nav">
+      <header className="sticky top-0 z-50 border-b bg-white/90 backdrop-blur-md" style={{ borderColor: LINE }} data-testid="h38-nav">
         <div className="mx-auto flex h-[70px] max-w-[1400px] items-center gap-6 px-5 sm:px-8">
           <a href="#top" onClick={(e) => go(e, "#top")} className="flex items-center gap-3">
             <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="34" height="34" className="h-[34px] w-[34px] rounded-full" />
             <Motif />
             <span className="text-[19px] font-bold tracking-tight" style={{ color: NAVY }}>FFH|ERP</span>
           </a>
-          <nav className="mx-auto hidden items-center gap-1 lg:flex" data-testid="h37-navlinks">
+          <nav className="mx-auto hidden items-center gap-1 lg:flex" data-testid="h38-navlinks">
             {NAV.map((l) => {
               const on = activeNav === l.target;
               return (
                 <a key={l.label} href={l.target} onClick={(e) => go(e, l.target)}
-                  data-testid={`h37-nav-${l.label.toLowerCase().replace(/\s+/g, "-")}`} data-active={on ? "true" : "false"}
+                  data-testid={`h38-nav-${l.label.toLowerCase().replace(/\s+/g, "-")}`} data-active={on ? "true" : "false"}
                   className="group relative rounded-full px-4 py-2 text-[13.5px] font-medium transition-all duration-300 hover:-translate-y-0.5"
                   style={{ color: on ? BRAND_DARK : NAVY }}>
                   {/* soft wash that pops in behind the label (classes drive the transform) */}
@@ -204,11 +204,11 @@ export default function Home37() {
               );
             })}
           </nav>
-          <button onClick={(e) => go(e, "#contact")} data-testid="h37-cta"
+          <button onClick={(e) => go(e, "#contact")} data-testid="h38-cta"
             className={`ml-auto hidden items-center gap-2 rounded-full ${GRAD} px-5 py-3 text-[13.5px] font-semibold text-white shadow-lg shadow-orange-500/25 transition hover:brightness-105 lg:inline-flex`}>
             Contact Us <ArrowUpRight className="h-4 w-4" />
           </button>
-          <button onClick={() => setOpen(!open)} aria-label="Toggle menu" data-testid="h37-burger"
+          <button onClick={() => setOpen(!open)} aria-label="Toggle menu" data-testid="h38-burger"
             className="ml-auto bg-transparent p-2 lg:hidden" style={{ color: NAVY }}>{open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}</button>
         </div>
         <div className={`grid transition-[grid-template-rows] duration-500 ease-out lg:hidden`} style={{ gridTemplateRows: open ? "1fr" : "0fr" }}>
@@ -227,7 +227,7 @@ export default function Home37() {
       <section id="top" className="relative overflow-hidden px-5 pb-16 pt-14 sm:px-8"
         style={{ background: `linear-gradient(160deg, ${SOFT} 0%, #ffffff 55%, ${CREAM} 100%)` }}
         onMouseMove={(e) => { const r = e.currentTarget.getBoundingClientRect(); setHeroSpot({ x: ((e.clientX - r.left) / r.width) * 100, y: ((e.clientY - r.top) / r.height) * 100 }); }}>
-        <div className="ffh-h37-spot pointer-events-none absolute inset-0" style={{ "--mx": `${heroSpot.x}%`, "--my": `${heroSpot.y}%` }} aria-hidden="true" />
+        <div className="ffh-h38-spot pointer-events-none absolute inset-0" style={{ "--mx": `${heroSpot.x}%`, "--my": `${heroSpot.y}%` }} aria-hidden="true" />
         <div className="pointer-events-none absolute inset-0" aria-hidden="true">
           <span className="ffh-h26-float absolute -left-10 top-24 h-40 w-40 rounded-full" style={{ background: "rgba(247,165,42,.20)", filter: "blur(28px)" }} />
           <span className="ffh-h26-float d2 absolute right-[8%] top-10 h-32 w-32 rounded-full" style={{ background: "rgba(240,69,44,.16)", filter: "blur(26px)" }} />
@@ -237,26 +237,26 @@ export default function Home37() {
         <div className="relative mx-auto max-w-[1400px]">
           <div className="reveal">
             <span className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[13px] font-medium shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md" style={{ color: NAVY, border: `1px solid ${LINE}` }}>
-              <span className="h-2 w-2 animate-pulse rounded-full" style={{ background: BRAND }} />{HOME37.eyebrow}
+              <span className="h-2 w-2 animate-pulse rounded-full" style={{ background: BRAND }} />{HOME38.eyebrow}
             </span>
           </div>
           <div className="reveal delay-1">
             <h1 className="mt-8 text-[11vw] font-semibold leading-[0.98] tracking-[-0.04em] sm:text-[7.5vw] lg:text-[88px]" style={{ color: NAVY }}>
-              {HOME37.titleA}
-              <span className={`block lg:ml-[12%] ${GRAD_TEXT}`}>{HOME37.titleB}</span>
+              {HOME38.titleA}
+              <span className={`block lg:ml-[12%] ${GRAD_TEXT}`}>{HOME38.titleB}</span>
             </h1>
           </div>
           <div className="mt-10 grid grid-cols-12 gap-x-0 gap-y-10 sm:gap-x-10">
             <div className="col-span-12 lg:col-span-6">
               <div className="reveal delay-2">
-                <p className="max-w-xl text-[15.5px] leading-relaxed" style={{ color: "#4a5568" }}>{HOME37.lead}</p>
+                <p className="max-w-xl text-[15.5px] leading-relaxed" style={{ color: "#4a5568" }}>{HOME38.lead}</p>
                 <div className="mt-7 flex flex-wrap items-center gap-4">
-                  <button onClick={(e) => go(e, "#signup")} data-testid="home37-cta-trial"
+                  <button onClick={(e) => go(e, "#signup")} data-testid="home38-cta-trial"
                     className={`group inline-flex items-center gap-2 rounded-full ${GRAD} px-8 py-4 text-[15px] font-semibold text-white shadow-lg shadow-orange-500/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-orange-500/40`}>
-                    {HOME37.ctaMain}
+                    {HOME38.ctaMain}
                     <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-1" />
                   </button>
-                  <button onClick={(e) => go(e, "#live")} data-testid="home37-cta-live"
+                  <button onClick={(e) => go(e, "#live")} data-testid="home38-cta-live"
                     className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-[14px] font-semibold transition-all duration-300 hover:-translate-y-1"
                     style={{ color: NAVY, border: `1px solid ${LINE}` }}>
                     Try the live CRM
@@ -264,7 +264,7 @@ export default function Home37() {
                 </div>
               </div>
               <div className="reveal delay-3 mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-2xl bg-white px-6 py-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
-                style={{ border: `1px solid ${LINE}` }} data-testid="home37-serving">
+                style={{ border: `1px solid ${LINE}` }} data-testid="home38-serving">
                 <span className="flex -space-x-3">
                   {[12, 14, 18, 60].map((n) => (
                     <img key={n} src={`https://i.pravatar.cc/80?img=${n}`} alt="" width="34" height="34" loading="lazy"
@@ -272,9 +272,9 @@ export default function Home37() {
                   ))}
                 </span>
                 <p className="text-[15px]" style={{ color: "#6b7280" }}>
-                  {HOME37.stat.lead}{" "}<strong className="text-[19px] font-bold" style={{ color: BRAND }}><Counter value={HOME37.stat.a} /></strong>{" "}
-                  {HOME37.stat.mid}{" "}<strong className="text-[19px] font-bold" style={{ color: BRAND }}><Counter value={HOME37.stat.b} /></strong>{" "}
-                  {HOME37.stat.tail}
+                  {HOME38.stat.lead}{" "}<strong className="text-[19px] font-bold" style={{ color: BRAND }}><Counter value={HOME38.stat.a} /></strong>{" "}
+                  {HOME38.stat.mid}{" "}<strong className="text-[19px] font-bold" style={{ color: BRAND }}><Counter value={HOME38.stat.b} /></strong>{" "}
+                  {HOME38.stat.tail}
                 </p>
                 <span className="ml-auto hidden text-amber-500 sm:flex">{[0, 1, 2, 3, 4].map((i) => <Star key={i} className="h-4 w-4 fill-current" />)}</span>
               </div>
@@ -293,7 +293,7 @@ export default function Home37() {
 
 {/* ---------- big "Let's get started" section (logo theme) ---------- */}
       <section className="relative overflow-hidden border-y px-5 py-16 sm:px-8 sm:py-20"
-        style={{ borderColor: LINE, background: `linear-gradient(135deg, ${CREAM} 0%, #ffffff 45%, ${SOFT} 100%)` }} data-testid="home37-signup-section">
+        style={{ borderColor: LINE, background: `linear-gradient(135deg, ${CREAM} 0%, #ffffff 45%, ${SOFT} 100%)` }} data-testid="home38-signup-section">
         <GridLines />
         <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-y-14 lg:grid-cols-2 lg:gap-x-32">
           <div className="lg:order-2">
@@ -313,7 +313,7 @@ export default function Home37() {
             </ul>
             <div className="mt-9 flex flex-wrap items-center gap-5 text-[13px]" style={{ color: "#6b7280" }}>
               <span className="flex text-amber-500">{[0, 1, 2, 3, 4].map((i) => <Star key={i} className="h-4 w-4 fill-current" />)}</span>
-              <span><strong style={{ color: NAVY }}>4.9 / 5.0</strong> — {HOME37.rating.text}</span>
+              <span><strong style={{ color: NAVY }}>4.9 / 5.0</strong> — {HOME38.rating.text}</span>
             </div>
           </div>
           <div className="flex justify-center lg:order-1 lg:justify-start">
@@ -328,18 +328,18 @@ export default function Home37() {
           <div className="reveal">
             <Label>Everything in sync</Label>
             <h2 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl lg:text-[54px]" style={{ color: NAVY }}>
-              {HOME37.syncTitleA} <em className="font-['Playfair_Display'] font-medium italic" style={{ color: BRAND }}>{HOME37.syncTitleB}</em>
+              {HOME38.syncTitleA} <em className="font-['Playfair_Display'] font-medium italic" style={{ color: BRAND }}>{HOME38.syncTitleB}</em>
             </h2>
-            <p className="mt-5 max-w-2xl text-[15.5px] leading-relaxed" style={{ color: "#4a5568" }}>{HOME37.syncCopy}</p>
+            <p className="mt-5 max-w-2xl text-[15.5px] leading-relaxed" style={{ color: "#4a5568" }}>{HOME38.syncCopy}</p>
           </div>
         </div>
-        <div className="ffh-tools-marquee reveal -mx-[40px]" data-testid="home37-tools-marquee">
+        <div className="ffh-tools-marquee reveal -mx-[40px]" data-testid="home38-tools-marquee">
           <div className="ffh-tools-track">
             {[...TOOLS, ...TOOLS].map((tl, i) => {
               const first = i < TOOLS.length;
               return (
                 <div className="ffh-tool ffh-tool-mq" key={`${tl.name}-${i}`} aria-hidden={first ? undefined : "true"}
-                  data-testid={first ? `home37-tool-${tl.name.toLowerCase()}` : undefined}>
+                  data-testid={first ? `home38-tool-${tl.name.toLowerCase()}` : undefined}>
                   <div className="d-flex justify-content-between align-items-start">
                     <div className="ffh-tool-icon"><Icon name={tl.icon} size={26} /></div>
                     <span className="ffh-tool-num">{String((i % TOOLS.length) + 1).padStart(2, "0")}</span>
@@ -364,9 +364,9 @@ export default function Home37() {
             </h2>
           </div>
           <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-            {HOME37.brands.map((b, i) => (
+            {HOME38.brands.map((b, i) => (
               <div key={b.name} className="reveal" style={{ transitionDelay: `${i * 40}ms` }}>
-              <div data-testid={`home37-brand-${i}`}
+              <div data-testid={`home38-brand-${i}`}
                 className="group flex h-full min-h-[168px] flex-col items-center justify-center rounded-2xl bg-white px-4 py-6 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
                 style={{ border: `1px solid ${LINE}` }}>
                 <BrandMark kind={b.mark} />
@@ -388,19 +388,19 @@ export default function Home37() {
       {/* ---------- integrations: cursor spotlight + hover tiles ---------- */}
       <section id="integrations" className="relative overflow-hidden border-y px-5 py-20 sm:px-8 sm:py-24" style={{ borderColor: LINE, background: "#fff" }}
         onMouseMove={(e) => { const r = e.currentTarget.getBoundingClientRect(); setSpot({ x: ((e.clientX - r.left) / r.width) * 100, y: ((e.clientY - r.top) / r.height) * 100 }); }}>
-        <div className="ffh-h37-spot pointer-events-none absolute inset-0" style={{ "--mx": `${spot.x}%`, "--my": `${spot.y}%` }} aria-hidden="true" />
+        <div className="ffh-h38-spot pointer-events-none absolute inset-0" style={{ "--mx": `${spot.x}%`, "--my": `${spot.y}%` }} aria-hidden="true" />
         <div className="relative mx-auto max-w-[1400px]">
           <div className="reveal max-w-3xl">
             <Label>Connect your stack</Label>
             <h2 className="mt-6 text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl lg:text-[54px]" style={{ color: NAVY }}>
-              {HOME37.integrationsTitle}
+              {HOME38.integrationsTitle}
             </h2>
-            <p className="mt-5 text-[15.5px] leading-relaxed" style={{ color: "#4a5568" }}>{HOME37.integrationsCopy}</p>
+            <p className="mt-5 text-[15.5px] leading-relaxed" style={{ color: "#4a5568" }}>{HOME38.integrationsCopy}</p>
           </div>
           <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-            {HOME37.integrations.map((app, i) => (
+            {HOME38.integrations.map((app, i) => (
               <div key={app.name} className="reveal" style={{ transitionDelay: `${i * 35}ms` }}>
-              <div data-testid={`home37-app-${app.name.toLowerCase()}`}
+              <div data-testid={`home38-app-${app.name.toLowerCase()}`}
                 className="group flex h-full cursor-pointer flex-col items-center justify-center gap-1.5 rounded-2xl bg-white px-2.5 py-3.5 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl sm:flex-row sm:items-center sm:justify-start sm:gap-3 sm:px-5 sm:py-4 sm:text-left"
                 style={{ border: `1px solid ${LINE}` }}>
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-transform duration-300 group-hover:scale-110 sm:h-11 sm:w-11 sm:rounded-xl"
@@ -424,7 +424,7 @@ export default function Home37() {
           <Label>About us</Label>
           <div className="mt-8 grid grid-cols-12 items-end gap-x-0 gap-y-10 sm:gap-x-10">
             <h2 className="col-span-12 text-3xl font-semibold leading-[1.14] tracking-[-0.03em] sm:text-4xl lg:col-span-9 lg:text-[44px]" style={{ color: NAVY }}>
-              {HOME37.aboutTitle}
+              {HOME38.aboutTitle}
             </h2>
             <div className="col-span-12 lg:col-span-3 lg:text-right">
               <button onClick={(e) => go(e, "#contact")} className={`inline-flex items-center gap-2 rounded-full ${GRAD} px-6 py-3.5 text-[14px] font-semibold text-white transition hover:brightness-105`}>
@@ -435,7 +435,7 @@ export default function Home37() {
 
           <div className="mt-16 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
             {HOME30.stats.map((s, i) => (
-              <div key={s.label} data-testid={`home37-stat-${i}`}>
+              <div key={s.label} data-testid={`home38-stat-${i}`}>
                 <strong className="block text-5xl font-semibold tracking-[-0.04em] sm:text-6xl" style={{ color: BRAND }}>
                   <Counter value={s.value} />
                 </strong>
@@ -453,13 +453,13 @@ export default function Home37() {
         <div className="mx-auto max-w-[1400px]">
           <Label>Our services</Label>
           <h2 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl lg:text-[54px]" style={{ color: NAVY }}>
-            {HOME37.servicesTitle}
+            {HOME38.servicesTitle}
           </h2>
-          <div className="mt-14 border-y" style={{ borderColor: LINE }} data-testid="home37-accordion">
+          <div className="mt-14 border-y" style={{ borderColor: LINE }} data-testid="home38-accordion">
             {HOME30.services.map((s, i) => {
               const isOpen = openService === i;
               return (
-                <div key={s.name} className="border-b last:border-b-0" style={{ borderColor: LINE }} data-testid={`home37-service-${i}`}>
+                <div key={s.name} className="border-b last:border-b-0" style={{ borderColor: LINE }} data-testid={`home38-service-${i}`}>
                   <button
                     onClick={() => setOpenService((prev) => (prev === i ? -1 : i))}
                     onMouseEnter={canHover ? () => setOpenService(i) : undefined}
@@ -513,11 +513,11 @@ export default function Home37() {
               {/* Business health — tap an area and the score moves */}
               <div className="reveal mt-8">
               <div className="rounded-3xl bg-white p-6 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl sm:p-7"
-                style={{ border: `1px solid ${LINE}` }} data-testid="home37-health-card">
+                style={{ border: `1px solid ${LINE}` }} data-testid="home38-health-card">
                 <div className="flex items-end justify-between gap-6">
                   <div>
                     <span className="text-[12px] font-semibold uppercase tracking-[0.16em]" style={{ color: "#9ca3af" }}>Business health</span>
-                    <h4 className="mt-2 text-2xl font-semibold transition-colors duration-500" style={{ color: healthStatus === "Excellent" ? "#0f9d58" : healthStatus === "Good" ? BRAND : "#f0452c" }} data-testid="home37-health-status">
+                    <h4 className="mt-2 text-2xl font-semibold transition-colors duration-500" style={{ color: healthStatus === "Excellent" ? "#0f9d58" : healthStatus === "Good" ? BRAND : "#f0452c" }} data-testid="home38-health-status">
                       {healthStatus}
                     </h4>
                   </div>
@@ -528,7 +528,7 @@ export default function Home37() {
                         strokeDasharray={2 * Math.PI * 43} strokeDashoffset={2 * Math.PI * 43 * (1 - healthPct / 100)}
                         style={{ transition: "stroke-dashoffset .9s cubic-bezier(.2,.7,.2,1)" }} />
                     </svg>
-                    <strong className="text-[26px] font-semibold tabular-nums" style={{ color: NAVY }} data-testid="home37-health-pct">{Math.round(healthShown)}%</strong>
+                    <strong className="text-[26px] font-semibold tabular-nums" style={{ color: NAVY }} data-testid="home38-health-pct">{Math.round(healthShown)}%</strong>
                   </div>
                 </div>
 
@@ -540,7 +540,7 @@ export default function Home37() {
                 <div className="mt-6 grid grid-cols-2 gap-2.5">
                   {HEALTH_AREAS.map((a) => (
                     <button key={a} onClick={() => setAreas((p) => ({ ...p, [a]: !p[a] }))}
-                      data-testid={`home37-health-area-${a.toLowerCase()}`}
+                      data-testid={`home38-health-area-${a.toLowerCase()}`}
                       className="group flex items-center gap-2.5 rounded-xl px-3.5 py-3 text-left text-[14px] font-medium transition-all duration-300 hover:-translate-y-0.5"
                       style={areas[a] ? { background: "#fdeedd", color: NAVY, border: `1px solid ${LINE}` } : { background: "#f8fafc", color: "#6b7280", border: "1px solid #eef2f7" }}>
                       <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md transition-all duration-300 ${areas[a] ? "scale-100" : "scale-90"}`}
@@ -561,7 +561,7 @@ export default function Home37() {
               {WHY_FEATURES.map((w, i) => (
                 <div key={w.title} className="reveal" style={{ transitionDelay: `${i * 70}ms` }}>
                   <div className="group mb-2.5 flex items-start gap-3 rounded-xl bg-white px-4 py-3.5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:px-5 sm:py-4"
-                    style={{ border: `1px solid ${LINE}` }} data-testid={`home37-why-feature-${i}`}>
+                    style={{ border: `1px solid ${LINE}` }} data-testid={`home38-why-feature-${i}`}>
                     <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-6"
                       style={{ background: CREAM, color: BRAND_DARK, border: `1px solid ${LINE}` }}>
                       <Icon name={w.icon} size={17} />
@@ -578,16 +578,170 @@ export default function Home37() {
         </div>
       </section>
 
+{/* ---------- implementation: four steps, click to expand ---------- */}
+      <section id="how" className="relative border-y px-5 py-20 sm:px-8 sm:py-24" style={{ borderColor: LINE, background: "#fff" }}>
+        <GridLines />
+        <div className="relative mx-auto max-w-[1400px]">
+          <div className="reveal">
+            <Label>{MORE.how.eyebrow}</Label>
+            <h2 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl lg:text-[54px]" style={{ color: NAVY }}>
+              Live in a day, <span className={GRAD_TEXT}>not a quarter.</span>
+            </h2>
+            <p className="mt-5 max-w-2xl text-[15.5px] leading-relaxed" style={{ color: "#4a5568" }}>{MORE.how.lead}</p>
+          </div>
+
+          <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-x-10" data-testid="h38-how">
+            <div className="lg:col-span-5">
+              <div className="flex flex-col gap-2.5">
+                {MORE.how.steps.map((s, i) => {
+                  const on = howStep === i;
+                  return (
+                    <button key={s.n} onClick={() => setHowStep(i)} data-testid={`h38-how-step-${i}`}
+                      className="group flex w-full items-center gap-4 rounded-2xl px-5 py-4 text-left transition-all duration-300 hover:-translate-y-0.5"
+                      style={on
+                        ? { background: `linear-gradient(135deg, #f7a52a, #f0452c)`, border: "1px solid transparent", boxShadow: "0 20px 40px -26px rgba(240,69,44,.75)" }
+                        : { background: SOFT, border: `1px solid ${LINE}` }}>
+                      <span className="font-mono text-[12px] font-semibold" style={{ color: on ? "rgba(255,255,255,.85)" : BRAND_DARK }}>{s.n}</span>
+                      <span className="flex-1">
+                        <strong className="block text-[15.5px] font-semibold" style={{ color: on ? "#fff" : NAVY }}>{s.title}</strong>
+                        <span className="text-[12.5px]" style={{ color: on ? "rgba(255,255,255,.8)" : "#8b93a3" }}>{s.when}</span>
+                      </span>
+                      <ArrowRight className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5" style={{ color: on ? "#fff" : BRAND }} />
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="lg:col-span-7">
+              <div className="relative h-full overflow-hidden rounded-3xl p-8 transition-all duration-500 sm:p-10" style={{ background: SOFT, border: `1px solid ${LINE}` }}>
+                <span className="font-mono text-[12px] font-semibold" style={{ color: BRAND_DARK }}>{MORE.how.steps[howStep].n} · {MORE.how.steps[howStep].when}</span>
+                <h3 className="mt-3 text-2xl font-semibold tracking-[-0.02em] sm:text-3xl" style={{ color: NAVY }}>{MORE.how.steps[howStep].title}</h3>
+                <p className="mt-4 max-w-2xl text-[15.5px] leading-relaxed" style={{ color: "#4a5568" }}>{MORE.how.steps[howStep].text}</p>
+                <ul className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                  {MORE.how.steps[howStep].points.map((pt) => (
+                    <li key={pt} className="flex items-start gap-2.5 rounded-xl bg-white px-4 py-3 text-[13.5px]" style={{ border: `1px solid ${LINE}`, color: "#4a5568" }}>
+                      <Check className="mt-0.5 h-4 w-4 shrink-0" style={{ color: BRAND }} />{pt}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-8 flex flex-wrap items-center gap-3">
+                  <button onClick={(e) => go(e, "#signup")} className={`inline-flex items-center gap-2 rounded-full ${GRAD} px-6 py-3.5 text-[14px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5`}>
+                    Start free trial <ArrowUpRight className="h-4 w-4" />
+                  </button>
+                  <button onClick={(e) => go(e, "#contact")} className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[14px] font-semibold transition-all duration-300 hover:-translate-y-0.5" style={{ color: NAVY, border: `1px solid ${LINE}` }}>
+                    Book a walkthrough
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- industries ---------- */}
+      <section id="industries" className="relative px-5 py-20 sm:px-8 sm:py-24" style={{ background: SOFT }}>
+        <div className="relative mx-auto max-w-[1400px]">
+          <div className="reveal">
+            <Label>{MORE.industries.eyebrow}</Label>
+            <h2 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl" style={{ color: NAVY }}>
+              {MORE.industries.title}
+            </h2>
+            <p className="mt-5 max-w-2xl text-[15.5px] leading-relaxed" style={{ color: "#4a5568" }}>{MORE.industries.lead}</p>
+          </div>
+          <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3" data-testid="h38-industries">
+            {MORE.industries.items.map((it, i) => (
+              <div key={it.name} className="reveal" style={{ transitionDelay: `${i * 45}ms` }}>
+                <div className="group flex h-full flex-col rounded-2xl bg-white p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl" style={{ border: `1px solid ${LINE}` }}>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-500 group-hover:rotate-6 group-hover:scale-110" style={{ background: CREAM, color: BRAND_DARK, border: `1px solid ${LINE}` }}>
+                    <Icon name={it.icon} size={22} />
+                  </span>
+                  <h3 className="mt-5 text-[19px] font-semibold tracking-[-0.01em]" style={{ color: NAVY }}>{it.name}</h3>
+                  <p className="mt-2 flex-1 text-[14px] leading-relaxed" style={{ color: "#6b7280" }}>{it.line}</p>
+                  <div className="mt-5 flex flex-wrap gap-1.5">
+                    {it.modules.map((m) => (
+                      <span key={m} className="rounded-full px-2.5 py-1 text-[11.5px] font-medium" style={{ background: SOFT, color: BRAND_DARK, border: `1px solid ${LINE}` }}>{m}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- comparison ---------- */}
+      <section id="compare" className="relative border-y px-5 py-20 sm:px-8 sm:py-24" style={{ borderColor: LINE, background: "#fff" }}>
+        <div className="relative mx-auto max-w-[1400px]">
+          <div className="reveal">
+            <Label>{MORE.compare.eyebrow}</Label>
+            <h2 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl" style={{ color: NAVY }}>
+              What changes when <span className={GRAD_TEXT}>nine tools become one.</span>
+            </h2>
+            <p className="mt-5 max-w-2xl text-[15.5px] leading-relaxed" style={{ color: "#4a5568" }}>{MORE.compare.lead}</p>
+          </div>
+
+          <div className="reveal mt-12 overflow-hidden rounded-3xl" style={{ border: `1px solid ${LINE}` }} data-testid="h38-compare">
+            <div className="hidden grid-cols-4 gap-0 bg-white text-[13px] font-semibold lg:grid" style={{ color: NAVY }}>
+              <span className="px-6 py-5 text-[12px] font-mono uppercase tracking-[0.14em]" style={{ color: "#9ca3af" }}>Capability</span>
+              {MORE.compare.cols.map((c, i) => (
+                <span key={c} className="px-6 py-5" style={i === 0 ? { background: CREAM, color: BRAND_DARK } : { color: "#6b7280" }}>{c}</span>
+              ))}
+            </div>
+            {MORE.compare.rows.map((r, ri) => (
+              <div key={r.label} className="grid grid-cols-1 gap-0 border-t lg:grid-cols-4" style={{ borderColor: LINE, background: ri % 2 ? "#fffdfa" : "#fff" }}>
+                <span className="px-6 pb-2 pt-5 text-[14.5px] font-medium lg:py-5" style={{ color: NAVY }}>{r.label}</span>
+                {[r.ffh, r.sheets, r.erp].map((v, ci) => (
+                  <span key={ci} className="flex items-center gap-2 px-6 py-2 text-[14px] lg:py-5"
+                    style={ci === 0 ? { background: CREAM, color: NAVY, fontWeight: 600 } : { color: "#6b7280" }}>
+                    <span className="lg:hidden" style={{ color: "#9ca3af", minWidth: 92 }}>{MORE.compare.cols[ci]}</span>
+                    {v === true ? <Check className="h-4 w-4" style={{ color: ci === 0 ? BRAND : "#16a34a" }} />
+                      : v === false ? <X className="h-4 w-4" style={{ color: "#cbd5e1" }} />
+                      : v}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- security & compliance ---------- */}
+      <section id="security" className="relative px-5 py-20 sm:px-8 sm:py-24" style={{ background: NAVY }}>
+        <div className="pointer-events-none absolute inset-0 opacity-[.12]" aria-hidden="true"
+          style={{ backgroundImage: "radial-gradient(rgba(255,255,255,.5) 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
+        <div className="relative mx-auto max-w-[1400px]">
+          <div className="reveal">
+            <span className="font-mono text-[11.5px] font-medium uppercase tracking-[0.2em]" style={{ color: BRAND }}>{MORE.security.eyebrow}</span>
+            <h2 className="mt-5 max-w-3xl text-4xl font-semibold leading-[1.06] tracking-[-0.03em] text-white sm:text-5xl">
+              Built for the way Indian businesses are audited.
+            </h2>
+            <p className="mt-5 max-w-2xl text-[15.5px] leading-relaxed text-white/65">{MORE.security.lead}</p>
+          </div>
+          <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3" data-testid="h38-security">
+            {MORE.security.items.map((it, i) => (
+              <div key={it.title} className="reveal group rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5"
+                style={{ background: "rgba(255,255,255,.05)", border: "1px solid rgba(255,255,255,.12)", transitionDelay: `${i * 40}ms` }}>
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl transition-transform duration-500 group-hover:scale-110" style={{ background: "rgba(239,123,35,.16)", color: BRAND }}>
+                  <Icon name={it.icon} size={20} />
+                </span>
+                <h3 className="mt-5 text-[17px] font-semibold text-white">{it.title}</h3>
+                <p className="mt-2 text-[14px] leading-relaxed text-white/60">{it.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ---------- deployments: bigger cards with hover reveal ---------- */}
       <section id="modules" className="relative px-5 py-20 sm:px-8 sm:py-24">
         <div className="mx-auto max-w-[1400px]">
           <Label>Project</Label>
           <h2 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl lg:text-[54px]" style={{ color: NAVY }}>
-            {HOME37.projectsTitle}
+            {HOME38.projectsTitle}
           </h2>
           <div className="mt-10 flex flex-wrap gap-2.5">
             {HOME30.filters.map((f) => (
-              <button key={f} onClick={() => setFilter(f)} data-testid={`home37-filter-${f.toLowerCase()}`}
+              <button key={f} onClick={() => setFilter(f)} data-testid={`home38-filter-${f.toLowerCase()}`}
                 className="rounded-full px-4 py-2 text-[13px] font-medium transition-all duration-300 hover:-translate-y-0.5"
                 style={filter === f ? { background: NAVY, color: "#fff", border: `1px solid ${NAVY}` } : { border: `1px solid ${LINE}`, color: "#6b7280", background: "#fff" }}>
                 {f}
@@ -596,7 +750,7 @@ export default function Home37() {
           </div>
           <div className="mt-12 grid grid-cols-1 gap-x-10 gap-y-14 lg:grid-cols-2">
             {projects.map((p, i) => (
-              <article key={`${p.title}-${i}`} data-testid={`home37-project-${i}`} className="group">
+              <article key={`${p.title}-${i}`} data-testid={`home38-project-${i}`} className="group">
                 <div className="relative overflow-hidden rounded-[26px] transition-all duration-500 group-hover:-translate-y-1.5"
                   style={{ border: `1px solid ${LINE}`, boxShadow: "0 30px 60px -50px rgba(22,40,60,.5)" }}>
                   <img src={`https://picsum.photos/id/${p.img}/1400/1000`} alt={p.title} width="1400" height="1000" loading="lazy"
@@ -628,22 +782,22 @@ export default function Home37() {
           <Label>Client satisfaction</Label>
           <div className="mt-6 flex flex-wrap items-end justify-between gap-8">
             <h2 className="max-w-3xl text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl lg:text-[54px]" style={{ color: NAVY }}>
-              {HOME37.clientsTitle}
+              {HOME38.clientsTitle}
             </h2>
             <div className="flex items-center gap-3">
-              <button onClick={() => setAutoplay((a) => !a)} data-testid="home37-autoplay"
+              <button onClick={() => setAutoplay((a) => !a)} data-testid="home38-autoplay"
                 aria-label={autoplay ? "Pause testimonial autoplay" : "Play testimonial autoplay"}
                 className="flex h-12 w-12 items-center justify-center rounded-full bg-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
                 style={{ border: `1px solid ${LINE}`, color: autoplay ? BRAND : "#9ca3af" }}>
                 {autoplay ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
               </button>
-              <button onClick={prevSlide} data-testid="home37-prev"
+              <button onClick={prevSlide} data-testid="home38-prev"
                 aria-label="Previous testimonial"
                 className="flex h-12 w-12 items-center justify-center rounded-full bg-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
                 style={{ border: `1px solid ${LINE}`, color: BRAND_DARK }}>
                 <ArrowLeft className="h-4 w-4" />
               </button>
-              <button onClick={nextSlide} data-testid="home37-next"
+              <button onClick={nextSlide} data-testid="home38-next"
                 aria-label="Next testimonial"
                 className={`flex h-12 w-12 items-center justify-center rounded-full ${GRAD} text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg`}>
                 <ArrowRight className="h-4 w-4" />
@@ -651,7 +805,7 @@ export default function Home37() {
             </div>
           </div>
 
-          <div className="mt-12 overflow-hidden rounded-[28px]" data-testid="home37-slider" tabIndex={0} role="region" aria-label="Client testimonials"
+          <div className="mt-12 overflow-hidden rounded-[28px]" data-testid="home38-slider" tabIndex={0} role="region" aria-label="Client testimonials"
             onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}
             onFocus={() => setHovering(true)} onBlur={() => setHovering(false)}
             onKeyDown={(e) => { if (e.key === "ArrowRight") { nextSlide(); setAutoplay(false); } if (e.key === "ArrowLeft") { prevSlide(); setAutoplay(false); } }}
@@ -663,8 +817,8 @@ export default function Home37() {
               swipeX.current = null;
             }}>
             <div className="flex transition-transform duration-700 ease-out" style={{ transform: `translateX(-${slide * 100}%)` }}>
-              {HOME37.testimonials.map((t, i) => (
-                <figure key={`${t.person}-${i}`} className="w-full shrink-0" data-testid={`home37-quote-${i}`}>
+              {HOME38.testimonials.map((t, i) => (
+                <figure key={`${t.person}-${i}`} className="w-full shrink-0" data-testid={`home38-quote-${i}`}>
                   <div className="ffh-quote-card grid grid-cols-12 items-center gap-x-0 gap-y-8 overflow-hidden bg-white p-8 transition-all duration-700 ease-out sm:gap-x-8 sm:p-12"
                     style={{ border: `1px solid ${LINE}`, boxShadow: "0 40px 80px -60px rgba(207,95,18,.55)",
                       opacity: i === slide ? 1 : 0.45, scale: i === slide ? "1" : "0.965" }}>
@@ -701,21 +855,112 @@ export default function Home37() {
           <div className="mt-5 h-1 w-full overflow-hidden rounded-full" style={{ background: "#f2e3d1" }}>
             <div key={`${slide}-${autoplay}-${hovering}`} className="h-full rounded-full"
               style={{ background: `linear-gradient(90deg, ${BRAND}, ${BRAND_DARK})`,
-                animation: autoplay && !hovering ? "ffh-h37-bar 6.5s linear forwards" : "none",
+                animation: autoplay && !hovering ? "ffh-h38-bar 6.5s linear forwards" : "none",
                 width: autoplay && !hovering ? undefined : "100%" }} />
           </div>
 
           <div className="mt-8 flex items-center justify-between gap-6">
-            <div className="flex items-center gap-2.5" data-testid="home37-dots">
-              {HOME37.testimonials.map((t, i) => (
+            <div className="flex items-center gap-2.5" data-testid="home38-dots">
+              {HOME38.testimonials.map((t, i) => (
                 <button key={t.person + i} onClick={() => { setSlide(i); setAutoplay(false); }} aria-label={`Testimonial ${i + 1}`}
                   className="h-2.5 rounded-full transition-all duration-300 hover:scale-125"
                   style={i === slide ? { width: 26, background: BRAND } : { width: 10, background: "#e7d9c8" }} />
               ))}
             </div>
-            <span className="text-[13px] font-semibold tabular-nums" style={{ color: "#9ca3af" }} data-testid="home37-count">
-              {slide + 1} / {HOME37.testimonials.length}
+            <span className="text-[13px] font-semibold tabular-nums" style={{ color: "#9ca3af" }} data-testid="home38-count">
+              {slide + 1} / {HOME38.testimonials.length}
             </span>
+          </div>
+        </div>
+      </section>
+
+{/* ---------- savings calculator ---------- */}
+      <section id="roi" className="relative border-y px-5 py-20 sm:px-8 sm:py-24" style={{ borderColor: LINE, background: SOFT }}>
+        <GridLines />
+        <div className="relative mx-auto max-w-[1400px]">
+          <div className="reveal">
+            <Label>{MORE.roi.eyebrow}</Label>
+            <h2 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl lg:text-[54px]" style={{ color: NAVY }}>
+              {MORE.roi.title}
+            </h2>
+            <p className="mt-5 max-w-2xl text-[15.5px] leading-relaxed" style={{ color: "#4a5568" }}>{MORE.roi.lead}</p>
+          </div>
+
+          <div className="mt-14 grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-x-10" data-testid="h38-roi">
+            <div className="lg:col-span-5">
+              <div className="rounded-3xl bg-white p-7 sm:p-8" style={{ border: `1px solid ${LINE}`, boxShadow: "0 40px 80px -60px rgba(207,95,18,.5)" }}>
+                {[
+                  { k: "users", label: "People using the system", min: 3, max: 250, step: 1, suffix: (u) => `${u} ${u === 1 ? "user" : "users"}` },
+                  { k: "hours", label: "Hours each person loses to reconciling tools, per week", min: 1, max: 20, step: 0.5, suffix: (v) => `${v} h / week` },
+                  { k: "rate", label: "Blended cost of an hour of their time", min: 150, max: 2000, step: 50, suffix: (v) => formatINR(v) },
+                ].map((row) => (
+                  <div key={row.k} className="mb-7 last:mb-0">
+                    <div className="flex items-end justify-between gap-4">
+                      <label className="text-[13.5px] font-medium" style={{ color: "#4a5568" }} htmlFor={`roi-${row.k}`}>{row.label}</label>
+                      <strong className="shrink-0 text-[15px] font-semibold tabular-nums" style={{ color: BRAND_DARK }} data-testid={`h38-roi-${row.k}-value`}>
+                        {row.suffix(roi[row.k])}
+                      </strong>
+                    </div>
+                    <input id={`roi-${row.k}`} type="range" min={row.min} max={row.max} step={row.step} value={roi[row.k]}
+                      onChange={(e) => setRoi((p) => ({ ...p, [row.k]: Number(e.target.value) }))}
+                      data-testid={`h38-roi-${row.k}`}
+                      className="ffh-range mt-3 w-full"
+                      style={{ background: `linear-gradient(90deg, #f7a52a ${((roi[row.k] - row.min) / (row.max - row.min)) * 100}%, #f4e2ce ${((roi[row.k] - row.min) / (row.max - row.min)) * 100}%)` }} />
+                  </div>
+                ))}
+                <button onClick={() => setRoi({ users: 12, hours: 6, rate: 450 })} data-testid="h38-roi-reset"
+                  className="mt-2 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-[13px] font-semibold transition-all duration-300 hover:-translate-y-0.5" style={{ color: NAVY, border: `1px solid ${LINE}` }}>
+                  Reset
+                </button>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                {[
+                  { l: "Hours given back every month", v: `${roiHoursMonth.toLocaleString("en-IN")} h`, raw: roiHoursMonth },
+                  { l: "Worth every year", v: formatINR(roiSavedYear), raw: roiSavedYear },
+                  { l: "Working days back per person, per year", v: `${roiDaysYear}`, raw: roiDaysYear },
+                ].map((card) => (
+                  <div key={card.l} className="rounded-2xl bg-white p-5 transition-all duration-300 hover:-translate-y-1" style={{ border: `1px solid ${LINE}` }}>
+                    <strong className="block text-[30px] font-semibold leading-none tracking-[-0.02em] tabular-nums" style={{ color: BRAND }}>{card.v}</strong>
+                    <span className="mt-2.5 block text-[13px] leading-relaxed" style={{ color: "#6b7280" }}>{card.l}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 rounded-2xl bg-white p-6" style={{ border: `1px solid ${LINE}` }}>
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <span className="text-[13.5px] font-medium" style={{ color: "#4a5568" }}>Time recovered vs time spent in the tools today</span>
+                  <span className="text-[13px] font-semibold tabular-nums" style={{ color: NAVY }}>{Math.round(roiRecovered)}%</span>
+                </div>
+                <div className="mt-3 h-3 w-full overflow-hidden rounded-full" style={{ background: LINE }}>
+                  <div className="h-full rounded-full transition-all duration-500" style={{ width: `${roiRecovered}%`, background: `linear-gradient(90deg, #f7a52a, #f0452c)` }} />
+                </div>
+                <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                  {[
+                    { l: "Pro plan, per user / month", v: formatINR(960) },
+                    { l: "Your annual cost", v: formatINR(roiCostYear) },
+                    { l: "Return on that spend", v: `${roiMultiple}×` },
+                  ].map((x) => (
+                    <div key={x.l} className="rounded-xl px-4 py-3" style={{ background: SOFT, border: `1px solid ${LINE}` }}>
+                      <span className="block text-[12px]" style={{ color: "#8b93a3" }}>{x.l}</span>
+                      <strong className="mt-1 block text-[16px] font-semibold tabular-nums" style={{ color: NAVY }}>{x.v}</strong>
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-5 text-[12.5px] leading-relaxed" style={{ color: "#9ca3af" }}>{MORE.roi.note}</p>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <button onClick={(e) => go(e, "#signup")} className={`inline-flex items-center gap-2 rounded-full ${GRAD} px-6 py-3.5 text-[14px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5`}>
+                  Start free trial <ArrowUpRight className="h-4 w-4" />
+                </button>
+                <button onClick={(e) => go(e, "#pricing")} className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[14px] font-semibold transition-all duration-300 hover:-translate-y-0.5" style={{ color: NAVY, border: `1px solid ${LINE}` }}>
+                  See the plans
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -726,9 +971,9 @@ export default function Home37() {
           <Label>Pricing table</Label>
           <div className="mt-6 flex flex-wrap items-end justify-between gap-8">
             <h2 className="max-w-2xl text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl lg:text-[54px]" style={{ color: NAVY }}>
-              {HOME37.pricingTitle}
+              {HOME38.pricingTitle}
             </h2>
-            <div className="inline-flex max-w-full flex-wrap rounded-full p-1" style={{ border: `1px solid ${LINE}`, background: "#fff" }} data-testid="home37-billing-toggle">
+            <div className="inline-flex max-w-full flex-wrap rounded-full p-1" style={{ border: `1px solid ${LINE}`, background: "#fff" }} data-testid="home38-billing-toggle">
               {[["Monthly", false], ["Yearly", true]].map(([label, val]) => (
                 <button key={label} onClick={() => setYearly(val)}
                   className="rounded-full px-3.5 py-2.5 text-[13px] font-semibold transition-all duration-300 sm:px-5 sm:text-[13.5px]"
@@ -743,7 +988,7 @@ export default function Home37() {
             {PLANS.map((p) => {
               const pop = p.popular;
               return (
-                <div key={p.name} data-testid={`home37-plan-${p.name.toLowerCase()}`}
+                <div key={p.name} data-testid={`home38-plan-${p.name.toLowerCase()}`}
                   className={`relative flex flex-col rounded-[26px] transition-transform duration-500 hover:-translate-y-2 ${pop ? "p-10 lg:-mt-10 lg:scale-[1.05]" : "p-8"}`}
                   style={pop
                     ? { border: `2px solid ${BRAND}`, background: `linear-gradient(180deg, ${CREAM} 0%, #ffffff 42%)`, boxShadow: "0 55px 95px -55px rgba(207,95,18,.8)" }
@@ -787,7 +1032,7 @@ export default function Home37() {
           <div className="col-span-12 lg:col-span-5">
             <Label>FAQ</Label>
             <h2 className="mt-6 text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl" style={{ color: NAVY }}>Get in touch with us</h2>
-            <div className="mt-8 space-y-3" data-testid="home37-faq">
+            <div className="mt-8 space-y-3" data-testid="home38-faq">
               {FAQS.map((f, i) => {
                 const isOpen = faqOpen === i;
                 return (
@@ -822,7 +1067,7 @@ export default function Home37() {
                   </li>
                 ))}
               </ul>
-              <button onClick={(e) => go(e, "#signup")} data-testid="home37-cta-contact"
+              <button onClick={(e) => go(e, "#signup")} data-testid="home38-cta-contact"
                 className={`mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full ${GRAD} px-6 py-4 text-[14px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:brightness-105`}>
                 Let's get started <ArrowUpRight className="h-4 w-4" />
               </button>
@@ -832,7 +1077,7 @@ export default function Home37() {
       </section>
 
       {/* ---------- footer ---------- */}
-      <footer className="px-5 pb-10 pt-14 sm:px-8" style={{ background: NAVY }} data-testid="h37-footer">
+      <footer className="px-5 pb-10 pt-14 sm:px-8" style={{ background: NAVY }} data-testid="h38-footer">
         <div className="mx-auto max-w-[1400px]">
           <div className="grid grid-cols-12 gap-x-0 gap-y-10 sm:gap-x-10">
             <div className="col-span-12 lg:col-span-5">

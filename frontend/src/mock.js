@@ -1648,3 +1648,8 @@ export const HOME37_MORE = {
     note: "Assumes a 40-hour working week and the Pro plan at ₹960 per user per month. Your mileage will differ — which is exactly what a 20-minute walkthrough is for.",
   },
 };
+
+// Home layout 38 — layout 37's content plus the extra blocks (implementation,
+// industries, comparison, security, savings calculator).
+export const HOME38 = { ...HOME37 };
+export const HOME38_MORE = { ...HOME37_MORE };

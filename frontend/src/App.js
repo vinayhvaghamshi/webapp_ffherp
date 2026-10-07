@@ -42,6 +42,7 @@ import Home34 from "./components/site/Home34";
 import Home35 from "./components/site/Home35";
 import Home36 from "./components/site/Home36";
 import Home37 from "./components/site/Home37";
+import Home38 from "./components/site/Home38";
 import About1 from "./components/site/About1";
 import About2 from "./components/site/About2";
 import About3 from "./components/site/About3";
@@ -103,13 +104,13 @@ function App() {
   // layout (17, in its glass variant); every other page keeps the standard header.
   // The bare URL always opens the newest home layout — bump this one line when a
 // new layout lands.
-const LATEST_HOME = "/home37";
+const LATEST_HOME = "/home38";
 const pillNav = ["/home16", "/home17", "/home18"].includes(location.pathname);
   const pillVariant = location.pathname === "/home17" ? "glass" : location.pathname === "/home18" ? "glass-dark" : undefined;
   const appHeader = location.pathname === "/home20";
   // The Tailwind layouts ship their own header and footer, so the shared
   // Bootstrap chrome is skipped for them entirely.
-  const bareLayout = ["/home21", "/home22", "/home23", "/home24", "/home25", "/home26", "/home27", "/home28", "/home29", "/home30", "/home31", "/home32", "/home33", "/home34", "/home35", "/home36", "/home37", "/about11", "/about12"].includes(location.pathname);
+  const bareLayout = ["/home21", "/home22", "/home23", "/home24", "/home25", "/home26", "/home27", "/home28", "/home29", "/home30", "/home31", "/home32", "/home33", "/home34", "/home35", "/home36", "/home37", "/home38", "/about11", "/about12"].includes(location.pathname);
 
   return (
     <CRMProvider>
@@ -155,6 +156,7 @@ const pillNav = ["/home16", "/home17", "/home18"].includes(location.pathname);
           <Route path="/home35" element={<Home35 />} />
           <Route path="/home36" element={<Home36 />} />
           <Route path="/home37" element={<Home37 />} />
+          <Route path="/home38" element={<Home38 />} />
           {/* About layouts: /about keeps the original page */}
           <Route path="/about" element={<About1 />} />
           <Route path="/about1" element={<About1 />} />
