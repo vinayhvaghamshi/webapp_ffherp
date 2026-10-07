@@ -2171,3 +2171,72 @@ export const ABOUT_19 = {
     legal: "© 2026 KrisKross Inc. All rights reserved.",
   },
 };
+
+// About layout 20 — built from layouts 3, 6 and 10 and wearing layout 39's logo
+// theme. The content comes straight from those blocks: ABOUT_3 for the hero and
+// "what sets us apart" pillars and the certifications, ABOUT_US for the mission
+// and vision, ABOUT_10's metrics strip, ABOUT_ALT's five-turn journey and
+// ABOUT_6's "fourteen years, one direction" framing. This block adds only the
+// framing lines the new page needs, the leadership signatures, the "why" section
+// and the advertisement unit.
+export const ABOUT_20 = {
+  nav: [
+    { label: "Home", target: "/home39" },
+    { label: "About Us", target: "#apart" },
+    { label: "Leadership", target: "#leadership" },
+    { label: "Our journey", target: "#journey" },
+    { label: "Contact Us", target: "/home39#contact" },
+  ],
+  apart: {
+    eyebrow: "What sets us apart",
+    title: "Three decisions we have not gone back on.",
+    lead: "Everything else about the product follows from these.",
+  },
+  mv: {
+    eyebrow: "Mission and vision",
+    title: "What we are building, and why.",
+  },
+  leadership: {
+    eyebrow: "Running by",
+    title: "Leadership",
+    lead: "Four roles, one scorecard: the product our customers run their business on. Signed by the four people who carry it.",
+    signed: "Signed",
+  },
+  certified: {
+    eyebrow: "Trust",
+    title: "Certified, compliant, accountable",
+    lead: "The standards we are audited against, the registrations we hold, and where your data lives.",
+    footnote: "Certifications and registrations as recorded by KrisKross Inc. Ask us for the current certificates before you buy.",
+  },
+  journey: {
+    eyebrow: "How we got here",
+    titleLead: "Fourteen years, one direction:",
+    titleAccent: "make it simpler",
+    lead: "From a billing package written for Chennai retailers to nine connected modules used in 20+ countries.",
+    note: "Every module exists because a customer asked for it.",
+    turns: "Fourteen years, five turns",
+    turnsLead: "Each step was a customer asking for something the software could not do yet.",
+  },
+  why: {
+    eyebrow: "Why",
+    title: "Why teams choose FFH|ERP",
+    lead: "The four things customers mention most when they explain why they stayed.",
+  },
+  ad: {
+    label: "Advertisement",
+    headline: "Setup in a day. Free for seven days.",
+    lead: "Nine modules on one database, your data migrated with you, training for every team included. No credit card, no lock-in, cancel any time.",
+    primary: "Start free trial",
+    secondary: "Book a 20-minute walkthrough",
+    small: "KrisKross Inc. · Chennai · Dubai · Singapore · +91 44 4858 5100",
+  },
+  footer: {
+    blurb: "FFH|ERP is a product of KrisKross Inc. — nine connected modules on one database, built in Chennai since 2012 and running in 20+ countries.",
+    columns: [
+      { title: "Product", items: [["Live CRM", "/home39#top"], ["Services", "/home39#features"], ["Deployments", "/home39#modules"], ["Pricing", "/home39#pricing"]] },
+      { title: "Company", items: [["About FFH|ERP", "/about20"], ["How we got here", "#journey"], ["Leadership", "#leadership"], ["Contact", "/home39#contact"]] },
+      { title: "More layouts", items: [["The flagship", "/about18"], ["Odoo-style", "/about19"], ["Engineered", "/about16"], ["Proof first", "/about17"]] },
+    ],
+    legal: "© 2026 KrisKross Inc. All rights reserved.",
+  },
+};

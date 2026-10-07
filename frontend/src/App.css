@@ -2395,3 +2395,6 @@ a { text-decoration: none; }
 /* About layout 19 — airy Odoo-style corporate page */
 .ffh-a19 :is(h1, h2, h3, h4) { font-family: Poppins, "Inter Tight", Inter, sans-serif; }
 .ffh-a19 ::placeholder { color: #9aa3b2; }
+
+/* About layout 20 — layout 39's logo theme; headings inherit the theme's Syne face */
+.ffh-a20 { }

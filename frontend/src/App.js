@@ -63,6 +63,7 @@ import About16 from "./components/site/About16";
 import About17 from "./components/site/About17";
 import About18 from "./components/site/About18";
 import About19 from "./components/site/About19";
+import About20 from "./components/site/About20";
 import { CRMProvider } from "./components/site/crmStore";
 
 function useReveal(routeKey) {
@@ -118,7 +119,7 @@ const pillNav = ["/home16", "/home17", "/home18"].includes(location.pathname);
   const appHeader = location.pathname === "/home20";
   // The Tailwind layouts ship their own header and footer, so the shared
   // Bootstrap chrome is skipped for them entirely.
-  const bareLayout = ["/home21", "/home22", "/home23", "/home24", "/home25", "/home26", "/home27", "/home28", "/home29", "/home30", "/home31", "/home32", "/home33", "/home34", "/home35", "/home36", "/home37", "/home38", "/home39", "/about11", "/about12", "/about13", "/about14", "/about15", "/about16", "/about17", "/about18", "/about19"].includes(location.pathname);
+  const bareLayout = ["/home21", "/home22", "/home23", "/home24", "/home25", "/home26", "/home27", "/home28", "/home29", "/home30", "/home31", "/home32", "/home33", "/home34", "/home35", "/home36", "/home37", "/home38", "/home39", "/about11", "/about12", "/about13", "/about14", "/about15", "/about16", "/about17", "/about18", "/about19", "/about20"].includes(location.pathname);
 
   return (
     <CRMProvider>
@@ -187,6 +188,7 @@ const pillNav = ["/home16", "/home17", "/home18"].includes(location.pathname);
           <Route path="/about17" element={<About17 />} />
           <Route path="/about18" element={<About18 />} />
           <Route path="/about19" element={<About19 />} />
+          <Route path="/about20" element={<About20 />} />
           <Route path="*" element={<Home1 />} />
         </Routes>
         {bareLayout ? null : <Footer />}
