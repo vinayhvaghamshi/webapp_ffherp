@@ -28,7 +28,7 @@ const HEALTH_AREAS = ["Sales", "Finance", "Support", "Projects"];
 
 const NAV = [
   { label: "Home", target: "#top" },
-  { label: "About Us", target: "#why" },
+  { label: "About Us", target: "/about20" },
   { label: "Service", target: "#features" },
   { label: "Project", target: "#modules" },
   { label: "Pricing Table", target: "#pricing" },
@@ -1183,7 +1183,7 @@ export default function Home39() {
                 <ul className="mt-4 space-y-3">
                   {c.l.map((l) => (
                     <li key={l}>
-                      <button onClick={(e) => go(e, l === "About us" ? "/about" : l === "Pricing" ? "#pricing" : l === "Contact" ? "#contact" : "#features")}
+                      <button onClick={(e) => go(e, l === "About us" ? "/about20" : l === "Pricing" ? "#pricing" : l === "Contact" ? "#contact" : "#features")}
                         className="bg-transparent text-[14px] text-white/65 transition hover:text-white">{l}</button>
                     </li>
                   ))}

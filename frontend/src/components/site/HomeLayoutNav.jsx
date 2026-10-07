@@ -1,16 +1,14 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
-// Switcher for the home layouts. Reuses the same pill styling as the About
-// switcher; Home1 deliberately has no switcher so it stays as approved.
-// Each layout is a real link that always opens in a NEW TAB, so two or three
-// layouts can be compared side by side instead of navigating away. <Link> rather
-// than a bare <a>: it writes the deploy basename into the href, so the links work
-// when the site is served from a subpath (…/webapp_ffherp/home30). React Router
-// only intercepts clicks for target="_self", so a new tab still opens natively.
-// Branch 8octo: layout 39 is the only home layout in this build.
+// Site switcher. On the 8octo branch this listed every home layout and opened
+// each in a new tab so they could be compared side by side; on main there are
+// only two pages, so it is a plain same-tab nav between them: layout 39 is the
+// home page and layout 20 is the About page. <Link> writes the deploy basename
+// into the href, so it still works when served from a subpath.
 const LAYOUTS = [
-  { n: 39, path: "/home39" },
+  { n: 39, path: "/home39", label: "Home" },
+  { n: 20, path: "/about20", label: "About" },
 ];
 
 export default function HomeLayoutNav({ dark }) {
@@ -18,19 +16,17 @@ export default function HomeLayoutNav({ dark }) {
 
   return (
     <div className={`ffh-about-nav ffh-home-nav ${dark ? "dark" : ""}`} data-testid="home-layout-nav">
-      <span>Home layouts</span>
+      <span>Pages</span>
       {LAYOUTS.map((l) => (
         <Link
-          key={l.n}
+          key={l.label || l.n}
           to={l.path}
-          target="_blank"
-          rel="noopener noreferrer"
           className={pathname === l.path ? "on" : ""}
-          aria-label={`Home layout ${l.n} (opens in a new tab)`}
-          title={`Home layout ${l.n} — opens in a new tab`}
+          aria-label={`${l.label || l.n} page`}
+          title={`${l.label || l.n}`}
           data-testid={`home-layout-${l.n}`}
         >
-          {l.n}
+          {l.label || l.n}
         </Link>
       ))}
     </div>
