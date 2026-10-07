@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { scrollToId, useGoTo } from "./crmStore";
+import { useLocation } from "react-router-dom";
+import { useGoTo } from "./crmStore";
 
 // The site navigator: one header, used by both the home page and the About page,
 // so the two pages carry an identical nav.
 //
-//   Home          #top        on the home page; routes home from the About page
-//   About Us      /about      the About route
-//   Leadership    #leadership an About section, so it routes to /about and scrolls
-//   Our journey   #journey    same
-//   Contact       #contact    the contact section on the home page
-//   Contact Us    #contact    the gradient button on the right
+//   Home            #top        the top of the home page
+//   About Us        /about      the About route
+//   Service         #features   a section on the home page
+//   Project         #modules    a section on the home page
+//   Pricing Table   #pricing    a section on the home page
+//   Contact Us      #contact    the gradient button on the right, last
 //
-// The active tab follows what you are reading: on the home page it tracks the
-// sections (with the wash and underline), on the About page it is About Us, or
-// Leadership / Our journey while those sections are in view.
+// The four section links work from either page: goTo routes home and the home
+// page scrolls to the section once it mounts. The active tab follows what you
+// are reading — the home sections, or About Us while you are on the About page.
 const BRAND = "#ef7b23";
 const BRAND_DARK = "#cf5f12";
 const NAVY = "#16283c";
@@ -26,13 +26,10 @@ const GRAD = "bg-gradient-to-r from-[#f7a52a] to-[#f0452c]";
 export const NAV = [
   { label: "Home", target: "#top" },
   { label: "About Us", target: "/about" },
-  { label: "Leadership", target: "#leadership" },
-  { label: "Our journey", target: "#journey" },
-  { label: "Contact", target: "#contact" },
+  { label: "Service", target: "#features" },
+  { label: "Project", target: "#modules" },
+  { label: "Pricing Table", target: "#pricing" },
 ];
-
-// sections that live on the About page rather than the home page
-const ABOUT_SECTIONS = ["#top", "#apart", "#leadership", "#journey"];
 
 const Motif = ({ className = "" }) => (
   <span className={`ffh-h39-motif ${className}`} aria-hidden="true"><i /><i /><i /><i /></span>
@@ -40,15 +37,15 @@ const Motif = ({ className = "" }) => (
 
 export default function SiteHeader() {
   const goTo = useGoTo();
-  const navigate = useNavigate();
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
   const [activeNav, setActiveNav] = useState("#top");
   const onAbout = pathname.startsWith("/about");
 
+  // the highlight follows the section you are reading
   useEffect(() => {
     const map = onAbout
-      ? { top: "/about", apart: "/about", leadership: "#leadership", journey: "#journey" }
+      ? { top: "/about", apart: "/about" }
       : { top: "#top", features: "#features", modules: "#modules", pricing: "#pricing" };
     setActiveNav(onAbout ? "/about" : "#top");
     const els = Object.keys(map).map((id) => document.getElementById(id)).filter(Boolean);
@@ -61,19 +58,7 @@ export default function SiteHeader() {
     return () => io.disconnect();
   }, [onAbout]);
 
-  const go = (e, t) => {
-    e.preventDefault();
-    setOpen(false);
-    // Leadership / Our journey live on the About page: scroll there if we are
-    // already on it, otherwise route over and let the page scroll once mounted.
-    // (goTo on its own treats every hash as a home-page section.)
-    if (ABOUT_SECTIONS.includes(t)) {
-      if (onAbout) scrollToId(t.slice(1));
-      else navigate("/about", { state: { scrollTo: t.slice(1) } });
-      return;
-    }
-    goTo(t);
-  };
+  const go = (e, t) => { e.preventDefault(); setOpen(false); goTo(t); };
 
   return (
     <header className="sticky top-0 z-50 border-b bg-white/90 backdrop-blur-md" style={{ borderColor: LINE }} data-testid="h39-nav" data-site-header="true">
