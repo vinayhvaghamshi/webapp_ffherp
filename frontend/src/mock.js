@@ -1348,7 +1348,7 @@ export const HOME36 = {
     { name: "Rajinfo Technology Services", logo: "rajinfo.png", note: "ISO 9001:2015 certified" },
     { name: "Transit Electronics Ltd.", logo: "transit-electronics.png", note: "ELV systems & solutions" },
     { name: "MicroHard IT Solutions", logo: "microhard-it-solutions.png", note: "IT solutions" },
-    { name: "Flair Network Systems", logo: "flair-network-systems.webp", note: "Network systems" },
+    { name: "Flair Network Systems", logo: "flair-network-systems.png", note: "Network systems" },
     { name: "Ecoair", logo: "ecoair.png", note: "Air engineering" },
   ],
   integrationsTitle: "Integrations.",
