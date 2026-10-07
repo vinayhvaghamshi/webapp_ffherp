@@ -400,22 +400,22 @@ export default function Home39() {
               Serving <span style={{ color: BRAND }}>2.5K</span> active users for <span style={{ color: BRAND }}>14</span> years
             </h2>
           </div>
-          <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[...HOME39.brands, { name: "and many more", logo: null, note: "coming to this wall" }].map((b, i) => (
               <div key={b.name} className="reveal" style={{ transitionDelay: `${i * 40}ms` }}>
               <div data-testid={b.logo ? `home39-brand-${i}` : "home39-brand-more"}
-                className="group flex h-full min-h-[168px] flex-col items-center justify-center rounded-2xl bg-white px-4 py-6 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
+                className="group flex h-full min-h-[190px] flex-col items-center justify-center rounded-2xl bg-white px-5 py-8 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
                 style={{ border: `1px solid ${LINE}` }}>
-                <span className="flex h-[62px] w-full items-center justify-center">
+                <span className="flex h-[74px] w-full items-center justify-center">
                   {b.logo ? (
                     <img src={`${process.env.PUBLIC_URL}/brands/${b.logo}`} alt={`${b.name} logo`} loading="lazy" decoding="async"
-                      className="max-h-[62px] w-auto max-w-[86%] object-contain transition-transform duration-300 group-hover:scale-105" />
+                      className="max-h-[74px] w-auto max-w-[78%] object-contain transition-transform duration-300 group-hover:scale-105" />
                   ) : (
                     <span className="flex items-center gap-2 text-[26px] font-semibold tracking-[0.3em]" style={{ color: BRAND }}>···</span>
                   )}
                 </span>
-                <span className="mt-4 block text-[13.5px] font-semibold leading-snug" style={{ color: NAVY }}>{b.name}</span>
-                {b.note ? <span className="mt-1 block text-[11.5px] leading-snug" style={{ color: "#9ca3af" }}>{b.note}</span> : null}
+                <span className="mt-5 block text-[15px] font-semibold leading-snug" style={{ color: NAVY }}>{b.name}</span>
+                {b.note ? <span className="mt-1.5 block text-[12.5px] leading-snug" style={{ color: "#9ca3af" }}>{b.note}</span> : null}
                 <span className="mt-3 h-[2px] w-0 rounded-full transition-all duration-500 group-hover:w-10" style={{ background: BRAND }} />
               </div>
               </div>
