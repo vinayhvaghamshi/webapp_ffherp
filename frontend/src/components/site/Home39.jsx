@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, Facebook, IndianRupee, Instagram, Linkedin, Menu, Minus, Pause, Play, Plus, ShieldCheck, Star, TrendingUp, Twitter, Users, X, Youtube } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, Facebook, IndianRupee, Instagram, Linkedin, Minus, Pause, Play, Plus, ShieldCheck, Star, TrendingUp, Twitter, Users, X, Youtube } from "lucide-react";
 import Icon from "./TwIcon";
 import { HOME39, HOME39_MORE, HOME39_SIGNUP, HOME30, FAQS, PLANS, TOOLS, WHY_FEATURES, formatINR } from "../../mock";
 import { LiveCRMWindow } from "./LiveCRM";
 import TwSignupForm from "./TwSignupForm";
 import HomeLayoutNav from "./HomeLayoutNav";
+import SiteHeader from "./SiteHeader";
 import SupportChat from "./SupportChat";
 import { scrollToId, useGoTo } from "./crmStore";
 
@@ -112,7 +113,6 @@ const SPOTS = [
 export default function Home39() {
   const goTo = useGoTo();
   const location = useLocation();
-  const [open, setOpen] = useState(false);
   const [openService, setOpenService] = useState(0);
   const [filter, setFilter] = useState("All");
   const [yearly, setYearly] = useState(false);
@@ -125,7 +125,6 @@ export default function Home39() {
   // accordion made the first tap close it again. Only bind hover where it exists.
   const [canHover, setCanHover] = useState(false);
   const [areas, setAreas] = useState({ Sales: true, Finance: true, Support: true, Projects: true });
-  const [activeNav, setActiveNav] = useState("#top");
   const [healthShown, setHealthShown] = useState(82);
   // my own navigation aids: reading progress and where you are on the page
   const [progress, setProgress] = useState(0);
@@ -179,18 +178,6 @@ export default function Home39() {
     return () => cancelAnimationFrame(raf);
   }, [healthPct]);   // eslint-disable-line react-hooks/exhaustive-deps
 
-  // nav highlight follows the section you are reading
-  useEffect(() => {
-    const els = NAV.map((l) => document.getElementById(l.target.replace("#", ""))).filter(Boolean);
-    if (!els.length) return;
-    const io = new IntersectionObserver((entries) => {
-      const on = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (on) setActiveNav(`#${on.target.id}`);
-    }, { rootMargin: "-40% 0px -55% 0px", threshold: [0, 0.2, 0.5, 1] });
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, []);
-
   useEffect(() => {
     const onScroll = () => {
       const h = document.documentElement.scrollHeight - window.innerHeight;
@@ -210,7 +197,7 @@ export default function Home39() {
   }, []);
 
   useEffect(() => { document.title = "FFH|ERP — See today's business, not last month's report"; }, []);
-  const go = (e, t) => { e.preventDefault(); setOpen(false); goTo(t); };
+  const go = (e, t) => { e.preventDefault(); goTo(t); };
 
   // Landing here from another page with a section target (goTo sets state.scrollTo).
   useEffect(() => {
@@ -234,50 +221,7 @@ export default function Home39() {
         ))}
       </nav>
       {/* ---------- nav ---------- */}
-      <header className="sticky top-0 z-50 border-b bg-white/90 backdrop-blur-md" style={{ borderColor: LINE }} data-testid="h39-nav">
-        <div className="mx-auto flex h-[70px] max-w-[1400px] items-center gap-6 px-5 sm:px-8">
-          <a href="#top" onClick={(e) => go(e, "#top")} className="flex items-center gap-3">
-            <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="34" height="34" className="h-[34px] w-[34px] rounded-full" />
-            <Motif />
-            <span className="text-[19px] font-bold tracking-tight" style={{ color: NAVY }}>FFH|ERP</span>
-          </a>
-          <nav className="mx-auto hidden items-center gap-1 lg:flex" data-testid="h39-navlinks">
-            {NAV.map((l) => {
-              const on = activeNav === l.target;
-              return (
-                <a key={l.label} href={l.target} onClick={(e) => go(e, l.target)}
-                  data-testid={`h39-nav-${l.label.toLowerCase().replace(/\s+/g, "-")}`} data-active={on ? "true" : "false"}
-                  className="group relative rounded-full px-4 py-2 text-[13.5px] font-medium transition-all duration-300 hover:-translate-y-0.5"
-                  style={{ color: on ? BRAND_DARK : NAVY }}>
-                  {/* soft wash that pops in behind the label (classes drive the transform) */}
-                  <span className={`absolute inset-0 rounded-full transition-all duration-300 ${on ? "scale-100 opacity-100" : "scale-[.88] opacity-[0] group-hover:scale-100 group-hover:opacity-100"}`}
-                    style={{ background: on ? "#fdeedd" : SOFT }} />
-                  <span className="relative z-10 transition-colors duration-300 group-hover:text-[#cf5f12]">{l.label}</span>
-                  {/* line only on the tab you are actually on */}
-                  <span className={`absolute bottom-1 left-4 right-4 h-[2px] origin-left rounded-full transition-transform duration-500 ${on ? "scale-x-100" : "scale-x-0"}`}
-                    style={{ background: `linear-gradient(90deg, ${BRAND}, ${BRAND_DARK})` }} />
-                </a>
-              );
-            })}
-          </nav>
-          <button onClick={(e) => go(e, "#contact")} data-testid="h39-cta"
-            className={`ml-auto hidden items-center gap-2 rounded-full ${GRAD} px-5 py-3 text-[13.5px] font-semibold text-white shadow-lg shadow-orange-500/25 transition hover:brightness-105 lg:inline-flex`}>
-            Contact Us <ArrowUpRight className="h-4 w-4" />
-          </button>
-          <button onClick={() => setOpen(!open)} aria-label="Toggle menu" data-testid="h39-burger"
-            className="ml-auto bg-transparent p-2 lg:hidden" style={{ color: NAVY }}>{open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}</button>
-        </div>
-        <div className={`grid transition-[grid-template-rows] duration-500 ease-out lg:hidden`} style={{ gridTemplateRows: open ? "1fr" : "0fr" }}>
-          <div className="overflow-hidden">
-            <div className={`bg-white px-5 pb-6 pt-2 transition-opacity duration-300 ${open ? "opacity-100" : "pointer-events-none opacity-[0]"}`} style={{ borderTop: `1px solid ${LINE}` }}>
-            {NAV.map((l) => (
-              <a key={l.label} href={l.target} onClick={(e) => go(e, l.target)} className="block py-3 text-sm font-medium" style={{ color: NAVY }}>{l.label}</a>
-            ))}
-            <button onClick={(e) => go(e, "#contact")} className={`mt-3 w-full rounded-full ${GRAD} px-5 py-3 text-sm font-semibold text-white`}>Contact Us</button>
-            </div>
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* ---------- hero: animated, with the home1 "FFH|ERP · Live CRM" widget ---------- */}
       <section id="top" className="relative overflow-hidden px-5 pb-16 pt-14 sm:px-8"

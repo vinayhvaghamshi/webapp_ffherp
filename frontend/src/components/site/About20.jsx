@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import {
   ArrowRight, ArrowUpRight, BadgeCheck, Check, Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter, Youtube,
 } from "lucide-react";
 import { ABOUT_3, ABOUT_6, ABOUT_10, ABOUT_20, ABOUT_ALT, ABOUT_US, TEAM, WHY_FEATURES } from "../../mock";
 import AboutLayoutNav from "./AboutLayoutNav";
+import SiteHeader from "./SiteHeader";
 import { Icon } from "./Trusted";
 import SupportChat from "./SupportChat";
-import { useGoTo } from "./crmStore";
+import { scrollToId, useGoTo } from "./crmStore";
 
 // About layout 20 — the content of layouts 3, 6 and 10 in layout 39's logo theme:
 // same palette, Poppins headings, cream/soft bands, the grid-line backdrop, the
@@ -72,9 +74,18 @@ const Counter = ({ value }) => {
 
 export default function About20() {
   const goTo = useGoTo();
+  const location = useLocation();
   const A = ABOUT_20;
 
   useEffect(() => { document.title = "About FFH|ERP — the system businesses run on | FFH|ERP"; }, []);
+
+  // Landing here from the home page with a section target (the header sets state.scrollTo).
+  useEffect(() => {
+    const id = location.state?.scrollTo;
+    if (!id) return;
+    const t = setTimeout(() => scrollToId(id), 160);
+    return () => clearTimeout(t);
+  }, [location.state]);
 
   const go = (e, t) => { e.preventDefault(); goTo(t); };
   const external = (path) => { window.location.assign(`${process.env.PUBLIC_URL}${path}`); };
@@ -82,26 +93,8 @@ export default function About20() {
 
   return (
     <div className="ffh-tw ffh-h39 ffh-logo-theme min-h-screen bg-white font-[Poppins] antialiased" data-testid="about20-page">
-      {/* ---------- nav (layout 39's nav) ---------- */}
-      <header className="sticky top-0 z-50 border-b backdrop-blur" style={{ borderColor: LINE, background: "rgba(255,255,255,.92)" }} data-testid="a20-nav">
-        <div className="mx-auto flex max-w-[1400px] items-center gap-6 px-5 py-4 sm:px-8">
-          <a href="#top" onClick={(e) => go(e, "#top")} className="flex items-center gap-3">
-            <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="FFH ERP" width="34" height="34" className="h-[34px] w-[34px] rounded-full" />
-            <span className="hidden sm:inline-flex"><Motif /></span>
-            <span className="text-[19px] font-bold tracking-tight" style={{ color: NAVY }}>FFH|ERP</span>
-          </a>
-          <nav className="ml-auto hidden items-center gap-6 lg:flex">
-            {A.nav.map((l) => (
-              <button key={l.label} onClick={() => open(l.target)}
-                className="text-[14.5px] font-medium transition-opacity duration-200 hover:opacity-60" style={{ color: "#4a5568" }}>{l.label}</button>
-            ))}
-          </nav>
-          <button onClick={(e) => go(e, "#contact")} data-testid="a20-cta"
-            className={`ml-auto inline-flex items-center gap-1.5 rounded-full ${GRAD} px-4 py-2.5 text-[13px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 sm:gap-2 sm:px-5 sm:py-3 sm:text-[13.5px] lg:ml-0`}>
-            Contact<span className="hidden sm:inline"> Us</span> <ArrowUpRight className="h-4 w-4" />
-          </button>
-        </div>
-      </header>
+      {/* the site navigator — the same header the home page uses */}
+      <SiteHeader />
 
       {/* ---------- hero ---------- */}
       <section id="top" className="relative overflow-hidden px-5 pb-14 pt-16 sm:px-8 sm:pt-20">
