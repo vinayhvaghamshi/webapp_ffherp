@@ -1582,3 +1582,69 @@ export const ABOUT_12 = {
     legal: "Copyright © 2026 KrisKross Inc. All rights reserved.",
   },
 };
+
+// Extra home37 content: implementation steps, industries, a comparison table,
+// security/compliance tiles and a savings calculator.
+export const HOME37_MORE = {
+  how: {
+    eyebrow: "Implementation",
+    title: "Live in a day, not a quarter.",
+    lead:
+      "Most ERPs take months and a consultant per module. We do it in four steps — with your data, your team and a person on the phone while it happens.",
+    steps: [
+      { n: "01", when: "Day 0", title: "Map what you already do", text: "A 60-minute call to walk your actual process — the registers, the WhatsApp groups, the export nobody trusts. You get a written module plan the same evening.", points: ["Process walkthrough", "Module plan in writing", "Fixed price, no discovery invoice"] },
+      { n: "02", when: "Day 1 · morning", title: "We migrate your data with you", text: "Customers, items, opening balances, AMC contracts and open tickets come across from your spreadsheets or your old system. You check the totals before anything goes live.", points: ["Spreadsheet & legacy import", "Opening balances reconciled", "Your sign-off before go-live"] },
+      { n: "03", when: "Day 1 · afternoon", title: "Training for every team", text: "Not one session for everybody — separate hands-on sessions for sales, accounts, stores and service, on your own screens and your own data.", points: ["Role-wise sessions", "Offline & mobile covered", "Recordings and a cheat sheet"] },
+      { n: "04", when: "Day 2", title: "Go live with support watching", text: "We stay on the line through your first invoices, first dispatch and first day-end. Anything that snags is fixed while you work, not in a ticket queue.", points: ["Named contact", "24/7 helpdesk in six languages", "No lock-in, cancel any time"] },
+    ],
+  },
+  industries: {
+    eyebrow: "Built for these businesses",
+    title: "Nine modules, configured for how your trade actually runs.",
+    lead: "The same database, shaped by the counters and shop floors our customers work in.",
+    items: [
+      { name: "Manufacturing", icon: "Factory", line: "BOM, work orders, job costing and dispatch against the same stock the store sees.", modules: ["Materials", "Production", "Finance"] },
+      { name: "Retail & distribution", icon: "ShoppingBag", line: "Counter billing, multi-branch stock, schemes and credit control that reconciles daily.", modules: ["Bill", "Purchase", "Stock"] },
+      { name: "Healthcare & diagnostics", icon: "HeartPulse", line: "Patient billing, consumables, AMC of equipment and service tickets in one place.", modules: ["Bill", "AMC", "Support"] },
+      { name: "Projects & engineering", icon: "HardHat", line: "Stage-wise billing, site material movement and project profitability as it happens.", modules: ["Projects", "Purchase", "Finance"] },
+      { name: "Hospitality & QSR", icon: "UtensilsCrossed", line: "Outlets, recipes, wastage and vendor payables that close the same evening.", modules: ["Stock", "Purchase", "Finance"] },
+      { name: "Services & AMC", icon: "Wrench", line: "Contracts, renewals, engineer schedules and SLA breaches flagged before the customer calls.", modules: ["AMC", "Support", "Field"] },
+    ],
+  },
+  compare: {
+    eyebrow: "Why teams switch",
+    title: "What changes when nine tools become one.",
+    lead: "An honest look at the three ways a growing business runs its day.",
+    cols: ["FFH|ERP", "Spreadsheets", "Typical ERP"],
+    rows: [
+      { label: "One number across sales, stock and accounts", ffh: true, sheets: false, erp: "Add-on" },
+      { label: "Setup time", ffh: "1–2 days", sheets: "Already running", erp: "3–6 months" },
+      { label: "Works offline, syncs later", ffh: true, sheets: "N/A", erp: "Rarely" },
+      { label: "Data migration done with you", ffh: true, sheets: false, erp: "Paid project" },
+      { label: "Training for every team", ffh: true, sheets: false, erp: "Extra cost" },
+      { label: "Pricing printed on the website", ffh: true, sheets: "Free", erp: "Quote only" },
+      { label: "AMC renewals & tickets in the same system", ffh: true, sheets: false, erp: "Separate module" },
+      { label: "Your data, exportable any time", ffh: true, sheets: true, erp: "On request" },
+      { label: "Lock-in", ffh: "None", sheets: "None", erp: "Annual contract" },
+    ],
+  },
+  security: {
+    eyebrow: "Security & compliance",
+    title: "Built for the way Indian businesses are audited.",
+    lead: "Your books leave a trail, your data stays yours, and nobody sees a number they should not.",
+    items: [
+      { icon: "ShieldCheck", title: "ISO 27001 aligned", text: "Processes, access reviews and change control documented to the standard." },
+      { icon: "FileCheck2", title: "GST & e-invoicing ready", text: "GSTR-ready registers, e-invoice and e-way bill formats, IRN handling." },
+      { icon: "Users", title: "Role-based access", text: "Branch, team and field-level rights — a store manager never sees payroll." },
+      { icon: "History", title: "Full audit trail", text: "Who changed which invoice, when, and from where. Nothing is overwritten." },
+      { icon: "DatabaseBackup", title: "Daily backups", text: "Scheduled backups with restore drills, plus export of everything you entered." },
+      { icon: "Lock", title: "Encryption in transit", text: "TLS everywhere, encrypted credentials and no third-party data sharing." },
+    ],
+  },
+  roi: {
+    eyebrow: "Savings calculator",
+    title: "What nine tools in one is worth to a team like yours.",
+    lead: "Drag the sliders. The numbers use your own team size and the hours your people spend reconciling tools today.",
+    note: "Assumes a 40-hour working week and the Pro plan at ₹960 per user per month. Your mileage will differ — which is exactly what a 20-minute walkthrough is for.",
+  },
+};

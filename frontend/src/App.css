@@ -2321,3 +2321,11 @@ a { text-decoration: none; }
 .ffh-a12 :is(h1, h2, h3, h4) { font-family: "Newsreader", Georgia, serif; font-weight: 500; }
 .ffh-a12 .ffh-about-nav { --about-nav-ink: #16283c; }
 .ffh-a12 ::placeholder { color: #9aa3b2; }
+
+/* home37 savings calculator — range inputs */
+.ffh-range { -webkit-appearance: none; appearance: none; height: 6px; border-radius: 999px; outline: none; cursor: pointer; }
+.ffh-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%;
+  background: #fff; border: 3px solid #ef7b23; box-shadow: 0 6px 14px -6px rgba(207,95,18,.75); transition: transform .18s ease; }
+.ffh-range::-webkit-slider-thumb:hover { transform: scale(1.12); }
+.ffh-range::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 3px solid #ef7b23; cursor: pointer; }
+.ffh-range:focus-visible { box-shadow: 0 0 0 4px rgba(239,123,35,.18); }
