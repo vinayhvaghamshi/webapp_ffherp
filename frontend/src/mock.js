@@ -1352,6 +1352,7 @@ export const HOME36 = {
     { name: "MicroHard IT Solutions", logo: "microhard-it-solutions.png", note: "IT solutions" },
     { name: "Flair Network Systems", logo: "flair-network-systems.png", note: "Network systems" },
     { name: "Ecoair", logo: "ecoair.png", note: "Air engineering" },
+    { name: "AVI Infotech LLP", logo: "avi-infotech.png", note: "IT infrastructure & security systems" },
   ],
   integrationsTitle: "Integrations.",
   integrationsCopy:
