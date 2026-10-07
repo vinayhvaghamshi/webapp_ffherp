@@ -187,7 +187,7 @@ export const SERVING_BRANDS = [
 export const ABOUT_US = {
   title: "One platform, built by people who run businesses",
   intro:
-    "FFH|ERP is a product of KrisKross Inc. For fourteen years we have helped growing companies in India and across 20+ countries replace scattered spreadsheets and disconnected tools with one connected system for sales, marketing, finance, AMC, support and projects.",
+    "FFH|ERP is a product of KrisKross Inc. For fourteen years we have helped growing companies in India and across 5+ countries replace scattered spreadsheets and disconnected tools with one connected system for sales, marketing, finance, AMC, support and projects.",
   vision: {
     icon: "Eye",
     title: "Our Vision",
@@ -244,18 +244,18 @@ export const ABOUT_ALT = {
   title: "Fourteen years of building software",
   titleAccent: "that runs businesses",
   lead:
-    "From a two-room office in Chennai to 2,500+ active users across 20+ countries — how FFH|ERP grew, what we believe, and who is accountable for it today.",
+    "From a two-room office in Chennai to 2,500+ active users across 5+ countries — how FFH|ERP grew, what we believe, and who is accountable for it today.",
   stats: [
     { value: "2012", label: "Founded" },
     { value: "2.5K+", label: "Active users" },
-    { value: "20+", label: "Countries" },
+    { value: "5+", label: "Countries" },
     { value: "250+", label: "Team members" },
   ],
   facts: [
     { k: "Founded", v: "2012 · Chennai, India" },
     { k: "Offices", v: "Chennai · Dubai · Singapore" },
     { k: "Team", v: "250+ across engineering, delivery & support" },
-    { k: "Customers", v: "2,500+ active users in 20+ countries" },
+    { k: "Customers", v: "2,500+ active users in 5+ countries" },
     { k: "Product", v: "FFH|ERP — nine modules, one platform" },
     { k: "Support", v: "24/7 helpdesk in two languages" },
   ],
@@ -310,7 +310,7 @@ export const ABOUT_3 = {
     { value: "2.5K+", label: "Active users on FFH|ERP" },
     { value: "9", label: "Connected modules" },
     { value: "24/7", label: "Support, two languages" },
-    { value: "20+", label: "Countries served" },
+    { value: "5+", label: "Countries served" },
   ],
   pillars: [
     { icon: "Layers", title: "One system, not nine tools", text: "Sales, purchase, billing, spend, AMC, support, work and projects share one database — so a quote becomes an order, an invoice and a service ticket without anyone re-typing it." },
@@ -344,7 +344,7 @@ export const ABOUT_4 = {
   recognitions: [
     "14 years in business software",
     "2,500+ active users",
-    "20+ countries",
+    "5+ countries",
     "24/7 support in two languages",
     "Nine connected modules",
   ],
@@ -373,11 +373,11 @@ export const HOME3_HERO = {
   titleLead: "Every lead, order, rupee and ticket",
   titleAccent: "in one system",
   lead:
-    "Nine connected modules for sales, marketing, finance, AMC, support and projects — trusted by 2,500+ active users in 20+ countries.",
+    "Nine connected modules for sales, marketing, finance, AMC, support and projects — trusted by 2,500+ active users in 5+ countries.",
   stats: [
     { value: "9", label: "Business tools" },
     { value: "2.5K+", label: "Active users" },
-    { value: "20+", label: "Countries" },
+    { value: "5+", label: "Countries" },
     { value: "24/7", label: "Support" },
   ],
 };
@@ -422,7 +422,7 @@ export const HOME6_HERO = {
   lead:
     "Start today with the same system 2,500+ active users run on. No credit card, no lock-in — and a human on the phone while you set up.",
   chips: ["No credit card", "Setup in a day", "Data hosted in India", "24/7 support"],
-  trust: ["ISO 27001 aligned", "GST & e-invoicing ready", "2,500+ active users", "20+ countries"],
+  trust: ["ISO 27001 aligned", "GST & e-invoicing ready", "2,500+ active users", "5+ countries"],
 };
 
 export const HOME7_HERO = {
@@ -537,7 +537,7 @@ export const HOME13_HERO = {
   ribbon: [
     { value: "2012", label: "Building business software since" },
     { value: "2.5K+", label: "Active users" },
-    { value: "20+", label: "Countries" },
+    { value: "5+", label: "Countries" },
     { value: "100+", label: "Awards & recognitions" },
   ],
   trust: ["No credit card required", "Setup in a day", "24/7 support"],
@@ -601,7 +601,7 @@ export const ABOUT_6 = {
   eyebrow: "Our journey",
   titleLead: "Fourteen years, one direction:",
   titleAccent: "make it simpler",
-  lead: "From a billing package written for Chennai retailers to nine connected modules used in 20+ countries.",
+  lead: "From a billing package written for Chennai retailers to nine connected modules used in 5+ countries.",
   next: [
     { title: "Deeper mobile", text: "More of the month runnable from a phone, including approvals and collections." },
     { title: "More automation", text: "Follow-ups, renewals and reconciliations that happen without anyone remembering." },
@@ -646,7 +646,7 @@ export const ABOUT_10 = {
     { value: "14", label: "Years in business software" },
     { value: "2.5K+", label: "Active users" },
     { value: "10,000+", label: "Active installations" },
-    { value: "20+", label: "Countries" },
+    { value: "5+", label: "Countries" },
     { value: "24/7", label: "Support in two languages" },
   ],
 };
@@ -737,7 +737,7 @@ export const HOME18 = {
     { value: "1.2M", label: "Leads tracked across customers" },
     { value: "48K", label: "AMC renewals automated" },
     { value: "99.98%", label: "Platform uptime, last 12 months" },
-    { value: "20+", label: "Countries served" },
+    { value: "5+", label: "Countries served" },
     { value: "6", label: "Support languages" },
   ],
   features: [
@@ -754,7 +754,7 @@ export const HOME18 = {
     workstation: { id: 60, caption: "Field and office teams on the same records" },
     invoices: { id: 431, caption: "Invoices, receipts and approvals in one place" },
     planning: { id: 20, caption: "Planning the month on live numbers" },
-    skyline: { id: 1067, caption: "2,500+ active users across 20+ countries" },
+    skyline: { id: 1067, caption: "2,500+ active users across 5+ countries" },
   },
 };
 
@@ -873,7 +873,7 @@ export const HOME23 = {
   metrics: [
     { value: "9", label: "Modules" },
     { value: "2.5K+", label: "Active users" },
-    { value: "20+", label: "Countries" },
+    { value: "5+", label: "Countries" },
     { value: "24/7", label: "Support" },
   ],
 };
@@ -991,7 +991,7 @@ export const HOME27 = {
   dayOne: [
     { value: "9+", label: "Modules", target: "#modules" },
     { value: "2.5K+", label: "Active users", target: "#why" },
-    { value: "20+", label: "Countries", target: "#why" },
+    { value: "5+", label: "Countries", target: "#why" },
     { value: "24/7", label: "Support", target: "#contact" },
   ],
   quote: {
@@ -1182,7 +1182,7 @@ export const HOME30 = {
   cta: "Let's get started",
   stats: [
     { value: "1K+", label: "Projects delivered", note: "Enhance your operations", text: "High-impact deployments across manufacturing, retail, healthcare and services." },
-    { value: "2.5K+", label: "Active users", note: "Trusted worldwide", text: "Businesses that run their day on FFH|ERP, in more than 20 countries." },
+    { value: "2.5K+", label: "Active users", note: "Trusted worldwide", text: "Businesses that run their day on FFH|ERP, in more than 5 countries." },
     { value: "14", label: "Years in software", note: "Built to last", text: "Fourteen years of implementations, migrations and month-end closes." },
     { value: "25+", label: "Industry awards", note: "Recognised work", text: "For product design, delivery and customer support." },
   ],
@@ -1228,7 +1228,7 @@ export const HOME31 = {
   counters: [
     { value: "2.5K+", label: "Active users" },
     { value: "30", label: "Years of experience" },
-    { value: "20+", label: "Countries" },
+    { value: "5+", label: "Countries" },
   ],
   services: [
     { icon: "Database", title: "One database", text: "Sales, purchase, billing, spend, AMC, support, work and projects read the same records." },
@@ -1386,7 +1386,7 @@ export const ABOUT_11 = {
   ],
   ticker: [
     "🚀 Trusted by 2.5K+ active users",
-    "🌍 Serving 20+ countries",
+    "🌍 Serving 5+ countries",
     "🧩 Nine modules, one database",
     "📈 Built for growing businesses",
     "⭐ 14 years in business software",
@@ -1431,7 +1431,7 @@ export const ABOUT_11 = {
     chips: [
       { v: "2.5K+", l: "Active users" },
       { v: "4.4/5", l: "Average rating" },
-      { v: "20+", l: "Countries" },
+      { v: "5+", l: "Countries" },
     ],
     cta: "Read more reviews",
     source: "HOME37",                    // reuse the testimonial set
@@ -1447,7 +1447,7 @@ export const ABOUT_11 = {
   presence: {
     eyebrow: "Our global presence",
     title: "Growing businesses for 14 years",
-    sub: "Made in Chennai, running in 20+ countries around the world",
+    sub: "Made in Chennai, running in 5+ countries around the world",
     regions: [
       { flag: "🇮🇳", region: "Asia Pacific", country: "India", cities: 12, tag: "HQ", list: ["Chennai", "Coimbatore", "Bengaluru", "Hyderabad", "Mumbai", "Pune", "Delhi", "Kochi"] },
       { flag: "🇦🇪", region: "Middle East", country: "UAE", cities: 6, list: ["Dubai", "Abu Dhabi", "Sharjah", "Riyadh", "Doha", "Muscat"] },
@@ -1458,7 +1458,7 @@ export const ABOUT_11 = {
   },
   footer: {
     about:
-      "FFH|ERP is a product of KrisKross Inc. — a fourteen year old Chennai software company building CRM & ERP for growing businesses in 20+ countries.",
+      "FFH|ERP is a product of KrisKross Inc. — a fourteen year old Chennai software company building CRM & ERP for growing businesses in 5+ countries.",
     cta: "Become a partner",
     links: [
       { title: "Our links", items: [
@@ -1496,11 +1496,11 @@ export const ABOUT_12 = {
     titleBottomLead: "We stayed to",
     titleAccent: "run the business",
     lead:
-      "FFH|ERP is a product of KrisKross Inc., a Chennai software company founded in 2012. What began as billing software for neighbourhood retailers is now nine connected modules that carry 2,500+ active users in 20+ countries from the first enquiry to the final invoice.",
+      "FFH|ERP is a product of KrisKross Inc., a Chennai software company founded in 2012. What began as billing software for neighbourhood retailers is now nine connected modules that carry 2,500+ active users in 5+ countries from the first enquiry to the final invoice.",
     stats: [
       { v: "14 years", l: "in business software" },
       { v: "2.5K+", l: "active users" },
-      { v: "20+", l: "countries served" },
+      { v: "5+", l: "countries served" },
       { v: "9", l: "modules, one database" },
     ],
   },
@@ -1521,7 +1521,7 @@ export const ABOUT_12 = {
       { n: "01", title: "We made the first invoice buyable", text: "KrisKross Inc. starts in Chennai in 2012 writing billing software for neighbourhood retailers — printed invoices, no spreadsheets, no month-end scramble." },
       { n: "02", title: "We delivered, and clients stayed", text: "Retailers who started with billing asked for stock, purchase and accounts. By 2015 those three joined the platform and FFH|ERP became a true ERP." },
       { n: "03", title: "Our customers asked for more", text: "Field teams wanted the sales cycle on a phone. Service teams wanted AMC renewals and tickets in the same place as the invoice. So they were built in, offline-first." },
-      { n: "04", title: "One system, fuller mandate", text: "Today nine modules run on one database for 2,500+ active users in 20+ countries — sales, marketing, finance, materials, AMC, support and projects." },
+      { n: "04", title: "One system, fuller mandate", text: "Today nine modules run on one database for 2,500+ active users in 5+ countries — sales, marketing, finance, materials, AMC, support and projects." },
     ],
   },
   culture: {
@@ -1556,7 +1556,7 @@ export const ABOUT_12 = {
     eyebrow: "What fourteen years added up to",
     items: [
       { v: "2.5K+", l: "Active users", note: "Teams running their day on FFH|ERP" },
-      { v: "20+", l: "Countries", note: "India, the Gulf, South-East Asia and beyond" },
+      { v: "5+", l: "Countries", note: "India, the Gulf, South-East Asia and beyond" },
       { v: "9", l: "Modules", note: "On one database, with no exports between them" },
       { v: "24/7", l: "Support", note: "Helpdesk in two languages" },
     ],
@@ -1574,7 +1574,7 @@ export const ABOUT_12 = {
     secondary: "Talk to us",
   },
   footer: {
-    blurb: "FFH|ERP is a product of KrisKross Inc. — fourteen years of business software from Chennai, running in 20+ countries.",
+    blurb: "FFH|ERP is a product of KrisKross Inc. — fourteen years of business software from Chennai, running in 5+ countries.",
     columns: [
       { title: "Product", items: [{ label: "Live CRM", path: "#top" }, { label: "Our services", path: "#features" }, { label: "Deployments", path: "#modules" }, { label: "Pricing", path: "#pricing" }] },
       { title: "Company", items: [{ label: "About us", path: "/about" }, { label: "About layout 11", path: "/about" }, { label: "Home page", path: "/" }, { label: "Contact", path: "#contact" }] },
@@ -1683,17 +1683,17 @@ export const ABOUT_13 = {
     eyebrow: "About FFH|ERP",
     title: "The story of how nine modules became one system",
     lead:
-      "FFH|ERP is a product of KrisKross Inc., founded in Chennai in 2012. Fourteen years later, 2,500+ active users in 20+ countries run their day on it — from the first enquiry to the final invoice.",
+      "FFH|ERP is a product of KrisKross Inc., founded in Chennai in 2012. Fourteen years later, 2,500+ active users in 5+ countries run their day on it — from the first enquiry to the final invoice.",
     button: { label: "See how it works", path: "/home38#how" },
   },
   stats: [
     { v: "4.4", l: "Average rating" },
     { v: "2.5K+", l: "Active users" },
-    { v: "20+", l: "Countries served" },
+    { v: "5+", l: "Countries served" },
   ],
   story: {
     eyebrow: "Our story",
-    title: "From a two-room office to 20+ countries",
+    title: "From a two-room office to 5+ countries",
     paragraphs: [
       "KrisKross Inc. started in 2012 writing billing software for neighbourhood retailers in Chennai. The brief was always the same: give me back my evening. Not a dashboard, not a report — an evening without reconciling registers.",
       "Retailers who started with billing asked for stock, purchase and accounts, so they were built in. Field teams wanted the sales cycle on a phone, and service teams wanted AMC renewals and tickets beside the invoice. Every module exists because a customer asked for it.",
@@ -1742,7 +1742,7 @@ export const ABOUT_14 = {
   hero: {
     title: "About FFH|ERP",
     lead:
-      "We approach business software with a blend of engineering discipline and shop-floor empathy. Fourteen years in, that means nine modules on one database for 2,500+ active users across 20+ countries — and a team that still answers the phone when a counter is busy at nine in the evening.",
+      "We approach business software with a blend of engineering discipline and shop-floor empathy. Fourteen years in, that means nine modules on one database for 2,500+ active users across 5+ countries — and a team that still answers the phone when a counter is busy at nine in the evening.",
   },
   values: {
     title: "Core values",
@@ -1819,7 +1819,7 @@ export const ABOUT_15 = {
     eyebrow: "About FFH|ERP",
     title: "Business software that carries the work instead of adding to it.",
     lead:
-      "FFH|ERP is a product of KrisKross Inc. We started in Chennai in 2012 writing billing software for neighbourhood retailers. Fourteen years on, nine connected modules run on one database for 2,500+ active users in 20+ countries — from the first enquiry to the final invoice.",
+      "FFH|ERP is a product of KrisKross Inc. We started in Chennai in 2012 writing billing software for neighbourhood retailers. Fourteen years on, nine connected modules run on one database for 2,500+ active users in 5+ countries — from the first enquiry to the final invoice.",
     main: "Start free trial",
     alt: "See the numbers",
     rating: "4.4 / 5.0 — Top-rated ERP platform, built in India for growing businesses.",
@@ -1827,7 +1827,7 @@ export const ABOUT_15 = {
       { k: "Founded", v: "2012", d: "Chennai, Tamil Nadu" },
       { k: "In business software", v: "14 yrs", d: "Same team, same product" },
       { k: "Active users", v: "2.5K+", d: "Running their day on it" },
-      { k: "Countries", v: "20+", d: "India, the Gulf, SE Asia" },
+      { k: "Countries", v: "5+", d: "India, the Gulf, SE Asia" },
       { k: "Modules", v: "9", d: "One database, no exports" },
       { k: "Support", v: "24/7", d: "Helpdesk in two languages" },
     ],
@@ -1849,7 +1849,7 @@ export const ABOUT_15 = {
     title: "The numbers we are judged on.",
     items: [
       { v: "2.5K+", l: "Active users", d: "Teams running their day on FFH|ERP" },
-      { v: "20+", l: "Countries", d: "India, the Gulf, South-East Asia and beyond" },
+      { v: "5+", l: "Countries", d: "India, the Gulf, South-East Asia and beyond" },
       { v: "9", l: "Modules", d: "On one database, no exports between them" },
       { v: "14", l: "Years", d: "In business software, since 2012" },
       { v: "4.4/5", l: "Average rating", d: "From the teams using it daily" },
@@ -1880,7 +1880,7 @@ export const ABOUT_15 = {
     bullets: ["Nine modules on one database", "We migrate your data with you", "Training for every team included", "Everything you enter stays yours"],
   },
   footer: {
-    blurb: "FFH|ERP is a product of KrisKross Inc. — fourteen years of business software from Chennai, running in 20+ countries.",
+    blurb: "FFH|ERP is a product of KrisKross Inc. — fourteen years of business software from Chennai, running in 5+ countries.",
     columns: [
       { title: "Product", items: [["Live CRM", "#top"], ["Services", "#features"], ["Deployments", "#modules"], ["Pricing", "#pricing"]] },
       { title: "Company", items: [["About FFH|ERP", "/about"], ["How it works", "#how"], ["Savings calculator", "#roi"], ["Contact", "#contact"]] },
@@ -1898,7 +1898,7 @@ export const ABOUT_15 = {
 //                      do, technology, security, story, leadership, culture and
 //                      careers, reviews, FAQ and the sign-up block
 // Every claim here is one the site already makes: founded 2012, fourteen years,
-// 2,500+ active users, 20+ countries, nine modules, 4.4/5, ISO 27001 aligned,
+// 2,500+ active users, 5+ countries, nine modules, 4.4/5, ISO 27001 aligned,
 // GST and e-invoicing ready, role-based access, audit trail, daily backups, no
 // lock-in and published pricing. The customer numbers quoted on 17 are the ones
 // the customers themselves put in their reviews.
@@ -1914,14 +1914,14 @@ export const ABOUT_16 = {
     path: "ffherp / about",
     title: "We build software the way we run it: boring, monitored, and up.",
     lead:
-      "FFH|ERP is a product of KrisKross Inc. Nine modules on one database, written in Chennai since 2012 and running the day for 2,500+ active users in 20+ countries. No re-platforming stories, no quarter-long rollouts.",
+      "FFH|ERP is a product of KrisKross Inc. Nine modules on one database, written in Chennai since 2012 and running the day for 2,500+ active users in 5+ countries. No re-platforming stories, no quarter-long rollouts.",
     primary: "See the platform",
     secondary: "Talk to an engineer",
   },
   status: [
     { k: "Since", v: "2012" },
     { k: "Active users", v: "2.5K+" },
-    { k: "Countries", v: "20+" },
+    { k: "Countries", v: "5+" },
     { k: "Modules", v: "9" },
     { k: "Support", v: "24/7" },
     { k: "Rating", v: "4.4/5" },
@@ -1984,7 +1984,7 @@ export const ABOUT_17 = {
     title: "The numbers, ours and theirs.",
     items: [
       { v: "2.5K+", l: "Active users", d: "Running their day on FFH|ERP" },
-      { v: "20+", l: "Countries", d: "India, the Gulf, South-East Asia" },
+      { v: "5+", l: "Countries", d: "India, the Gulf, South-East Asia" },
       { v: "14", l: "Years", d: "In business software since 2012" },
       { v: "9", l: "Modules", d: "On one database" },
       { v: "4.4/5", l: "Average rating", d: "From the teams using it daily" },
@@ -2018,7 +2018,7 @@ export const ABOUT_18 = {
     eyebrow: "About FFH|ERP",
     title: "The operating system for growing Indian businesses.",
     lead:
-      "FFH|ERP is a product of KrisKross Inc.: nine connected modules on one database that carry a business from the first enquiry to the final invoice and the service visit after it. Built in Chennai since 2012, in daily use by 2,500+ people across 20+ countries.",
+      "FFH|ERP is a product of KrisKross Inc.: nine connected modules on one database that carry a business from the first enquiry to the final invoice and the service visit after it. Built in Chennai since 2012, in daily use by 2,500+ people across 5+ countries.",
     primary: "Start free trial",
     secondary: "Book a walkthrough",
   },
@@ -2026,7 +2026,7 @@ export const ABOUT_18 = {
     { v: "2012", l: "Founded in Chennai" },
     { v: "14 yrs", l: "In business software" },
     { v: "2.5K+", l: "Active users" },
-    { v: "20+", l: "Countries" },
+    { v: "5+", l: "Countries" },
     { v: "9", l: "Connected modules" },
     { v: "4.4/5", l: "Average rating" },
   ],
@@ -2092,7 +2092,7 @@ export const ABOUT_18 = {
     { city: "Singapore", role: "South-East Asia", d: "Implementation and support" },
   ],
   footer: {
-    blurb: "FFH|ERP is a product of KrisKross Inc. — fourteen years of business software from Chennai, running in 20+ countries.",
+    blurb: "FFH|ERP is a product of KrisKross Inc. — fourteen years of business software from Chennai, running in 5+ countries.",
     columns: [
       { title: "Product", items: [["Live CRM", "#top"], ["Modules", "#features"], ["Implementation", "#how"], ["Pricing", "#pricing"], ["Savings calculator", "#roi"]] },
       { title: "Company", items: [["About FFH|ERP", "/about"], ["Security", "#security"], ["Careers", "#careers"], ["Contact", "#contact"]] },
@@ -2121,7 +2121,7 @@ export const ABOUT_19 = {
       "We think business software should cover complex needs without being complicated. Our mission is software that is intuitive, full-featured, tightly integrated, effortless to upgrade, and smooth for every business and every user — whether that is one counter in Coimbatore or four plants and a field team.",
     stats: [
       { v: "2.5K+", l: "active users" },
-      { v: "20+", l: "countries" },
+      { v: "5+", l: "countries" },
       { v: "9", l: "connected modules" },
     ],
   },
@@ -2212,7 +2212,7 @@ export const ABOUT_20 = {
     eyebrow: "How we got here",
     titleLead: "Fourteen years, one direction:",
     titleAccent: "make it simpler",
-    lead: "From a billing package written for Chennai retailers to nine connected modules used in 20+ countries.",
+    lead: "From a billing package written for Chennai retailers to nine connected modules used in 5+ countries.",
     note: "Every module exists because a customer asked for it.",
     turns: "Fourteen years, six turns",
     turnsLead: "Each step was a customer asking for something the software could not do yet.",
@@ -2238,7 +2238,7 @@ export const ABOUT_20 = {
     small: "KrisKross Inc. · Chennai · Dubai · Singapore · +91 44 4858 5100",
   },
   footer: {
-    blurb: "FFH|ERP is a product of KrisKross Inc. — nine connected modules on one database, built in Chennai since 2012 and running in 20+ countries.",
+    blurb: "FFH|ERP is a product of KrisKross Inc. — nine connected modules on one database, built in Chennai since 2012 and running in 5+ countries.",
     columns: [
       { title: "Product", items: [["Live CRM", "#top"], ["Services", "#features"], ["Deployments", "#modules"], ["Pricing", "#pricing"]] },
       { title: "Company", items: [["About FFH|ERP", "/about"], ["How we got here", "#journey"], ["Leadership", "#leadership"], ["Contact", "#contact"]] },

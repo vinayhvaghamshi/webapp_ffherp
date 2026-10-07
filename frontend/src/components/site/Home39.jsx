@@ -71,6 +71,8 @@ const Label = ({ children }) => (
 const Counter = ({ value }) => {
   const ref = useRef(null);
   const [n, setN] = useState(0);
+  // only plain figures animate; anything else (e.g. "24/7") is printed as-is
+  const animatable = /^\d+(\.\d+)?[A-Za-z+]*$/.test(String(value).trim());
   const target = parseFloat(String(value).replace(/[^\d.]/g, "")) || 0;
   useEffect(() => {
     const el = ref.current;
@@ -297,7 +299,7 @@ export default function Home39() {
           {[
             { v: "4.4 / 5.0", l: "Average rating" },
             { v: "2.5K+", l: "Active users" },
-            { v: "20+", l: "Countries" },
+            { v: "5+", l: "Countries" },
             { v: "24/7", l: "Support in two languages" },
             { v: "ISO 27001", l: "Aligned processes" },
             { v: "GST & e-invoice", l: "Ready out of the box" },

@@ -424,7 +424,7 @@ export default function About20() {
           </div>
           <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-6 text-[12.5px] text-white/50">
             <span>{A.footer.legal}</span>
-            <span className="font-mono">14 years · 2.5K+ active users · 9 modules · 20+ countries</span>
+            <span className="font-mono">14 years · 2.5K+ active users · 9 modules · 5+ countries</span>
           </div>
         </div>
       </footer>
