@@ -48,12 +48,16 @@ const Counter = ({ value }) => {
   const ref = useRef(null);
   const [n, setN] = useState(0);
   const text = String(value);
+  // "24/7" is not a number: stripping the slash turned it into 247/, so only
+  // plain figures with an optional letter suffix are animated and everything
+  // else is printed verbatim.
+  const animatable = /^\d+(\.\d+)?[A-Za-z+]*$/.test(text.trim());
   const num = parseFloat(text.replace(/[^0-9.]/g, ""));
   const suffix = text.replace(/[0-9.,]/g, "");
   const decimals = (text.split(".")[1] || "").replace(/[^0-9]/g, "").length;
   useEffect(() => {
     const el = ref.current;
-    if (!el || Number.isNaN(num)) return;
+    if (!el || !animatable || Number.isNaN(num)) return;
     let raf = 0;
     const run = () => {
       const t0 = performance.now();
@@ -67,7 +71,8 @@ const Counter = ({ value }) => {
     const io = new IntersectionObserver((e) => { if (e[0].isIntersecting) { run(); io.disconnect(); } }, { threshold: 0.4 });
     io.observe(el);
     return () => { io.disconnect(); cancelAnimationFrame(raf); };
-  }, [num]);
+  }, [num, animatable]);   // eslint-disable-line react-hooks/exhaustive-deps
+  if (!animatable) return <span>{text}</span>;
   return <span ref={ref}>{Number.isNaN(num) ? text : `${n.toFixed(decimals)}${suffix}`}</span>;
 };
 

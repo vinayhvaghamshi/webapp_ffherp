@@ -90,6 +90,7 @@ const Counter = ({ value }) => {
     io.observe(el);
     return () => { io.disconnect(); if (raf) cancelAnimationFrame(raf); };
   }, [target]);
+  if (!animatable) return <span>{String(value)}</span>;
   // keep however many decimals the source value has ("2.5K" must not read "3K")
   const decimals = (String(value).match(/\.(\d+)/) || ["", ""])[1].length;
   return <span ref={ref}>{n.toFixed(decimals)}{String(value).replace(/[\d.]/g, "")}</span>;
