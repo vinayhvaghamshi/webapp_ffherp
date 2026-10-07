@@ -1353,6 +1353,7 @@ export const HOME36 = {
     { name: "Flair Network Systems", logo: "flair-network-systems.png", note: "Network systems" },
     { name: "Ecoair", logo: "ecoair.png", note: "Air engineering" },
     { name: "AVI Infotech LLP", logo: "avi-infotech.png", note: "IT infrastructure & security systems" },
+    { name: "ICS — Intelligence Integrated", logo: "ics-intelligence-integrated.png", note: "" },
   ],
   integrationsTitle: "Integrations.",
   integrationsCopy:

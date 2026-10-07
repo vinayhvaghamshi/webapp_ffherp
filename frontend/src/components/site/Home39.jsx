@@ -400,10 +400,10 @@ export default function Home39() {
               Serving <span style={{ color: BRAND }}>2.5K</span> active users for <span style={{ color: BRAND }}>14</span> years
             </h2>
           </div>
-          <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 flex flex-wrap justify-center gap-4">
             {[...HOME39.brands, { name: "and many more", logo: null, note: "coming to this wall" }].map((b, i) => (
               <div key={b.name} className="reveal" style={{ transitionDelay: `${i * 40}ms` }}>
-              <div data-testid={b.logo ? `home39-brand-${i}` : "home39-brand-more"}
+              <div className="w-[calc(50%-0.5rem)] sm:w-[248px]" data-testid={b.logo ? `home39-brand-${i}` : "home39-brand-more"}
                 className="group flex h-full min-h-[190px] flex-col items-center justify-center rounded-2xl bg-white px-5 py-8 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
                 style={{ border: `1px solid ${LINE}` }}>
                 <span className="flex h-[74px] w-full items-center justify-center">
