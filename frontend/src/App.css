@@ -2309,3 +2309,10 @@ a { text-decoration: none; }
 .ffh-support-ping { position: absolute; inset: 0; border-radius: 999px; pointer-events: none;
   background: rgba(239, 123, 35, .6); animation: ffh-support-ping 2.6s ease-out infinite; }
 @media (prefers-reduced-motion: reduce) { .ffh-support-ping { animation: none; opacity: 0; } }
+
+/* About layout 11 — the dark futuretouch-style page */
+.ffh-a11 .ffh-marquee { animation-duration: 46s; }
+.ffh-a11-script { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 500; letter-spacing: -0.01em; }
+.ffh-a11 input::placeholder, .ffh-a11 textarea::placeholder { color: rgba(255,255,255,.35); }
+.ffh-a11 select option { color: #0d0f1f; }
+@media (prefers-reduced-motion: reduce) { .ffh-a11 .ffh-marquee { animation: none; } }

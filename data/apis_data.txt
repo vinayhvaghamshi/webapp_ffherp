@@ -86,6 +86,24 @@ HOW TO USE THIS FILE
     Everything else: per section 2.
 
   --------------------------------------------------------------------------
+  token = "Prospect" (About page "Get in Touch" quote request)
+  --------------------------------------------------------------------------
+    company      <- ""  (the form asks for no company name)
+    name         <- "First name" + "Last name"
+    mobile       <- country code + "Phone number", e.g. "+91 9820022222"
+    email        <- "Email address"
+    date         <- today, yyyy-mm-dd
+    ProductCode  <- the "Message" box ("Website enquiry from the About page"
+                    when it is left empty)
+    ProdServType <- the "Service you are interested in" choice
+    Everything else: per section 2.
+
+    NOTE / TO CONFIRM: the spec's own comment says `token` is the "Module name
+    (Prospect/Ticket)", so this page sends "Prospect". If the CRM expects a
+    different flag for website enquiries, give me the value and it is a one-line
+    change in frontend/src/components/site/About11.jsx.
+
+  --------------------------------------------------------------------------
   token = "chat"     (floating customer-support widget)
   --------------------------------------------------------------------------
     company      <- the "Department" chosen in the chat form
@@ -342,6 +360,12 @@ HOW TO USE THIS FILE
 ================================================================================
 8. CHANGE LOG  (newest first — every API change gets an entry here)
 ================================================================================
+  2026-10-07  About page (about11) added with a "Get in Touch" quote form. It
+              posts through the same client with token "Prospect" (see section 3
+              for the mapping and the note about confirming that flag), service
+              -> ProdServType, message -> ProductCode, mobile from the phone
+              field. Captured-request check passed; no other field changed.
+
   2026-10-06  Documentation: added section 5, the full request records for both
               calls (signup and chat) - request line, headers, complete body
               pretty and on one line, the SUCCESS reply, the non-SUCCESS reply,

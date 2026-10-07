@@ -15,6 +15,7 @@ const LAYOUTS = [
   { n: 8, path: "/about8" },
   { n: 9, path: "/about9" },
   { n: 10, path: "/about10" },
+  { n: 11, path: "/about11" },
 ];
 
 export default function AboutLayoutNav({ dark }) {

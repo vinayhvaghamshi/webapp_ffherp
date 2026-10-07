@@ -1372,3 +1372,114 @@ export const HOME36 = {
 // Home layout 37 — same copy as 36; the layout differs (home1 Live CRM widget in
 // the hero, a smaller "Let's get started" block, no white band in services).
 export const HOME37 = { ...HOME36 };
+
+// About layout 11 — modelled on futuretouch.in/about: a dark page with its own
+// header and footer, a top ticker, an "About Us" hero, a who-we-are block, a
+// Get in Touch form, client reviews, a newsletter and a global-presence grid.
+export const ABOUT_11 = {
+  nav: [
+    { label: "Home", path: "/home37" },
+    { label: "About", path: "/about11" },
+    { label: "Service", path: "/home37#features" },
+    { label: "Project", path: "/home37#modules" },
+    { label: "Pricing Table", path: "/home37#pricing" },
+  ],
+  ticker: [
+    "🚀 Trusted by 2.5K+ active users",
+    "🌍 Serving 20+ countries",
+    "🧩 Nine modules, one database",
+    "📈 Built for growing businesses",
+    "⭐ 14 years in business software",
+    "📞 24/7 support in six languages",
+  ],
+  topbar: { email: "ffhsales@kriskrossinc.com", phone: "+91 44 4858 5100", support: "Support" },
+  hero: {
+    eyebrow: "About us",
+    title: "About Us",
+    crumb: ["Home", "About Us"],
+    lead:
+      "The people, the thinking and the fourteen years of shop floors, showrooms and month-end closes behind FFH|ERP.",
+  },
+  who: {
+    script: "Who we are",
+    titleLead: "About",
+    titleAccent: "FFH|ERP",
+    stamp: "KrisKross Inc. · Chennai · Since 2012",
+    paragraphs: [
+      "FFH|ERP is a product of KrisKross Inc., a Chennai software company that started in 2012 writing billing software for neighbourhood retailers. Fourteen years later the same team ships nine connected modules that carry a business from the first enquiry to the final invoice without a spreadsheet in between.",
+      "We are deliberately unfashionable about a few things. Our customers run showrooms with patchy networks and teams that are not technical — so the software works offline, installs in a day, and is priced where a growing company can actually afford it.",
+      "Our reputation lies in the success of our clients. We act more as a technology partner than a vendor: no layers between you and the people who build the product, transparent pricing on the website, and support that answers in the language your team speaks.",
+    ],
+    chips: ["Founded 2012", "Chennai · Dubai · Singapore", "250+ team members", "ISO 27001 aligned"],
+    image: 1067,
+  },
+  services: [
+    "Sales & marketing module",
+    "Finance & billing",
+    "Inventory & purchase",
+    "AMC & service tickets",
+    "Projects & delivery",
+    "Smart dashboards",
+    "Data migration from spreadsheets",
+    "Training for your team",
+    "Something else",
+  ],
+  reviews: {
+    eyebrow: "Client reviews",
+    title: "What our clients say about FFH|ERP",
+    heading: "Over 2,500+ active users and growing",
+    chips: [
+      { v: "2.5K+", l: "Active users" },
+      { v: "4.9/5", l: "Average rating" },
+      { v: "20+", l: "Countries" },
+    ],
+    cta: "Read more reviews",
+    source: "HOME37",                    // reuse the testimonial set
+  },
+  newsletter: {
+    eyebrow: "Newsletter · stay updated",
+    title: "Stay ahead of the month-end",
+    lead:
+      "Get product updates and practical ERP notes for growing businesses — straight to your inbox. No noise, just value.",
+    points: ["Monthly insights", "No spam, ever", "Free forever"],
+    note: "Your data is safe with us. Unsubscribe in one click.",
+  },
+  presence: {
+    eyebrow: "Our global presence",
+    title: "Growing businesses for 14 years",
+    sub: "Made in Chennai, running in 20+ countries around the world",
+    regions: [
+      { flag: "🇮🇳", region: "Asia Pacific", country: "India", cities: 12, tag: "HQ", list: ["Chennai", "Coimbatore", "Bengaluru", "Hyderabad", "Mumbai", "Pune", "Delhi", "Kochi"] },
+      { flag: "🇦🇪", region: "Middle East", country: "UAE", cities: 6, list: ["Dubai", "Abu Dhabi", "Sharjah", "Riyadh", "Doha", "Muscat"] },
+      { flag: "🇸🇬", region: "South-East Asia", country: "Singapore", cities: 5, list: ["Singapore", "Kuala Lumpur", "Jakarta", "Bangkok", "Manila"] },
+      { flag: "🇰🇪", region: "Africa", country: "Kenya", cities: 4, list: ["Nairobi", "Lagos", "Accra", "Johannesburg"] },
+      { flag: "🇬🇧", region: "Europe", country: "United Kingdom", cities: 3, list: ["London", "Manchester", "Birmingham"] },
+    ],
+  },
+  footer: {
+    about:
+      "FFH|ERP is a product of KrisKross Inc. — a fourteen year old Chennai software company building CRM & ERP for growing businesses in 20+ countries.",
+    cta: "Become a partner",
+    links: [
+      { title: "Our links", items: [
+        { label: "Home", path: "/home37" },
+        { label: "About Us", path: "/about11" },
+        { label: "Services", path: "/home37#features" },
+        { label: "Projects", path: "/home37#modules" },
+        { label: "Pricing", path: "/home37#pricing" },
+        { label: "Contact", path: "/home37#contact" },
+      ] },
+      { title: "Company", items: [
+        { label: "Start free trial", path: "/home37#signup" },
+        { label: "Our solutions", path: "/home37#why" },
+        { label: "Customer stories", path: "/home37#modules" },
+        { label: "Support", path: "/home37#contact" },
+        { label: "Terms of Service", path: "/home37" },
+        { label: "Privacy Policy", path: "/home37" },
+      ] },
+    ],
+    contact: { address: "KrisKross Inc., Chennai, Tamil Nadu, India", email: "ffhsales@kriskrossinc.com", phone: "+91 44 4858 5100" },
+    socials: ["Instagram", "Facebook", "LinkedIn", "Twitter", "YouTube"],
+    legal: "Copyright © 2026 KrisKross Inc. All rights reserved.",
+  },
+};
