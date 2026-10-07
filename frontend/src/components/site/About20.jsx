@@ -4,7 +4,7 @@ import {
   ArrowRight, ArrowUpRight, BadgeCheck, Check, Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter, Youtube,
 } from "lucide-react";
 import { ABOUT_3, ABOUT_6, ABOUT_10, ABOUT_20, ABOUT_ALT, ABOUT_US, TEAM, WHY_FEATURES } from "../../mock";
-import AboutLayoutNav from "./AboutLayoutNav";
+import HomeLayoutNav from "./HomeLayoutNav";
 import SiteHeader from "./SiteHeader";
 import { Icon } from "./Trusted";
 import SupportChat from "./SupportChat";
@@ -425,7 +425,7 @@ export default function About20() {
         </div>
       </footer>
 
-      <div className="py-6 text-center"><AboutLayoutNav /></div>
+      <div className="py-6 text-center"><HomeLayoutNav /></div>
       <SupportChat />
     </div>
   );
