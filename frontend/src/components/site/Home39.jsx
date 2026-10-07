@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, Facebook, IndianRupee, Instagram, Linkedin, Menu, Minus, Pause, Play, Plus, ShieldCheck, Star, TrendingUp, Twitter, Users, X, Youtube } from "lucide-react";
 import Icon from "./TwIcon";
 import { HOME39, HOME39_MORE, HOME39_SIGNUP, HOME30, FAQS, PLANS, TOOLS, WHY_FEATURES, formatINR } from "../../mock";
@@ -6,7 +7,7 @@ import { LiveCRMWindow } from "./LiveCRM";
 import TwSignupForm from "./TwSignupForm";
 import HomeLayoutNav from "./HomeLayoutNav";
 import SupportChat from "./SupportChat";
-import { useGoTo } from "./crmStore";
+import { scrollToId, useGoTo } from "./crmStore";
 
 // Layout 39 — my own cut of layouts 37 and 38: layout 38's content, tightened
 // and recomposed. A scroll-progress bar and a section dot-nav for orientation,
@@ -28,7 +29,7 @@ const HEALTH_AREAS = ["Sales", "Finance", "Support", "Projects"];
 
 const NAV = [
   { label: "Home", target: "#top" },
-  { label: "About Us", target: "/about20" },
+  { label: "About Us", target: "/about" },
   { label: "Service", target: "#features" },
   { label: "Project", target: "#modules" },
   { label: "Pricing Table", target: "#pricing" },
@@ -110,6 +111,7 @@ const SPOTS = [
 
 export default function Home39() {
   const goTo = useGoTo();
+  const location = useLocation();
   const [open, setOpen] = useState(false);
   const [openService, setOpenService] = useState(0);
   const [filter, setFilter] = useState("All");
@@ -209,6 +211,14 @@ export default function Home39() {
 
   useEffect(() => { document.title = "FFH|ERP — See today's business, not last month's report"; }, []);
   const go = (e, t) => { e.preventDefault(); setOpen(false); goTo(t); };
+
+  // Landing here from another page with a section target (goTo sets state.scrollTo).
+  useEffect(() => {
+    const id = location.state?.scrollTo;
+    if (!id) return;
+    const t = setTimeout(() => scrollToId(id), 140);
+    return () => clearTimeout(t);
+  }, [location.state]);
 
   const projects = filter === "All" ? HOME30.projects : HOME30.projects.filter((p) => p.tag === filter);
 
@@ -1183,7 +1193,7 @@ export default function Home39() {
                 <ul className="mt-4 space-y-3">
                   {c.l.map((l) => (
                     <li key={l}>
-                      <button onClick={(e) => go(e, l === "About us" ? "/about20" : l === "Pricing" ? "#pricing" : l === "Contact" ? "#contact" : "#features")}
+                      <button onClick={(e) => go(e, l === "About us" ? "/about" : l === "Pricing" ? "#pricing" : l === "Contact" ? "#contact" : "#features")}
                         className="bg-transparent text-[14px] text-white/65 transition hover:text-white">{l}</button>
                     </li>
                   ))}

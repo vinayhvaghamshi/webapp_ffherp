@@ -96,7 +96,7 @@ export default function About20() {
                 className="text-[14.5px] font-medium transition-opacity duration-200 hover:opacity-60" style={{ color: "#4a5568" }}>{l.label}</button>
             ))}
           </nav>
-          <button onClick={(e) => go(e, "/home39#contact")} data-testid="a20-cta"
+          <button onClick={(e) => go(e, "#contact")} data-testid="a20-cta"
             className={`ml-auto inline-flex items-center gap-1.5 rounded-full ${GRAD} px-4 py-2.5 text-[13px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 sm:gap-2 sm:px-5 sm:py-3 sm:text-[13.5px] lg:ml-0`}>
             Contact<span className="hidden sm:inline"> Us</span> <ArrowUpRight className="h-4 w-4" />
           </button>
@@ -118,7 +118,7 @@ export default function About20() {
             <Rule />
             <p className="mt-7 max-w-2xl text-[16px] leading-relaxed" style={{ color: "#4a5568" }}>{ABOUT_3.lead}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <button onClick={(e) => go(e, "/home39#signup")} data-testid="a20-hero-cta"
+              <button onClick={(e) => go(e, "#signup")} data-testid="a20-hero-cta"
                 className={`inline-flex items-center gap-2 rounded-full ${GRAD} px-6 py-3.5 text-[14.5px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5`}>
                 Try free for 7 days <ArrowRight className="h-4 w-4" />
               </button>
@@ -363,11 +363,11 @@ export default function About20() {
                 </div>
                 <div className="lg:col-span-4">
                   <div className="flex flex-col gap-3">
-                    <button onClick={(e) => go(e, "/home39#signup")} data-testid="a20-ad-cta"
+                    <button onClick={(e) => go(e, "#signup")} data-testid="a20-ad-cta"
                       className={`inline-flex items-center justify-center gap-2 rounded-full ${GRAD} px-6 py-4 text-[15px] font-semibold text-white transition-all duration-300 hover:-translate-y-1`}>
                       {A.ad.primary} <ArrowRight className="h-4 w-4" />
                     </button>
-                    <button onClick={(e) => go(e, "/home39#contact")}
+                    <button onClick={(e) => go(e, "#contact")}
                       className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-4 text-[15px] font-semibold text-white transition-all duration-300 hover:-translate-y-1"
                       style={{ border: "1px solid rgba(255,255,255,.28)" }}>
                       {A.ad.secondary}

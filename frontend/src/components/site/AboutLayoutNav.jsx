@@ -7,8 +7,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 // Branch 8octo: layout 20 is the only About layout in this build.
 // main ships two pages, so this switcher is the site's Home / About nav.
 const LAYOUTS = [
-  { n: 20, path: "/about20", label: "About" },
-  { n: 39, path: "/home39", label: "Home" },
+  { n: 20, path: "/about", label: "About" },
+  { n: 39, path: "/", label: "Home" },
 ];
 
 export default function AboutLayoutNav({ dark }) {

@@ -7,8 +7,8 @@ import { Link, useLocation } from "react-router-dom";
 // home page and layout 20 is the About page. <Link> writes the deploy basename
 // into the href, so it still works when served from a subpath.
 const LAYOUTS = [
-  { n: 39, path: "/home39", label: "Home" },
-  { n: 20, path: "/about20", label: "About" },
+  { n: 39, path: "/", label: "Home" },
+  { n: 20, path: "/about", label: "About" },
 ];
 
 export default function HomeLayoutNav({ dark }) {

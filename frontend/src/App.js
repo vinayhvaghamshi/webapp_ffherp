@@ -14,10 +14,11 @@ import { CRMProvider } from "./components/site/crmStore";
 // removed, so the bundle only ships what these two pages need. The tooling is
 // untouched: CRA 5 + craco, Tailwind 3, Bootstrap, the same package.json.
 //
-//   /             -> /home39
-//   /home39       -> the home page
-//   /about20      -> the About page
-//   anything else -> /home39
+//   /             -> the home page (the URL stays at the site root)
+//   /home39       -> the same page, kept so old links still work
+//   /about        -> the About page, reached by clicking About
+//   /about20      -> the same page, kept so old links still work
+//   anything else -> the home page
 //
 // Both layouts bring their own header, footer and support chat, so the shared
 // Bootstrap Header/Footer are not used here at all.
@@ -70,10 +71,11 @@ function App() {
     <CRMProvider>
       <div className="ffh-app">
         <Routes>
-          <Route path="/" element={<Navigate to="/home39" replace />} />
+          <Route path="/" element={<Home39 />} />
           <Route path="/home39" element={<Home39 />} />
+          <Route path="/about" element={<About20 />} />
           <Route path="/about20" element={<About20 />} />
-          <Route path="*" element={<Navigate to="/home39" replace />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Toaster position="top-right" richColors />
       </div>

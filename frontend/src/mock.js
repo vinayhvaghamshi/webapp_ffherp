@@ -3,7 +3,7 @@ export const NAV_LINKS = [
   { label: "Modules", href: "#modules" },
   { label: "Features", href: "#features" },
   { label: "Why FFH", href: "#why" },
-  { label: "About", href: "/about20" },
+  { label: "About", href: "/about" },
   { label: "Pricing", href: "#pricing" },
   { label: "Contact", href: "#contact" },
 ];
@@ -675,7 +675,7 @@ export const HOME16_HERO = {
       { label: "AMC & Support", desc: "Service that never slips", target: "#modules" },
     ],
     resources: [
-      { label: "About us", desc: "Who runs FFH|ERP", target: "/about20" },
+      { label: "About us", desc: "Who runs FFH|ERP", target: "/about" },
       { label: "Our journey", desc: "Fourteen years, one direction", target: "/about6" },
       { label: "Leadership", desc: "The people answerable", target: "/about9" },
       { label: "Case studies", desc: "What customers say", target: "#testimonials" },
@@ -1378,11 +1378,11 @@ export const HOME37 = { ...HOME36 };
 // Get in Touch form, client reviews, a newsletter and a global-presence grid.
 export const ABOUT_11 = {
   nav: [
-    { label: "Home", path: "/home39" },
-    { label: "About", path: "/about20" },
-    { label: "Service", path: "/home39#features" },
-    { label: "Project", path: "/home39#modules" },
-    { label: "Pricing Table", path: "/home39#pricing" },
+    { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
+    { label: "Service", path: "#features" },
+    { label: "Project", path: "#modules" },
+    { label: "Pricing Table", path: "#pricing" },
   ],
   ticker: [
     "🚀 Trusted by 2.5K+ active users",
@@ -1462,20 +1462,20 @@ export const ABOUT_11 = {
     cta: "Become a partner",
     links: [
       { title: "Our links", items: [
-        { label: "Home", path: "/home39" },
-        { label: "About Us", path: "/about20" },
-        { label: "Services", path: "/home39#features" },
-        { label: "Projects", path: "/home39#modules" },
-        { label: "Pricing", path: "/home39#pricing" },
-        { label: "Contact", path: "/home39#contact" },
+        { label: "Home", path: "/" },
+        { label: "About Us", path: "/about" },
+        { label: "Services", path: "#features" },
+        { label: "Projects", path: "#modules" },
+        { label: "Pricing", path: "#pricing" },
+        { label: "Contact", path: "#contact" },
       ] },
       { title: "Company", items: [
-        { label: "Start free trial", path: "/home39#signup" },
-        { label: "Our solutions", path: "/home39#why" },
-        { label: "Customer stories", path: "/home39#modules" },
-        { label: "Support", path: "/home39#contact" },
-        { label: "Terms of Service", path: "/home39" },
-        { label: "Privacy Policy", path: "/home39" },
+        { label: "Start free trial", path: "#signup" },
+        { label: "Our solutions", path: "#why" },
+        { label: "Customer stories", path: "#modules" },
+        { label: "Support", path: "#contact" },
+        { label: "Terms of Service", path: "/" },
+        { label: "Privacy Policy", path: "/" },
       ] },
     ],
     contact: { address: "KrisKross Inc., Chennai, Tamil Nadu, India", email: "ffhsales@kriskrossinc.com", phone: "+91 44 4858 5100" },
@@ -1576,8 +1576,8 @@ export const ABOUT_12 = {
   footer: {
     blurb: "FFH|ERP is a product of KrisKross Inc. — fourteen years of business software from Chennai, running in 20+ countries.",
     columns: [
-      { title: "Product", items: [{ label: "Live CRM", path: "/home39#top" }, { label: "Our services", path: "/home39#features" }, { label: "Deployments", path: "/home39#modules" }, { label: "Pricing", path: "/home39#pricing" }] },
-      { title: "Company", items: [{ label: "About us", path: "/about20" }, { label: "About layout 11", path: "/about20" }, { label: "Home page", path: "/home39" }, { label: "Contact", path: "/home39#contact" }] },
+      { title: "Product", items: [{ label: "Live CRM", path: "#top" }, { label: "Our services", path: "#features" }, { label: "Deployments", path: "#modules" }, { label: "Pricing", path: "#pricing" }] },
+      { title: "Company", items: [{ label: "About us", path: "/about" }, { label: "About layout 11", path: "/about" }, { label: "Home page", path: "/" }, { label: "Contact", path: "#contact" }] },
     ],
     legal: "Copyright © 2026 KrisKross Inc. All rights reserved.",
   },
@@ -1673,7 +1673,7 @@ export const HOME38_SIGNUP = {
 export const ABOUT_13 = {
   nav: [
     { label: "Home", path: "/home38" },
-    { label: "About us", path: "/about20" },
+    { label: "About us", path: "/about" },
     { label: "Services", path: "/home38#features" },
     { label: "Pricing", path: "/home38#pricing" },
     { label: "Blogs", path: "/home38#compare" },
@@ -1733,7 +1733,7 @@ export const ABOUT_13 = {
 export const ABOUT_14 = {
   nav: [
     { label: "Home", path: "/home38" },
-    { label: "About", path: "/about20" },
+    { label: "About", path: "/about" },
     { label: "Services", path: "/home38#features" },
     { label: "Projects", path: "/home38#modules" },
     { label: "Pricing", path: "/home38#pricing" },
@@ -1788,9 +1788,9 @@ export const ABOUT_14 = {
   footer: {
     contact: { title: "Talk to us", email: "ffhsales@kriskrossinc.com", phone: "+91 44 4858 5100", address: "KrisKross Inc., Chennai, Tamil Nadu, India" },
     columns: [
-      { title: "Main pages", items: [["Home", "/home38"], ["About", "/about20"], ["Services", "/home38#features"], ["Projects", "/home38#modules"], ["Pricing", "/home38#pricing"]] },
+      { title: "Main pages", items: [["Home", "/home38"], ["About", "/about"], ["Services", "/home38#features"], ["Projects", "/home38#modules"], ["Pricing", "/home38#pricing"]] },
       { title: "More pages", items: [["Live CRM demo", "/home38#top"], ["Implementation", "/home38#how"], ["Industries", "/home38#industries"], ["Compare", "/home38#compare"], ["Security", "/home38#security"], ["Savings calculator", "/home38#roi"]] },
-      { title: "About layouts", items: [["Layout 11 (dark agency)", "/about20"], ["Layout 12 (editorial)", "/about20"], ["Layout 13 (minimal)", "/about20"], ["This layout", "/about20"]] },
+      { title: "About layouts", items: [["Layout 11 (dark agency)", "/about"], ["Layout 12 (editorial)", "/about"], ["Layout 13 (minimal)", "/about"], ["This layout", "/about"]] },
     ],
     legal: "© 2026 KrisKross Inc. All rights reserved.",
   },
@@ -1808,10 +1808,10 @@ export const HOME39_SIGNUP = { ...HOME38_SIGNUP };
 // banner. Warm paper base, Inter Tight headings, mono labels, a sticky spine.
 export const ABOUT_15 = {
   nav: [
-    { label: "Home", path: "/home39" },
-    { label: "About", path: "/about20" },
-    { label: "Services", path: "/home39#features" },
-    { label: "Pricing", path: "/home39#pricing" },
+    { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
+    { label: "Services", path: "#features" },
+    { label: "Pricing", path: "#pricing" },
     { label: "Contact", path: "#contact" },
   ],
   topbar: { email: "ffhsales@kriskrossinc.com", phone: "+91 44 4858 5100", place: "Chennai · Dubai · Singapore" },
@@ -1882,9 +1882,9 @@ export const ABOUT_15 = {
   footer: {
     blurb: "FFH|ERP is a product of KrisKross Inc. — fourteen years of business software from Chennai, running in 20+ countries.",
     columns: [
-      { title: "Product", items: [["Live CRM", "/home39#top"], ["Services", "/home39#features"], ["Deployments", "/home39#modules"], ["Pricing", "/home39#pricing"]] },
-      { title: "Company", items: [["About FFH|ERP", "/about20"], ["How it works", "/home39#how"], ["Savings calculator", "/home39#roi"], ["Contact", "/home39#contact"]] },
-      { title: "Get started", items: [["Start free trial", "/home39#signup"], ["Implementation", "/home39#how"], ["Savings calculator", "/home39#roi"], ["Talk to us", "/home39#contact"]] },
+      { title: "Product", items: [["Live CRM", "#top"], ["Services", "#features"], ["Deployments", "#modules"], ["Pricing", "#pricing"]] },
+      { title: "Company", items: [["About FFH|ERP", "/about"], ["How it works", "#how"], ["Savings calculator", "#roi"], ["Contact", "#contact"]] },
+      { title: "Get started", items: [["Start free trial", "#signup"], ["Implementation", "#how"], ["Savings calculator", "#roi"], ["Talk to us", "#contact"]] },
     ],
     legal: "© 2026 KrisKross Inc. All rights reserved.",
   },
@@ -1905,10 +1905,10 @@ export const ABOUT_15 = {
 // ---------------------------------------------------------------------------
 export const ABOUT_16 = {
   nav: [
-    { label: "Platform", path: "/home39#top" },
-    { label: "Modules", path: "/home39#features" },
-    { label: "Implementation", path: "/home39#how" },
-    { label: "Pricing", path: "/home39#pricing" },
+    { label: "Platform", path: "#top" },
+    { label: "Modules", path: "#features" },
+    { label: "Implementation", path: "#how" },
+    { label: "Pricing", path: "#pricing" },
   ],
   hero: {
     path: "ffherp / about",
@@ -1965,7 +1965,7 @@ export const ABOUT_17 = {
     { label: "Outcomes", path: "#outcomes" },
     { label: "Industries", path: "#industries" },
     { label: "How we work", path: "#how" },
-    { label: "Pricing", path: "/home39#pricing" },
+    { label: "Pricing", path: "#pricing" },
   ],
   hero: {
     eyebrow: "Proof before promises",
@@ -2013,7 +2013,7 @@ export const ABOUT_18 = {
     { label: "Leadership", id: "leadership" },
     { label: "Careers", id: "careers" },
   ],
-  cta: { label: "Start free trial", path: "/home39#signup" },
+  cta: { label: "Start free trial", path: "#signup" },
   hero: {
     eyebrow: "About FFH|ERP",
     title: "The operating system for growing Indian businesses.",
@@ -2094,9 +2094,9 @@ export const ABOUT_18 = {
   footer: {
     blurb: "FFH|ERP is a product of KrisKross Inc. — fourteen years of business software from Chennai, running in 20+ countries.",
     columns: [
-      { title: "Product", items: [["Live CRM", "/home39#top"], ["Modules", "/home39#features"], ["Implementation", "/home39#how"], ["Pricing", "/home39#pricing"], ["Savings calculator", "/home39#roi"]] },
-      { title: "Company", items: [["About FFH|ERP", "/about20"], ["Security", "#security"], ["Careers", "#careers"], ["Contact", "/home39#contact"]] },
-      { title: "Other layouts", items: [["Engineered", "/about20"], ["Proof first", "/about20"], ["Editorial", "/about20"], ["Minimal", "/about20"]] },
+      { title: "Product", items: [["Live CRM", "#top"], ["Modules", "#features"], ["Implementation", "#how"], ["Pricing", "#pricing"], ["Savings calculator", "#roi"]] },
+      { title: "Company", items: [["About FFH|ERP", "/about"], ["Security", "#security"], ["Careers", "#careers"], ["Contact", "#contact"]] },
+      { title: "Other layouts", items: [["Engineered", "/about"], ["Proof first", "/about"], ["Editorial", "/about"], ["Minimal", "/about"]] },
     ],
     legal: "© 2026 KrisKross Inc. All rights reserved.",
   },
@@ -2110,10 +2110,10 @@ export const ABOUT_18 = {
 // certifications in the place Odoo puts its awards.
 export const ABOUT_19 = {
   nav: [
-    { label: "Home", path: "/home39" },
-    { label: "Modules", path: "/home39#features" },
-    { label: "Pricing", path: "/home39#pricing" },
-    { label: "Contact", path: "/home39#contact" },
+    { label: "Home", path: "/" },
+    { label: "Modules", path: "#features" },
+    { label: "Pricing", path: "#pricing" },
+    { label: "Contact", path: "#contact" },
   ],
   hero: {
     title: "Making growing businesses simpler, one module at a time.",
@@ -2164,9 +2164,9 @@ export const ABOUT_19 = {
   footer: {
     blurb: "FFH|ERP is a product of KrisKross Inc. — a suite of connected business modules that cover CRM, billing, inventory, AMC, support and projects on one database.",
     columns: [
-      { title: "Product", items: [["Live CRM", "/home39#top"], ["Modules", "/home39#features"], ["Implementation", "/home39#how"], ["Pricing", "/home39#pricing"]] },
-      { title: "Company", items: [["About FFH|ERP", "/about20"], ["Security", "/home39#security"], ["Savings calculator", "/home39#roi"], ["Contact", "/home39#contact"]] },
-      { title: "Other About pages", items: [["The flagship", "/about20"], ["Engineered", "/about20"], ["Proof first", "/about20"], ["Editorial", "/about20"]] },
+      { title: "Product", items: [["Live CRM", "#top"], ["Modules", "#features"], ["Implementation", "#how"], ["Pricing", "#pricing"]] },
+      { title: "Company", items: [["About FFH|ERP", "/about"], ["Security", "#security"], ["Savings calculator", "#roi"], ["Contact", "#contact"]] },
+      { title: "Other About pages", items: [["The flagship", "/about"], ["Engineered", "/about"], ["Proof first", "/about"], ["Editorial", "/about"]] },
     ],
     legal: "© 2026 KrisKross Inc. All rights reserved.",
   },
@@ -2181,11 +2181,11 @@ export const ABOUT_19 = {
 // and the advertisement unit.
 export const ABOUT_20 = {
   nav: [
-    { label: "Home", target: "/home39" },
+    { label: "Home", target: "/" },
     { label: "About Us", target: "#apart" },
     { label: "Leadership", target: "#leadership" },
     { label: "Our journey", target: "#journey" },
-    { label: "Contact Us", target: "/home39#contact" },
+    { label: "Contact Us", target: "#contact" },
   ],
   apart: {
     eyebrow: "What sets us apart",
@@ -2233,9 +2233,9 @@ export const ABOUT_20 = {
   footer: {
     blurb: "FFH|ERP is a product of KrisKross Inc. — nine connected modules on one database, built in Chennai since 2012 and running in 20+ countries.",
     columns: [
-      { title: "Product", items: [["Live CRM", "/home39#top"], ["Services", "/home39#features"], ["Deployments", "/home39#modules"], ["Pricing", "/home39#pricing"]] },
-      { title: "Company", items: [["About FFH|ERP", "/about20"], ["How we got here", "#journey"], ["Leadership", "#leadership"], ["Contact", "/home39#contact"]] },
-      { title: "Get started", items: [["Start free trial", "/home39#signup"], ["Pricing", "/home39#pricing"], ["Savings calculator", "/home39#roi"], ["Talk to us", "/home39#contact"]] },
+      { title: "Product", items: [["Live CRM", "#top"], ["Services", "#features"], ["Deployments", "#modules"], ["Pricing", "#pricing"]] },
+      { title: "Company", items: [["About FFH|ERP", "/about"], ["How we got here", "#journey"], ["Leadership", "#leadership"], ["Contact", "#contact"]] },
+      { title: "Get started", items: [["Start free trial", "#signup"], ["Pricing", "#pricing"], ["Savings calculator", "#roi"], ["Talk to us", "#contact"]] },
     ],
     legal: "© 2026 KrisKross Inc. All rights reserved.",
   },
