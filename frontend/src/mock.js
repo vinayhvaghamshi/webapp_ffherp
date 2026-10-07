@@ -1657,23 +1657,517 @@ export const HOME38_MORE = { ...HOME37_MORE };
 // The richer sign-up block on layout 38: what the trial includes, what happens
 // after you press the button, the trust strip under it and the compliance badges.
 export const HOME38_SIGNUP = {
-  next: [
-    { n: "01", when: "In a minute", title: "Create the account", text: "Name, work email, company and mobile. No card, no sales call before you are ready." },
-    { n: "02", when: "Same day", title: "We load your data with you", text: "Customers, items, opening balances and open AMC contracts come across from your spreadsheets." },
-    { n: "03", when: "Tomorrow morning", title: "Your team is on it", text: "Role-wise training for sales, accounts, stores and service — then you are live with support watching." },
-  ],
   included: [
     { icon: "LayoutDashboard", title: "All nine modules", text: "Sales, marketing, finance, materials, AMC, support, projects, dashboards and documents." },
     { icon: "Smartphone", title: "Mobile and offline", text: "Android and iOS, and the field app keeps working where the network does not." },
     { icon: "UserCheck", title: "A named contact", text: "One person who knows your setup, reachable on phone and email through the trial." },
     { icon: "DatabaseBackup", title: "Your data, exportable", text: "Everything you enter stays yours and comes out in one export, whenever you ask." },
   ],
-  trust: [
+  compliance: ["ISO 27001 aligned", "GST & e-invoicing ready", "Role-based access", "Daily backups", "No lock-in, cancel any time"],
+};
+
+// About layout 13 — modelled on mindsignal.webflow.io/about-us: a minimal white
+// nav, a centred hero with a pill eyebrow and a wide rounded image, a three-stat
+// strip, a grey story band, a black team band, a white feature trio and a
+// numbered FAQ accordion. Manrope throughout.
+export const ABOUT_13 = {
+  nav: [
+    { label: "Home", path: "/home38" },
+    { label: "About us", path: "/about13" },
+    { label: "Services", path: "/home38#features" },
+    { label: "Pricing", path: "/home38#pricing" },
+    { label: "Blogs", path: "/home38#compare" },
+  ],
+  cta: { label: "Start free trial", path: "/home38#signup" },
+  hero: {
+    eyebrow: "About FFH|ERP",
+    title: "The story of how nine modules became one system",
+    lead:
+      "FFH|ERP is a product of KrisKross Inc., founded in Chennai in 2012. Fourteen years later, 2,500+ active users in 20+ countries run their day on it — from the first enquiry to the final invoice.",
+    button: { label: "See how it works", path: "/home38#how" },
+  },
+  stats: [
+    { v: "4.9", l: "Average rating" },
+    { v: "2.5K+", l: "Active users" },
+    { v: "20+", l: "Countries served" },
+  ],
+  story: {
+    eyebrow: "Our story",
+    title: "From a two-room office to 20+ countries",
+    paragraphs: [
+      "KrisKross Inc. started in 2012 writing billing software for neighbourhood retailers in Chennai. The brief was always the same: give me back my evening. Not a dashboard, not a report — an evening without reconciling registers.",
+      "Retailers who started with billing asked for stock, purchase and accounts, so they were built in. Field teams wanted the sales cycle on a phone, and service teams wanted AMC renewals and tickets beside the invoice. Every module exists because a customer asked for it.",
+      "Fourteen years on, the same team ships nine connected modules on one database — sales, marketing, finance, materials, AMC, support and projects — and still answers the phone in six languages.",
+    ],
+    milestones: [
+      { y: "2012", t: "The first invoice", d: "Billing software for retailers in Chennai." },
+      { y: "2015", t: "From billing to business", d: "Inventory, purchase and accounts join the platform." },
+      { y: "2018", t: "Beyond India", d: "Customers in the Gulf and South-East Asia." },
+      { y: "2021", t: "Mobile first", d: "The whole sales cycle from a phone, offline included." },
+      { y: "2025", t: "One connected platform", d: "2,500+ active users on nine modules, one database." },
+    ],
+  },
+  team: {
+    eyebrow: "Meet our people",
+    title: "The team behind FFH|ERP",
+    lead: "No layers between you and the decision makers — the people who build the product are the people you speak to.",
+  },
+  why: {
+    eyebrow: "Why teams stay",
+    title: "Why teams stay with FFH|ERP",
+    lead: "Four things customers tell us made the difference, in their words rather than ours.",
+    items: [
+      { icon: "Database", title: "One database", text: "Nine modules, no exports between them. The stock figure and the invoice figure cannot disagree because there is only one of each." },
+      { icon: "WifiOff", title: "Offline-first", text: "Showrooms with patchy networks and field teams out of signal keep working, and everything syncs when the network returns." },
+      { icon: "ArrowLeftRight", title: "Migration with you", text: "Customers, items, opening balances and open AMC contracts come across from your spreadsheets — checked by you before go-live." },
+      { icon: "Languages", title: "Support in your language", text: "A 24/7 helpdesk in six languages, staffed by people who have stood behind a counter at nine in the evening." },
+    ],
+  },
+  faq: { eyebrow: "FAQ's", title: "Have any questions?" },
+};
+
+// About layout 14 — modelled on oracle-agency.webflow.io/about-us: Inter body
+// with huge condensed uppercase display headings, black/white/#f8f8f8, bordered
+// value cards, alternating mission/vision rows, a team grid, client reviews, a
+// hairline FAQ and a giant closing call to action.
+export const ABOUT_14 = {
+  nav: [
+    { label: "Home", path: "/home38" },
+    { label: "About", path: "/about14" },
+    { label: "Services", path: "/home38#features" },
+    { label: "Projects", path: "/home38#modules" },
+    { label: "Pricing", path: "/home38#pricing" },
+  ],
+  navCta: { label: "Contact", path: "/home38#contact" },
+  hero: {
+    title: "About FFH|ERP",
+    lead:
+      "We approach business software with a blend of engineering discipline and shop-floor empathy. Fourteen years in, that means nine modules on one database for 2,500+ active users across 20+ countries — and a team that still answers the phone when a counter is busy at nine in the evening.",
+  },
+  values: {
+    title: "Core values",
+    items: [
+      { icon: "Zap", title: "Speed", text: "Deployment and data gathering happen in 7–10 business days, and most teams are live in a day. No quarter-long implementation project, no consultant per module." },
+      { icon: "LayoutGrid", title: "Clarity", text: "One number across sales, stock and accounts. Nine modules share a single database, so nothing has to be exported, reconciled or trusted on faith." },
+      { icon: "HeartHandshake", title: "Empathy", text: "Support in six languages, 24/7, staffed by people who have stood behind a counter. The pricing is printed on the website and there is no lock-in." },
+    ],
+    image: 1067,
+  },
+  mission: {
+    title: "Our mission",
+    text: [
+      "To give every growing business enterprise-grade CRM and ERP at a price and a simplicity that fits — unifying leads, orders, money and service so teams decide faster and serve customers better without adding headcount.",
+      "That means no lock-in contracts, pricing printed on the website, migration done with the customer rather than to them, and training for every team included rather than sold as a project.",
+    ],
+    image: 1069,
+  },
+  vision: {
+    title: "Our vision",
+    text: [
+      "To be the most trusted business operating system for growing companies — a single platform that every team runs its day on, from the first sales call to the final invoice and the service visit after it.",
+      "We measure that in one way only: does the software carry the work, or add to it? Every module we add has to remove more work than it creates, or it does not ship.",
+    ],
+    image: 1074,
+  },
+  team: {
+    title: "Our team",
+    lead: "No layers between you and the decision makers — the people who build the product are the people you speak to.",
+    extras: [
+      { title: "250+ across delivery", text: "Engineering, implementation, migration and 24/7 support across Chennai, Dubai and Singapore." },
+      { title: "We are hiring", text: "Engineers, implementation leads and support specialists who like talking to the people using the software." },
+    ],
+  },
+  reviews: { title: "Client reviews" },
+  faq: { title: "FAQ" },
+  cta: {
+    title: "Have a business that outgrew its spreadsheets?",
+    lead: "Free trial, setup in a day, no credit card. Or ask us to walk you through the module that hurts most.",
+    primary: "Start free trial",
+    secondary: "Schedule a call",
+  },
+  footer: {
+    contact: { title: "Talk to us", email: "ffhsales@kriskrossinc.com", phone: "+91 44 4858 5100", address: "KrisKross Inc., Chennai, Tamil Nadu, India" },
+    columns: [
+      { title: "Main pages", items: [["Home", "/home38"], ["About", "/about14"], ["Services", "/home38#features"], ["Projects", "/home38#modules"], ["Pricing", "/home38#pricing"]] },
+      { title: "More pages", items: [["Live CRM demo", "/home38#top"], ["Implementation", "/home38#how"], ["Industries", "/home38#industries"], ["Compare", "/home38#compare"], ["Security", "/home38#security"], ["Savings calculator", "/home38#roi"]] },
+      { title: "About layouts", items: [["Layout 11 (dark agency)", "/about11"], ["Layout 12 (editorial)", "/about12"], ["Layout 13 (minimal)", "/about13"], ["This layout", "/about14"]] },
+    ],
+    legal: "© 2026 KrisKross Inc. All rights reserved.",
+  },
+};
+
+// Home layout 39 — my own cut: layout 38's content, recomposed.
+export const HOME39 = { ...HOME38 };
+export const HOME39_MORE = { ...HOME38_MORE };
+export const HOME39_SIGNUP = { ...HOME38_SIGNUP };
+
+// About layout 15 — my own design, built around what has been asked for across
+// this project: accurate numbers up front, the exact sign-up block (with its
+// heading, sub-line, four bullets and rating), nothing decorative that does not
+// carry information, and the conversion moment at the end rather than a generic
+// banner. Warm paper base, Inter Tight headings, mono labels, a sticky spine.
+export const ABOUT_15 = {
+  nav: [
+    { label: "Home", path: "/home39" },
+    { label: "About", path: "/about15" },
+    { label: "Services", path: "/home39#features" },
+    { label: "Pricing", path: "/home39#pricing" },
+    { label: "Contact", path: "#contact" },
+  ],
+  topbar: { email: "ffhsales@kriskrossinc.com", phone: "+91 44 4858 5100", place: "Chennai · Dubai · Singapore" },
+  hero: {
+    eyebrow: "About FFH|ERP",
+    title: "Business software that carries the work instead of adding to it.",
+    lead:
+      "FFH|ERP is a product of KrisKross Inc. We started in Chennai in 2012 writing billing software for neighbourhood retailers. Fourteen years on, nine connected modules run on one database for 2,500+ active users in 20+ countries — from the first enquiry to the final invoice.",
+    main: "Start free trial",
+    alt: "See the numbers",
+    rating: "4.9 / 5.0 — Top-rated ERP platform, built in India for growing businesses.",
+    facts: [
+      { k: "Founded", v: "2012", d: "Chennai, Tamil Nadu" },
+      { k: "In business software", v: "14 yrs", d: "Same team, same product" },
+      { k: "Active users", v: "2.5K+", d: "Running their day on it" },
+      { k: "Countries", v: "20+", d: "India, the Gulf, SE Asia" },
+      { k: "Modules", v: "9", d: "One database, no exports" },
+      { k: "Support", v: "24/7", d: "Helpdesk in six languages" },
+    ],
+  },
+  story: {
+    eyebrow: "How we got here",
+    title: "Every module exists because a customer asked for it.",
+    lead: "No roadmap written in a boardroom. The product grew the way the businesses using it grew.",
+    milestones: [
+      { y: "2012", t: "The first invoice", d: "Billing software for retailers in Chennai. The brief was always the same: give me back my evening.", tag: "Billing" },
+      { y: "2015", t: "From billing to business", d: "Retailers asked for stock, purchase and accounts, so those joined the platform and FFH|ERP became a true ERP.", tag: "Stock · Purchase · Accounts" },
+      { y: "2018", t: "Beyond India", d: "Customers in the Gulf and South-East Asia needed multi-currency, multi-branch and local tax formats.", tag: "Gulf · SE Asia" },
+      { y: "2021", t: "Mobile first", d: "Field teams wanted the whole sales cycle on a phone — so the app was built offline-first, not ported.", tag: "Offline · Android · iOS" },
+      { y: "2025", t: "One connected platform", d: "Nine modules, one database, 2,500+ active users. AMC renewals and service tickets sit beside the invoice.", tag: "Nine modules" },
+    ],
+  },
+  numbers: {
+    eyebrow: "What fourteen years added up to",
+    title: "The numbers we are judged on.",
+    items: [
+      { v: "2.5K+", l: "Active users", d: "Teams running their day on FFH|ERP" },
+      { v: "20+", l: "Countries", d: "India, the Gulf, South-East Asia and beyond" },
+      { v: "9", l: "Modules", d: "On one database, no exports between them" },
+      { v: "14", l: "Years", d: "In business software, since 2012" },
+      { v: "4.9/5", l: "Average rating", d: "From the teams using it daily" },
+      { v: "24/7", l: "Support", d: "Helpdesk in six languages" },
+    ],
+  },
+  nope: {
+    eyebrow: "How we keep it honest",
+    title: "What we will not do.",
+    lead: "Four things that are common in this industry and absent from ours.",
+    items: [
+      { t: "No lock-in contracts", d: "Month to month. Cancel any time, take your data with you." },
+      { t: "No consultant per module", d: "One team, one price, migration and training included." },
+      { t: "No quote-only pricing", d: "The plans are printed on the website. You will not be asked to talk to sales first." },
+      { t: "No selling your data", d: "Your books stay yours. Role-based access and a full audit trail, exportable whenever you ask." },
+    ],
+  },
+  team: {
+    eyebrow: "The people who run it",
+    title: "Accountable, and easy to reach.",
+    lead: "No layers between you and the decision makers — the people who build the product are the people you speak to. Behind them, 250+ across engineering, implementation, migration and support.",
+  },
+  reviews: { eyebrow: "Client reviews", title: "The businesses that stayed.", note: "Six of the 2,500+ teams running their day on FFH|ERP." },
+  faq: { eyebrow: "Questions", title: "Before you decide." },
+  signup: {
+    title: "Let's get started",
+    sub: "No credit card. Setup in a day. Cancel any time.",
+    bullets: ["Nine modules on one database", "We migrate your data with you", "Training for every team included", "Everything you enter stays yours"],
+  },
+  footer: {
+    blurb: "FFH|ERP is a product of KrisKross Inc. — fourteen years of business software from Chennai, running in 20+ countries.",
+    columns: [
+      { title: "Product", items: [["Live CRM", "/home39#top"], ["Services", "/home39#features"], ["Deployments", "/home39#modules"], ["Pricing", "/home39#pricing"]] },
+      { title: "Company", items: [["About FFH|ERP", "/about15"], ["How it works", "/home39#how"], ["Savings calculator", "/home39#roi"], ["Contact", "/home39#contact"]] },
+      { title: "Other About pages", items: [["Dark agency", "/about11"], ["Editorial", "/about12"], ["Minimal", "/about13"], ["Condensed", "/about14"]] },
+    ],
+    legal: "© 2026 KrisKross Inc. All rights reserved.",
+  },
+};
+
+// ---------------------------------------------------------------------------
+// About layouts 16, 17 and 18 — three genuinely different treatments.
+//   16  "Engineered"   dark, technical, built around how the product is made
+//   17  "Proof first"  light and chart-led, built out of customer outcomes
+//   18  "The flagship" the complete IT-company About page: positioning, what we
+//                      do, technology, security, story, leadership, culture and
+//                      careers, reviews, FAQ and the sign-up block
+// Every claim here is one the site already makes: founded 2012, fourteen years,
+// 2,500+ active users, 20+ countries, nine modules, 4.9/5, ISO 27001 aligned,
+// GST and e-invoicing ready, role-based access, audit trail, daily backups, no
+// lock-in and published pricing. The customer numbers quoted on 17 are the ones
+// the customers themselves put in their reviews.
+// ---------------------------------------------------------------------------
+export const ABOUT_16 = {
+  nav: [
+    { label: "Platform", path: "/home39#top" },
+    { label: "Modules", path: "/home39#features" },
+    { label: "Implementation", path: "/home39#how" },
+    { label: "Pricing", path: "/home39#pricing" },
+  ],
+  hero: {
+    path: "ffherp / about",
+    title: "We build software the way we run it: boring, monitored, and up.",
+    lead:
+      "FFH|ERP is a product of KrisKross Inc. Nine modules on one database, written in Chennai since 2012 and running the day for 2,500+ active users in 20+ countries. No re-platforming stories, no quarter-long rollouts.",
+    primary: "See the platform",
+    secondary: "Talk to an engineer",
+  },
+  status: [
+    { k: "Since", v: "2012" },
+    { k: "Active users", v: "2.5K+" },
+    { k: "Countries", v: "20+" },
+    { k: "Modules", v: "9" },
+    { k: "Support", v: "24/7" },
+    { k: "Rating", v: "4.9/5" },
+  ],
+  made: {
+    eyebrow: "What it is made of",
+    title: "One database, nine modules, no exports in between.",
+    rows: [
+      { k: "Surfaces", v: "Web, Android and iOS", d: "The same account on every screen, with the same numbers." },
+      { k: "Sync", v: "Offline-first", d: "Showrooms with patchy networks and field teams out of signal keep working; everything reconciles when the network returns." },
+      { k: "Data", v: "One store, no replication", d: "Sales, stock, accounts, AMC and tickets read the same records, so figures cannot disagree." },
+      { k: "Access", v: "Role-based, branch-scoped", d: "A store manager never sees payroll. Every change is recorded against a user." },
+      { k: "Recovery", v: "Daily backups, restore tested", d: "Plus a full export of everything you entered, whenever you ask for it." },
+      { k: "Compliance", v: "GST and e-invoicing ready", d: "GSTR-ready registers, e-invoice and e-way bill formats, IRN handling." },
+    ],
+  },
+  pipeline: {
+    eyebrow: "How the product is made",
+    title: "The path a customer request takes.",
+    lead: "Two major releases a year, and support tickets are read by the people who write the code.",
+    stages: [
+      { n: "01", t: "Reported", d: "A customer, an implementation lead or a support agent logs it with the screen and the numbers involved." },
+      { n: "02", t: "Triaged weekly", d: "Anything that costs a user time on a live job jumps the queue over anything cosmetic." },
+      { n: "03", t: "Built and reviewed", d: "Written by the team that owns the module, reviewed by someone who did not, tested against real data." },
+      { n: "04", t: "Migrated with you", d: "Where it changes data, it ships with a migration we run with you — never a script you are left to run." },
+      { n: "05", t: "Trained and supported", d: "Role-wise sessions for sales, accounts, stores and service, then support on the phone while you work." },
+    ],
+  },
+  security: { eyebrow: "Security & reliability", title: "Built for the way Indian businesses are audited." },
+  team: { eyebrow: "Who builds it", title: "Small team, long tenure, direct line." },
+  careers: {
+    title: "We are hiring in Chennai.",
+    lead: "Engineers, implementation leads and support specialists who like talking to the people using the software.",
+    cta: "Write to us",
+  },
+  faq: { eyebrow: "Engineering questions", title: "The ones a technical buyer asks." },
+};
+
+export const ABOUT_17 = {
+  nav: [
+    { label: "Outcomes", path: "#outcomes" },
+    { label: "Industries", path: "#industries" },
+    { label: "How we work", path: "#how" },
+    { label: "Pricing", path: "/home39#pricing" },
+  ],
+  hero: {
+    eyebrow: "Proof before promises",
+    title: "We measure ourselves in your month-end.",
+    lead:
+      "Every About page says the team is passionate. This one shows what changed for the companies using FFH|ERP — the numbers they gave us, in their words, with their names on them.",
+  },
+  shifts: [
+    { label: "Collections cycle", from: "61 days", to: "28 days", who: "Zenith Retail", quote: "The reminders stopped depending on somebody remembering to send them." },
+    { label: "Month-end close", from: "5 days", to: "1 day", who: "A four-branch distributor", quote: "We replaced four spreadsheets and a morning meeting with one screen." },
+    { label: "Stock arguments", from: "Weekly", to: "None", who: "A service business", quote: "My team stopped arguing about which number was right and started acting on it." },
+    { label: "Plant rollout", from: "Per plant, months", to: "4 plants in 5 weeks", who: "A manufacturer", quote: "Four plants on one system in five weeks, with the floor actually using it." },
+  ],
+  outcomes: {
+    eyebrow: "What it adds up to",
+    title: "The numbers, ours and theirs.",
+    items: [
+      { v: "2.5K+", l: "Active users", d: "Running their day on FFH|ERP" },
+      { v: "20+", l: "Countries", d: "India, the Gulf, South-East Asia" },
+      { v: "14", l: "Years", d: "In business software since 2012" },
+      { v: "9", l: "Modules", d: "On one database" },
+      { v: "4.9/5", l: "Average rating", d: "From the teams using it daily" },
+      { v: "24/7", l: "Support", d: "Helpdesk in six languages" },
+    ],
+  },
+  stories: { eyebrow: "Customer stories", title: "Six of the 2,500+, in their own words.", note: "Quotes are reproduced from the reviews customers left." },
+  industries: { eyebrow: "Where it runs", title: "Six trades, one database." },
+  how: { eyebrow: "How we work", title: "Live in a day, not a quarter." },
+  who: {
+    eyebrow: "Who is behind it",
+    title: "A product team in Chennai, on the phone when you call.",
+    body:
+      "FFH|ERP is a product of KrisKross Inc. We started in 2012 writing billing software for neighbourhood retailers, and every module since exists because a customer asked for it. Fourteen years on the same team still ships it and still answers the phone.",
+  },
+  team: { title: "The people who run it" },
+  faq: { eyebrow: "Questions", title: "Before you decide." },
+};
+
+export const ABOUT_18 = {
+  nav: [
+    { label: "Story", id: "story" },
+    { label: "What we do", id: "what" },
+    { label: "Technology", id: "technology" },
+    { label: "Security", id: "security" },
+    { label: "Leadership", id: "leadership" },
+    { label: "Careers", id: "careers" },
+  ],
+  cta: { label: "Start free trial", path: "/home39#signup" },
+  hero: {
+    eyebrow: "About FFH|ERP",
+    title: "The operating system for growing Indian businesses.",
+    lead:
+      "FFH|ERP is a product of KrisKross Inc.: nine connected modules on one database that carry a business from the first enquiry to the final invoice and the service visit after it. Built in Chennai since 2012, in daily use by 2,500+ people across 20+ countries.",
+    primary: "Start free trial",
+    secondary: "Book a walkthrough",
+  },
+  proof: [
+    { v: "2012", l: "Founded in Chennai" },
+    { v: "14 yrs", l: "In business software" },
     { v: "2.5K+", l: "Active users" },
     { v: "20+", l: "Countries" },
-    { v: "14 yrs", l: "In business software" },
-    { v: "24/7", l: "Support, six languages" },
+    { v: "9", l: "Connected modules" },
+    { v: "4.9/5", l: "Average rating" },
   ],
-  compliance: ["ISO 27001 aligned", "GST & e-invoicing ready", "Role-based access", "Daily backups", "No lock-in, cancel any time"],
-  support: { line: "Questions before you start?", phone: "+91 44 4858 5100", email: "ffhsales@kriskrossinc.com" },
+  mission: {
+    eyebrow: "Mission & vision",
+    mission: {
+      t: "Our mission",
+      d: "To give every growing business enterprise-grade CRM and ERP at a price and a simplicity that fits — unifying leads, orders, money and service so teams decide faster and serve customers better without adding headcount.",
+    },
+    vision: {
+      t: "Our vision",
+      d: "To be the most trusted business operating system for growing companies: one platform every team runs its day on. We measure it one way only — does the software carry the work, or add to it?",
+    },
+  },
+  what: {
+    eyebrow: "What we do",
+    title: "A product with the services to make it work.",
+    product: {
+      t: "The product",
+      items: ["Sales & marketing", "Finance & billing", "Materials & purchase", "AMC & renewals", "Service & support tickets", "Projects & field teams", "Dashboards", "Documents", "Role-based access"],
+    },
+    services: {
+      t: "The services around it",
+      items: [
+        { t: "Implementation in a day", d: "Mapping, configuration and go-live with your data and your team — not a quarter-long project." },
+        { t: "Migration done with you", d: "Customers, items, opening balances and open AMC contracts, checked by you before go-live." },
+        { t: "Training for every team", d: "Separate hands-on sessions for sales, accounts, stores and service, plus recordings." },
+        { t: "24/7 support, six languages", d: "A helpdesk staffed by people who have worked the counters your teams work." },
+      ],
+    },
+  },
+  technology: {
+    eyebrow: "Technology",
+    title: "Nine modules, one database, every screen.",
+    items: [
+      { t: "Web, Android and iOS", d: "The same account, the same numbers, whichever screen the work happens on." },
+      { t: "Offline-first", d: "Patchy networks and no-signal field visits keep working; everything syncs when the network returns." },
+      { t: "One store, no replication", d: "Sales, stock, accounts, AMC and tickets read the same records, so figures cannot disagree." },
+      { t: "Integrations", d: "Payment gateways, e-invoice and e-way bill formats, WhatsApp, and the spreadsheets you already have." },
+      { t: "Dashboards that answer", d: "Today's position, not last month's report — collections, pipeline, stock and tickets in one view." },
+      { t: "Two major releases a year", d: "Plus weekly triage of customer requests; support tickets are read by the people who write the code." },
+    ],
+  },
+  security: { eyebrow: "Security & compliance", title: "Built for the way Indian businesses are audited.", lead: "Your books leave a trail, your data stays yours, and nobody sees a number they should not." },
+  story: {
+    eyebrow: "Our story",
+    title: "From one invoice to nine modules.",
+    lead: "Every module exists because a customer asked for it. No roadmap written in a boardroom.",
+  },
+  leadership: { eyebrow: "Leadership", title: "The people who run it.", lead: "No layers between you and the decision makers. Behind them, 250+ across engineering, implementation, migration and support." },
+  culture: { eyebrow: "Culture & careers", title: "How we work, and who we are looking for." },
+  reviews: { eyebrow: "Customer reviews", title: "The businesses that stayed.", note: "A 4.9 average across 2,500+ active users — six of them, in their own words." },
+  recognition: { eyebrow: "Trusted by", title: "Running in businesses you would recognise." },
+  faq: { eyebrow: "Questions", title: "Before you decide." },
+  signup: {
+    title: "Let's get started",
+    sub: "No credit card. Setup in a day. Cancel any time.",
+    bullets: ["Nine modules on one database", "We migrate your data with you", "Training for every team included", "Everything you enter stays yours"],
+  },
+  offices: [
+    { city: "Chennai", role: "Head office & engineering", d: "KrisKross Inc., Tamil Nadu, India" },
+    { city: "Dubai", role: "Gulf customers", d: "Implementation and support" },
+    { city: "Singapore", role: "South-East Asia", d: "Implementation and support" },
+  ],
+  footer: {
+    blurb: "FFH|ERP is a product of KrisKross Inc. — fourteen years of business software from Chennai, running in 20+ countries.",
+    columns: [
+      { title: "Product", items: [["Live CRM", "/home39#top"], ["Modules", "/home39#features"], ["Implementation", "/home39#how"], ["Pricing", "/home39#pricing"], ["Savings calculator", "/home39#roi"]] },
+      { title: "Company", items: [["About FFH|ERP", "/about18"], ["Security", "#security"], ["Careers", "#careers"], ["Contact", "/home39#contact"]] },
+      { title: "Other layouts", items: [["Engineered", "/about16"], ["Proof first", "/about17"], ["Editorial", "/about12"], ["Minimal", "/about13"]] },
+    ],
+    legal: "© 2026 KrisKross Inc. All rights reserved.",
+  },
+};
+
+// About layout 19 — modelled on odoo.com/page/about-us: an airy, friendly
+// corporate page. Hero with three large numbers, a two-column "fits small and
+// large alike" block with a photo pair, "what makes us different" in three
+// paragraphs, a world map with our offices and the countries we serve, the
+// leadership team in black and white, and a dated list of milestones and
+// certifications in the place Odoo puts its awards.
+export const ABOUT_19 = {
+  nav: [
+    { label: "Home", path: "/home39" },
+    { label: "Modules", path: "/home39#features" },
+    { label: "Pricing", path: "/home39#pricing" },
+    { label: "Contact", path: "/home39#contact" },
+  ],
+  hero: {
+    title: "Making growing businesses simpler, one module at a time.",
+    lead:
+      "We think business software should cover complex needs without being complicated. Our mission is software that is intuitive, full-featured, tightly integrated, effortless to upgrade, and smooth for every business and every user — whether that is one counter in Coimbatore or four plants and a field team.",
+    stats: [
+      { v: "2.5K+", l: "active users" },
+      { v: "20+", l: "countries" },
+      { v: "9", l: "connected modules" },
+    ],
+  },
+  fits: {
+    title: "Fits small and large companies alike.",
+    paragraphs: [
+      "Our mission is to provide a range of easy-to-use business applications that form a complete suite, able to accompany any business need. We give growing companies easy access to the software they need to run and expand — without a consultant for every module.",
+      "We have built nine main modules that share one database and are upgraded together. Sales, marketing, finance, materials, AMC, support, projects, dashboards and documents all read the same records, so nothing has to be exported or reconciled between them.",
+      "The same product runs from a single-user shop counter to a 300-user manufacturer. Retailers in Chennai, distributors in Dubai and service teams in Singapore use the identical platform — configured to their trade, not forked for it.",
+    ],
+    images: [1067, 1069],
+  },
+  different: {
+    title: "What makes FFH|ERP different?",
+    paragraphs: [
+      "A smooth, friendly experience built for adoption rather than training. If a store manager needs a manual, the screen is wrong, not the person.",
+      "Fluidity and integration cover the needs of even complex companies. Modules can be added according to the growth of your business — one at a time, as your needs evolve and your customer base grows.",
+      "Migration is done with you rather than to you, training for every team is included rather than sold as a project, and there is no lock-in: the pricing is printed on the website and your data leaves in one export whenever you ask.",
+    ],
+    image: 1074,
+  },
+  offices: {
+    title: "Our Offices",
+    lead: "Built in Chennai, supported across the regions our customers trade in.",
+    items: [
+      { city: "Chennai", country: "India", what: "HQ, Engineering, Implementation, Support", flag: "🇮🇳" },
+      { city: "Dubai", country: "UAE", what: "Sales, Implementation, Support", flag: "🇦🇪" },
+      { city: "Singapore", country: "Singapore", what: "Sales, Implementation, Support", flag: "🇸🇬" },
+    ],
+  },
+  team: {
+    title: "Meet the Leadership Team",
+    lead: "No layers between you and the decision makers — the people who build the product are the people you speak to. Behind them, 250+ across engineering, implementation, migration and support.",
+  },
+  milestones: {
+    title: "Milestones & certifications",
+    lead: "The dates we can stand behind, and the standards we are audited against.",
+    certs: ["ISO 27001 aligned", "GST & e-invoicing ready", "Role-based access", "Full audit trail", "Daily backups", "Encryption in transit"],
+  },
+  footer: {
+    blurb: "FFH|ERP is a product of KrisKross Inc. — a suite of connected business modules that cover CRM, billing, inventory, AMC, support and projects on one database.",
+    columns: [
+      { title: "Product", items: [["Live CRM", "/home39#top"], ["Modules", "/home39#features"], ["Implementation", "/home39#how"], ["Pricing", "/home39#pricing"]] },
+      { title: "Company", items: [["About FFH|ERP", "/about19"], ["Security", "/home39#security"], ["Savings calculator", "/home39#roi"], ["Contact", "/home39#contact"]] },
+      { title: "Other About pages", items: [["The flagship", "/about18"], ["Engineered", "/about16"], ["Proof first", "/about17"], ["Editorial", "/about12"]] },
+    ],
+    legal: "© 2026 KrisKross Inc. All rights reserved.",
+  },
 };

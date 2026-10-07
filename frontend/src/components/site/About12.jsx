@@ -158,7 +158,7 @@ export default function About12() {
             {HOME37.testimonials.slice(0, 6).map((t, i) => (
               <figure key={t.person + i} data-testid={`a12-proof-${i}`} className="border-t pt-6" style={{ borderColor: HAIR }}>
                 <Quote className="h-4 w-4" style={{ color: BRAND }} />
-                <blockquote className="mt-4 text-[15.5px] leading-[1.75]" style={{ color: "#3d4757" }}>“{t.quote}”</blockquote>
+                <blockquote className="mt-4 text-[15.5px] leading-[1.75]" style={{ color: "#3d4757" }}>“{t.text || t.quote}”</blockquote>
                 <figcaption className="mt-5 flex items-center gap-3">
                   <img src={`https://i.pravatar.cc/80?img=${t.img}`} alt={t.person} width="38" height="38" loading="lazy" className="h-[38px] w-[38px] rounded-full object-cover" />
                   <span>

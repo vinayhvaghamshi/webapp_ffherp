@@ -360,6 +360,12 @@ HOW TO USE THIS FILE
 ================================================================================
 8. CHANGE LOG  (newest first — every API change gets an entry here)
 ================================================================================
+  2026-10-08  Seven more About layouts (about12-about19) and home39 added. No API
+              change: the only forms on them are the existing sign-up block, which
+              still posts token "signup" with the Company name field (about12,
+              about15, about18), and links out to the sign-up on home39. Nothing
+              new to record beyond that.
+
   2026-10-07  About page (about11) added with a "Get in Touch" quote form. It
               posts through the same client with token "Prospect" (see section 3
               for the mapping and the note about confirming that flag), service

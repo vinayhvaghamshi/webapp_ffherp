@@ -304,7 +304,7 @@ export default function About11() {
                 className="group flex h-full flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5"
                 style={{ background: CARD, border: `1px solid ${LINE}` }}>
                 <span className="flex text-amber-400">{[0, 1, 2, 3, 4].map((k) => <Star key={k} className="h-3.5 w-3.5 fill-current" />)}</span>
-                <blockquote className="mt-4 flex-1 text-[14.5px] leading-relaxed text-white/70">“{t.quote}”</blockquote>
+                <blockquote className="mt-4 flex-1 text-[14.5px] leading-relaxed text-white/70">“{t.text || t.quote}”</blockquote>
                 <figcaption className="mt-5 flex items-center gap-3 border-t pt-4" style={{ borderColor: LINE }}>
                   <img src={`https://i.pravatar.cc/80?img=${t.img}`} alt={t.person} width="40" height="40" loading="lazy"
                     className="h-10 w-10 rounded-full object-cover transition-transform duration-300 group-hover:scale-110" />

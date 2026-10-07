@@ -2178,17 +2178,18 @@ a { text-decoration: none; }
 .ffh-h35 :is(h1, h2, h3, h4, h5, h6),
 .ffh-h36 :is(h1, h2, h3, h4, h5, h6),
 .ffh-h37 :is(h1, h2, h3, h4, h5, h6),
-.ffh-h38 :is(h1, h2, h3, h4, h5, h6) { font-family: "Syne", "Poppins", sans-serif; }
+.ffh-h38 :is(h1, h2, h3, h4, h5, h6),
+.ffh-h39 :is(h1, h2, h3, h4, h5, h6) { font-family: "Syne", "Poppins", sans-serif; }
 /* the logo motif: four ascending bars, last one navy */
-.ffh-h32-motif, .ffh-h33-motif, .ffh-h34-motif, .ffh-h35-motif, .ffh-h36-motif, .ffh-h37-motif, .ffh-h38-motif { display: inline-flex; align-items: flex-end; gap: 4px; height: 26px; }
-.ffh-h32-motif i, .ffh-h33-motif i, .ffh-h34-motif i, .ffh-h35-motif i, .ffh-h36-motif i, .ffh-h37-motif i, .ffh-h38-motif i { display: block; width: 6px; border-radius: 3px; background: linear-gradient(180deg, #f7a52a, #f0452c); }
-.ffh-h32-motif i:nth-child(1), .ffh-h33-motif i:nth-child(1), .ffh-h34-motif i:nth-child(1), .ffh-h35-motif i:nth-child(1), .ffh-h36-motif i:nth-child(1), .ffh-h37-motif i:nth-child(1), .ffh-h38-motif i:nth-child(1) { height: 10px; }
-.ffh-h32-motif i:nth-child(2), .ffh-h33-motif i:nth-child(2), .ffh-h34-motif i:nth-child(2), .ffh-h35-motif i:nth-child(2), .ffh-h36-motif i:nth-child(2), .ffh-h37-motif i:nth-child(2), .ffh-h38-motif i:nth-child(2) { height: 16px; }
-.ffh-h32-motif i:nth-child(3), .ffh-h33-motif i:nth-child(3), .ffh-h34-motif i:nth-child(3), .ffh-h35-motif i:nth-child(3), .ffh-h36-motif i:nth-child(3), .ffh-h37-motif i:nth-child(3), .ffh-h38-motif i:nth-child(3) { height: 21px; }
-.ffh-h32-motif i:nth-child(4), .ffh-h33-motif i:nth-child(4), .ffh-h34-motif i:nth-child(4), .ffh-h35-motif i:nth-child(4), .ffh-h36-motif i:nth-child(4), .ffh-h37-motif i:nth-child(4), .ffh-h38-motif i:nth-child(4) { height: 26px; background: linear-gradient(180deg, #2c4358, #16283c); }
+.ffh-h32-motif, .ffh-h33-motif, .ffh-h34-motif, .ffh-h35-motif, .ffh-h36-motif, .ffh-h37-motif, .ffh-h38-motif, .ffh-h39-motif { display: inline-flex; align-items: flex-end; gap: 4px; height: 26px; }
+.ffh-h32-motif i, .ffh-h33-motif i, .ffh-h34-motif i, .ffh-h35-motif i, .ffh-h36-motif i, .ffh-h37-motif i, .ffh-h38-motif i, .ffh-h39-motif i { display: block; width: 6px; border-radius: 3px; background: linear-gradient(180deg, #f7a52a, #f0452c); }
+.ffh-h32-motif i:nth-child(1), .ffh-h33-motif i:nth-child(1), .ffh-h34-motif i:nth-child(1), .ffh-h35-motif i:nth-child(1), .ffh-h36-motif i:nth-child(1), .ffh-h37-motif i:nth-child(1), .ffh-h38-motif i:nth-child(1), .ffh-h39-motif i:nth-child(1) { height: 10px; }
+.ffh-h32-motif i:nth-child(2), .ffh-h33-motif i:nth-child(2), .ffh-h34-motif i:nth-child(2), .ffh-h35-motif i:nth-child(2), .ffh-h36-motif i:nth-child(2), .ffh-h37-motif i:nth-child(2), .ffh-h38-motif i:nth-child(2), .ffh-h39-motif i:nth-child(2) { height: 16px; }
+.ffh-h32-motif i:nth-child(3), .ffh-h33-motif i:nth-child(3), .ffh-h34-motif i:nth-child(3), .ffh-h35-motif i:nth-child(3), .ffh-h36-motif i:nth-child(3), .ffh-h37-motif i:nth-child(3), .ffh-h38-motif i:nth-child(3), .ffh-h39-motif i:nth-child(3) { height: 21px; }
+.ffh-h32-motif i:nth-child(4), .ffh-h33-motif i:nth-child(4), .ffh-h34-motif i:nth-child(4), .ffh-h35-motif i:nth-child(4), .ffh-h36-motif i:nth-child(4), .ffh-h37-motif i:nth-child(4), .ffh-h38-motif i:nth-child(4), .ffh-h39-motif i:nth-child(4) { height: 26px; background: linear-gradient(180deg, #2c4358, #16283c); }
 
 /* Home layout 36 — cursor spotlight behind the integrations grid */
-.ffh-h36-spot, .ffh-h37-spot, .ffh-h38-spot { background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(239,123,35,.13), transparent 62%); transition: background .18s ease-out; }
+.ffh-h36-spot, .ffh-h37-spot, .ffh-h38-spot, .ffh-h39-spot { background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(239,123,35,.13), transparent 62%); transition: background .18s ease-out; }
 @media (prefers-reduced-motion: reduce) { .ffh-h36-spot { transition: none; } }
 
 /* Home layout 37 — the home1 Live CRM widget in a logo-theme hero */
@@ -2341,3 +2342,56 @@ a { text-decoration: none; }
   .ffh-h38 .ffh-tool-icon { width: 46px; height: 46px; margin-bottom: 16px; border-radius: 13px; }
 }
 @media (prefers-reduced-motion: reduce) { .ffh-h38 .ffh-tools-track { animation: none; } }
+
+/* About layout 13 — Manrope, minimal (mindsignal-style) */
+.ffh-a13 :is(h1, h2, h3, h4) { font-family: "Manrope", Inter, system-ui, sans-serif; }
+.ffh-a13 button { font-family: inherit; }
+.ffh-a13 ::placeholder { color: #a8a4a0; }
+
+/* About layout 14 — Inter body, condensed Oswald display (oracle-agency-style) */
+.ffh-a14 :is(h1, h2, h3, h4) { font-family: "Oswald", "Inter Tight", Inter, sans-serif; font-weight: 700; }
+.ffh-a14 .crm-window { box-shadow: 0 30px 70px -40px rgba(12,4,7,.45); }
+.ffh-a14 :is(button, a) { font-family: Inter, system-ui, sans-serif; }
+
+/* Home layout 39 — my own cut: layout 38's treatment plus a progress bar and dot-nav */
+.ffh-h39 .crm-window { max-width: 100%; overflow: hidden; box-shadow: 0 40px 90px -34px rgba(207,95,18,.45), 0 0 0 14px rgba(239,123,35,.04); }
+.ffh-h39 .ffh-tools-track { animation-duration: 92s; }
+.ffh-h39-progress { position: fixed; top: 0; left: 0; height: 3px; z-index: 90; background: linear-gradient(90deg, #f7a52a, #f0452c); transition: width .12s linear; }
+.ffh-h39-dots { position: fixed; right: 18px; top: 50%; transform: translateY(-50%); z-index: 80; display: none; flex-direction: column; gap: 10px; }
+@media (min-width: 1280px) { .ffh-h39-dots { display: flex; } }
+.ffh-h39-dots button { width: 9px; height: 9px; border-radius: 999px; background: #d8d2c9; border: 0; padding: 0; cursor: pointer;
+  transition: all .25s ease; position: relative; }
+.ffh-h39-dots button:hover { background: #ef7b23; transform: scale(1.25); }
+.ffh-h39-dots button.on { background: linear-gradient(135deg, #f7a52a, #f0452c); height: 22px; }
+.ffh-h39-dots button span { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); white-space: nowrap;
+  font: 500 11.5px/1 Inter, sans-serif; letter-spacing: .06em; text-transform: uppercase; color: #16283c;
+  background: #fff; border: 1px solid #ece5db; padding: 6px 9px; border-radius: 8px; opacity: 0; pointer-events: none; transition: opacity .2s ease; }
+.ffh-h39-dots button:hover span { opacity: 1; }
+.ffh-h39-stepper .step-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s ease; }
+.ffh-h39-stepper .step.on .step-body { grid-template-rows: 1fr; }
+.ffh-h39-stepper .step-body > div { overflow: hidden; }
+@media (max-width: 767px) {
+  .ffh-h39 .ffh-tool { padding: 22px 20px 20px; border-radius: 16px; }
+  .ffh-h39 .ffh-tool h6 { font-size: 19px; margin-bottom: 6px; }
+  .ffh-h39 .ffh-tool p { font-size: 14.5px; margin-bottom: 14px; }
+  .ffh-h39 .ffh-tool-icon { width: 46px; height: 46px; margin-bottom: 16px; border-radius: 13px; }
+}
+@media (prefers-reduced-motion: reduce) { .ffh-h39 .ffh-tools-track { animation: none; } }
+
+/* About layout 15 — my own: warm paper, Inter Tight headings, mono labels, sticky spine */
+.ffh-a15 :is(h1, h2, h3, h4) { font-family: "Inter Tight", Inter, system-ui, sans-serif; font-weight: 700; }
+.ffh-a15 .ffh-signup-card { background: #fff; }
+.ffh-a15 ::placeholder { color: #9aa0ac; }
+
+/* About layouts 16-18 */
+.ffh-a16 :is(h1, h2, h3, h4, h5, h6) { font-family: "Inter Tight", Inter, system-ui, sans-serif; font-weight: 600; color: #fff; }
+.ffh-a17 :is(h1, h2, h3, h4) { font-family: "Inter Tight", Inter, system-ui, sans-serif; font-weight: 700; }
+.ffh-a18 :is(h1, h2, h3, h4) { font-family: "Inter Tight", Inter, system-ui, sans-serif; font-weight: 800; }
+.ffh-a16 ::placeholder, .ffh-a17 ::placeholder, .ffh-a18 ::placeholder { color: #9aa3b2; }
+
+/* dark sections inside otherwise light layouts need their own heading colour */
+.ffh-on-dark :is(h1, h2, h3, h4, h5, h6) { color: #fff; }
+
+/* About layout 19 — airy Odoo-style corporate page */
+.ffh-a19 :is(h1, h2, h3, h4) { font-family: Poppins, "Inter Tight", Inter, sans-serif; }
+.ffh-a19 ::placeholder { color: #9aa3b2; }

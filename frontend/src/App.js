@@ -43,6 +43,7 @@ import Home35 from "./components/site/Home35";
 import Home36 from "./components/site/Home36";
 import Home37 from "./components/site/Home37";
 import Home38 from "./components/site/Home38";
+import Home39 from "./components/site/Home39";
 import About1 from "./components/site/About1";
 import About2 from "./components/site/About2";
 import About3 from "./components/site/About3";
@@ -55,6 +56,13 @@ import About9 from "./components/site/About9";
 import About10 from "./components/site/About10";
 import About11 from "./components/site/About11";
 import About12 from "./components/site/About12";
+import About13 from "./components/site/About13";
+import About14 from "./components/site/About14";
+import About15 from "./components/site/About15";
+import About16 from "./components/site/About16";
+import About17 from "./components/site/About17";
+import About18 from "./components/site/About18";
+import About19 from "./components/site/About19";
 import { CRMProvider } from "./components/site/crmStore";
 
 function useReveal(routeKey) {
@@ -104,13 +112,13 @@ function App() {
   // layout (17, in its glass variant); every other page keeps the standard header.
   // The bare URL always opens the newest home layout — bump this one line when a
 // new layout lands.
-const LATEST_HOME = "/home38";
+const LATEST_HOME = "/home39";
 const pillNav = ["/home16", "/home17", "/home18"].includes(location.pathname);
   const pillVariant = location.pathname === "/home17" ? "glass" : location.pathname === "/home18" ? "glass-dark" : undefined;
   const appHeader = location.pathname === "/home20";
   // The Tailwind layouts ship their own header and footer, so the shared
   // Bootstrap chrome is skipped for them entirely.
-  const bareLayout = ["/home21", "/home22", "/home23", "/home24", "/home25", "/home26", "/home27", "/home28", "/home29", "/home30", "/home31", "/home32", "/home33", "/home34", "/home35", "/home36", "/home37", "/home38", "/about11", "/about12"].includes(location.pathname);
+  const bareLayout = ["/home21", "/home22", "/home23", "/home24", "/home25", "/home26", "/home27", "/home28", "/home29", "/home30", "/home31", "/home32", "/home33", "/home34", "/home35", "/home36", "/home37", "/home38", "/home39", "/about11", "/about12", "/about13", "/about14", "/about15", "/about16", "/about17", "/about18", "/about19"].includes(location.pathname);
 
   return (
     <CRMProvider>
@@ -157,6 +165,7 @@ const pillNav = ["/home16", "/home17", "/home18"].includes(location.pathname);
           <Route path="/home36" element={<Home36 />} />
           <Route path="/home37" element={<Home37 />} />
           <Route path="/home38" element={<Home38 />} />
+          <Route path="/home39" element={<Home39 />} />
           {/* About layouts: /about keeps the original page */}
           <Route path="/about" element={<About1 />} />
           <Route path="/about1" element={<About1 />} />
@@ -171,6 +180,13 @@ const pillNav = ["/home16", "/home17", "/home18"].includes(location.pathname);
           <Route path="/about10" element={<About10 />} />
           <Route path="/about11" element={<About11 />} />
           <Route path="/about12" element={<About12 />} />
+          <Route path="/about13" element={<About13 />} />
+          <Route path="/about14" element={<About14 />} />
+          <Route path="/about15" element={<About15 />} />
+          <Route path="/about16" element={<About16 />} />
+          <Route path="/about17" element={<About17 />} />
+          <Route path="/about18" element={<About18 />} />
+          <Route path="/about19" element={<About19 />} />
           <Route path="*" element={<Home1 />} />
         </Routes>
         {bareLayout ? null : <Footer />}
