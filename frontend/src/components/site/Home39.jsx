@@ -410,11 +410,20 @@ export default function Home39() {
                   {b.logo ? (
                     <img src={`${process.env.PUBLIC_URL}/brands/${b.logo}`} alt={`${b.name} logo`} loading="lazy" decoding="async"
                       className="max-h-[74px] w-auto max-w-[78%] object-contain transition-transform duration-300 group-hover:scale-105" />
-                  ) : (
+                  ) : b.name.startsWith("and many") ? (
                     <span className="flex items-center gap-2 text-[26px] font-semibold tracking-[0.3em]" style={{ color: BRAND }}>···</span>
+                  ) : (
+                    /* no logo file yet: the name set as a wordmark, not a fake mark */
+                    <span className="px-2 text-center text-[17px] font-bold uppercase leading-[1.3] tracking-[0.1em] transition-colors duration-300 group-hover:text-[#cf5f12]" style={{ color: NAVY }}>
+                      {b.name}
+                    </span>
                   )}
                 </span>
-                <span className="mt-5 block text-[15px] font-semibold leading-snug" style={{ color: NAVY }}>{b.name}</span>
+                {/* a card that carries a logo also carries the name; a wordmark card
+                    is the name, so the line below would repeat it */}
+                {b.logo ? (
+                  <span className="mt-5 block text-[15px] font-semibold leading-snug" style={{ color: NAVY }}>{b.name}</span>
+                ) : null}
                 {b.note ? <span className="mt-1.5 block text-[12.5px] leading-snug" style={{ color: "#9ca3af" }}>{b.note}</span> : null}
                 <span className="mt-3 h-[2px] w-0 rounded-full transition-all duration-500 group-hover:w-10" style={{ background: BRAND }} />
               </div>
