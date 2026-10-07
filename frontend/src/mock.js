@@ -1282,7 +1282,7 @@ export const HOME31 = {
 // ---------------------------------------------------------------------------
 export const HOME32 = {
   eyebrow: "Smart CRM & ERP Software",
-  titleA: "See today's business,",
+  titleA: "See today's business with AI,",
   titleB: "not last month's report",
   lead:
     "Pipeline, collections, AMC renewals and service tickets update as the work happens — so the number on your screen is the number in the business.",
@@ -1335,7 +1335,7 @@ export const HOME35 = {
 export const HOME36 = {
   ...HOME35,
   eyebrow: "Smart CRM & ERP Software",
-  titleA: "See today's business,",
+  titleA: "See today's business with AI,",
   titleB: "not last month's report",
   lead: "Pipeline, collections, AMC renewals and service tickets update as the work happens — so the number on your screen is the number in the business.",
   ctaMain: "Start free trial",
