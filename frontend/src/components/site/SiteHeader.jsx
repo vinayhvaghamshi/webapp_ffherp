@@ -88,7 +88,7 @@ export default function SiteHeader() {
           })}
         </nav>
         <button onClick={(e) => go(e, "#contact")} data-testid="h39-cta"
-          className={`ml-auto hidden items-center gap-2 rounded-full ${GRAD} px-5 py-3 text-[13.5px] font-semibold text-white shadow-lg shadow-orange-500/25 transition hover:brightness-105 lg:inline-flex`}>
+          className={`ml-auto hidden items-center gap-2 rounded-full ${GRAD} px-5 py-3 text-[13.5px] font-semibold text-white ring-1 ring-inset ring-white/30 transition-all duration-300 hover:brightness-110 hover:ring-white/60 lg:inline-flex`}>
           Contact Us <ArrowUpRight className="h-4 w-4" />
         </button>
         <button onClick={() => setOpen(!open)} aria-label="Toggle menu" data-testid="h39-burger"

@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import {
-  ArrowRight, ArrowUpRight, BadgeCheck, Check, Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter, Youtube,
+  ArrowRight, ArrowUpRight, BadgeCheck, Check, Facebook, Instagram, Linkedin, Mail, Phone, Twitter, Youtube,
 } from "lucide-react";
-import { ABOUT_3, ABOUT_6, ABOUT_10, ABOUT_20, ABOUT_ALT, ABOUT_US, TEAM, WHY_FEATURES } from "../../mock";
+import { ABOUT_3, ABOUT_6, ABOUT_10, ABOUT_20, ABOUT_ALT, ABOUT_US, TEAM, WHY_FEATURES, OFFICES } from "../../mock";
+import OfficeCards from "./OfficeCards";
 import SiteHeader from "./SiteHeader";
 import { Icon } from "./Trusted";
 import SupportChat from "./SupportChat";
@@ -413,13 +414,20 @@ export default function About20() {
                 </ul>
               </div>
             ))}
-            <div className="col-span-12 sm:col-span-4 lg:col-span-3">
+            {/* offices: full-width, as cards — the same block the home footer uses */}
+            <div className="col-span-12 mt-2 border-t border-white/10 pt-8">
               <h6 className="text-[13px] font-semibold text-white">Reach us</h6>
-              <ul className="mt-4 space-y-3 text-[13.5px] text-white/65">
-                <li className="flex items-center gap-2"><Mail className="h-4 w-4" style={{ color: BRAND }} />ffhsales@kriskrossinc.com</li>
-                <li className="flex items-center gap-2"><Phone className="h-4 w-4" style={{ color: BRAND }} />+91 44 4858 5100</li>
-                <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 shrink-0" style={{ color: BRAND }} />KrisKross Inc., Chennai · Dubai · Singapore</li>
-              </ul>
+              <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-[13.5px] text-white/65">
+                <a href="mailto:ffhsales@kriskrossinc.com" className="inline-flex items-center gap-2 transition hover:text-white">
+                  <Mail className="h-4 w-4 shrink-0" style={{ color: "var(--brand)" }} />ffhsales@kriskrossinc.com
+                </a>
+                <a href="tel:+912025886186" className="inline-flex items-center gap-2 transition hover:text-white">
+                  <Phone className="h-4 w-4 shrink-0" style={{ color: "var(--brand)" }} />+91 20 2588 6186
+                </a>
+              </div>
+              <div className="mt-6">
+                <OfficeCards testid="a20-office" />
+              </div>
             </div>
           </div>
           <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-6 text-[12.5px] text-white/50">

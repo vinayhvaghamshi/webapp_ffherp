@@ -2354,7 +2354,10 @@ a { text-decoration: none; }
 .ffh-a14 :is(button, a) { font-family: Inter, system-ui, sans-serif; }
 
 /* Home layout 39 — my own cut: layout 38's treatment plus a progress bar and dot-nav */
-.ffh-h39 .crm-window { max-width: 100%; overflow: hidden; box-shadow: 0 40px 90px -34px rgba(207,95,18,.45), 0 0 0 14px rgba(239,123,35,.04); }
+/* the dashboard mock is highlighted by a warm halo and a lit top edge,
+   not by a coloured drop shadow */
+.ffh-h39 .crm-window { max-width: 100%; overflow: hidden; border-color: #f4dcc4;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.95), 0 0 0 8px rgba(239,123,35,.07); }
 .ffh-h39 .ffh-tools-track { animation-duration: 92s; }
 .ffh-h39-progress { position: fixed; top: 0; left: 0; height: 3px; z-index: 90; background: linear-gradient(90deg, #f7a52a, #f0452c); transition: width .12s linear; }
 .ffh-h39-dots { position: fixed; right: 18px; top: 50%; transform: translateY(-50%); z-index: 80; display: none; flex-direction: column; gap: 10px; }
@@ -2398,3 +2401,32 @@ a { text-decoration: none; }
 
 /* About layout 20 — layout 39's logo theme; headings inherit the theme's Syne face */
 .ffh-a20 { }
+
+/* Home 39 — the logo strip: an endless, self-advancing loop of client marks.
+   Built from two identical rows inside one flex line, so a -50% shift lands
+   exactly on the start of the second row and the seam is invisible. */
+.ffh-marquee-wrap {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+.ffh-marquee {
+  display: flex;
+  width: max-content;
+  animation: ffh-marquee-scroll 46s linear infinite;
+  will-change: transform;
+}
+.ffh-marquee-row { display: flex; align-items: center; flex: none; }
+.ffh-marquee:hover .ffh-marquee { animation-play-state: paused; }
+@keyframes ffh-marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+/* no motion: show one static, wrapped row instead of a cut-off strip */
+@media (prefers-reduced-motion: reduce) {
+  .ffh-marquee { animation: none; width: 100%; }
+  .ffh-marquee-dup { display: none; }
+  .ffh-marquee-row { flex-wrap: wrap; justify-content: center; row-gap: 1.5rem; }
+  .ffh-marquee-wrap { -webkit-mask-image: none; mask-image: none; }
+  .ffh-marquee-item { margin-right: 1rem; }
+  .ffh-marquee-item:last-child { margin-right: 1rem; }
+}

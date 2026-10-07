@@ -91,6 +91,30 @@ export const MODULE_TABS = [
   },
 ];
 
+// The three offices, exactly as registered — used by the home page's "Where we
+// are" band and the About page's footer, so the two can never drift apart.
+export const OFFICES = [
+  {
+    flag: "🇮🇳", city: "Pune", country: "India", label: "Main office",
+    address: "9, Royal Home, Sahil Park / Sanewadi, Aundh, Pune, Maharashtra 411067",
+    phone: "+91 20 2588 6186", tel: "+912025886186",
+    hours: "Mon–Sat 9:30 AM – 8:00 PM · Sunday closed",
+    maps: "9, Royal Home, Sahil Park, Sanewadi, Aundh, Pune 411067",
+  },
+  {
+    flag: "🇮🇳", city: "Mumbai", country: "India", label: "Office",
+    address: "204, Oberoi Trade Centre, Off Link Road, Andheri West, Mumbai, Maharashtra 400053",
+    phone: null, tel: null, hours: null,
+    maps: "204, Oberoi Trade Centre, Off Link Road, Andheri West, Mumbai 400053",
+  },
+  {
+    flag: "🇺🇸", city: "Atlanta", country: "United States", label: "Kris Kross, Inc. · Georgia",
+    address: "c/o Carter & Co., 1 Capital City Plaza, 3350 Peachtree Rd NE, Suite 1160, Atlanta, Georgia 30326",
+    phone: null, tel: null, hours: null,
+    maps: "3350 Peachtree Rd NE, Suite 1160, Atlanta, Georgia 30326",
+  },
+];
+
 export const WHY_FEATURES = [
   { title: "Artificial Intelligence (AI)", desc: "Lead scoring, next-best-action, demand forecasting and renewal signals — running on your own records, inside the modules you already use.", icon: "Sparkles" },
   { title: "Smart dashboards", desc: "Get actionable insights at your fingertips using smart, customizable dashboards.", icon: "LayoutDashboard" },
@@ -254,7 +278,7 @@ export const ABOUT_ALT = {
   ],
   facts: [
     { k: "Founded", v: "2012 · Chennai, India" },
-    { k: "Offices", v: "Chennai · Dubai · Singapore" },
+    { k: "Offices", v: "Pune · Mumbai · USA" },
     { k: "Team", v: "250+ across engineering, delivery & support" },
     { k: "Customers", v: "2,500+ active users in 5+ countries" },
     { k: "Product", v: "FFH|ERP — nine modules, one platform" },
@@ -319,7 +343,7 @@ export const ABOUT_3 = {
     { icon: "Smartphone", title: "Built for the field, not the boardroom", text: "Field teams update leads, collections and service visits from a phone, online or offline. Owners open the same numbers on a dashboard the next morning." },
     { icon: "LifeBuoy", title: "Support that stays after the sale", text: "Implementation, data migration and training are part of the deal. A 24/7 helpdesk staffed by people who know the product closes the loop." },
   ],
-  certifications: ["ISO 27001 aligned", "GST & e-invoicing ready", "SOC 2 aligned processes", "MSME registered", "Data hosted in India"],
+  certifications: ["Full audit trail", "GST & e-invoicing ready", "SOC 2 aligned processes", "MSME registered", "Data hosted in India"],
 };
 
 // ---------------------------------------------------------------------------
@@ -1189,12 +1213,12 @@ export const HOME30 = {
     { value: "25+", label: "Industry awards", note: "Recognised work", text: "For product design, delivery and customer support." },
   ],
   services: [
-    { name: "Artificial Intelligence (AI)", text: "AI built into the modules you already use, running on your own data — lead scoring, next-best-action, demand forecasting, renewal signals and anomaly checks. No separate AI project to buy, no data shipped out.", img: "180" },
+    { name: "Artificial Intelligence (AI)", text: "AI built into the modules you already use, running on your own data — lead scoring, next-best-action, demand forecasting, renewal signals and anomaly checks. No separate AI project to buy, no data shipped out.", img: "3" },
     { name: "Sales & marketing", text: "Our team delivers a pipeline that moves — clean data, automated follow-ups, zero guesswork. Every enquiry, quote and order is one record.", img: "7" },
-    { name: "Finance & billing", text: "GST invoices, receivables and approvals drawn from the same records you sell on, with e-invoicing ready from day one.", img: "431" },
-    { name: "AMC & support", text: "Warranty, contracts, tickets and renewals with the reminders built in, so service levels stop depending on memory.", img: "26" },
-    { name: "Work & projects", text: "Plan, allocate, bill and track delivery margin on every project — with the effort and the money in one place.", img: "20" },
-    { name: "Integrations", text: "Tally, payment gateways, WhatsApp and your own APIs, wired in, monitored and owned by us.", img: "180" },
+    { name: "Finance & billing", text: "GST invoices, receivables and approvals drawn from the same records you sell on, with e-invoicing ready from day one.", img: "8" },
+    { name: "AMC & support", text: "Warranty, contracts, tickets and renewals with the reminders built in, so service levels stop depending on memory.", img: "5" },
+    { name: "Work & projects", text: "Plan, allocate, bill and track delivery margin on every project — with the effort and the money in one place.", img: "4" },
+    { name: "Integrations", text: "Tally, payment gateways, WhatsApp and your own APIs, wired in, monitored and owned by us.", img: "60" },
   ],
   projects: [
     { tag: "Manufacturing", title: "Brigade Build", price: "₹4.2Cr", meta: "April 28, 2025", img: "1067" },
@@ -1345,8 +1369,7 @@ export const HOME36 = {
   syncCopy:
     "Stop switching between tools. FFH|ERP brings nine business tools together, so you can spend less time managing work — and more time moving it forward.",
   brands: [
-    { name: "Rajinfo Technology Services", logo: "rajinfo.png", note: "ISO 9001:2015 certified" },
-    { name: "Raj Info Enterprise Pvt. Ltd.", logo: "rajinfo.png", note: "" },
+    { name: "Raj Info Enterprise Pvt. Ltd.", logo: "rajinfo.png", note: "Rajinfo · ISO 9001:2015 certified" },
     { name: "Transit Electronics Ltd.", logo: "transit-electronics.png", note: "ELV systems & solutions" },
     { name: "Nimit Electronics", logo: "nimit-electronics.png", note: "Electronics & security systems" },
     { name: "Micro Hard IT Solutions Pvt. Ltd.", logo: "microhard-it-solutions.png", note: "IT solutions" },
@@ -1357,10 +1380,10 @@ export const HOME36 = {
     { name: "Tradewell", logo: "tradewell.png", note: "" },
     { name: "AXIS FIRE PROTECTION", logo: "axis-fire-protection.png", note: "" },
     { name: "Blues IT and Security", logo: "blues-it-security.webp", note: "" },
-    { name: "Vijay Airconditioning Pvt Ltd", logo: null, note: "" },
-    { name: "Camline Solutions India Pvt Ltd", logo: null, note: "" },
-    { name: "SARA Electronics Security Pvt Ltd", logo: null, note: "" },
-    { name: "RUCHI Infosystems Co.", logo: null, note: "" },
+    { name: "Vijay Airconditioning Pvt Ltd", logo: "vijay-airconditioning.png", note: "" },
+    { name: "Camline Solutions India Pvt Ltd", logo: "camline-solutions.png", note: "", invert: true },
+    { name: "SARA Electronics Security Pvt Ltd", logo: "sara-electronics.jpg", note: "" },
+    { name: "RUCHI Infosystems Co.", logo: "ruchi-infosystems.png", note: "" },
   ],
   integrationsTitle: "Integrations.",
   integrationsCopy:
@@ -1402,7 +1425,7 @@ export const ABOUT_11 = {
     "⭐ 14 years in business software",
     "📞 24/7 support in two languages",
   ],
-  topbar: { email: "ffhsales@kriskrossinc.com", phone: "+91 44 4858 5100", support: "Support" },
+  topbar: { email: "ffhsales@kriskrossinc.com", phone: "+91 20 2588 6186", support: "Support" },
   hero: {
     eyebrow: "About us",
     title: "About Us",
@@ -1420,7 +1443,7 @@ export const ABOUT_11 = {
       "We are deliberately unfashionable about a few things. Our customers run showrooms with patchy networks and teams that are not technical — so the software works offline, installs in a day, and is priced where a growing company can actually afford it.",
       "Our reputation lies in the success of our clients. We act more as a technology partner than a vendor: no layers between you and the people who build the product, transparent pricing on the website, and support that answers in the language your team speaks.",
     ],
-    chips: ["Founded 2012", "Chennai · Dubai · Singapore", "250+ team members", "ISO 27001 aligned"],
+    chips: ["Founded 2012", "Pune · Mumbai · USA", "250+ team members", "ISO 27001 aligned"],
     image: 1067,
   },
   services: [
@@ -1488,7 +1511,7 @@ export const ABOUT_11 = {
         { label: "Privacy Policy", path: "/" },
       ] },
     ],
-    contact: { address: "KrisKross Inc., Chennai, Tamil Nadu, India", email: "ffhsales@kriskrossinc.com", phone: "+91 44 4858 5100" },
+    contact: { address: "9, Royal Home, Sahil Park / Sanewadi, Aundh, Pune, Maharashtra 411067", email: "ffhsales@kriskrossinc.com", phone: "+91 20 2588 6186" },
     socials: ["Instagram", "Facebook", "LinkedIn", "Twitter", "YouTube"],
     legal: "Copyright © 2026 KrisKross Inc. All rights reserved.",
   },
@@ -1643,7 +1666,7 @@ export const HOME37_MORE = {
     title: "Built for the way Indian businesses are audited.",
     lead: "Your books leave a trail, your data stays yours, and nobody sees a number they should not.",
     items: [
-      { icon: "ShieldCheck", title: "ISO 27001 aligned", text: "Processes, access reviews and change control documented to the standard." },
+      { icon: "ShieldCheck", title: "Access reviews & change control", text: "Processes, access reviews and change control documented to the standard." },
       { icon: "FileCheck2", title: "GST & e-invoicing ready", text: "GSTR-ready registers, e-invoice and e-way bill formats, IRN handling." },
       { icon: "Users", title: "Role-based access", text: "Branch, team and field-level rights — a store manager never sees payroll." },
       { icon: "History", title: "Full audit trail", text: "Who changed which invoice, when, and from where. Nothing is overwritten." },
@@ -1673,7 +1696,7 @@ export const HOME38_SIGNUP = {
     { icon: "UserCheck", title: "A named contact", text: "One person who knows your setup, reachable on phone and email through the trial." },
     { icon: "DatabaseBackup", title: "Your data, exportable", text: "Everything you enter stays yours and comes out in one export, whenever you ask." },
   ],
-  compliance: ["ISO 27001 aligned", "GST & e-invoicing ready", "Role-based access", "Daily backups", "No lock-in, cancel any time"],
+  compliance: ["GST & e-invoicing ready", "Role-based access", "Full audit trail", "Daily backups", "Data hosted in India"],
 };
 
 // About layout 13 — modelled on mindsignal.webflow.io/about-us: a minimal white
@@ -1796,7 +1819,7 @@ export const ABOUT_14 = {
     secondary: "Schedule a call",
   },
   footer: {
-    contact: { title: "Talk to us", email: "ffhsales@kriskrossinc.com", phone: "+91 44 4858 5100", address: "KrisKross Inc., Chennai, Tamil Nadu, India" },
+    contact: { title: "Talk to us", email: "ffhsales@kriskrossinc.com", phone: "+91 20 2588 6186", address: "9, Royal Home, Sahil Park / Sanewadi, Aundh, Pune, Maharashtra 411067" },
     columns: [
       { title: "Main pages", items: [["Home", "/home38"], ["About", "/about"], ["Services", "/home38#features"], ["Projects", "/home38#modules"], ["Pricing", "/home38#pricing"]] },
       { title: "More pages", items: [["Live CRM demo", "/home38#top"], ["Implementation", "/home38#how"], ["Industries", "/home38#industries"], ["Compare", "/home38#compare"], ["Security", "/home38#security"], ["Savings calculator", "/home38#roi"]] },
@@ -1824,7 +1847,7 @@ export const ABOUT_15 = {
     { label: "Pricing", path: "#pricing" },
     { label: "Contact", path: "#contact" },
   ],
-  topbar: { email: "ffhsales@kriskrossinc.com", phone: "+91 44 4858 5100", place: "Chennai · Dubai · Singapore" },
+  topbar: { email: "ffhsales@kriskrossinc.com", phone: "+91 20 2588 6186", place: "Pune · Mumbai · USA" },
   hero: {
     eyebrow: "About FFH|ERP",
     title: "Business software that carries the work instead of adding to it.",
@@ -1908,7 +1931,7 @@ export const ABOUT_15 = {
 //                      do, technology, security, story, leadership, culture and
 //                      careers, reviews, FAQ and the sign-up block
 // Every claim here is one the site already makes: founded 2012, fourteen years,
-// 2,500+ active users, 5+ countries, nine modules, 4.4/5, ISO 27001 aligned,
+// 2,500+ active users, 5+ countries, nine modules, 4.4/5, audit trail,
 // GST and e-invoicing ready, role-based access, audit trail, daily backups, no
 // lock-in and published pricing. The customer numbers quoted on 17 are the ones
 // the customers themselves put in their reviews.
@@ -2245,7 +2268,7 @@ export const ABOUT_20 = {
     lead: "Nine modules on one database, your data migrated with you, training for every team included. No credit card, no lock-in, cancel any time.",
     primary: "Start free trial",
     secondary: "Book a 20-minute walkthrough",
-    small: "KrisKross Inc. · Chennai · Dubai · Singapore · +91 44 4858 5100",
+    small: "KrisKross Inc. · Pune · Mumbai · USA · +91 20 2588 6186",
   },
   footer: {
     blurb: "FFH|ERP is a product of KrisKross Inc. — nine connected modules on one database, built in Chennai since 2012 and running in 5+ countries.",

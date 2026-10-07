@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, Facebook, IndianRupee, Instagram, Linkedin, Minus, Pause, Play, Plus, ShieldCheck, Star, TrendingUp, Twitter, Users, X, Youtube } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, Facebook, IndianRupee, Instagram, Linkedin, Mail, Minus, Pause, Phone, Play, Plus, ShieldCheck, Star, TrendingUp, Twitter, Users, X, Youtube } from "lucide-react";
 import Icon from "./TwIcon";
-import { HOME39, HOME39_MORE, HOME39_SIGNUP, HOME30, FAQS, PLANS, TOOLS, WHY_FEATURES, formatINR } from "../../mock";
+import { HOME39, HOME39_MORE, HOME39_SIGNUP, HOME30, FAQS, OFFICES, PLANS, TOOLS, WHY_FEATURES, formatINR } from "../../mock";
 import { LiveCRMWindow } from "./LiveCRM";
 import TwSignupForm from "./TwSignupForm";
+import OfficeCards from "./OfficeCards";
 import SiteHeader from "./SiteHeader";
 import SupportChat from "./SupportChat";
 import { scrollToId, useGoTo } from "./crmStore";
@@ -236,7 +237,7 @@ export default function Home39() {
                 <p className="max-w-xl text-[15.5px] leading-relaxed" style={{ color: "#4a5568" }}>{HOME39.lead}</p>
                 <div className="mt-7 flex flex-wrap items-center gap-4">
                   <button onClick={(e) => go(e, "#signup")} data-testid="home39-cta-trial"
-                    className={`group inline-flex items-center gap-2 rounded-full ${GRAD} px-8 py-4 text-[15px] font-semibold text-white shadow-lg shadow-orange-500/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-orange-500/40`}>
+                    className={`group inline-flex items-center gap-2 rounded-full ${GRAD} px-8 py-4 text-[15px] font-semibold text-white ring-1 ring-inset ring-white/30 transition-all duration-300 hover:-translate-y-1 hover:brightness-110 hover:ring-white/60`}>
                     {HOME39.ctaMain}
                     <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-1" />
                   </button>
@@ -283,7 +284,7 @@ export default function Home39() {
             { v: "2.5K+", l: "Active users" },
             { v: "5+", l: "Countries" },
             { v: "24/7", l: "Support in two languages" },
-            { v: "ISO 27001", l: "Aligned processes" },
+            { v: "AI built in", l: "In every module" },
             { v: "GST & e-invoice", l: "Ready out of the box" },
           ].map((t) => (
             <span key={t.l} className="flex items-baseline gap-2">
@@ -391,48 +392,9 @@ export default function Home39() {
         </div>
       </section>
 
-      {/* ---------- client wall: stacked wordmarks, hover lift ---------- */}
-      <section id="trusted" className="relative px-5 py-20 sm:px-8 sm:py-24" style={{ background: SOFT }}>
-        <div className="mx-auto max-w-[1400px]">
-          <div className="reveal">
-            <Label>Trusted by</Label>
-            <h2 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl" style={{ color: NAVY }}>
-              Serving <span style={{ color: BRAND }}>2.5K</span> active users for <span style={{ color: BRAND }}>14</span> years
-            </h2>
-          </div>
-          <div className="mt-14 flex flex-wrap justify-center gap-4">
-            {[...HOME39.brands, { name: "and many more", logo: null, note: "coming to this wall" }].map((b, i) => (
-              <div key={b.name} className="reveal" style={{ transitionDelay: `${i * 40}ms` }}>
-              <div className="w-[calc(50%-0.5rem)] sm:w-[248px]" data-testid={b.logo ? `home39-brand-${i}` : "home39-brand-more"}
-                className="group flex h-full min-h-[190px] flex-col items-center justify-center rounded-2xl bg-white px-5 py-8 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
-                style={{ border: `1px solid ${LINE}` }}>
-                <span className="flex h-[74px] w-full items-center justify-center">
-                  {b.logo ? (
-                    <img src={`${process.env.PUBLIC_URL}/brands/${b.logo}`} alt={`${b.name} logo`} loading="lazy" decoding="async"
-                      className="max-h-[74px] w-auto max-w-[78%] object-contain transition-transform duration-300 group-hover:scale-105" />
-                  ) : b.name.startsWith("and many") ? (
-                    <span className="flex items-center gap-2 text-[26px] font-semibold tracking-[0.3em]" style={{ color: BRAND }}>···</span>
-                  ) : (
-                    /* no logo file yet: the name set as a wordmark, not a fake mark */
-                    <span className="px-2 text-center text-[17px] font-bold uppercase leading-[1.3] tracking-[0.1em] transition-colors duration-300 group-hover:text-[#cf5f12]" style={{ color: NAVY }}>
-                      {b.name}
-                    </span>
-                  )}
-                </span>
-                {/* a card that carries a logo also carries the name; a wordmark card
-                    is the name, so the line below would repeat it */}
-                {b.logo ? (
-                  <span className="mt-5 block text-[15px] font-semibold leading-snug" style={{ color: NAVY }}>{b.name}</span>
-                ) : null}
-                {b.note ? <span className="mt-1.5 block text-[12.5px] leading-snug" style={{ color: "#9ca3af" }}>{b.note}</span> : null}
-                <span className="mt-3 h-[2px] w-0 rounded-full transition-all duration-500 group-hover:w-10" style={{ background: BRAND }} />
-              </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
+      {/* ---------- the same line again, as a looping strip: every client mark,
+           smaller, drifting sideways so the whole wall is visible at a glance ---------- */}
       {/* ---------- integrations: cursor spotlight + hover tiles ---------- */}
       <section id="integrations" className="relative overflow-hidden border-y px-5 py-20 sm:px-8 sm:py-24" style={{ borderColor: LINE, background: "#fff" }}
         onMouseMove={(e) => { const r = e.currentTarget.getBoundingClientRect(); setSpot({ x: ((e.clientX - r.left) / r.width) * 100, y: ((e.clientY - r.top) / r.height) * 100 }); }}>
@@ -465,6 +427,43 @@ export default function Home39() {
           </p>
         </div>
       </section>
+
+      <section id="trusted" className="relative overflow-hidden px-5 py-16 sm:px-8 sm:py-20"
+        style={{ background: "#fff", borderBottom: `1px solid ${LINE}` }}>
+        <div className="mx-auto max-w-[1400px]">
+          <div className="reveal">
+            <Label>Trusted by</Label>
+            <h2 className="mt-6 max-w-3xl text-3xl font-semibold leading-[1.08] tracking-[-0.03em] sm:text-4xl" style={{ color: NAVY }}>
+              Serving <span style={{ color: BRAND }}>2.5K</span> active users for <span style={{ color: BRAND }}>14</span> years
+            </h2>
+          </div>
+        </div>
+
+        <div className="ffh-marquee-wrap relative mt-12" data-testid="home39-marquee">
+          <div className="ffh-marquee">
+            {[0, 1].map((copy) => (
+              <div key={copy} className={`ffh-marquee-row${copy ? " ffh-marquee-dup" : ""}`} aria-hidden={copy ? "true" : undefined}>
+                {HOME39.brands.map((b) => (
+                  <span key={`${copy}-${b.name}`} title={b.name}
+                    className="ffh-marquee-item mr-10 flex h-[30px] shrink-0 items-center sm:mr-16 sm:h-[34px]"
+                    data-testid={copy ? undefined : `home39-loop-${b.name.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`}>
+                    {b.logo ? (
+                      <img src={`${process.env.PUBLIC_URL}/brands/${b.logo}`} alt={copy ? "" : b.name} loading="eager" decoding="async"
+                        style={b.invert ? { filter: "invert(1)" } : undefined}
+                        className="h-[30px] w-auto object-contain transition-transform duration-300 hover:scale-[1.06] sm:h-[34px]" />
+                    ) : (
+                      <span className="whitespace-nowrap text-[13px] font-bold uppercase tracking-[0.1em]" style={{ color: NAVY }}>{b.name}</span>
+                    )}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+
 
 {/* ---------- about + counters ---------- */}
       <section id="why" className="relative px-5 py-20 sm:px-8 sm:py-24">
@@ -643,7 +642,7 @@ export default function Home39() {
               const on = howStep === i;
               return (
                 <div key={st.n} className={`step rounded-2xl transition-all duration-300 ${on ? "on" : ""}`}
-                  style={on ? { background: "#fff", border: `1px solid ${LINE}`, boxShadow: "0 34px 60px -44px rgba(207,95,18,.6)" } : { background: SOFT, border: `1px solid ${LINE}` }}>
+                  style={on ? { background: `linear-gradient(180deg, #fff6ec 0%, #fff 70%)`, border: `1px solid #f2c9a4` } : { background: SOFT, border: `1px solid ${LINE}` }}>
                   <button onClick={() => setHowStep(i)} data-testid={`home39-how-step-${i}`} className="flex w-full items-center gap-3 px-5 py-4 text-left">
                     <span className="font-mono text-[12px] font-semibold" style={{ color: on ? BRAND_DARK : "#9ca3af" }}>{st.n}</span>
                     <span className="flex-1">
@@ -763,7 +762,7 @@ export default function Home39() {
 
           <div className="mt-14 grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-x-10" data-testid="h39-roi">
             <div className="lg:col-span-5">
-              <div className="rounded-3xl bg-white p-7 sm:p-8" style={{ border: `1px solid ${LINE}`, boxShadow: "0 40px 80px -60px rgba(207,95,18,.5)" }}>
+              <div className="rounded-3xl bg-white p-7 sm:p-8" style={{ border: `1px solid #f0d9c2` }}>
                 {[
                   { k: "users", label: "People using the system", min: 3, max: 250, step: 1, suffix: (u) => `${u} ${u === 1 ? "user" : "users"}` },
                   { k: "hours", label: "Hours each person loses to reconciling tools, per week", min: 1, max: 20, step: 0.5, suffix: (v) => `${v} h / week` },
@@ -827,7 +826,7 @@ export default function Home39() {
                 <p className="mt-5 text-[12.5px] leading-relaxed" style={{ color: "#9ca3af" }}>{MORE.roi.note}</p>
               </div>
 
-              <div className="mt-6 rounded-2xl bg-white p-6" style={{ border: `1px solid ${LINE}` }} data-testid="home39-compliance">
+              <div className="mt-6 rounded-2xl bg-white p-6" style={{ border: `1px solid ${LINE}` }} data-testid="home39-security-checklist">
                 <h3 className="text-[15.5px] font-semibold" style={{ color: NAVY }}>{MORE.security.title}</h3>
                 <div className="mt-5 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
                   {MORE.security.items.map((it) => (
@@ -944,7 +943,7 @@ export default function Home39() {
               {HOME39.testimonials.map((t, i) => (
                 <figure key={`${t.person}-${i}`} className="w-full shrink-0" data-testid={`home39-quote-${i}`}>
                   <div className="ffh-quote-card grid grid-cols-12 items-center gap-x-0 gap-y-8 overflow-hidden bg-white p-8 transition-all duration-700 ease-out sm:gap-x-8 sm:p-12"
-                    style={{ border: `1px solid ${LINE}`, boxShadow: "0 40px 80px -60px rgba(207,95,18,.55)",
+                    style={{ border: `1px solid ${i === slide ? "#f2c9a4" : LINE}`,
                       opacity: i === slide ? 1 : 0.45, scale: i === slide ? "1" : "0.965" }}>
                     <div className="col-span-12 lg:col-span-8">
                       <div className="flex items-center gap-4">
@@ -1024,7 +1023,7 @@ export default function Home39() {
                 <div key={p.name} data-testid={`home39-plan-${p.name.toLowerCase()}`}
                   className={`relative flex flex-col rounded-[26px] transition-transform duration-500 hover:-translate-y-2 ${pop ? "p-10 lg:-mt-10 lg:scale-[1.05]" : "p-8"}`}
                   style={pop
-                    ? { border: `2px solid ${BRAND}`, background: `linear-gradient(180deg, ${CREAM} 0%, #ffffff 42%)`, boxShadow: "0 55px 95px -55px rgba(207,95,18,.8)" }
+                    ? { border: `2px solid ${BRAND}`, background: `linear-gradient(180deg, ${CREAM} 0%, #ffffff 42%)` }
                     : { border: `1px solid ${LINE}`, background: "#fff" }}>
                   {pop && (
                     <span className={`absolute -top-4 left-9 rounded-full ${GRAD} px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-white shadow-lg`}>
@@ -1086,16 +1085,26 @@ export default function Home39() {
             </div>
           </div>
           <div className="col-span-12 lg:col-span-7">
-            <div className="rounded-[22px] bg-white p-8 transition-shadow duration-300 hover:shadow-xl" style={{ border: `1px solid ${LINE}`, boxShadow: "0 36px 70px -42px rgba(207,95,18,.45)" }}>
+            <div className="rounded-[22px] bg-white p-8 transition-all duration-300 hover:bg-[#fffaf5]" style={{ border: `1px solid ${LINE}`, boxShadow: "inset 0 0 0 1px transparent" }} data-highlight="brand">
               <h3 className="text-2xl font-semibold tracking-[-0.02em]" style={{ color: NAVY }}>Talk to a human</h3>
               <p className="mt-3 text-[15px] leading-relaxed" style={{ color: "#4a5568" }}>
                 A helpdesk staffed by people who know the product, open 24/7 in two languages — or a 20-minute walkthrough on your own numbers.
               </p>
               <ul className="mt-7 space-y-4">
-                {[["Phone", "+91 92841 62015", "tel:+919284162015"], ["Email", "ffhsales@kriskrossinc.com", "mailto:ffhsales@kriskrossinc.com"]].map(([label, value, href]) => (
+                {[
+                  ["Office", "+91 20 2588 6186", "tel:+912025886186"],
+                  ["Sales", "+91 92841 62015", "tel:+919284162015"],
+                  ["Email", "ffhsales@kriskrossinc.com", "mailto:ffhsales@kriskrossinc.com"],
+                  ["Pune (main)", "9, Royal Home, Sahil Park / Sanewadi, Aundh, Pune 411067", null],
+                  ["Hours", "Mon–Sat 9:30 AM – 8:00 PM · Sunday closed", null],
+                ].map(([label, value, href]) => (
                   <li key={label} className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 rounded-2xl px-5 py-4 transition-transform duration-300 hover:-translate-y-0.5" style={{ background: SOFT, border: `1px solid ${LINE}` }}>
                     <span className="text-[12px] font-semibold uppercase tracking-[0.14em]" style={{ color: BRAND_DARK }}>{label}</span>
-                    <a href={href} className="min-w-0 break-all text-[15px] font-semibold hover:underline" style={{ color: NAVY }}>{value}</a>
+                    {href ? (
+                      <a href={href} className="min-w-0 break-all text-[15px] font-semibold hover:underline" style={{ color: NAVY }}>{value}</a>
+                    ) : (
+                      <span className="min-w-0 text-right text-[14px] font-medium leading-snug" style={{ color: NAVY }}>{value}</span>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -1151,6 +1160,22 @@ export default function Home39() {
               <button onClick={(e) => go(e, "#signup")} className={`mt-6 inline-flex items-center gap-2 rounded-full ${GRAD} px-5 py-3 text-[13.5px] font-semibold text-white`}>
                 Book a 20-minute walkthrough <ArrowUpRight className="h-4 w-4" />
               </button>
+            </div>
+
+            {/* reach us: the same three office cards the About footer carries */}
+            <div className="col-span-12 mt-2 border-t border-white/10 pt-8">
+              <h6 className="text-[13px] font-semibold text-white">Reach us</h6>
+              <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-[13.5px] text-white/65">
+                <a href="mailto:ffhsales@kriskrossinc.com" className="inline-flex items-center gap-2 transition hover:text-white">
+                  <Mail className="h-4 w-4 shrink-0" style={{ color: "var(--brand)" }} />ffhsales@kriskrossinc.com
+                </a>
+                <a href="tel:+912025886186" className="inline-flex items-center gap-2 transition hover:text-white">
+                  <Phone className="h-4 w-4 shrink-0" style={{ color: "var(--brand)" }} />+91 20 2588 6186
+                </a>
+              </div>
+              <div className="mt-6">
+                <OfficeCards testid="h39-office" />
+              </div>
             </div>
           </div>
           <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-6 text-[12.5px] text-white/50">

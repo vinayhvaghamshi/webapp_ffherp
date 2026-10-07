@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Check, ChevronDown, ChevronLeft, Headphones, MessageCircle, Send, User, X } from "lucide-react";
+import { Check, ChevronDown, Headphones, MessageCircle, Send, User, X } from "lucide-react";
 import { toast } from "sonner";
 import { buildProspectPayload, sendProspect } from "../../api/ffhWebhook";
 
@@ -146,7 +146,7 @@ export default function SupportChat() {
         <div className="sticky top-0 z-10 flex items-center gap-3 px-4 py-4 text-white" style={{ background: "linear-gradient(120deg,#16283c,#0b1a29)" }}>
           <button onClick={() => setOpen(false)} aria-label="Close support chat" data-testid="support-back"
             className="rounded-full p-1 transition hover:bg-white/15">
-            <ChevronLeft className="h-5 w-5" />
+            <ChevronDown className="h-5 w-5" />
           </button>
           <img src={`${process.env.PUBLIC_URL}/ffh-logo.png`} alt="" width="38" height="38"
             className="h-[38px] w-[38px] rounded-full bg-white object-contain p-[3px]" />
