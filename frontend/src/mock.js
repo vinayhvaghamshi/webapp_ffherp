@@ -2223,8 +2223,8 @@ export const ABOUT_20 = {
     // from the "what comes next" list this page already shows.
     turn2026: {
       year: "2026",
-      title: "Where the next turn goes",
-      text: "Deeper mobile, more automation and open integrations: approvals and collections from a phone, follow-ups and renewals that happen without anyone remembering, and cleaner connections to banks, GST portals and the tools you already pay for.",
+      title: "AI in every module",
+      text: "Artificial intelligence becomes part of how the software works rather than something extra you buy: it reads the enquiry, scores the lead, forecasts demand, chases the payment, predicts the renewal and questions the odd invoice — on your own data. Alongside it, deeper mobile, more automation and open integrations: approvals and collections from a phone, follow-ups and renewals that happen without anyone remembering, and cleaner connections to banks, GST portals and the tools you already pay for.",
     },
   },
   why: {
