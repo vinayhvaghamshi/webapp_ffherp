@@ -257,7 +257,7 @@ export const ABOUT_ALT = {
     { k: "Team", v: "250+ across engineering, delivery & support" },
     { k: "Customers", v: "2,500+ active users in 20+ countries" },
     { k: "Product", v: "FFH|ERP — nine modules, one platform" },
-    { k: "Support", v: "24/7 helpdesk in six languages" },
+    { k: "Support", v: "24/7 helpdesk in two languages" },
   ],
   story: [
     { year: "2012", title: "The first invoice", text: "KrisKross Inc. begins by writing billing software for neighbourhood retailers in Chennai." },
@@ -309,7 +309,7 @@ export const ABOUT_3 = {
   highlights: [
     { value: "2.5K+", label: "Active users on FFH|ERP" },
     { value: "9", label: "Connected modules" },
-    { value: "24/7", label: "Support, six languages" },
+    { value: "24/7", label: "Support, two languages" },
     { value: "20+", label: "Countries served" },
   ],
   pillars: [
@@ -345,7 +345,7 @@ export const ABOUT_4 = {
     "14 years in business software",
     "2,500+ active users",
     "20+ countries",
-    "24/7 support in six languages",
+    "24/7 support in two languages",
     "Nine connected modules",
   ],
 };
@@ -411,7 +411,7 @@ export const HOME5_HERO = {
     { icon: "Boxes", title: "Nine modules, one database", text: "Sales, purchase, billing, spend, AMC, support, work and projects stay in sync." },
     { icon: "Smartphone", title: "Runs on the phone", text: "Counter and field staff work offline; the office sees it the moment they sync." },
     { icon: "ShieldCheck", title: "Data stays in India", text: "Role-based access, audit trails, and export everything any time — no lock-in." },
-    { icon: "Headphones", title: "Support that answers", text: "A 24/7 helpdesk in six languages, staffed by people who know the product." },
+    { icon: "Headphones", title: "Support that answers", text: "A 24/7 helpdesk in two languages, staffed by people who know the product." },
   ],
 };
 
@@ -436,7 +436,7 @@ export const HOME7_HERO = {
     { value: "2.5K+", label: "Active users on it today" },
     { value: "14", label: "Years building business software" },
   ],
-  trust: ["No credit card required", "Setup in a day", "24/7 support in six languages"],
+  trust: ["No credit card required", "Setup in a day", "24/7 support in two languages"],
 };
 
 // ---------------------------------------------------------------------------
@@ -453,7 +453,7 @@ export const HOME8_HERO = {
     { value: "2.5K+", label: "Active users" },
     { value: "1 day", label: "Typical setup" },
   ],
-  bullets: ["No credit card required", "Data hosted in India", "24/7 support in six languages"],
+  bullets: ["No credit card required", "Data hosted in India", "24/7 support in two languages"],
 };
 
 export const HOME9_HERO = {
@@ -485,7 +485,7 @@ export const HOME10_HERO = {
     { value: "2012", label: "Building business software since" },
     { value: "2.5K+", label: "Active users" },
     { value: "10,000+", label: "Active installations" },
-    { value: "24/7", label: "Support, six languages" },
+    { value: "24/7", label: "Support, two languages" },
   ],
   trust: ["No credit card required", "Setup in a day", "Data hosted in India"],
 };
@@ -522,7 +522,7 @@ export const HOME12_HERO = {
   points: [
     { value: "9", label: "Modules on one database" },
     { value: "1 day", label: "Typical setup time" },
-    { value: "24/7", label: "Support in six languages" },
+    { value: "24/7", label: "Support in two languages" },
   ],
   panelTitle: "Today at a glance",
   trust: ["No credit card required", "Data hosted in India", "Cancel any time"],
@@ -647,7 +647,7 @@ export const ABOUT_10 = {
     { value: "2.5K+", label: "Active users" },
     { value: "10,000+", label: "Active installations" },
     { value: "20+", label: "Countries" },
-    { value: "24/7", label: "Support in six languages" },
+    { value: "24/7", label: "Support in two languages" },
   ],
 };
 
@@ -696,7 +696,7 @@ export const HOME17_HERO = {
   stats: [
     { value: "9", label: "Modules, one database" },
     { value: "2.5K+", label: "Active users" },
-    { value: "24/7", label: "Support, six languages" },
+    { value: "24/7", label: "Support, two languages" },
   ],
   features: [
     { icon: "Layers", title: "One calm surface", text: "Every module shares the same records, so there is nothing to reconcile between screens." },
@@ -826,7 +826,7 @@ export const HOME21 = {
     { value: "9", label: "Modules on one database" },
     { value: "1 day", label: "Typical setup" },
     { value: "99.98%", label: "Uptime" },
-    { value: "24/7", label: "Support, six languages" },
+    { value: "24/7", label: "Support, two languages" },
   ],
 };
 
@@ -1080,7 +1080,7 @@ export const HOME28 = {
   teamTitleB: "our people",
   team: [
     { name: "Ethan Reynolds", role: "Chief Executive Officer", text: "Fourteen years of implementations across manufacturing and retail.", img: 12 },
-    { name: "Mason Brooks", role: "Chief Operating Officer", text: "Runs delivery, migration and the support desk across six languages.", img: 14 },
+    { name: "Mason Brooks", role: "Chief Operating Officer", text: "Runs delivery, migration and the support desk across two languages.", img: 14 },
     { name: "James Reynolds", role: "Chief Technology Officer", text: "Owns the platform: one database, nine modules, no forks.", img: 18 },
     { name: "Mason Clark", role: "Head of Marketing", text: "Tells the customer stories and runs the partner network.", img: 60 },
   ],
@@ -1108,7 +1108,7 @@ export const HOME29 = {
     cards: [
       { icon: "TrendingUp", title: "Grow business", text: "A live pipeline, automated follow-ups and quotes that turn into orders without retyping." },
       { icon: "Users", title: "Business consultancy", text: "We map how the business runs today, then configure the modules around it." },
-      { icon: "Headphones", title: "Great support", text: "A helpdesk open 24/7 in six languages, with implementation included." },
+      { icon: "Headphones", title: "Great support", text: "A helpdesk open 24/7 in two languages, with implementation included." },
     ],
   },
   about: {
@@ -1175,7 +1175,7 @@ export const HOME30 = {
   badge: "Welcome To Smart Business Software",
   titleA: "The complete",
   titleB: "business system",
-  rating: "4.9 / 5.0",
+  rating: "4.4 / 5.0",
   ratingText: "Top-rated ERP platform, trusted by 2,500+ active users worldwide.",
   lead:
     "We believe great businesses don't run on guesswork. Nine modules on one database turn the day's work into numbers you can act on — and leave nothing to reconcile at month end.",
@@ -1261,13 +1261,13 @@ export const HOME31 = {
     { q: "What does FFH|ERP actually replace?", a: "The spreadsheet estate: enquiry registers, purchase trackers, invoice files, AMC sheets, ticket logs and project plans — all of it moves into one database with the reports your team already reads." },
     { q: "How long does an implementation take?", a: "Most teams go live in one to five weeks depending on how many modules and branches are in scope. We migrate your masters and opening balances, train each team, and run one parallel cycle before you switch." },
     { q: "How is pricing structured?", a: "Per module, per month, printed on the pricing page — no implementation fee and no per-invoice charge. You can add or drop modules as the business changes." },
-    { q: "Do you support us after go-live?", a: "Yes. A helpdesk open 24/7 in six languages, a named implementation contact for the first close, and quarterly reviews with our team." },
+    { q: "Do you support us after go-live?", a: "Yes. A helpdesk open 24/7 in two languages, a named implementation contact for the first close, and quarterly reviews with our team." },
     { q: "Where is our data kept?", a: "Hosted in India, with role-based access, a full audit trail and export available at any time — your data leaves with you if you ever decide to." },
     { q: "How do we get started?", a: "Start the free trial below, or book a 20-minute walkthrough on your own numbers. We will tell you honestly if the platform is not a fit." },
   ],
   awards: [
     { title: "Enterprise Software of the Year", text: "Recognised for delivery speed and depth of configuration across nine modules.", year: "2025" },
-    { title: "Best Support Experience", text: "For a helpdesk that answers in minutes, in six languages, around the clock.", year: "2024" },
+    { title: "Best Support Experience", text: "For a helpdesk that answers in minutes, in two languages, around the clock.", year: "2024" },
     { title: "Manufacturing Deployment Award", text: "Honoured for a four-plant rollout completed in five weeks.", year: "2023" },
   ],
 };
@@ -1286,9 +1286,9 @@ export const HOME32 = {
   chips: [
     { value: "9", label: "Modules on one database" },
     { value: "1 day", label: "Typical setup time" },
-    { value: "24/7", label: "Support in six languages" },
+    { value: "24/7", label: "Support in two languages" },
   ],
-  rating: { score: "4.9 / 5.0", text: "Top-rated ERP platform, built in India for growing businesses." },
+  rating: { score: "4.4 / 5.0", text: "Top-rated ERP platform, built in India for growing businesses." },
   panel: { title: "Today at a glance", feed: [] },
   feed: [
     "Free trial signup: Anjali Mehta (anjali@acme.in)",
@@ -1390,7 +1390,7 @@ export const ABOUT_11 = {
     "🧩 Nine modules, one database",
     "📈 Built for growing businesses",
     "⭐ 14 years in business software",
-    "📞 24/7 support in six languages",
+    "📞 24/7 support in two languages",
   ],
   topbar: { email: "ffhsales@kriskrossinc.com", phone: "+91 44 4858 5100", support: "Support" },
   hero: {
@@ -1430,7 +1430,7 @@ export const ABOUT_11 = {
     heading: "Over 2,500+ active users and growing",
     chips: [
       { v: "2.5K+", l: "Active users" },
-      { v: "4.9/5", l: "Average rating" },
+      { v: "4.4/5", l: "Average rating" },
       { v: "20+", l: "Countries" },
     ],
     cta: "Read more reviews",
@@ -1533,7 +1533,7 @@ export const ABOUT_12 = {
       { n: "03", title: "Learning, out loud", text: "Migration is done with you, not to you. Training for every team is included, and the pricing is printed on the website." },
       { n: "04", title: "Ownership of the outcome", text: "Sales, support and engineering share one customer scorecard. Nobody here is paid to sell you a licence you do not need." },
       { n: "05", title: "Trust, in writing", text: "Accurate books, no lock-in contracts, and everything you enter stays yours — exportable, always, without asking us." },
-      { n: "06", title: "Support in your language", text: "A 24/7 helpdesk in six languages, staffed by people who have stood behind a counter at nine in the evening." },
+      { n: "06", title: "Support in your language", text: "A 24/7 helpdesk in two languages, staffed by people who have stood behind a counter at nine in the evening." },
     ],
   },
   together: {
@@ -1558,7 +1558,7 @@ export const ABOUT_12 = {
       { v: "2.5K+", l: "Active users", note: "Teams running their day on FFH|ERP" },
       { v: "20+", l: "Countries", note: "India, the Gulf, South-East Asia and beyond" },
       { v: "9", l: "Modules", note: "On one database, with no exports between them" },
-      { v: "24/7", l: "Support", note: "Helpdesk in six languages" },
+      { v: "24/7", l: "Support", note: "Helpdesk in two languages" },
     ],
   },
   people: {
@@ -1595,7 +1595,7 @@ export const HOME37_MORE = {
       { n: "01", when: "Day 0", title: "Map what you already do", text: "A 60-minute call to walk your actual process — the registers, the WhatsApp groups, the export nobody trusts. You get a written module plan the same evening.", points: ["Process walkthrough", "Module plan in writing", "Fixed price, no discovery invoice"] },
       { n: "02", when: "Day 1 · morning", title: "We migrate your data with you", text: "Customers, items, opening balances, AMC contracts and open tickets come across from your spreadsheets or your old system. You check the totals before anything goes live.", points: ["Spreadsheet & legacy import", "Opening balances reconciled", "Your sign-off before go-live"] },
       { n: "03", when: "Day 1 · afternoon", title: "Training for every team", text: "Not one session for everybody — separate hands-on sessions for sales, accounts, stores and service, on your own screens and your own data.", points: ["Role-wise sessions", "Offline & mobile covered", "Recordings and a cheat sheet"] },
-      { n: "04", when: "Day 2", title: "Go live with support watching", text: "We stay on the line through your first invoices, first dispatch and first day-end. Anything that snags is fixed while you work, not in a ticket queue.", points: ["Named contact", "24/7 helpdesk in six languages", "No lock-in, cancel any time"] },
+      { n: "04", when: "Day 2", title: "Go live with support watching", text: "We stay on the line through your first invoices, first dispatch and first day-end. Anything that snags is fixed while you work, not in a ticket queue.", points: ["Named contact", "24/7 helpdesk in two languages", "No lock-in, cancel any time"] },
     ],
   },
   industries: {
@@ -1687,7 +1687,7 @@ export const ABOUT_13 = {
     button: { label: "See how it works", path: "/home38#how" },
   },
   stats: [
-    { v: "4.9", l: "Average rating" },
+    { v: "4.4", l: "Average rating" },
     { v: "2.5K+", l: "Active users" },
     { v: "20+", l: "Countries served" },
   ],
@@ -1697,7 +1697,7 @@ export const ABOUT_13 = {
     paragraphs: [
       "KrisKross Inc. started in 2012 writing billing software for neighbourhood retailers in Chennai. The brief was always the same: give me back my evening. Not a dashboard, not a report — an evening without reconciling registers.",
       "Retailers who started with billing asked for stock, purchase and accounts, so they were built in. Field teams wanted the sales cycle on a phone, and service teams wanted AMC renewals and tickets beside the invoice. Every module exists because a customer asked for it.",
-      "Fourteen years on, the same team ships nine connected modules on one database — sales, marketing, finance, materials, AMC, support and projects — and still answers the phone in six languages.",
+      "Fourteen years on, the same team ships nine connected modules on one database — sales, marketing, finance, materials, AMC, support and projects — and still answers the phone in two languages.",
     ],
     milestones: [
       { y: "2012", t: "The first invoice", d: "Billing software for retailers in Chennai." },
@@ -1720,7 +1720,7 @@ export const ABOUT_13 = {
       { icon: "Database", title: "One database", text: "Nine modules, no exports between them. The stock figure and the invoice figure cannot disagree because there is only one of each." },
       { icon: "WifiOff", title: "Offline-first", text: "Showrooms with patchy networks and field teams out of signal keep working, and everything syncs when the network returns." },
       { icon: "ArrowLeftRight", title: "Migration with you", text: "Customers, items, opening balances and open AMC contracts come across from your spreadsheets — checked by you before go-live." },
-      { icon: "Languages", title: "Support in your language", text: "A 24/7 helpdesk in six languages, staffed by people who have stood behind a counter at nine in the evening." },
+      { icon: "Languages", title: "Support in your language", text: "A 24/7 helpdesk in two languages, staffed by people who have stood behind a counter at nine in the evening." },
     ],
   },
   faq: { eyebrow: "FAQ's", title: "Have any questions?" },
@@ -1749,7 +1749,7 @@ export const ABOUT_14 = {
     items: [
       { icon: "Zap", title: "Speed", text: "Deployment and data gathering happen in 7–10 business days, and most teams are live in a day. No quarter-long implementation project, no consultant per module." },
       { icon: "LayoutGrid", title: "Clarity", text: "One number across sales, stock and accounts. Nine modules share a single database, so nothing has to be exported, reconciled or trusted on faith." },
-      { icon: "HeartHandshake", title: "Empathy", text: "Support in six languages, 24/7, staffed by people who have stood behind a counter. The pricing is printed on the website and there is no lock-in." },
+      { icon: "HeartHandshake", title: "Empathy", text: "Support in two languages, 24/7, staffed by people who have stood behind a counter. The pricing is printed on the website and there is no lock-in." },
     ],
     image: 1067,
   },
@@ -1822,14 +1822,14 @@ export const ABOUT_15 = {
       "FFH|ERP is a product of KrisKross Inc. We started in Chennai in 2012 writing billing software for neighbourhood retailers. Fourteen years on, nine connected modules run on one database for 2,500+ active users in 20+ countries — from the first enquiry to the final invoice.",
     main: "Start free trial",
     alt: "See the numbers",
-    rating: "4.9 / 5.0 — Top-rated ERP platform, built in India for growing businesses.",
+    rating: "4.4 / 5.0 — Top-rated ERP platform, built in India for growing businesses.",
     facts: [
       { k: "Founded", v: "2012", d: "Chennai, Tamil Nadu" },
       { k: "In business software", v: "14 yrs", d: "Same team, same product" },
       { k: "Active users", v: "2.5K+", d: "Running their day on it" },
       { k: "Countries", v: "20+", d: "India, the Gulf, SE Asia" },
       { k: "Modules", v: "9", d: "One database, no exports" },
-      { k: "Support", v: "24/7", d: "Helpdesk in six languages" },
+      { k: "Support", v: "24/7", d: "Helpdesk in two languages" },
     ],
   },
   story: {
@@ -1852,8 +1852,8 @@ export const ABOUT_15 = {
       { v: "20+", l: "Countries", d: "India, the Gulf, South-East Asia and beyond" },
       { v: "9", l: "Modules", d: "On one database, no exports between them" },
       { v: "14", l: "Years", d: "In business software, since 2012" },
-      { v: "4.9/5", l: "Average rating", d: "From the teams using it daily" },
-      { v: "24/7", l: "Support", d: "Helpdesk in six languages" },
+      { v: "4.4/5", l: "Average rating", d: "From the teams using it daily" },
+      { v: "24/7", l: "Support", d: "Helpdesk in two languages" },
     ],
   },
   nope: {
@@ -1898,7 +1898,7 @@ export const ABOUT_15 = {
 //                      do, technology, security, story, leadership, culture and
 //                      careers, reviews, FAQ and the sign-up block
 // Every claim here is one the site already makes: founded 2012, fourteen years,
-// 2,500+ active users, 20+ countries, nine modules, 4.9/5, ISO 27001 aligned,
+// 2,500+ active users, 20+ countries, nine modules, 4.4/5, ISO 27001 aligned,
 // GST and e-invoicing ready, role-based access, audit trail, daily backups, no
 // lock-in and published pricing. The customer numbers quoted on 17 are the ones
 // the customers themselves put in their reviews.
@@ -1924,7 +1924,7 @@ export const ABOUT_16 = {
     { k: "Countries", v: "20+" },
     { k: "Modules", v: "9" },
     { k: "Support", v: "24/7" },
-    { k: "Rating", v: "4.9/5" },
+    { k: "Rating", v: "4.4/5" },
   ],
   made: {
     eyebrow: "What it is made of",
@@ -1987,8 +1987,8 @@ export const ABOUT_17 = {
       { v: "20+", l: "Countries", d: "India, the Gulf, South-East Asia" },
       { v: "14", l: "Years", d: "In business software since 2012" },
       { v: "9", l: "Modules", d: "On one database" },
-      { v: "4.9/5", l: "Average rating", d: "From the teams using it daily" },
-      { v: "24/7", l: "Support", d: "Helpdesk in six languages" },
+      { v: "4.4/5", l: "Average rating", d: "From the teams using it daily" },
+      { v: "24/7", l: "Support", d: "Helpdesk in two languages" },
     ],
   },
   stories: { eyebrow: "Customer stories", title: "Six of the 2,500+, in their own words.", note: "Quotes are reproduced from the reviews customers left." },
@@ -2028,7 +2028,7 @@ export const ABOUT_18 = {
     { v: "2.5K+", l: "Active users" },
     { v: "20+", l: "Countries" },
     { v: "9", l: "Connected modules" },
-    { v: "4.9/5", l: "Average rating" },
+    { v: "4.4/5", l: "Average rating" },
   ],
   mission: {
     eyebrow: "Mission & vision",
@@ -2054,7 +2054,7 @@ export const ABOUT_18 = {
         { t: "Implementation in a day", d: "Mapping, configuration and go-live with your data and your team — not a quarter-long project." },
         { t: "Migration done with you", d: "Customers, items, opening balances and open AMC contracts, checked by you before go-live." },
         { t: "Training for every team", d: "Separate hands-on sessions for sales, accounts, stores and service, plus recordings." },
-        { t: "24/7 support, six languages", d: "A helpdesk staffed by people who have worked the counters your teams work." },
+        { t: "24/7 support, two languages", d: "A helpdesk staffed by people who have worked the counters your teams work." },
       ],
     },
   },
@@ -2078,7 +2078,7 @@ export const ABOUT_18 = {
   },
   leadership: { eyebrow: "Leadership", title: "The people who run it.", lead: "No layers between you and the decision makers. Behind them, 250+ across engineering, implementation, migration and support." },
   culture: { eyebrow: "Culture & careers", title: "How we work, and who we are looking for." },
-  reviews: { eyebrow: "Customer reviews", title: "The businesses that stayed.", note: "A 4.9 average across 2,500+ active users — six of them, in their own words." },
+  reviews: { eyebrow: "Customer reviews", title: "The businesses that stayed.", note: "A 4.4 average across 2,500+ active users — six of them, in their own words." },
   recognition: { eyebrow: "Trusted by", title: "Running in businesses you would recognise." },
   faq: { eyebrow: "Questions", title: "Before you decide." },
   signup: {

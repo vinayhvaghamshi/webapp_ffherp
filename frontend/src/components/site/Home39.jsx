@@ -5,7 +5,6 @@ import Icon from "./TwIcon";
 import { HOME39, HOME39_MORE, HOME39_SIGNUP, HOME30, FAQS, PLANS, TOOLS, WHY_FEATURES, formatINR } from "../../mock";
 import { LiveCRMWindow } from "./LiveCRM";
 import TwSignupForm from "./TwSignupForm";
-import HomeLayoutNav from "./HomeLayoutNav";
 import SiteHeader from "./SiteHeader";
 import SupportChat from "./SupportChat";
 import { scrollToId, useGoTo } from "./crmStore";
@@ -295,10 +294,10 @@ export default function Home39() {
       <section className="relative border-y px-5 py-6 sm:px-8" style={{ borderColor: LINE, background: "#fff" }} data-testid="home39-trustbar">
         <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-x-9 gap-y-3 text-center">
           {[
-            { v: "4.9 / 5.0", l: "Average rating" },
+            { v: "4.4 / 5.0", l: "Average rating" },
             { v: "2.5K+", l: "Active users" },
             { v: "20+", l: "Countries" },
-            { v: "24/7", l: "Support in six languages" },
+            { v: "24/7", l: "Support in two languages" },
             { v: "ISO 27001", l: "Aligned processes" },
             { v: "GST & e-invoice", l: "Ready out of the box" },
           ].map((t) => (
@@ -352,7 +351,7 @@ export default function Home39() {
 
             <div className="mt-9 flex flex-wrap items-center gap-5 text-[13px]" style={{ color: "#6b7280" }}>
               <span className="flex text-amber-500">{[0, 1, 2, 3, 4].map((i) => <Star key={i} className="h-4 w-4 fill-current" />)}</span>
-              <span><strong style={{ color: NAVY }}>4.9 / 5.0</strong> — {HOME39.rating.text}</span>
+              <span><strong style={{ color: NAVY }}>4.4 / 5.0</strong> — {HOME39.rating.text}</span>
             </div>
 
             {/* compliance badges */}
@@ -1089,13 +1088,12 @@ export default function Home39() {
                 );
               })}
             </div>
-            <div className="mt-8"><HomeLayoutNav /></div>
           </div>
           <div className="col-span-12 lg:col-span-7">
             <div className="rounded-[22px] bg-white p-8 transition-shadow duration-300 hover:shadow-xl" style={{ border: `1px solid ${LINE}`, boxShadow: "0 36px 70px -42px rgba(207,95,18,.45)" }}>
               <h3 className="text-2xl font-semibold tracking-[-0.02em]" style={{ color: NAVY }}>Talk to a human</h3>
               <p className="mt-3 text-[15px] leading-relaxed" style={{ color: "#4a5568" }}>
-                A helpdesk staffed by people who know the product, open 24/7 in six languages — or a 20-minute walkthrough on your own numbers.
+                A helpdesk staffed by people who know the product, open 24/7 in two languages — or a 20-minute walkthrough on your own numbers.
               </p>
               <ul className="mt-7 space-y-4">
                 {[["Phone", "+91 92841 62015", "tel:+919284162015"], ["Email", "ffhsales@kriskrossinc.com", "mailto:ffhsales@kriskrossinc.com"]].map(([label, value, href]) => (
