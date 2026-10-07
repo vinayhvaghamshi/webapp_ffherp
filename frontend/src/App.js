@@ -2,69 +2,26 @@ import React, { useEffect, useLayoutEffect } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import { Toaster } from "./components/ui/sonner";
-import Header from "./components/site/Header";
-import HeaderPill from "./components/site/HeaderPill";
-import HeaderApp from "./components/site/HeaderApp";
-import Footer from "./components/site/Footer";
-import Home1 from "./components/site/Home1";
-import Home2 from "./components/site/Home2";
-import Home3 from "./components/site/Home3";
-import Home4 from "./components/site/Home4";
-import Home5 from "./components/site/Home5";
-import Home6 from "./components/site/Home6";
-import Home7 from "./components/site/Home7";
-import Home8 from "./components/site/Home8";
-import Home9 from "./components/site/Home9";
-import Home10 from "./components/site/Home10";
-import Home11 from "./components/site/Home11";
-import Home12 from "./components/site/Home12";
-import Home13 from "./components/site/Home13";
-import Home14 from "./components/site/Home14";
-import Home15 from "./components/site/Home15";
-import Home16 from "./components/site/Home16";
-import Home17 from "./components/site/Home17";
-import Home18 from "./components/site/Home18";
-import Home20 from "./components/site/Home20";
-import Home21 from "./components/site/Home21";
-import Home22 from "./components/site/Home22";
-import Home23 from "./components/site/Home23";
-import Home24 from "./components/site/Home24";
-import Home25 from "./components/site/Home25";
-import Home26 from "./components/site/Home26";
-import Home27 from "./components/site/Home27";
-import Home28 from "./components/site/Home28";
-import Home29 from "./components/site/Home29";
-import Home30 from "./components/site/Home30";
-import Home31 from "./components/site/Home31";
-import Home32 from "./components/site/Home32";
-import Home33 from "./components/site/Home33";
-import Home34 from "./components/site/Home34";
-import Home35 from "./components/site/Home35";
-import Home36 from "./components/site/Home36";
-import Home37 from "./components/site/Home37";
-import Home38 from "./components/site/Home38";
 import Home39 from "./components/site/Home39";
-import About1 from "./components/site/About1";
-import About2 from "./components/site/About2";
-import About3 from "./components/site/About3";
-import About4 from "./components/site/About4";
-import About5 from "./components/site/About5";
-import About6 from "./components/site/About6";
-import About7 from "./components/site/About7";
-import About8 from "./components/site/About8";
-import About9 from "./components/site/About9";
-import About10 from "./components/site/About10";
-import About11 from "./components/site/About11";
-import About12 from "./components/site/About12";
-import About13 from "./components/site/About13";
-import About14 from "./components/site/About14";
-import About15 from "./components/site/About15";
-import About16 from "./components/site/About16";
-import About17 from "./components/site/About17";
-import About18 from "./components/site/About18";
-import About19 from "./components/site/About19";
 import About20 from "./components/site/About20";
 import { CRMProvider } from "./components/site/crmStore";
+
+// ---------------------------------------------------------------------------
+// Branch "8octo" — a trimmed build of the project.
+//
+// Only the two latest pages are wired up: layout 39 (the home page) and layout
+// 20 (the About page). Every other layout that used to live here has been
+// removed, so the bundle only ships what these two pages need. The tooling is
+// untouched: CRA 5 + craco, Tailwind 3, Bootstrap, the same package.json.
+//
+//   /             -> /home39
+//   /home39       -> the home page
+//   /about20      -> the About page
+//   anything else -> /home39
+//
+// Both layouts bring their own header, footer and support chat, so the shared
+// Bootstrap Header/Footer are not used here at all.
+// ---------------------------------------------------------------------------
 
 function useReveal(routeKey) {
   // Runs before the first paint: anything already in the viewport (the hero) is shown
@@ -109,89 +66,15 @@ function App() {
     window.scrollTo({ top: 0, behavior: "auto" });
   }, [location.pathname, location.state]);
 
-  // The pill navigation is used by the reference layout (16) and by the glass
-  // layout (17, in its glass variant); every other page keeps the standard header.
-  // The bare URL always opens the newest home layout — bump this one line when a
-// new layout lands.
-const LATEST_HOME = "/home39";
-const pillNav = ["/home16", "/home17", "/home18"].includes(location.pathname);
-  const pillVariant = location.pathname === "/home17" ? "glass" : location.pathname === "/home18" ? "glass-dark" : undefined;
-  const appHeader = location.pathname === "/home20";
-  // The Tailwind layouts ship their own header and footer, so the shared
-  // Bootstrap chrome is skipped for them entirely.
-  const bareLayout = ["/home21", "/home22", "/home23", "/home24", "/home25", "/home26", "/home27", "/home28", "/home29", "/home30", "/home31", "/home32", "/home33", "/home34", "/home35", "/home36", "/home37", "/home38", "/home39", "/about11", "/about12", "/about13", "/about14", "/about15", "/about16", "/about17", "/about18", "/about19", "/about20"].includes(location.pathname);
-
   return (
     <CRMProvider>
       <div className="ffh-app">
-        {bareLayout ? null : appHeader ? <HeaderApp /> : pillNav ? <HeaderPill variant={pillVariant} /> : <Header />}
         <Routes>
-          {/* Home layouts: "/" keeps the original page; each is also addressable by name */}
-          <Route path="/" element={<Navigate to={LATEST_HOME} replace />} />
-          <Route path="/home1" element={<Home1 />} />
-          <Route path="/home1" element={<Home1 />} />
-          <Route path="/home2" element={<Home2 />} />
-          <Route path="/home3" element={<Home3 />} />
-          <Route path="/home4" element={<Home4 />} />
-          <Route path="/home5" element={<Home5 />} />
-          <Route path="/home6" element={<Home6 />} />
-          <Route path="/home7" element={<Home7 />} />
-          <Route path="/home8" element={<Home8 />} />
-          <Route path="/home9" element={<Home9 />} />
-          <Route path="/home10" element={<Home10 />} />
-          <Route path="/home11" element={<Home11 />} />
-          <Route path="/home12" element={<Home12 />} />
-          <Route path="/home13" element={<Home13 />} />
-          <Route path="/home14" element={<Home14 />} />
-          <Route path="/home15" element={<Home15 />} />
-          <Route path="/home16" element={<Home16 />} />
-          <Route path="/home17" element={<Home17 />} />
-          <Route path="/home18" element={<Home18 />} />
-          <Route path="/home20" element={<Home20 />} />
-          <Route path="/home21" element={<Home21 />} />
-          <Route path="/home22" element={<Home22 />} />
-          <Route path="/home23" element={<Home23 />} />
-          <Route path="/home24" element={<Home24 />} />
-          <Route path="/home25" element={<Home25 />} />
-          <Route path="/home26" element={<Home26 />} />
-          <Route path="/home27" element={<Home27 />} />
-          <Route path="/home28" element={<Home28 />} />
-          <Route path="/home29" element={<Home29 />} />
-          <Route path="/home30" element={<Home30 />} />
-          <Route path="/home31" element={<Home31 />} />
-          <Route path="/home32" element={<Home32 />} />
-          <Route path="/home33" element={<Home33 />} />
-          <Route path="/home34" element={<Home34 />} />
-          <Route path="/home35" element={<Home35 />} />
-          <Route path="/home36" element={<Home36 />} />
-          <Route path="/home37" element={<Home37 />} />
-          <Route path="/home38" element={<Home38 />} />
+          <Route path="/" element={<Navigate to="/home39" replace />} />
           <Route path="/home39" element={<Home39 />} />
-          {/* About layouts: /about keeps the original page */}
-          <Route path="/about" element={<About1 />} />
-          <Route path="/about1" element={<About1 />} />
-          <Route path="/about2" element={<About2 />} />
-          <Route path="/about3" element={<About3 />} />
-          <Route path="/about4" element={<About4 />} />
-          <Route path="/about5" element={<About5 />} />
-          <Route path="/about6" element={<About6 />} />
-          <Route path="/about7" element={<About7 />} />
-          <Route path="/about8" element={<About8 />} />
-          <Route path="/about9" element={<About9 />} />
-          <Route path="/about10" element={<About10 />} />
-          <Route path="/about11" element={<About11 />} />
-          <Route path="/about12" element={<About12 />} />
-          <Route path="/about13" element={<About13 />} />
-          <Route path="/about14" element={<About14 />} />
-          <Route path="/about15" element={<About15 />} />
-          <Route path="/about16" element={<About16 />} />
-          <Route path="/about17" element={<About17 />} />
-          <Route path="/about18" element={<About18 />} />
-          <Route path="/about19" element={<About19 />} />
           <Route path="/about20" element={<About20 />} />
-          <Route path="*" element={<Home1 />} />
+          <Route path="*" element={<Navigate to="/home39" replace />} />
         </Routes>
-        {bareLayout ? null : <Footer />}
         <Toaster position="top-right" richColors />
       </div>
     </CRMProvider>
