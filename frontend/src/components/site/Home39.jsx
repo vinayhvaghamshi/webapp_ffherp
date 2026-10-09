@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, Facebook, IndianRupee, Instagram, Linkedin, Mail, Minus, Pause, Phone, Play, Plus, ShieldCheck, Star, TrendingUp, Twitter, Users, X, Youtube } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown, Facebook, IndianRupee, Instagram, Linkedin, Mail, Minus, Pause, Phone, Play, Plus, ShieldCheck, Star, TrendingUp, Users, X, Youtube } from "lucide-react";
 import Icon from "./TwIcon";
 import { HOME39, HOME39_MORE, HOME39_SIGNUP, HOME30, FAQS, OFFICES, PLANS, TOOLS, WHY_FEATURES, formatINR } from "../../mock";
 import { LiveCRMWindow } from "./LiveCRM";
 import TwSignupForm from "./TwSignupForm";
+import { SERVICE_ROWS } from "../../generated/servicesData";
 import OfficeCards from "./OfficeCards";
 import SiteHeader from "./SiteHeader";
 import SupportChat from "./SupportChat";
@@ -503,7 +504,7 @@ export default function Home39() {
             {HOME39.servicesTitle}
           </h2>
           <div className="mt-14 border-y" style={{ borderColor: LINE }} data-testid="home39-accordion">
-            {HOME30.services.map((s, i) => {
+            {(SERVICE_ROWS.length ? SERVICE_ROWS : HOME30.services).map((s, i) => {
               const isOpen = openService === i;
               return (
                 <div key={s.name} className="border-b last:border-b-0" style={{ borderColor: LINE }} data-testid={`home39-service-${i}`}>
@@ -523,7 +524,7 @@ export default function Home39() {
                     <div className="overflow-hidden">
                       <div className={`grid grid-cols-12 items-center gap-x-0 gap-y-8 pb-9 transition-all duration-500 sm:gap-x-8 ${isOpen ? "translate-y-0 opacity-100" : "translate-y-2 opacity-[0]"}`}>
                         <p className="col-span-12 text-[15.5px] leading-relaxed lg:col-span-5" style={{ color: "#4a5568" }}>{s.text}</p>
-                        <img src={`https://picsum.photos/id/${s.img}/1000/620`} alt="" width="1000" height="620" loading="lazy"
+                        <img src={/^(https?:|\/|services\/)/.test(s.img || "") ? (/^https?:/.test(s.img) ? s.img : `${process.env.PUBLIC_URL}/${s.img}`) : `https://picsum.photos/id/${s.img}/1000/620`} alt="" width="1000" height="620" loading="lazy"
                           className="col-span-12 h-[170px] w-full rounded-2xl object-cover transition-transform duration-700 hover:scale-[1.02] sm:h-[190px] lg:col-span-5 lg:h-[200px]" />
                         <div className="col-span-12 lg:col-span-2 lg:text-right">
                           <button onClick={(e) => go(e, "#contact")} className={`inline-flex items-center gap-2 rounded-full ${GRAD} px-5 py-3 text-[13.5px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:brightness-105`}>
@@ -1094,8 +1095,8 @@ export default function Home39() {
                 {[
                   ["Office", "+91 20 2588 6186", "tel:+912025886186"],
                   ["Sales", "+91 92841 62015", "tel:+919284162015"],
-                  ["Email", "ffhsales@kriskrossinc.com", "mailto:ffhsales@kriskrossinc.com"],
-                  ["Pune (main)", "9, Royal Home, Sahil Park / Sanewadi, Aundh, Pune 411067", null],
+                  ["Email", "adminhr@kriskrossinc.com", "mailto:adminhr@kriskrossinc.com"],
+                  ["Pune (main)", "9, Royal Home Apts, Sanewadi, Aundh, Pune - 411007", null],
                   ["Hours", "Mon–Sat 9:30 AM – 8:00 PM · Sunday closed", null],
                 ].map(([label, value, href]) => (
                   <li key={label} className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 rounded-2xl px-5 py-4 transition-transform duration-300 hover:-translate-y-0.5" style={{ background: SOFT, border: `1px solid ${LINE}` }}>
@@ -1150,8 +1151,9 @@ export default function Home39() {
             <div className="col-span-12 sm:col-span-4 lg:col-span-3">
               <h6 className="text-[13px] font-semibold text-white">Follow us</h6>
               <div className="mt-4 flex flex-wrap gap-2">
-                {[[Instagram, "Instagram"], [Facebook, "Facebook"], [Linkedin, "LinkedIn"], [Twitter, "X (Twitter)"], [Youtube, "YouTube"]].map(([I, label]) => (
-                  <a key={label} href="#top" onClick={(e) => e.preventDefault()} aria-label={label} title={label}
+                {[[Instagram, "Instagram", "https://www.instagram.com/ffherp"], [Facebook, "Facebook", "https://www.facebook.com/ffherp/"], [Linkedin, "LinkedIn", "https://www.linkedin.com/company/ffh-erp"], [Youtube, "YouTube", "https://www.youtube.com/@supportatkriskross4955"]].map(([I, label, url]) => (
+                  <a key={label} href={url || "#top"} aria-label={label} title={label}
+                    {...(url ? { target: "_blank", rel: "noopener noreferrer" } : { onClick: (e) => e.preventDefault() })}
                     className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/25 hover:text-white">
                     <I className="h-[18px] w-[18px]" strokeWidth={1.8} />
                   </a>
@@ -1166,8 +1168,8 @@ export default function Home39() {
             <div className="col-span-12 mt-2 border-t border-white/10 pt-8">
               <h6 className="text-[13px] font-semibold text-white">Reach us</h6>
               <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-[13.5px] text-white/65">
-                <a href="mailto:ffhsales@kriskrossinc.com" className="inline-flex items-center gap-2 transition hover:text-white">
-                  <Mail className="h-4 w-4 shrink-0" style={{ color: "var(--brand)" }} />ffhsales@kriskrossinc.com
+                <a href="mailto:adminhr@kriskrossinc.com" className="inline-flex items-center gap-2 transition hover:text-white">
+                  <Mail className="h-4 w-4 shrink-0" style={{ color: "var(--brand)" }} />adminhr@kriskrossinc.com
                 </a>
                 <a href="tel:+912025886186" className="inline-flex items-center gap-2 transition hover:text-white">
                   <Phone className="h-4 w-4 shrink-0" style={{ color: "var(--brand)" }} />+91 20 2588 6186

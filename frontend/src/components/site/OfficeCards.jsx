@@ -31,6 +31,11 @@ export default function OfficeCards({ testid = "office" }) {
               <Phone className="h-4 w-4 shrink-0" style={{ color: "var(--brand)" }} />{o.phone}
             </a>
           ) : null}
+          {o.email ? (
+            <a href={`mailto:${o.email}`} className="mt-2 inline-flex items-center gap-2 break-all text-[12.5px] text-white/60 transition hover:text-white">
+              <Mail className="h-4 w-4 shrink-0" style={{ color: "var(--brand)" }} />{o.email}
+            </a>
+          ) : null}
           {o.hours ? (
             <span className="mt-2 flex items-center gap-2 text-[12.5px] text-white/45">
               <Clock className="h-4 w-4 shrink-0" style={{ color: "var(--brand)" }} />{o.hours}

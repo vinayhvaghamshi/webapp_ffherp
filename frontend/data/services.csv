@@ -1,0 +1,20 @@
+# FFH|ERP services — the home page's "Creative solutions for every business need" accordion.
+#
+# Edit this file to change the services list. Nothing else needs touching.
+#
+#   name    the service name, shown as the row heading
+#   text    the paragraph revealed when the row is opened
+#   image   what to show beside it:
+#             services/your-photo.jpeg   a file in public/services/
+#             https://example.com/x.jpg  any full URL
+#             12                         a number = a picture from picsum.photos
+#
+# Rows appear in the order written here, numbered 01, 02, ... on the page.
+# Fields containing commas must be wrapped in "double quotes".
+name,text,image
+Artificial Intelligence (AI),"AI built into the modules you already use, running on your own data — lead scoring, next-best-action, demand forecasting, renewal signals and anomaly checks. No separate AI project to buy, no data shipped out.",services/artificial-intelligence.jpeg
+Sales & marketing,"Our team delivers a pipeline that moves — clean data, automated follow-ups, zero guesswork. Every enquiry, quote and order is one record.",services/sales-marketing.jpeg
+Finance & billing,"GST invoices, receivables and approvals drawn from the same records you sell on, with e-invoicing ready from day one.",services/finance-billing.jpeg
+AMC & support,"Warranty, contracts, tickets and renewals with the reminders built in, so service levels stop depending on memory.",services/amc-support.jpeg
+Work & projects,"Plan, allocate, bill and track delivery margin on every project — with the effort and the money in one place.",4
+Integrations,"Tally, payment gateways, WhatsApp and your own APIs, wired in, monitored and owned by us.",services/integrations.jpeg

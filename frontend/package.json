@@ -66,7 +66,9 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "postbuild": "cp build/index.html build/404.html && touch build/.nojekyll"
+    "postbuild": "cp build/index.html build/404.html && touch build/.nojekyll",
+    "prestart": "node scripts/build-data.js",
+    "prebuild": "node scripts/build-data.js"
   },
   "browserslist": {
     "production": [

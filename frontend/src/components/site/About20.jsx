@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import {
-  ArrowRight, ArrowUpRight, BadgeCheck, Check, Facebook, Instagram, Linkedin, Mail, Phone, Twitter, Youtube,
+  ArrowRight, ArrowUpRight, BadgeCheck, Check, Facebook, Instagram, Linkedin, Mail, Phone, Youtube,
 } from "lucide-react";
 import { ABOUT_3, ABOUT_6, ABOUT_10, ABOUT_20, ABOUT_ALT, ABOUT_US, TEAM, WHY_FEATURES, OFFICES } from "../../mock";
+import { TEAM_ROWS } from "../../generated/teamData";
+import ExpoGallery from "./ExpoGallery";
 import OfficeCards from "./OfficeCards";
 import SiteHeader from "./SiteHeader";
 import { Icon } from "./Trusted";
@@ -24,7 +26,10 @@ const SOFT = "#fff6ec";
 const LINE = "#f4e2ce";
 const GRAD = "bg-gradient-to-r from-[#f7a52a] to-[#f0452c]";
 const GRAD_TEXT = "bg-gradient-to-r from-[#f7a52a] to-[#f0452c] bg-clip-text text-transparent";
-const SOCIAL = { Instagram, Facebook, LinkedIn: Linkedin, Twitter, YouTube: Youtube };
+const SOCIAL = { Instagram, Facebook, LinkedIn: Linkedin, YouTube: Youtube };
+// Only the profiles we actually have. Anything without a URL keeps the inert
+// placeholder rather than sending people to a page that does not exist.
+const SOCIAL_URL = { Instagram: "https://www.instagram.com/ffherp", Facebook: "https://www.facebook.com/ffherp/", LinkedIn: "https://www.linkedin.com/company/ffh-erp", YouTube: "https://www.youtube.com/@supportatkriskross4955" };
 // a handwriting-ish face for the signatures, from the fonts already loaded
 const SIGNATURE = { fontFamily: '"Newsreader", Georgia, serif', fontStyle: "italic", fontWeight: 500 };
 
@@ -78,6 +83,10 @@ const Counter = ({ value }) => {
 };
 
 export default function About20() {
+  // Leadership is baked in from data/team.csv at build time, so the list stays a
+  // plain editable CSV while never being reachable at a URL.
+  const [team] = useState(TEAM_ROWS.length ? TEAM_ROWS : TEAM);
+
   const goTo = useGoTo();
   const location = useLocation();
   const A = ABOUT_20;
@@ -205,16 +214,32 @@ export default function About20() {
         <div className="relative mx-auto max-w-[1400px]">
           <div className="reveal">
             <Label>{A.leadership.eyebrow}</Label>
+
             <h2 className="mt-6 text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl" style={{ color: NAVY }}>{A.leadership.title}</h2>
             <p className="mt-5 max-w-3xl text-[15.5px] leading-relaxed" style={{ color: "#4a5568" }}>{A.leadership.lead}</p>
           </div>
           <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {TEAM.map((t, i) => (
-              <figure key={t.name} className="reveal flex h-full flex-col rounded-3xl bg-white p-6 transition-all duration-300 hover:-translate-y-1.5"
+            {team.map((t, i) => (
+              <figure key={t.name} className="reveal group flex h-full flex-col overflow-hidden rounded-3xl bg-white transition-all duration-300 hover:-translate-y-0.5"
                 style={{ border: `1px solid ${LINE}`, transitionDelay: `${i * 50}ms` }} data-testid={`a20-leader-${i}`}>
-                <img src={`https://i.pravatar.cc/300?img=${t.img}`} alt={t.name} width="300" height="300" loading="lazy"
-                  className="h-[150px] w-full rounded-2xl object-cover" />
-                <figcaption className="mt-5 flex flex-1 flex-col">
+                {t.photo ? (
+                  /* the photograph leads the card, full width and uncropped */
+                  <img src={/^https?:/.test(t.photo) ? t.photo : `${process.env.PUBLIC_URL}/team/${t.photo}`} alt={t.name}
+                    width="700" loading="lazy"
+                    className="aspect-square h-auto w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" />
+                ) : t.avatar ? (
+                  /* temporary stock face — see the note on TEAM in mock.js */
+                  <img src={`https://i.pravatar.cc/700?img=${t.avatar}`} alt={t.name} width="700" loading="lazy"
+                    className="aspect-square h-auto w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" />
+                ) : (
+                  /* no photograph yet: initials, never a stock face */
+                  <span className="flex aspect-square w-full items-center justify-center text-[54px] font-semibold tracking-[0.02em]"
+                    style={{ background: "linear-gradient(135deg, #fdeedd 0%, #fff6ec 60%)", color: BRAND_DARK }}
+                    aria-hidden="true" data-testid={`a20-monogram-${i}`}>
+                    {t.name.split(/\s+/).map((w) => w[0]).slice(0, 2).join("").toUpperCase()}
+                  </span>
+                )}
+                <figcaption className="flex flex-1 flex-col p-6">
                   <strong className="block text-[16.5px] font-semibold tracking-[-0.01em]" style={{ color: NAVY }}>{t.name}</strong>
                   <span className="mt-1 block text-[12.5px] font-medium" style={{ color: BRAND_DARK }}>{t.role}</span>
                   <p className="mt-3 flex-1 text-[13.5px] leading-[1.7]" style={{ color: "#6b7280" }}>{t.bio}</p>
@@ -340,6 +365,30 @@ export default function About20() {
         </div>
       </section>
 
+      {/* ---------- 12. on the floor: photos listed in public/expo/photos.csv ---------- */}
+      <section id="expo" className="relative overflow-hidden border-y px-5 py-20 sm:px-8 sm:py-24" data-testid="a20-expo"
+        style={{ borderColor: LINE, background: "linear-gradient(180deg, #fff5ea 0%, #fffdfa 58%, #ffffff 100%)" }}>
+        <div className="pointer-events-none absolute -right-32 -top-32 h-[460px] w-[460px] rounded-full" aria-hidden="true"
+          style={{ background: "radial-gradient(circle, rgba(240,123,35,.20), rgba(240,123,35,0) 70%)" }} />
+        <div className="pointer-events-none absolute inset-0 opacity-[.5]" aria-hidden="true"
+          style={{ backgroundImage: "radial-gradient(rgba(22,40,60,.10) 1px, transparent 1px)", backgroundSize: "26px 26px",
+            maskImage: "linear-gradient(180deg, rgba(0,0,0,.55), transparent 45%)", WebkitMaskImage: "linear-gradient(180deg, rgba(0,0,0,.55), transparent 45%)" }} />
+        <div className="relative mx-auto max-w-[1400px]">
+          <div className="reveal">
+            <span className="text-[12px] font-semibold uppercase tracking-[0.16em]" style={{ color: BRAND }}>On the floor</span>
+            <h2 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.06] tracking-[-0.03em] sm:text-5xl" style={{ color: NAVY }}>
+              Where you can meet us.
+            </h2>
+            <p className="mt-5 max-w-2xl text-[16px] leading-relaxed" style={{ color: "#4a5568" }}>
+              We put FFH|ERP on the floor — live demos on real data — at expos and B2B meets. These are our own photographs from the booths we have run, and the list is kept in a file anyone on the team can update.
+            </p>
+          </div>
+          <div className="mt-14">
+            <ExpoGallery testid="a20-expo" theme="light" />
+          </div>
+        </div>
+      </section>
+
       {/* ---------- 11. advertisement ---------- */}
       <section className="px-5 pb-20 sm:px-8" data-testid="a20-ad">
         <div className="mx-auto max-w-[1400px]">
@@ -379,6 +428,7 @@ export default function About20() {
         </div>
       </section>
 
+
       {/* ---------- footer ---------- */}
       <footer className="px-5 pb-10 pt-14 sm:px-8" style={{ background: NAVY }} data-testid="a20-footer">
         <div className="mx-auto max-w-[1400px]">
@@ -391,10 +441,13 @@ export default function About20() {
               </div>
               <p className="mt-4 max-w-sm text-[14px] leading-relaxed text-white/65">{A.footer.blurb}</p>
               <div className="mt-5 flex flex-wrap gap-2">
-                {["Instagram", "Facebook", "LinkedIn", "Twitter", "YouTube"].map((s) => {
+                {["Instagram", "Facebook", "LinkedIn", "YouTube"].map((s) => {
                   const I = SOCIAL[s];
                   return (
-                    <a key={s} href="#top" onClick={(e) => e.preventDefault()} aria-label={s} title={s}
+                    <a key={s} href={SOCIAL_URL[s] || "#top"} aria-label={s} title={s}
+                      {...(SOCIAL_URL[s]
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : { onClick: (e) => e.preventDefault() })}
                       className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/25 hover:text-white">
                       <I className="h-[18px] w-[18px]" strokeWidth={1.8} />
                     </a>
@@ -418,8 +471,8 @@ export default function About20() {
             <div className="col-span-12 mt-2 border-t border-white/10 pt-8">
               <h6 className="text-[13px] font-semibold text-white">Reach us</h6>
               <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-[13.5px] text-white/65">
-                <a href="mailto:ffhsales@kriskrossinc.com" className="inline-flex items-center gap-2 transition hover:text-white">
-                  <Mail className="h-4 w-4 shrink-0" style={{ color: "var(--brand)" }} />ffhsales@kriskrossinc.com
+                <a href="mailto:adminhr@kriskrossinc.com" className="inline-flex items-center gap-2 transition hover:text-white">
+                  <Mail className="h-4 w-4 shrink-0" style={{ color: "var(--brand)" }} />adminhr@kriskrossinc.com
                 </a>
                 <a href="tel:+912025886186" className="inline-flex items-center gap-2 transition hover:text-white">
                   <Phone className="h-4 w-4 shrink-0" style={{ color: "var(--brand)" }} />+91 20 2588 6186

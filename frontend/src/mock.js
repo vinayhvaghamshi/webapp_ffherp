@@ -96,22 +96,27 @@ export const MODULE_TABS = [
 export const OFFICES = [
   {
     flag: "🇮🇳", city: "Pune", country: "India", label: "Main office",
-    address: "9, Royal Home, Sahil Park / Sanewadi, Aundh, Pune, Maharashtra 411067",
-    phone: "+91 20 2588 6186", tel: "+912025886186",
+    address: "9, Royal Home Apts, Sanewadi, Aundh, Pune - 411007",
+    phone: "020-2588 6186", tel: "+912025886186",
+    email: "adminhr@kriskrossinc.com",
     hours: "Mon–Sat 9:30 AM – 8:00 PM · Sunday closed",
-    maps: "9, Royal Home, Sahil Park, Sanewadi, Aundh, Pune 411067",
+    maps: "9, Royal Home Apts, Sanewadi, Aundh, Pune 411007",
   },
   {
     flag: "🇮🇳", city: "Mumbai", country: "India", label: "Office",
-    address: "204, Oberoi Trade Centre, Off Link Road, Andheri West, Mumbai, Maharashtra 400053",
-    phone: null, tel: null, hours: null,
-    maps: "204, Oberoi Trade Centre, Off Link Road, Andheri West, Mumbai 400053",
+    address: "Gurgit, Ground Floor, 16, North Avenue Rd, Next to Gurudwara, Santa Cruz (W), Mumbai - 400054",
+    phone: "+91 93210 69166", tel: "+919321069166",
+    email: "adminhr@kriskrossinc.com",
+    hours: null,
+    maps: "Gurgit, Ground Floor, 16, North Avenue Rd, Santa Cruz West, Mumbai 400054",
   },
   {
-    flag: "🇺🇸", city: "Atlanta", country: "United States", label: "Kris Kross, Inc. · Georgia",
-    address: "c/o Carter & Co., 1 Capital City Plaza, 3350 Peachtree Rd NE, Suite 1160, Atlanta, Georgia 30326",
-    phone: null, tel: null, hours: null,
-    maps: "3350 Peachtree Rd NE, Suite 1160, Atlanta, Georgia 30326",
+    flag: "🇺🇸", city: "Plano", country: "United States", label: "Kris Kross, Inc.",
+    address: "8025, Marathon Dr, Plano, TX 75024",
+    phone: "+1 530 334 6725", tel: "+15303346725",
+    email: "adminhr@kriskrossinc.com",
+    hours: null,
+    maps: "8025 Marathon Dr, Plano, TX 75024",
   },
 ];
 
@@ -234,30 +239,16 @@ export const ABOUT_US = {
 };
 
 export const TEAM = [
-  {
-    name: "Suresh Ramachandran",
-    role: "Chief Executive Officer",
-    img: 12,
-    bio: "14 years building and scaling enterprise software businesses across India, the Gulf and South-East Asia.",
-  },
-  {
-    name: "Deepa Krishnan",
-    role: "Chief Operating Officer",
-    img: 45,
-    bio: "Leads delivery, customer success and operations for 10,000+ active installations.",
-  },
-  {
-    name: "Arun Pillai",
-    role: "Chief Technology Officer",
-    img: 33,
-    bio: "Architect of the FFH|ERP platform — mobile-first, offline-tolerant and built for low-bandwidth offices.",
-  },
-  {
-    name: "Nikhil Verma",
-    role: "Head of Marketing",
-    img: 68,
-    bio: "Owns brand, demand generation and partner marketing across India and our export markets.",
-  },
+  // The About page reads data/team.csv — this list is only a fallback if that
+  // file cannot be read, so keep it roughly in step.
+  { name: "V. Gopalakrishnan", role: "Chief Executive Officer", photo: "gopal.jpeg",
+    bio: "Founded the business and still leads product direction, with more than 30 years in the industry." },
+  { name: "Savitha Gopalakrishnan", role: "Co-Founder & Partner", photo: "savitha.jpeg",
+    bio: "Co-founded the business and remains a partner in it — fourteen years of shaping how FFH|ERP is built and run." },
+  { name: "Dhananjay Kumar", role: "Head of Development Team", photo: "dhananjay.jpeg",
+    bio: "Leads the development team — the people who build and ship the modules you use." },
+  { name: "Aparna Kunjir", role: "Sales & Marketing Head", photo: "aparna.jpeg",
+    bio: "Leads sales and marketing — the pipeline, the brand, the campaigns and the materials that take FFH|ERP to market." },
 ];
 
 // ---------------------------------------------------------------------------
@@ -1425,7 +1416,7 @@ export const ABOUT_11 = {
     "⭐ 14 years in business software",
     "📞 24/7 support in two languages",
   ],
-  topbar: { email: "ffhsales@kriskrossinc.com", phone: "+91 20 2588 6186", support: "Support" },
+  topbar: { email: "adminhr@kriskrossinc.com", phone: "+91 20 2588 6186", support: "Support" },
   hero: {
     eyebrow: "About us",
     title: "About Us",
@@ -1511,7 +1502,7 @@ export const ABOUT_11 = {
         { label: "Privacy Policy", path: "/" },
       ] },
     ],
-    contact: { address: "9, Royal Home, Sahil Park / Sanewadi, Aundh, Pune, Maharashtra 411067", email: "ffhsales@kriskrossinc.com", phone: "+91 20 2588 6186" },
+    contact: { address: "9, Royal Home Apts, Sanewadi, Aundh, Pune - 411007", email: "adminhr@kriskrossinc.com", phone: "+91 20 2588 6186" },
     socials: ["Instagram", "Facebook", "LinkedIn", "Twitter", "YouTube"],
     legal: "Copyright © 2026 KrisKross Inc. All rights reserved.",
   },
@@ -1819,7 +1810,7 @@ export const ABOUT_14 = {
     secondary: "Schedule a call",
   },
   footer: {
-    contact: { title: "Talk to us", email: "ffhsales@kriskrossinc.com", phone: "+91 20 2588 6186", address: "9, Royal Home, Sahil Park / Sanewadi, Aundh, Pune, Maharashtra 411067" },
+    contact: { title: "Talk to us", email: "adminhr@kriskrossinc.com", phone: "+91 20 2588 6186", address: "9, Royal Home Apts, Sanewadi, Aundh, Pune - 411007" },
     columns: [
       { title: "Main pages", items: [["Home", "/home38"], ["About", "/about"], ["Services", "/home38#features"], ["Projects", "/home38#modules"], ["Pricing", "/home38#pricing"]] },
       { title: "More pages", items: [["Live CRM demo", "/home38#top"], ["Implementation", "/home38#how"], ["Industries", "/home38#industries"], ["Compare", "/home38#compare"], ["Security", "/home38#security"], ["Savings calculator", "/home38#roi"]] },
@@ -1847,7 +1838,7 @@ export const ABOUT_15 = {
     { label: "Pricing", path: "#pricing" },
     { label: "Contact", path: "#contact" },
   ],
-  topbar: { email: "ffhsales@kriskrossinc.com", phone: "+91 20 2588 6186", place: "Pune · Mumbai · USA" },
+  topbar: { email: "adminhr@kriskrossinc.com", phone: "+91 20 2588 6186", place: "Pune · Mumbai · USA" },
   hero: {
     eyebrow: "About FFH|ERP",
     title: "Business software that carries the work instead of adding to it.",

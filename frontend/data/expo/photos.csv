@@ -1,0 +1,47 @@
+# FFH|ERP expo & exhibition gallery — the About page's photo wall.
+#
+# One folder per expo. To add a whole new expo, make a folder here (for example
+# b2b-expo-2025/), drop its photographs in numbered 1.jpeg, 2.jpeg, ... and add
+# rows below. Nothing else needs touching — a different 'event' value starts a
+# new group heading on the page by itself.
+#
+#   folder  the folder inside public/expo/ holding the photographs
+#   file    the image inside that folder (1.jpeg, 2.jpeg, ...). 1600px wide is plenty.
+#           Leave 'folder' empty and put a path under public/ here to add a
+#           video clip instead — e.g. videos/expo-2026-2.mp4
+#   year    year of the event
+#   event   event name — changing it starts a new group heading
+#   caption optional line shown over the photo; leave empty for none
+#   link    optional URL for the event — shown as a small link beside the
+#           expo's heading (e.g. its LinkedIn post). Leave empty for none.
+#
+# Rows appear in the order written here, so this list — not the file numbers —
+# decides what is shown first. Keep the header line below as it is.
+# Adding the 2025 photographs: drop the files into b2b-expo-2025/ as 2.jpeg,
+# 3.jpeg, ... (1.jpeg is the exhibitor plaque) and uncomment/duplicate the shape
+# of this line for each one:
+#
+#   b2b-expo-2025,2.jpeg,2025,CMDA IT Expo B2B 2025,Optional caption
+#
+folder,file,year,event,caption,link,video,clip
+cmda-it-expo-2026,9.jpeg,2026,CMDA IT Expo 2026,,https://www.linkedin.com/posts/cmdaitexpo2026-beyondthecloud-b2bnetworking-ugcPost-7421905759585808384-7yfx/,https://www.youtube.com/watch?v=3on8jLqBLqo,videos/expo-2026.mp4|Client feedback
+cmda-it-expo-2026,1.jpeg,2026,CMDA IT Expo 2026,,https://www.linkedin.com/posts/cmdaitexpo2026-beyondthecloud-b2bnetworking-ugcPost-7421905759585808384-7yfx/,https://www.youtube.com/watch?v=3on8jLqBLqo,videos/expo-2026.mp4|Client feedback
+cmda-it-expo-2026,2.jpeg,2026,CMDA IT Expo 2026,,https://www.linkedin.com/posts/cmdaitexpo2026-beyondthecloud-b2bnetworking-ugcPost-7421905759585808384-7yfx/,https://www.youtube.com/watch?v=3on8jLqBLqo,videos/expo-2026.mp4|Client feedback
+cmda-it-expo-2026,3.jpeg,2026,CMDA IT Expo 2026,,https://www.linkedin.com/posts/cmdaitexpo2026-beyondthecloud-b2bnetworking-ugcPost-7421905759585808384-7yfx/,https://www.youtube.com/watch?v=3on8jLqBLqo,videos/expo-2026.mp4|Client feedback
+cmda-it-expo-2026,4.jpeg,2026,CMDA IT Expo 2026,,https://www.linkedin.com/posts/cmdaitexpo2026-beyondthecloud-b2bnetworking-ugcPost-7421905759585808384-7yfx/,https://www.youtube.com/watch?v=3on8jLqBLqo,videos/expo-2026.mp4|Client feedback
+cmda-it-expo-2026,6.jpeg,2026,CMDA IT Expo 2026,,https://www.linkedin.com/posts/cmdaitexpo2026-beyondthecloud-b2bnetworking-ugcPost-7421905759585808384-7yfx/,https://www.youtube.com/watch?v=3on8jLqBLqo,videos/expo-2026.mp4|Client feedback
+cmda-it-expo-2026,7.jpeg,2026,CMDA IT Expo 2026,,https://www.linkedin.com/posts/cmdaitexpo2026-beyondthecloud-b2bnetworking-ugcPost-7421905759585808384-7yfx/,https://www.youtube.com/watch?v=3on8jLqBLqo,videos/expo-2026.mp4|Client feedback
+cmda-it-expo-2026,8.jpeg,2026,CMDA IT Expo 2026,,https://www.linkedin.com/posts/cmdaitexpo2026-beyondthecloud-b2bnetworking-ugcPost-7421905759585808384-7yfx/,https://www.youtube.com/watch?v=3on8jLqBLqo,videos/expo-2026.mp4|Client feedback
+cmda-it-expo-2026,10.jpeg,2026,CMDA IT Expo 2026,,https://www.linkedin.com/posts/cmdaitexpo2026-beyondthecloud-b2bnetworking-ugcPost-7421905759585808384-7yfx/,https://www.youtube.com/watch?v=3on8jLqBLqo,videos/expo-2026.mp4|Client feedback
+cmda-it-expo-2026,11.jpeg,2026,CMDA IT Expo 2026,,https://www.linkedin.com/posts/cmdaitexpo2026-beyondthecloud-b2bnetworking-ugcPost-7421905759585808384-7yfx/,https://www.youtube.com/watch?v=3on8jLqBLqo,videos/expo-2026.mp4|Client feedback
+cmda-it-expo-2026,12.jpeg,2026,CMDA IT Expo 2026,,https://www.linkedin.com/posts/cmdaitexpo2026-beyondthecloud-b2bnetworking-ugcPost-7421905759585808384-7yfx/,https://www.youtube.com/watch?v=3on8jLqBLqo,videos/expo-2026.mp4|Client feedback
+cmda-it-expo-2026,13.jpeg,2026,CMDA IT Expo 2026,,https://www.linkedin.com/posts/cmdaitexpo2026-beyondthecloud-b2bnetworking-ugcPost-7421905759585808384-7yfx/,https://www.youtube.com/watch?v=3on8jLqBLqo,videos/expo-2026.mp4|Client feedback
+cmda-it-expo-2026,14.jpeg,2026,CMDA IT Expo 2026,,https://www.linkedin.com/posts/cmdaitexpo2026-beyondthecloud-b2bnetworking-ugcPost-7421905759585808384-7yfx/,https://www.youtube.com/watch?v=3on8jLqBLqo,videos/expo-2026.mp4|Client feedback
+cmda-it-expo-2026,15.jpeg,2026,CMDA IT Expo 2026,,https://www.linkedin.com/posts/cmdaitexpo2026-beyondthecloud-b2bnetworking-ugcPost-7421905759585808384-7yfx/,https://www.youtube.com/watch?v=3on8jLqBLqo,videos/expo-2026.mp4|Client feedback
+,videos/expo-2026-2.mp4,2026,CMDA IT Expo 2026,Expo clip,,,
+b2b-expo-2025,1.jpeg,2025,CMDA IT Expo B2B 2025,"Exhibitor plaque — The Westin Pune, Koregaon Park",,,
+b2b-expo-2025,2.jpeg,2025,CMDA IT Expo B2B 2025,,,,
+b2b-expo-2025,3.jpeg,2025,CMDA IT Expo B2B 2025,,,,
+b2b-expo-2025,4.jpeg,2025,CMDA IT Expo B2B 2025,,,,
+b2b-expo-2025,5.jpeg,2025,CMDA IT Expo B2B 2025,,,,
+b2b-expo-2025,6.jpeg,2025,CMDA IT Expo B2B 2025,,,,

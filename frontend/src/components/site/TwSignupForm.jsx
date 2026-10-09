@@ -9,7 +9,7 @@ import { buildProspectPayload, sendProspect } from "../../api/ffhWebhook";
 // Tailwind layouts must not pull in react-bootstrap at all. Same behaviour:
 // validates, stores to localStorage under ffh_signups, logs to the CRM store and
 // toasts. Carries the page's single #signup anchor.
-const empty = { name: "", email: "", company: "", code: "+91", mobile: "", agree: false };
+const empty = { name: "", email: "", company: "", code: "+91", mobile: "", message: "", agree: false };
 
 const GoogleIcon = () => (
   <svg viewBox="0 0 48 48" className="h-4 w-4" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
@@ -21,10 +21,16 @@ const LinkedInIcon = () => (
 export default function TwSignupForm({ variant = "light", title = "Start your flexible free trial", size = "md", spacing = "normal", glow = false }) {
   const { log } = useCRM();
   const [f, setF] = useState(empty);
+  const [mode, setMode] = useState("trial");   // "trial" = create an account, "enquiry" = ask us first
   const [show, setShow] = useState(false);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const glass = variant === "glass";
+  const isEnquiry = mode === "enquiry";
+  const heading = isEnquiry ? "Send an enquiry" : title;
+  const subtext = isEnquiry
+    ? "Tell us what you need and one of our team will get back to you."
+    : "No credit card. Setup in a day. Cancel any time.";
   const lg = size === "lg";   // "lg" scales the whole card up for hero-sized sections
   const roomy = spacing === "roomy";   // more air between fields
   const cardRef = useRef(null);        // drives the pointer-tracked sheen
@@ -47,27 +53,36 @@ export default function TwSignupForm({ variant = "light", title = "Start your fl
     setErrors(er);
     if (Object.keys(er).length) return;
     setLoading(true);
-    // token "signup" — company carries the Company name (see data/apis_data.txt)
+    // Tokens per data/apis_data.txt: "signup" for the free trial, "Prospect"
+    // for a website enquiry. ProductCode carries the message either way.
     const payload = buildProspectPayload({
-      token: "signup",
+      token: isEnquiry ? "Prospect" : "signup",
       company: f.company.trim(),
       name: f.name.trim(),
       mobile: `${f.code} ${f.mobile}`,
       email: f.email.trim(),
-      message: "Free trial signup from the website",
+      message: isEnquiry
+        ? f.message.trim() || "Website enquiry from the home page"
+        : "Free trial signup from the website",
     });
     sendProspect(payload).then((r) => {
-      const list = JSON.parse(localStorage.getItem("ffh_signups") || "[]");
-      list.push({ name: f.name, email: f.email, company: f.company.trim(), mobile: `${f.code} ${f.mobile}`, at: new Date().toISOString() });
-      localStorage.setItem("ffh_signups", JSON.stringify(list));
+      const storeKey = isEnquiry ? "ffh_enquiries" : "ffh_signups";
+      const list = JSON.parse(localStorage.getItem(storeKey) || "[]");
+      list.push({ name: f.name, email: f.email, company: f.company.trim(), mobile: `${f.code} ${f.mobile}`,
+        message: isEnquiry ? f.message.trim() : "", at: new Date().toISOString() });
+      localStorage.setItem(storeKey, JSON.stringify(list));
       setLoading(false);
       if (!r.ok) {
         setErrors({ company: r.error === "timeout" ? "The server did not respond. Please try again." : "We could not save this just now. Please try again." });
         toast.error("Could not reach the CRM", { description: `Status ${r.status || "—"} ${r.error || r.body || ""}`.trim() });
         return;
       }
-      log(`Free trial signup: ${f.name} (${f.email})`);
-      toast.success("Your 7-day free trial is ready!", { description: `Welcome aboard, ${f.name.split(" ")[0]}.` });
+      log(`${isEnquiry ? "Website enquiry" : "Free trial signup"}: ${f.name} (${f.email})`);
+      if (isEnquiry) {
+        toast.success("Enquiry sent", { description: `Thank you, ${f.name.split(" ")[0]}. We'll be in touch.` });
+      } else {
+        toast.success("Your 7-day free trial is ready!", { description: `Welcome aboard, ${f.name.split(" ")[0]}.` });
+      }
       setF(empty);
     });
   };
@@ -90,8 +105,25 @@ export default function TwSignupForm({ variant = "light", title = "Start your fl
         : `w-full ${lg ? "max-w-2xl p-8 sm:p-10" : roomy ? "max-w-lg p-8 sm:p-9" : "max-w-lg p-6 sm:p-8"} rounded-3xl bg-white ring-1 ring-slate-200 shadow-xl shadow-slate-900/5 ${glow ? "ffh-signup-card" : ""}`}
     >
       {glow && <span className="ffh-signup-sheen" aria-hidden="true" />}
-      <h2 className={`${lg ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl"} font-semibold tracking-tight ${glass ? "text-white" : "text-slate-900"}`}>{title}</h2>
-      <p className={`${roomy ? "mt-2.5" : "mt-1.5"} ${lg ? "text-[15px]" : "text-sm"} ${glass ? "text-white/60" : "text-slate-500"}`}>No credit card. Setup in a day. Cancel any time.</p>
+
+      {/* Two clear paths, so nobody has to guess which one is theirs */}
+      <div role="tablist" aria-label="How would you like to reach us?"
+        className={`mb-6 grid grid-cols-2 gap-1 rounded-2xl p-1 ${glass ? "bg-white/10" : "bg-slate-100"}`}>
+        {[["trial", "Free trial"], ["enquiry", "Send an enquiry"]].map(([key, text]) => {
+          const active = mode === key;
+          return (
+            <button key={key} type="button" role="tab" aria-selected={active}
+              onClick={() => setMode(key)} data-testid={`signup-tab-${key}`}
+              className={`rounded-xl px-3 py-2.5 text-[13px] font-semibold transition ${active
+                ? glass ? "bg-white/20 text-white" : "bg-white text-slate-900 ring-1 ring-slate-200"
+                : glass ? "text-white/60 hover:text-white" : "text-slate-500 hover:text-slate-800"}`}>
+              {text}
+            </button>
+          );
+        })}
+      </div>
+      <h2 className={`${lg ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl"} font-semibold tracking-tight ${glass ? "text-white" : "text-slate-900"}`}>{heading}</h2>
+      <p className={`${roomy ? "mt-2.5" : "mt-1.5"} ${lg ? "text-[15px]" : "text-sm"} ${glass ? "text-white/60" : "text-slate-500"}`}>{subtext}</p>
 
       <form onSubmit={submit} noValidate data-testid="signup-form" className={`mt-6 ${roomy ? "space-y-6" : "space-y-4"}`}>
         <div>
@@ -124,6 +156,15 @@ export default function TwSignupForm({ variant = "light", title = "Start your fl
           {errors.mobile && <p className={err}>{errors.mobile}</p>}
         </div>
 
+        {isEnquiry ? (
+          <div>
+            <label className={label} htmlFor="tw-message">How can we help? <span className="font-normal opacity-70">(optional)</span></label>
+            <textarea id="tw-message" rows="3" className={`${input} resize-none`} value={f.message}
+              onChange={set("message")} placeholder="Tell us what you need — a demo, a price, a migration question…"
+              data-testid="signup-message" />
+          </div>
+        ) : null}
+
         <label className={`flex cursor-pointer items-start gap-3 rounded-xl px-2 py-2 text-xs leading-relaxed transition-colors duration-200 ${glass ? "text-white/70 hover:bg-white/10" : "text-slate-500 hover:bg-[#fff6ec]"}`}>
           <input type="checkbox" checked={f.agree} onChange={set("agree")} data-testid="signup-agree"
             className={`ffh-check mt-[1px] shrink-0 ${glass ? "ffh-check--glass" : ""}`} />
@@ -133,9 +174,11 @@ export default function TwSignupForm({ variant = "light", title = "Start your fl
 
         <button type="submit" disabled={loading} data-testid="signup-submit"
           className={`flex w-full items-center justify-center gap-2 rounded-xl px-5 ${lg ? "py-4 text-base" : "py-3.5 text-sm"} font-semibold transition disabled:opacity-70 ${glass ? "bg-white text-slate-900 hover:bg-white/90" : "bg-indigo-600 text-white hover:bg-indigo-500"}`}>
-          {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Create my free account"}
+          {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : isEnquiry ? "Send enquiry" : "Submit"}
         </button>
 
+        {isEnquiry ? null : (
+        <>
         <div className={`flex items-center gap-3 ${roomy ? "pt-2 " : ""}text-xs ${glass ? "text-white/50" : "text-slate-400"}`}>
           <span className={`h-px flex-1 ${glass ? "bg-white/20" : "bg-slate-200"}`} />or sign in using<span className={`h-px flex-1 ${glass ? "bg-white/20" : "bg-slate-200"}`} />
         </div>
@@ -149,6 +192,8 @@ export default function TwSignupForm({ variant = "light", title = "Start your fl
             <LinkedInIcon /> LinkedIn
           </button>
         </div>
+        </>
+        )}
       </form>
     </div>
   );

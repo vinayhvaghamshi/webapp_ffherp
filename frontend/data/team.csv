@@ -1,0 +1,20 @@
+# FFH|ERP leadership — the About page's "Leadership" cards.
+#
+# Edit this file to change who appears and what their card says. Nothing else
+# needs touching. One row per person, in the order they should appear.
+#
+#   name    full name, exactly as it should be printed (also used for the signature)
+#   role    job title shown under the name
+#   photo   a real headshot: a file in this folder (e.g. gopal.jpeg) or a full
+#           https:// URL. Leave empty and the card shows initials instead —
+#           never a stock face for a real person.
+#   avatar  TEMPORARY stock face (a number 1-70), only for unconfirmed
+#           placeholders. Blank it once a real photo exists.
+#   bio     one or two sentences. Keep it factual; leave empty for none.
+#
+# Fields containing commas must be wrapped in "double quotes".
+name,role,photo,avatar,bio
+V. Gopalakrishnan,Chief Executive Officer,gopal.jpeg,,"Founded the business and still leads product direction, with more than 30 years in the industry."
+Savitha Gopalakrishnan,Co-Founder & Partner,savitha.jpeg,,"Co-founded the business and remains a partner in it — fourteen years of shaping how FFH|ERP is built and run."
+Dhananjay Kumar,Head of Development Team,dhananjay.jpeg,,"Leads the development team — the people who build and ship the modules you use."
+Aparna Kunjir,Sales & Marketing Head,aparna.jpeg,,"Leads sales and marketing — the pipeline, the brand, the campaigns and the materials that take FFH|ERP to market."
