@@ -1,11 +1,18 @@
-# SPA fallback + caching, for hosts that read a _redirects file
-# (Cloudflare Pages, Netlify and anything using the same syntax).
+# SPA routing, for hosts that read a _redirects file
+# (Cloudflare Pages / Workers static assets, Netlify, and the same syntax).
 #
-# The app is a client-routed single-page app: /about and every other route is
-# handled by the router in the browser, so unknown paths must render index.html
-# with a 200 rather than a 404 page.
+# The app is client-routed, so these paths must render index.html with a 200
+# instead of a 404.
 #
-# Real files always win over this rule — it only catches paths that do not
-# exist on disk.
+# They are listed explicitly rather than with a /* catch-all, on purpose:
+# Cloudflare rejects "/* /index.html 200" as an infinite loop, because the
+# destination /index.html matches that same rule again (Cloudflare's pretty-URL
+# handling strips ".html", which re-triggers the rule).
+#
+# "/" needs no rule — it is served directly from index.html.
+# Anything else falls through to 404.html, a copy of the app, and the router's
+# catch-all route then sends the visitor to the home page.
 
-/*    /index.html   200
+/about      /index.html   200
+/about20    /index.html   200
+/home39     /index.html   200
