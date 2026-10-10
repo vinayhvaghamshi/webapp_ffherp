@@ -1,0 +1,53 @@
+# For traditional Apache / cPanel hosting (Hostinger, BigRock, GoDaddy and
+# similar Indian shared hosts). Upload the build into public_html and this file
+# does the rest. Modern hosts read _redirects instead and ignore this.
+
+# ---------------------------------------------------------------------------
+# 1. Single-page app fallback
+#    /about and every other route is client-side, so unknown paths must render
+#    index.html with a 200, not Apache's 404 page.
+# ---------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 2. Correct types for the video clips
+# ---------------------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType video/mp4  .mp4
+  AddType video/webm .webm
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 3. Caching
+#    Only the fingerprinted build assets under /static/ are safe to cache for a
+#    year — their names change when their contents change.
+#    Everything else keeps its filename (photos and clips get replaced in
+#    place), so it must be revalidated: a one-day cache, not "immutable".
+# ---------------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 day"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "^/static/|\.(css|js|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 4. Housekeeping
+# ---------------------------------------------------------------------------
+Options -Indexes
+DirectoryIndex index.html

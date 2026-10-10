@@ -67,6 +67,7 @@
     "build": "craco build",
     "test": "craco test",
     "postbuild": "cp build/index.html build/404.html && touch build/.nojekyll",
+    "build:domain": "node scripts/build-data.js && PUBLIC_URL= BUILD_PATH=../build-ffherp.in CI=false craco build && cp ../build-ffherp.in/index.html ../build-ffherp.in/404.html && touch ../build-ffherp.in/.nojekyll && printf 'ffherp.in\\n' > ../build-ffherp.in/CNAME",
     "prestart": "node scripts/build-data.js",
     "prebuild": "node scripts/build-data.js"
   },

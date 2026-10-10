@@ -1,0 +1,11 @@
+# SPA fallback + caching, for hosts that read a _redirects file
+# (Cloudflare Pages, Netlify and anything using the same syntax).
+#
+# The app is a client-routed single-page app: /about and every other route is
+# handled by the router in the browser, so unknown paths must render index.html
+# with a 200 rather than a 404 page.
+#
+# Real files always win over this rule — it only catches paths that do not
+# exist on disk.
+
+/*    /index.html   200
