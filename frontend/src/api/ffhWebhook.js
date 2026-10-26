@@ -1,9 +1,10 @@
 // Shared FFH|ERP webhook client.
 //
 // Contract is frozen by the spec in webapp_ffherp/data/apis_data.txt — do not
-// rename, reorder or re-value the fixed fields (Customerid "14225", parentid
-// "kk192", leadtype "30", the empty strings). Only the values marked below are
-// supplied by the forms.
+// rename, reorder or re-value the fixed fields (parentid "kk192", leadtype "30",
+// the empty strings). Only the values marked below are supplied by the forms.
+// Customerid is "192" here, changed from the spec's "14225" at the client's
+// request — the spec in data/apis_data.txt still says 14225.
 //
 //   POST https://api.ffherp.co.in/api/Webhook/IncomingWebhookForProspect
 //   content-type: application/json
@@ -63,7 +64,7 @@ export function buildProspectPayload({
     brancharea: "",
     pincode: "",
     time: "",
-    Customerid: "14225", // Do not change this ID.
+    Customerid: "192", // Changed from "14225" at the client's request.
     token, // Module name (signup/chat)
     ProdServType: interestedIn, // Available service type in CRM
     parentid: "kk192", // Do not change this ID.
